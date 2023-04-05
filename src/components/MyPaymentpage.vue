@@ -450,10 +450,10 @@ import MyUsersBought from "@/components/MyUsersBought.vue";
   } */
 }
 
-@media screen and (max-width: 1390px){
-  /* .container {
-    margin-left: 12em;
-  } */
+@media screen and (max-width: 1190px){
+  .container {
+    margin-left: 7em;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -465,8 +465,8 @@ import MyUsersBought from "@/components/MyUsersBought.vue";
 
 @media screen and (max-width: 690px) {
     .container{
-       max-width: 80em;
-       margin-left: 10em;
+       max-width: 75em;
+       margin-left: 6em;
     }
 }
 

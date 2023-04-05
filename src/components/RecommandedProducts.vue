@@ -47,11 +47,11 @@
   
   <style scoped>
   .heading{
-  margin-left: 4em;
+  margin-left: 3.8em;
   font-weight: bold;
 }
 .container{
- margin-left: 3em; 
+ margin-left: 5.5em; 
 }
   
   .box img{
@@ -117,13 +117,13 @@
 }
 @media screen and (max-width: 1399px) {
 
-  .heading{
+  /* .heading{
     margin-left: 4em;
   }
   .container{
     margin-left: 6em;
     max-width: 80em;
-  }
+  } */
 }
   @media screen and (max-width: 993px) {
     .container{

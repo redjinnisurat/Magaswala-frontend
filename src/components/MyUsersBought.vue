@@ -24,12 +24,12 @@
   </div>
 </div>
 
-<div class="box">
+<!-- <div class="box">
   <img src="@/assets/ladu.png" class="card-img-top" alt="...">
   <div class="card-body">
     <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
   </div>
-</div>
+</div> -->
 </div>
 </template>
 

@@ -13,7 +13,6 @@
     <img src="@/assets/ladu.png" class="card-img-top" alt="...">
     <div class="card-body">
       <p class="text pt-3 px-2">Kesar Magas <br/> Rs.125/500gm <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
-      
     </div>
   </div>
   
@@ -21,9 +20,16 @@
     <img src="@/assets/ladu.png" class="card-img-top" alt="...">
     <div class="card-body">
       <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
-      
     </div>
   </div>
+
+  <div class="box">
+    <img src="@/assets/ladu.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
+    </div>
+  </div>
+
   </div>
   </template>
   
@@ -40,11 +46,11 @@
   
   <style scoped>
   .heading{
-    margin-left: 3em;
+    margin-left: 3.8em;
     font-weight: bold;
   }
   .container{
-   margin-right: 2em; 
+   margin-left: 5.5em; 
   }
   
   .box img{
@@ -101,23 +107,23 @@
   
 @media screen and (max-width: 1800px) {
 
-  .heading{
+  /* .heading{
     margin-left: 6.5em;
   }
   .container{
     margin-left: 10em;
-  }
+  } */
 }
 
 @media screen and (max-width: 1399px) {
 
-.heading{
+/* .heading{
   margin-left: 4em;
 }
 .container{
   margin-left: 6em;
   max-width: 80em;
-}
+} */
 }
 
   @media screen and (max-width: 993px) {

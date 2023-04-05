@@ -112,7 +112,7 @@ import { ref } from "vue";
 
   .navbar{
     margin-top: 2em;
-    margin-left: 2em;
+    margin-left: 7em;
   }
 
   #search{
@@ -146,7 +146,7 @@ import { ref } from "vue";
 @media screen and (max-width: 690px) {
 
   .navbar {
-    margin-left: 5em;
+    margin-left: 8em;
   }
   .navbar-toggler{
     /* float:right; */
