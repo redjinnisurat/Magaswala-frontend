@@ -148,22 +148,49 @@ import { ref } from "vue";
   .navbar {
     margin-left: 8em;
   }
+  .navbar-logo{
+    font-size: 3rem;
+  }
   .navbar-toggler{
     /* float:right; */
-    margin-left: 45em;
-    margin-top: -3em;
+    margin-left: 60em;
+    margin-top: -4em;
   }
 
-  .search{
-    margin-bottom: 0em;
-    margin-right: 15em;
+  #search{
+    margin-left: 20rem;
+    width: 40rem;
+    height: 10rem;
+    margin-top: -5rem;
+    padding: 20px;
+  }
+  .box{
+    max-width: 100rem;
   }
 }
 
 @media screen and (max-width: 390px) {
   .navbar-toggler{
-    float:right;
-    margin-right: -39em;
+    /* float:right; */
+    margin-left: 60em;
+    margin-top: -7rem;
+  }
+  .navbar-logo{
+    font-size: 5rem;
+    margin-left: -3rem;
+  }
+
+  #search{
+    /* margin-right: 8rem; */
+    margin-left: 35rem;
+    width: 40rem;
+    height: 3rem;
+    margin-top: -10rem;
+    padding: 20px;
+  }
+
+  .search img{
+    margin-right: 15rem;
   }
 }
 </style>

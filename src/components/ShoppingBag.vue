@@ -367,21 +367,22 @@ export default {
 @media screen and (max-width: 590px){
 
   .container{
-    margin-top: 2em;
-    width: 50em;
-    margin-left: 10em;
+    margin-top: -1em;
+    max-width: 75em;
+    height: 30rem;
+    margin-left: 15em;
   }
 
   .weight{
-    margin-right: 11em;
+    margin-right: 23em;
   }
 
   .dlt{
-    margin-right: 3em;
+    margin-right: 13em;
   }
   .checkout{
     margin-top: -20em;
-    margin-right: 5em;
+    margin-right: 14em;
   }
 
   .box{

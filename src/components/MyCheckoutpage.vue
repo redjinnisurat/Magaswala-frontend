@@ -46,7 +46,7 @@
       </div> -->
         <p class="weight3">500G</p>
         <img
-          class="checkout2"
+          class="checkout"
           src="@/assets/checkout2.png"
           alt=""
           style="width: 11px"
@@ -56,7 +56,7 @@
 </div> -->
         <p class="weight4">250G</p>
         <img
-          class="checkout2"
+          class="checkout"
           src="@/assets/checkout2.png"
           alt=""
           style="width: 11px"
@@ -82,7 +82,7 @@
         />
         <p class="credit">Credit Card/Debit Card</p>
         <img
-          class="checkout3"
+          class="checkout2"
           src="@/assets/checkout2.png"
           alt=""
           style="width: 11px"
@@ -100,7 +100,7 @@
         />
         <p class="apple">Apple Pay</p>
         <img
-          class="checkout4"
+          class="checkout3"
           src="@/assets/checkout2.png"
           alt=""
           style="width: 11px"
@@ -118,7 +118,7 @@
         />
         <p class="upi">UPI</p>
         <img
-          class="checkout5"
+          class="checkout4"
           src="@/assets/checkout2.png"
           alt=""
           style="width: 11px"
@@ -137,6 +137,7 @@
           style="width: 11px"
         />
       </div>
+   
       <!-- <div class="form-check2">
   <input class="form-check2-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
   </div> -->
@@ -192,8 +193,9 @@
         />
       </div> -->
       </div>
-      <p class="vertical-line"></p>
     </div>
+      <p class="vertical-line"></p>
+   
     <div class="order">
       <h5 class="summery">Order Summery</h5>
       <p class="items">items:</p>
@@ -224,6 +226,7 @@
       <p class="items6">Total:</p>
       <p class="prize6">Rs.310</p>
     </div>
+ 
   </div>
   <RecommandedProducts />
   <br />
@@ -258,7 +261,7 @@ export default {
   border-radius: 4px;
   padding: 7px;
   background-color: white;
-  height: 30em;
+  height: 32em;
 }
 
 .feather-heart {
@@ -317,7 +320,7 @@ export default {
   margin-right: 21em;
 }
 
-.checkout2 {
+.checkout {
   margin-top: -5em;
   margin-left: 9em;
 }
@@ -355,23 +358,23 @@ export default {
   font-weight: 500;
 }
 
-#box .checkout3 {
-  margin-left: 14em;
+#box .checkout2 {
+  margin-left: 15em;
   margin-top: -5.2em;
 }
 
-#box2 .checkout4 {
-  margin-left: 14em;
+#box2 .checkout3 {
+  margin-left: 15em;
   margin-top: -5.2em;
 }
 
-#box3 .checkout5 {
-  margin-left: 14em;
+#box3 .checkout4 {
+  margin-left: 15em;
   margin-top: -5.2em;
 }
 
 #box4 .checkin2 {
-  margin-left: 14em;
+  margin-left: 15em;
   margin-top: -5.2em;
 }
 .apple-card {
@@ -411,14 +414,14 @@ export default {
 
 .vertical-line {
   border-left: 1px solid #bf9742;
-  height: 15em;
+  height: 17em;
   position: absolute;
-  margin-left: 18em;
-  margin-top: -28em;
+  margin-left: 46em;
+  margin-top: 0em;
 }
 
 .order {
-  margin-left: 6em;
+  margin-left: 5em;
   margin-top: 3em;
   height: 10em;
   width: 15em;
@@ -575,6 +578,9 @@ export default {
   .container {
     margin-left: 7em;
   }
+  .box{
+    padding: 15px;
+  }
   .order {
     width: 10em;
     height: 10em;
@@ -602,7 +608,19 @@ export default {
   @media screen and (max-width: 990px) {
 
     .container{
-      margin-left: 4em;
+      margin-left: 5em;
+      margin-top: 2rem;
+      max-width: 150rem;
+    }
+    .box{
+      padding: 50px;
+      width: 50rem;
+      height: 35rem;
+    }
+    .box2{
+      margin-left: 2rem;
+      max-width: 50rem;
+      padding: 10px;
     }
     .order .summery {
       padding-left: 2px;
@@ -611,6 +629,45 @@ export default {
 
     .box-address .btn2{
       margin-top: 0.5em;
+    }
+
+    .vertical-line{
+      margin-left: 51rem;
+    }
+  }
+
+  @media screen and (max-width: 590px) {
+    .container{
+      display: flex;
+      /* flex-direction: column; */
+      flex-wrap: wrap;
+      
+    }
+
+    .box{
+      max-width: 260rem;
+      height: 35rem;
+      padding: 50px;
+      margin-left: 20rem;
+    }
+
+    .box2{
+      max-width: 70rem;
+      display: block;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-left: 20rem;
+      margin-top: 1rem;
+    }
+
+    .order{
+      margin-top: -28rem;
+      margin-left: 43rem;
+    }
+
+    .vertical-line{
+      margin-left: 40rem;
+      margin-top: 37rem;
     }
   }
 }
