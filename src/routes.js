@@ -11,6 +11,7 @@ import addaddressComp from "./components/addaddressComp.vue"
 import offaddComp from "./components/offaddComp.vue"
 import orderComp from "./components/orderComp.vue"
 import paymentComp from "./components/paymentComp.vue"
+import resetpassComp from "./components/resetpassComp.vue"
 const routes=[
     {
         name:"HelloWorld",
@@ -68,6 +69,11 @@ path: '/order',
   name:"paymentComp",
 path: '/payment',
   component:paymentComp
+},
+{
+  name:"resetpassComp",
+path: '/resetpassword',
+  component:resetpassComp
 },
 ]
 const router = createRouter({
