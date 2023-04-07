@@ -18,7 +18,7 @@
                     />
                   </th>
                   <th>
-                    <span>delevary today, 31 march</span>
+                    <span>delevary today, 12 march</span>
   
                     <br />
                     <span class="right"> 1 kg suger </span>
