@@ -1,0 +1,161 @@
+<template>
+  <div class="sidebar-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
+      <div class="navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-column">
+          <li class="nav-item">
+            <div class="user-details">
+              <img src="../assets/useprofile.jpg" alt="" />
+              <h2>Zack Gonsalves</h2>
+              <p>ZackGonsalves@gmail.com</p>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link side-nav-ele"
+              href="#"
+              id="side-profile"
+              @click="resetPRofileColorChange()"
+            >
+              <img src="../assets/side_profile.svg" alt="" />
+              <p>profile</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-nav-ele" href="#">
+              <img src="../assets/side_bag.svg" alt="" />
+              <p>Orders</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link side-nav-ele"
+              id="reset-password-id"
+              href="#"
+              @click="resetPasswordColorChange()"
+            >
+              <img src="../assets/side_changepassword.png" alt="" />
+              <p>Reset Password</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-nav-ele" href="#">
+              <img src="../assets/side_changepassword.png" alt="" />
+              <p>Payment methods</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-nav-ele" href="#">
+              <img src="../assets/side_manage.png" alt="" />
+              <p>Manage Address</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-nav-ele" href="#">
+              <img src="../assets/help.svg" alt="" />
+              <p>Help Support</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side-nav-ele" href="#">
+              <img src="../assets/side_term.png" alt="" />
+              <p>Term And Conditions</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</template>
+<script>
+export default {
+  name: "SideBar",
+  data() {
+    return {
+      profilePassword: false,
+      resetPassword: false,
+    };
+  },
+  methods: {
+    resetPRofileColorChange() {
+      this.profilePassword = !this.profilePassword;
+      document.getElementById("side-profile").style = this.profilePassword
+        ? "color:#BF9742"
+        : "color:#262626";
+    },
+    resetPasswordColorChange() {
+      this.resetPassword = !this.resetPassword;
+      document.getElementById("reset-password-id").style = this.resetPassword
+        ? "color:#BF9742"
+        : "color:#262626";
+    },
+  },
+};
+</script>
+<style>
+.sidebar-nav {
+  margin: 0;
+  background: #ffffff;
+}
+.sidebar-container {
+  top: 238px;
+  margin-left: 140px;
+  width: 405px;
+  height: 837px;
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  border: 1px solid #bf9742;
+  opacity: 1;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.user-details {
+  margin-left: 28px;
+  background: #f9f9f9;
+}
+.user-details img {
+  margin-top: 33.27px;
+  width: 151px;
+  height: 151px;
+  border-radius: 50%;
+}
+.user-details h2 {
+  font: normal normal 600 29px/43px Poppins;
+  letter-spacing: 0px;
+  color: #262626;
+}
+.user-details p {
+  text-align: left;
+  font: normal normal normal 16px/25px Poppins;
+  letter-spacing: 0px;
+  color: #262626;
+}
+.navbar-collapse {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+}
+.side-nav-ele {
+  display: flex;
+  align-items: center;
+}
+.side-nav-ele p {
+  margin-left: 21px;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+.side-nav-ele img {
+  margin-left: 21px;
+}
+@media (max-width: 600px) {
+  .sidebar-container {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .form-div {
+    margin-left: 0;
+    width: 344px;
+  }
+}
+</style>
