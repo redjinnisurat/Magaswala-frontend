@@ -10,7 +10,7 @@
               <p>ZackGonsalves@gmail.com</p>
             </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item laptop">
             <a
               class="nav-link side-nav-ele"
               href="#"
@@ -21,6 +21,7 @@
               <p>profile</p>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link side-nav-ele" href="#">
               <img src="../assets/side_bag.svg" alt="" />
@@ -61,6 +62,119 @@
               <img src="../assets/side_term.png" alt="" />
               <p>Term And Conditions</p>
             </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="sidebar-container-mobile">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
+      <div class="navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-column">
+          <li class="nav-item">
+            <div class="user-details">
+              <img src="../assets/useprofile.jpg" alt="" />
+              <h2>Zack Gonsalves</h2>
+              <p>ZackGonsalves@gmail.com</p>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/side_profile.svg" alt="" />
+              <p>profile</p>
+            </a>
+
+            <div class="dropdown-menu">profile</div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/side_bag.svg" alt="" />
+              <p>Orders</p>
+            </a>
+
+            <div class="dropdown-menu">order</div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/side_changepassword.png" alt="" />
+              <p>Reset Password</p>
+            </a>
+
+            <div class="dropdown-menu">Reset Password</div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/side_changepassword.png" alt="" />
+              <p>Payment methods</p>
+            </a>
+
+            <div class="dropdown-menu">Reset Password</div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/side_manage.png" alt="" />
+              <p>Manage Address</p>
+            </a>
+
+            <div class="dropdown-menu">Reset Password</div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/help.svg" alt="" />
+              <p>Help Support</p>
+            </a>
+
+            <div class="dropdown-menu">Reset Password</div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mobile-ele"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src="../assets/side_term.png" alt="" />
+              <p>Term Conditions</p>
+            </a>
+
+            <div class="dropdown-menu">Reset Password</div>
           </li>
         </ul>
       </div>
@@ -112,6 +226,7 @@ export default {
   margin-left: 28px;
   background: #f9f9f9;
 }
+
 .user-details img {
   margin-top: 33.27px;
   width: 151px;
@@ -148,14 +263,42 @@ export default {
 .side-nav-ele img {
   margin-left: 21px;
 }
+.sidebar-container-mobile {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .sidebar-container {
-    margin-left: 10%;
-    width: 80%;
+    display: none;
   }
   .form-div {
     margin-left: 0;
     width: 344px;
+  }
+
+  .sidebar-container-mobile {
+    margin-left: 6%;
+    display: block;
+    width: 320px;
+    height: 837px;
+    background: #f9f9f9 0% 0% no-repeat padding-box;
+    border: 1px solid #bf9742;
+    opacity: 1;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  .mobile-ele {
+    display: flex;
+    margin-left: 25px;
+  }
+  .dropdown-toggle::after {
+    margin-top: 10px;
+  }
+  .mobile-ele p {
+    margin-left: 20px;
+  }
+  link.show {
+    color: #bf9742;
   }
 }
 </style>
