@@ -13,6 +13,7 @@ import orderComp from "./components/orderComp.vue"
 import paymentComp from "./components/paymentComp.vue"
 import resetpassComp from "./components/resetpassComp.vue"
 import termComp from "./components/termComp.vue"
+import orderstatusComp from "./components/orderstatusComp.vue"
 const routes=[
     {
         name:"HelloWorld",
@@ -73,7 +74,7 @@ path: '/payment',
 },
 {
   name:"resetpassComp",
-path: '/resetpassword',
+path: '/reset',
   component:resetpassComp
 },
 {
@@ -81,6 +82,12 @@ path: '/resetpassword',
 path: '/term',
   component:termComp
 },
+{
+  name:"orderstatusComp",
+path: '/orderstatus',
+  component:orderstatusComp
+},
+
 ]
 const router = createRouter({
     history:createWebHistory(),
