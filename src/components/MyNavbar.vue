@@ -153,7 +153,7 @@ import { ref } from "vue";
   }
   .navbar-toggler{
     /* float:right; */
-    margin-left: 60em;
+    margin-left: 50em;
     margin-top: -4em;
   }
 
@@ -168,29 +168,58 @@ import { ref } from "vue";
     max-width: 100rem;
   }
 }
-
+@media screen and (max-width: 590px) {
+  .navbar-logo{
+    margin-top: 2rem;
+  }
+  .navbar{
+    margin-left: 15rem;
+  }
+  .search{
+    margin-bottom: 2rem;
+  }
+  .form-control{
+    font-size: 30px;
+  }
+  .navbar-toggler{
+    margin-left: 110rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .navbar-toggler-icon{
+    margin-left: -50rem;
+  }
+}
 @media screen and (max-width: 390px) {
   .navbar-toggler{
     /* float:right; */
-    margin-left: 60em;
-    margin-top: -7rem;
+    margin-left: 70em;
+    margin-top: -8rem;
   }
   .navbar-logo{
-    font-size: 5rem;
-    margin-left: -3rem;
+    font-size: 3rem;
+    margin-left: -5rem;
   }
 
   #search{
     /* margin-right: 8rem; */
-    margin-left: 35rem;
-    width: 40rem;
+    margin-left: 20rem;
+    width: 45rem;
     height: 3rem;
-    margin-top: -10rem;
+    margin-top: -9rem;
     padding: 20px;
+    /* font-size: 50px; */
   }
-
+  .form-control{
+    font-size: 40px;
+    
+  }
   .search img{
-    margin-right: 15rem;
+    margin-right: 10rem;
+    margin-bottom: 5rem;
+    padding-bottom: -3rem;;
+    width: 20em;
   }
+  
 }
 </style>

@@ -2,12 +2,12 @@
   <MyNavbar />
 
   <div class="container d-flex">
-    <div class="box" style="width: 30rem">
+    <div class="box" style="v-if == width: 35rem">
       <img
         src="@/assets/ladu.png"
-        class="card-img-top mx-5"
+        class="card-img-top"
         alt="..."
-        style="width: 20em"
+        style="v-if == width: 20em"
       />
       <div class="card-body">
         <h5 class="card-title">Kesar magas</h5>
@@ -18,8 +18,9 @@
           width="20px;"
         />
         <h6 class="weight pt-1 mb-1">₹ 250 Per Kg</h6>
-        Description
-        <p class="card-text mt-1 mb-2">
+        <br>
+        <p class="card-text mt-1 mb-2">Description 
+          <br/><br/>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr,<br />
           sed diam nonumy eirmod tempor invidunt ut labore et<br />
           dolore magna aliquyam erat, sed
@@ -143,7 +144,7 @@
   </div> -->
 
       <div class="box-address mx-2 mt-1">
-        <h6>Shipping To</h6>
+        <h6 id="title">Shipping To</h6>
         <div class="home-address mx-2 mb-2">
           <img
             class="checkin3"
@@ -198,6 +199,7 @@
    
     <div class="order">
       <h5 class="summery">Order Summery</h5>
+      <div id="bill">
       <p class="items">items:</p>
       <p class="prize">Rs.250</p>
       <p class="items2">CGST:</p>
@@ -226,9 +228,23 @@
       <p class="items6">Total:</p>
       <p class="prize6">Rs.310</p>
     </div>
+    </div>
  
   </div>
+  <br />
+  <br />
   <RecommandedProducts />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
   <br />
   <br />
   <br />
@@ -256,6 +272,9 @@ export default {
   opacity: 1;
 } */
 
+.container{
+  margin-left: 14rem;
+}
 .box {
   border: 2px solid #bf9742;
   border-radius: 4px;
@@ -264,6 +283,13 @@ export default {
   height: 32em;
 }
 
+.box .card-img-top {
+  margin-left: 3rem;
+  width: 20em;
+}
+.card-body .card-title{
+  font-weight: bold;
+}
 .feather-heart {
   padding: 0px;
   position: relative;
@@ -272,6 +298,7 @@ export default {
 }
 .weight {
   color: #e6b325;
+  font-weight: 650;
 }
 
 .card-text {
@@ -317,11 +344,11 @@ export default {
   padding: 0em;
   margin-top: -2em;
   margin-left: 0em;
-  margin-right: 21em;
+  margin-right: 25em;
 }
 
 .checkout {
-  margin-top: -5em;
+  margin-top: -5.5em;
   margin-left: 9em;
 }
 .weight4 {
@@ -339,17 +366,20 @@ export default {
   background-color: #a17a35;
   color: white;
   float: right;
-  margin-top: -3em;
+  margin-top: -3.5em;
   width: 12em;
   height: 2em;
   text-align: center;
   justify-content: center;
   padding-top: 1px;
 }
-
+.box2 .title{
+  font-weight: bold;
+}
 .box2 .title2 {
   margin-top: -6.5em;
   margin-left: 1em;
+  font-weight: bold;
 }
 
 .credit {
@@ -581,11 +611,21 @@ export default {
   .box{
     padding: 15px;
   }
+  .card-img-top {
+    width: 17em;
+    margin-left: 5rem;
+  }
+  .vertical-line{
+    margin-left: 47rem;
+  }
   .order {
     width: 10em;
     height: 10em;
   }
 
+  .order .summery{
+    width: 10em;
+  }
   .order .prize {
     margin-right: -0.5em;
   }
@@ -604,23 +644,35 @@ export default {
   .order .prize6 {
     margin-right: -0.5em;
   }
-
+}
   @media screen and (max-width: 990px) {
 
     .container{
-      margin-left: 5em;
+      margin-left: 2em;
       margin-top: 2rem;
       max-width: 150rem;
     }
     .box{
-      padding: 50px;
-      width: 50rem;
+      padding: 30px;
+      width: 60rem;
       height: 35rem;
+    }
+    .box .card-img-top{
+      margin-left: 3rem;
+      width: 20rem;
+      margin-top: -1rem;
     }
     .box2{
       margin-left: 2rem;
       max-width: 50rem;
       padding: 10px;
+    }
+    .vertical-line{
+      margin-left: 25rem;
+      margin-right: -20rem;
+    }
+    .order{
+      margin-left: 4rem;
     }
     .order .summery {
       padding-left: 2px;
@@ -635,40 +687,619 @@ export default {
       margin-left: 51rem;
     }
   }
+@media screen and (max-width: 690px) {
+  .container{
+    margin-top: -2rem;
+    margin-left: 5rem;
+  }
 
-  @media screen and (max-width: 590px) {
-    .container{
-      display: flex;
-      /* flex-direction: column; */
-      flex-wrap: wrap;
-      
-    }
-
-    .box{
-      max-width: 260rem;
-      height: 35rem;
-      padding: 50px;
-      margin-left: 20rem;
-    }
-
-    .box2{
-      max-width: 70rem;
-      display: block;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-left: 20rem;
-      margin-top: 1rem;
-    }
-
-    .order{
-      margin-top: -28rem;
-      margin-left: 43rem;
-    }
-
-    .vertical-line{
-      margin-left: 40rem;
-      margin-top: 37rem;
-    }
+  .vertical-line{
+    margin-left: 54rem;
   }
 }
+@media screen and (max-width: 590px) {
+  .container{
+    margin-top: 1rem;
+    width: 70rem;
+    height: 90rem;
+  }
+  .box{
+    width: 70em;
+    height: 73rem;
+    margin-left: -2rem;
+    margin-top: -2rem;
+  }
+  .box .card-img-top{
+    width: 35rem;
+    margin-left: 12rem;
+  }
+  .card-body .card-title{
+    font-size: 60px;
+  }
+  .card-body .weight{
+    font-size: 50px;
+  }
+  .card-text{
+    font-size: 40px;
+    width: 65rem;
+  }
+  .card-body .weight2{
+    font-size: 40px;
+  }
+  .add-remove .plus{
+    width: 3rem;
+    height: 3rem;
+  }
+  .add-remove .minus{
+    width: 3rem;
+    height: 3rem;
+  }
+  .add-remove{
+    font-size: 40px;
+    margin-top: -5rem;
+  }
+  .card-body .weight3{
+    font-size: 40px;
+    margin-left: 0rem;
+    margin-top: -1.5rem;
+  }
+  .card-body .weight4{
+    font-size: 40px;
+    margin-left: 0rem;
+    margin-top: -1.5rem;
+  }
+  .checkin{
+    width: 10em;
+    margin-left: 20rem;
+    margin-top: -7rem;
+  }
+  .checkout{
+    margin-left: 20rem;
+    margin-top: -7rem;
+  }
+  .btn{
+    font-size: 28px;
+  }
+  .vertical-line {
+    margin-left: 98.5rem;
+    width: 2rem;
+    height: 15rem;
+  }
+  .box2{
+    margin-top: -3rem;
+    margin-left: 0rem;
+  }
+  .box2 .title{
+    font-size: 50px;
+  }
+  .box2 .title2{
+    font-size: 40px;
+    margin-top: -5rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+  }
+  #box{
+    font-size: 35px;
+  }
+  #box .debit-card{
+    margin-bottom: 14px;
+    width: 2rem;
+  }
+  #box .credit{
+    margin-left: 3rem;
+  }
+  #box .checkout2{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  #box2{
+    font-size: 35px;
+  }
+  #box2 .apple-card{
+    margin-top: 15px;
+  }
+  #box2 .checkout3{
+    margin-left: 29rem;
+    margin-top: -10rem;
+  }
+  #box3{
+    font-size: 35px;
+  }
+  #box3 .upi-card{
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+  #box3 .upi{
+    margin-left: 3rem;
+  }
+  #box3 .checkout4{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  #box4{
+    font-size: 35px;
+  }
+  #box4 .payon-card{
+    margin-left: 10px;
+  }
+  #box4 .pay{
+    margin-left: 3rem;
+  }
+  #box4 .checkin2{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  .box2 #title{
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  .box2 .home{
+    font-weight: bold;
+  }
+  .box2 .home-address{
+    font-size: 50px;
+    margin-top: 2rem;
+  }
+
+  .home-address .checkin3{
+    size: 30px;
+  }
+  .home-address .edit-icon{
+    padding:0;
+    width: 30px;
+  }
+  .box2 .office{
+    font-weight: bold;
+  }
+  .home-address .base-address{
+    margin-top: 1rem;
+    font-size: 30px;
+  }
+  .box2 .office-address{
+    font-size: 50px;
+    margin-top: 2rem;
+    width: 32rem;
+  }
+  .office-address .base-address2{
+    margin-top: 1rem;
+    font-size: 30px;
+  }
+  .btn2{
+    font-size: 28px;
+  }
+  .order{
+    margin-top: -2rem;
+    margin-left: -4rem;
+  }
+  .order .summery{
+    font-size: 35px;
+    width: 20rem;
+    font-weight: bold;
+  }
+  .order #bill{
+    font-size: 40px;
+    width: 20rem;
+  }
+  .order .prize4{
+    margin-top: -4rem;
+  }
+  .order .prize5{
+    margin-top: -1.5rem;
+  }
+  .order .prize6{
+    margin-top: -4rem;
+  }
+  .order .corner1{
+    margin-left: -2rem;
+    margin-top: 0.8rem;
+    width: 2rem;
+  }
+  .order .plus{
+    margin-left: -2rem;
+    margin-top: -6rem;
+  }
+  .order .corner2{
+    margin-left: -2rem;
+  }
+}
+  @media screen and (max-width: 490px) {
+    .container{
+    margin-top: 1rem;
+    /* display: flex; */
+    flex-direction: column;
+    width: 70rem;
+    height: 90rem;
+  }
+  .box{
+    width: 100%;
+    height: 77rem;
+    margin-left: 10rem;
+    margin-top: -2rem;
+  }
+  .box .card-img-top{
+    width: 40rem;
+  }
+  .card-body .card-title{
+    font-size: 60px;
+  }
+  .card-body .weight{
+    font-size: 50px;
+  }
+  .card-text{
+    font-size: 40px;
+    width: 65rem;
+  }
+  .card-body .weight2{
+    font-size: 40px;
+  }
+  .add-remove .plus{
+    width: 2rem;
+    height: 2rem;
+  }
+  .add-remove .minus{
+    width: 2rem;
+    height: 2rem;
+  }
+  .add-remove{
+    font-size: 40px;
+    margin-top: -5rem;
+  }
+  .card-body .weight3{
+    font-size: 40px;
+    margin-left: -1rem;
+    margin-top: -1.5rem;
+  }
+  .card-body .weight4{
+    font-size: 40px;
+    margin-left: -1rem;
+    margin-top: -1.5rem;
+  }
+  .checkin{
+    margin-left: 16rem;
+    margin-top: -7rem;
+  }
+  .checkout{
+    margin-left: 16rem;
+    margin-top: -7rem;
+  }
+  .vertical-line {
+    display: none;
+  }
+  .box2{
+    margin-top: 2rem;
+    margin-left: 10rem;
+  }
+  .box2 .title{
+    font-size: 50px;
+  }
+  .box2 .title2{
+    font-size: 40px;
+    margin-top: -5rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+  }
+  #box{
+    font-size: 35px;
+  }
+  #box .debit-card{
+    margin-bottom: 14px;
+    width: 2rem;
+  }
+
+  #box .credit{
+    margin-left: 3rem;
+  }
+  #box .checkout2{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  #box2{
+    font-size: 35px;
+  }
+  #box2 .apple-card{
+    margin-top: 15px;
+  }
+  #box2 .checkout3{
+    margin-left: 29rem;
+    margin-top: -10rem;
+  }
+  #box3{
+    font-size: 35px;
+  }
+  #box3 .upi-card{
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+  #box3 .upi{
+    margin-left: 3rem;
+  }
+  #box3 .checkout4{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  #box4{
+    font-size: 35px;
+  }
+  #box4 .payon-card{
+    margin-left: 10px;
+  }
+  #box4 .pay{
+    margin-left: 3rem;
+  }
+  #box4 .checkin2{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  .box2 #title{
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  .box2 .home{
+    font-weight: bold;
+  }
+  .box2 .home-address{
+    font-size: 50px;
+    margin-top: 2rem;
+  }
+
+  .home-address .checkin3{
+    size: 30px;
+  }
+  .home-address .edit-icon{
+    padding:0;
+    width: 30px;
+  }
+  .box2 .office{
+    font-weight: bold;
+  }
+  .home-address .base-address{
+    margin-top: 1rem;
+    font-size: 30px;
+  }
+  .box2 .office-address{
+    font-size: 50px;
+    margin-top: 2rem;
+    width: 35rem;
+  }
+  .office-address .base-address2{
+    margin-top: 1rem;
+    font-size: 30px;
+  }
+  .order{
+    margin-top: -65rem;
+    margin-left: 45rem;
+  }
+  .order .summery{
+    font-size: 35px;
+    width: 20rem;
+    font-weight: bold;
+  }
+  .order #bill{
+    font-size: 40px;
+    width: 30rem;
+  }
+  .order .prize4{
+    margin-top: -4rem;
+  }
+  .order .prize5{
+    margin-top: -1.5rem;
+  }
+  .order .prize6{
+    margin-top: -4rem;
+  }
+  .order .corner1{
+    margin-left: -2rem;
+    margin-top: 0.8rem;
+    width: 2rem;
+  }
+  .order .plus{
+    margin-left: -2rem;
+    margin-top: -6rem;
+  }
+  .order .corner2{
+    margin-left: -2rem;
+  }
+  }
+@media screen and (max-width: 390px) {
+  .container{
+    margin-top: 1rem;
+    width: 70rem;
+    height: 90rem;
+  }
+  .box{
+    width: 100%;
+    height: 75rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  .box .card-img-top{
+    width: 40rem;
+  }
+  .card-body .card-title{
+    font-size: 60px;
+  }
+  .card-body .weight{
+    font-size: 50px;
+  }
+  .card-text{
+    font-size: 40px;
+    width: 65rem;
+  }
+  .card-body .weight2{
+    font-size: 40px;
+  }
+  .add-remove .plus{
+    width: 2rem;
+    height: 2rem;
+  }
+  .add-remove .minus{
+    width: 2rem;
+    height: 2rem;
+  }
+  .add-remove{
+    font-size: 40px;
+    margin-top: -5rem;
+  }
+  .card-body .weight3{
+    font-size: 40px;
+    margin-left: -1rem;
+    margin-top: -1.5rem;
+  }
+  .card-body .weight4{
+    font-size: 40px;
+    margin-left: -1rem;
+    margin-top: -1.5rem;
+  }
+  .checkin{
+    margin-left: 16rem;
+    margin-top: -7rem;
+  }
+  .checkout{
+    margin-left: 16rem;
+    margin-top: -7rem;
+  }
+  .vertical-line {
+    display: none;
+  }
+  .box2{
+    margin-top: 2rem;
+    margin-left: 5rem;
+  }
+  .box2 .title{
+    font-size: 50px;
+  }
+  .box2 .title2{
+    font-size: 40px;
+    margin-top: -5rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+  }
+  #box{
+    font-size: 35px;
+  }
+  #box .debit-card{
+    margin-bottom: 14px;
+    width: 2rem;
+  }
+
+  #box .credit{
+    margin-left: 3rem;
+  }
+  #box .checkout2{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  #box2{
+    font-size: 35px;
+  }
+  #box2 .apple-card{
+    margin-top: 15px;
+  }
+  #box2 .checkout3{
+    margin-left: 29rem;
+    margin-top: -10rem;
+  }
+  #box3{
+    font-size: 35px;
+  }
+  #box3 .upi-card{
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+  #box3 .upi{
+    margin-left: 3rem;
+  }
+  #box3 .checkout4{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  #box4{
+    font-size: 35px;
+  }
+  #box4 .payon-card{
+    margin-left: 10px;
+  }
+  #box4 .pay{
+    margin-left: 3rem;
+  }
+  #box4 .checkin2{
+    margin-left: 29rem;
+    margin-top: -9rem;
+  }
+  .box2 #title{
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  .box2 .home{
+    font-weight: bold;
+  }
+  .box2 .home-address{
+    font-size: 50px;
+    margin-top: 2rem;
+    width: 32rem;
+  }
+
+  .home-address .checkin3{
+    size: 30px;
+  }
+  .home-address .edit-icon{
+    padding:0;
+    width: 30px;
+  }
+  .box2 .office{
+    font-weight: bold;
+  }
+  .home-address .base-address{
+    margin-top: 1rem;
+    font-size: 30px;
+  }
+  .box2 .office-address{
+    font-size: 50px;
+    margin-top: 2rem;
+    width: 32rem;
+  }
+  .office-address .base-address2{
+    margin-top: 1rem;
+    font-size: 30px;
+  }
+  .order{
+    margin-top: -65rem;
+    margin-left: 38rem;
+    
+  }
+  .order .summery{
+    font-size: 35px;
+    width: 20rem;
+    font-weight: bold;
+  }
+  .order #bill{
+    font-size: 40px;
+    width: 30rem;
+  }
+  .order .prize4{
+    margin-top: -4rem;
+  }
+  .order .prize5{
+    margin-top: -1.5rem;
+  }
+  .order .prize6{
+    margin-top: -4rem;
+  }
+  .order .corner1{
+    margin-left: -2rem;
+    margin-top: 0.8rem;
+    width: 2rem;
+  }
+  .order .plus{
+    margin-left: -2rem;
+    margin-top: -6rem;
+  }
+  .order .corner2{
+    margin-left: -2rem;
+  }
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <h3 class="heading mt-5 pb-3">Most Bought Products</h3>
+    <h3 class="heading">Most Bought Products</h3>
     <div class="container d-flex">
       <div class="box">
     <img src="@/assets/ladu.png" class="card-img-top" alt="...">
@@ -23,12 +23,12 @@
     </div>
   </div>
 
-  <div class="box">
+  <!-- <div class="box">
     <img src="@/assets/ladu.png" class="card-img-top" alt="...">
     <div class="card-body">
       <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
     </div>
-  </div>
+  </div> -->
 
   </div>
   </template>
@@ -48,6 +48,7 @@
   .heading{
     margin-left: 3.8em;
     font-weight: bold;
+    margin-top: -8em;
   }
   .container{
    margin-left: 5.5em; 
@@ -146,10 +147,67 @@
       width: 18em;
     } */
   }
-  
-  @media screen and (max-width: 375px) {
-    .heading {
-      width: 12em;
-    }
+  @media screen and (max-width: 590px) {
+    .container{
+    width: 70rem;
+  }
+  .heading{
+    font-size: 50px;
+    width: 40rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
+  }
+  .box{
+    max-width: 37rem;
+    padding-right: 0px;
+    margin-right: 0px;
+    margin-top: 3rem;
+  }
+  .box .card-img-top{
+    width: 35rem;
+  }
+  .box .card-body{
+    width: 37rem;
+    font-size: 30px;
+    padding: 0px;
+
+  }
+  .box .btn{
+    margin-left: 25rem;
+    margin-top: -8rem;
+    font-size: 20px;
+  }
+}
+  @media screen and (max-width: 390px) {
+    .container{
+    width: 70rem;
+    margin-top: 10rem;
+  }
+  .heading{
+    font-size: 50px;
+    width: 40rem;
+    margin-left: 5rem;
+    margin-top: -3rem;
+    margin-bottom: 0rem;
+  }
+  .box{
+    max-width: 35rem;
+    margin-top: -8rem;
+    margin-bottom: 1rem;
+  }
+  .box .card-img-top{
+    width: 28rem;
+  }
+  .box .card-body{
+    width: 28rem;
+    font-size: 25px;
+    padding: 0px;
+
+  }
+  .box .btn{
+    margin-left: 17rem;
+    margin-top: -6rem;
+    font-size: 20px;
+  }
   }
   </style>
