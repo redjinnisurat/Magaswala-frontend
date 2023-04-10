@@ -23,7 +23,12 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link side-nav-ele" href="#">
+            <a
+              class="nav-link side-nav-ele"
+              href="#"
+              v-on:click="orderColorChange()"
+              id="order-ele"
+            >
               <img src="../assets/side_bag.svg" alt="" />
               <p>Orders</p>
             </a>
@@ -40,13 +45,23 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link side-nav-ele" href="#">
+            <a
+              class="nav-link side-nav-ele"
+              href="#"
+              id="payment-method"
+              v-on:click="paymentColorChange()"
+            >
               <img src="../assets/side_changepassword.png" alt="" />
               <p>Payment methods</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link side-nav-ele" href="#">
+            <a
+              class="nav-link side-nav-ele"
+              href="#"
+              id="manage-addres"
+              v-on:click="manageAdressColorChange()"
+            >
               <img src="../assets/side_manage.png" alt="" />
               <p>Manage Address</p>
             </a>
@@ -67,7 +82,22 @@
       </div>
     </nav>
   </div>
-  <div class="sidebar-container-mobile">
+  <div class="btn-group">
+    <button
+      type="button"
+      class="btn btn-secondary dropdown-toggle drop-down-menu-button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+      @click="showMobileSidebar()"
+    ></button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <button class="dropdown-item" type="button">Action</button>
+      <button class="dropdown-item" type="button">Another action</button>
+      <button class="dropdown-item" type="button">Something else here</button>
+    </div>
+  </div>
+  <div class="sidebar-container-mobile" id="side-bar-mobile-id">
     <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
       <div class="navbar-collapse" id="navbarNav">
         <ul class="navbar-nav flex-column">
@@ -188,20 +218,55 @@ export default {
     return {
       profilePassword: false,
       resetPassword: false,
+      order: false,
     };
   },
   methods: {
     resetPRofileColorChange() {
       this.profilePassword = !this.profilePassword;
+      document.getElementById("reset-password-id").style = "color:#262626";
+      document.getElementById("order-ele").style = "color:#262626";
+      document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("side-profile").style = this.profilePassword
         ? "color:#BF9742"
         : "color:#262626";
     },
+    orderColorChange() {
+      this.profilePassword = false;
+      this.resetPassword = false;
+      this.order = !this.order;
+      document.getElementById("reset-password-id").style = "color:#262626";
+      document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("payment-method").style = "color:#262626";
+      document.getElementById("order-ele").style = this.order
+        ? "color:#BF9742"
+        : "color:#262626";
+    },
     resetPasswordColorChange() {
+      document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("order-ele").style = "color:#262626";
       this.resetPassword = !this.resetPassword;
+      document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("reset-password-id").style = this.resetPassword
         ? "color:#BF9742"
         : "color:#262626";
+    },
+    paymentColorChange() {
+      document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("order-ele").style = "color:#262626";
+      document.getElementById("reset-password-id").style = "color:#262626";
+      document.getElementById("payment-method").style = "color:#BF9742";
+      document.getElementById("manage-addres").style = "color:#262626";
+    },
+    manageAdressColorChange() {
+      document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("order-ele").style = "color:#262626";
+      document.getElementById("reset-password-id").style = "color:#262626";
+      document.getElementById("payment-method").style = "color:#262626";
+      document.getElementById("manage-addres").style = "color:#BF9742";
+    },
+    showMobileSidebar() {
+      document.getElementById("side-bar-mobile-id").style = "display:block";
     },
   },
 };
@@ -221,6 +286,9 @@ export default {
   opacity: 1;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+}
+.drop-down-menu-button {
+  display: none;
 }
 .user-details {
   margin-left: 28px;
@@ -278,7 +346,7 @@ export default {
 
   .sidebar-container-mobile {
     margin-left: 6%;
-    display: block;
+    display: none;
     width: 320px;
     height: 837px;
     background: #f9f9f9 0% 0% no-repeat padding-box;
@@ -299,6 +367,14 @@ export default {
   }
   link.show {
     color: #bf9742;
+  }
+  .drop-down-menu-button {
+    display: block;
+    background-color: #f9f9f9;
+    color: #bf9742;
+    border: none;
+    transform: rotate(270deg);
+    height: 10%;
   }
 }
 </style>
