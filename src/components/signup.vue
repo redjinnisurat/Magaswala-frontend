@@ -14,7 +14,7 @@
                     <br>
                     <button class="submit-btn" type="btn" id="submit-btn1">sign in</button>
                     <br>
-                    <button class="login-btn1" type="btn"> <img  class= "btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png">login with google</button>
+                    <button class="login-btn1" type="btn"> <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png">login with google</button>
                     <br>
                     <p class="p-2">Already have an account ? <router-link to="/userlogin" custom v-slot="{navigate}"> <span @click="navigate" role="link">Sign in now</span></router-link>
                     </p>
@@ -38,16 +38,18 @@ export default {
 </script>
 
 <style>
-
 #main-container1 {
-    height: 850px;
-    width: 84%;
+    width: 85%;
+    height: 501px;
+    background: #F9F9F9;
+    opacity: 1;
     margin: 0 auto;
     margin-bottom: 5%;
+    margin-top: -5%;
 }
 
 .text-info2 {
-    margin-top: 25%;
+    margin-top: 15%;
 }
 
 #submit-btn1 {
@@ -56,14 +58,14 @@ export default {
 
 #img-2 {
     width: 118%;
-    height: 837px;
+    height: 200px;
 }
 
-.btn-img{
+.btn-img {
     width: 10%;
     padding-right: 3%;
 }
-   
+
 @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
     #main-container1 {
         height: auto;
@@ -78,12 +80,12 @@ export default {
 
 @media screen and (min-width: 1000px) and (max-width: 1199.98px) {
     #img-2 {
-        height: 837px;
-        width: 103%;
+        height: 490px;
+        width: 112%;
     }
 
     .text-info2 {
-        margin-top: 40%;
+        margin-top: 0%;
     }
 }
 
@@ -93,24 +95,27 @@ export default {
         margin-bottom: 50%;
     }
 
+    .text-info2 {
+        margin-top: 33%;
+    }
+
     #img-2 {
-        width: 100%;
+        display: none;
     }
 }
 
 @media screen and (min-width: 300px) and (max-width: 599.98px) {
     #main-container1 {
-        height: auto;
+       height: 600px;
         margin-bottom: 5%;
     }
-
     .text-info2 {
-        margin-top: 50%;
+        margin-top: 20%;
+        height: 800px;
     }
 
     #img-2 {
-        width: 100%;
-        margin-left: -1%;
+        display: none;
     }
 }
 </style>

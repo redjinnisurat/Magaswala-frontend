@@ -76,11 +76,11 @@ export default {
 
 @media screen and (min-width: 1000px) and (max-width: 1199.98px) {
     #text-set {
-        height: 710px;
+        height: 480px;
     }
 
     .text-info3 {
-        margin-top: 40%;
+        margin-top: 15%;
     }
 
     .setpass {
@@ -89,31 +89,36 @@ export default {
     }
 
     #right-side .img-2 {
-        width: 103%;
-        height: 719px;
+        width: 121%;
+        height: 490px;
         margin-top: -1%;
         margin-left: -2%;
     }
 
     .heading-magaswala2 {
         top: 50%;
-        left: 50%;
+        left: 58%;
         font-size: 65px;
 
     }
 }
 
 @media screen and (min-width: 600px) and (max-width: 999.98px) {
+    #text-set {
+       margin-left: 25%;
+    }
+
     .text-info3 {
-        margin-top: 27%;
+        margin-top: 40%;
     }
 
     #right-side .img-2 {
-        width: 100%;
-        margin-top: 3%;
-        margin-left: 0%;
+        display: none;
     }
 
+    .heading-magaswala2 {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 300px) and (max-width: 599.98px) {
@@ -127,13 +132,11 @@ export default {
     }
 
     #right-side .img-2 {
-        width: 100%;
-        margin-top: 3%;
-        margin-left: 0%;
+        display: none;
     }
 
     .heading-magaswala2 {
-        font-size: 45px;
+        display: none;
     }
 }
 </style>

@@ -8,12 +8,12 @@
                     <p>6-digit code has been sent<br>to your register email </p>
                     <br>
                     <div class="otp-field">
-                        <input type="text" maxlength="1">
-                        <input type="text" maxlength="1">
-                        <input type="text" maxlength="1">
-                        <input type="text" maxlength="1">
-                        <input type="text" maxlength="1">
-                        <input type="text" maxlength="1">
+                        <input type="number" maxlength="1">
+                        <input type="number" maxlength="1">
+                        <input type="number" maxlength="1">
+                        <input type="number" maxlength="1">
+                        <input type="number" maxlength="1">
+                        <input type="number" maxlength="1">
                     </div>
                     <router-link to="/setnewpassword" custom v-slot="{navigate}">
                         <button class="submit-btn" type="btn" @click="navigate" role="link">Verify</button>
@@ -34,16 +34,31 @@
 </template>
 
 <script>
+// const inputs = document.querySelectorAll(".otp-field input");
+
+// inputs.forEach((input, index) =>{
+//     input.dataset.index = index;
+//     input.addEventListener ("paste", handleotppaste);
+//     input.addEventListener("keyup", handleotp);
+
+// });
+
+// function handleotppaste(e){
+//     const data = e.clipboarddata.getdata('number');
+
+// }
+
 export default {
-    name: 'verification'
+    name: 'verification',
+
 }
 </script>
 
 <style>
-
-.text-info4{
-    margin-top: 40%;
+.text-info4 {
+    margin-top: 18%;
 }
+
 .digit-group {
     width: 30px;
     height: 50px;
@@ -70,20 +85,20 @@ export default {
 }
 
 @media screen and (min-width: 600px) and (max-width: 999.98px) {
-    .text-info4{
-        margin-top: 25%;
+    .text-info4 {
+        margin-top: 10%;
+    }
+
+    .text {
+        padding: 20px;
+        text-align: center;
+        width: 90%;
     }
 }
-
-
 
 @media screen and (min-width: 300px) and (max-width: 599.98px) {
-    .text-info4{
-        margin-top: 65%;
+    .text-info4 {
+        margin-top: 30%;
     }
 }
-
-
-
-
 </style>

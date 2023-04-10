@@ -8,8 +8,8 @@
                     <p class="p-1">please enter credentials for sign in </p>
                     <input class="email" type="text" placeholder="email">
                     <br>
-                    <input class="password" type="text" placeholder="password"> <img src="../assets/Icon-eye.svg" alt="" style="margin-left: -10%;"> 
-                    <br>
+                    <input class="password" type="password" placeholder="password" id="passwordField"> <img src="../assets/Icon-eye.svg" alt="" id="togglePassword" @click="togglePassword1()" style="margin-left: -10%; transform: translateY(-50%);
+  cursor: pointer;">
                     <div class=" col-lg-3 p-3">
                         <p>Remember me</p>
                     </div>
@@ -34,8 +34,39 @@
 
 <script>
 export default {
-    name: 'userlogin'
+    name: 'userlogin',
+    methods: {
+        togglePassword1() {
+            var passwordField = document.getElementById("passwordField");
+            var togglePassword1 = document.getElementById("togglePassword1");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                togglePassword1.classList.remove("fa-eye-slash");
+                togglePassword1.classList.add("fa-eye");
+            } else {
+                passwordField.type = "password";
+                togglePassword1.classList.remove("fa-eye");
+                togglePassword1.classList.add("fa-eye-slash");
+            }
+        }
+    }
 }
+// methods: {
+//         togglePassword1() {
+//         var passwordField = document.getElementById("passwordField");
+//         var togglePassword = document.getElementById("togglePassword");
+//         if (passwordField.type === "password") {
+//             passwordField.type = "text";
+//             togglePassword.classList.remove("fa-eye-slash");
+//             togglePassword.classList.add("fa-eye");
+//         } else {
+//             passwordField.type = "password";
+//             togglePassword.classList.remove("fa-eye");
+//             togglePassword.classList.add("fa-eye-slash");
+//         }
+//     }
+
+// }
 </script>
 
 <style>
@@ -116,18 +147,22 @@ span {
 }
 
 #main-container {
-    height: 850px;
-    width: 84%;
+    width: 85%;
+    height: 501px;
+    background: #F9F9F9;
+    opacity: 1;
     margin: 0 auto;
     margin-bottom: 5%;
+    margin-top: -5%;
+
 }
 
 .text-info1 {
-    margin-top: 25%;
+    margin-top: 5%;
 }
 
 #text {
-    height: 830px;
+    height: 480px;
 }
 
 #img-1 {
@@ -150,12 +185,20 @@ span {
         width: 42%;
         font-size: 18px;
     }
+
+    #text {
+        height: 787px;
+    }
+
+    .text-info1 {
+        margin-top: 25%;
+    }
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1199.98px) {
     #img-1 {
-        height: 837px;
-        width: 103%;
+        height: 490px;
+        width: 112%;
     }
 
     .p-3 {
@@ -173,12 +216,16 @@ span {
         width: 80%;
     }
 
+    #submit-btn {
+        margin-top: -5%;
+    }
+
     .p-2 {
         font-size: 18px;
     }
 
     .text-info1 {
-        margin-top: 40%;
+        margin-top: 0%;
     }
 
 }
@@ -190,7 +237,29 @@ span {
     }
 
     #img-1 {
-        width: 100%;
+        display: none;
+    }
+
+    .heading-magaswala {
+        display: none;
+    }
+
+    #text {
+        height: 830px;
+        margin-left: 14%;
+    }
+
+    .text-info1 {
+        margin-top: 32%;
+
+    }
+
+    .password {
+        margin-left: -2%;
+    }
+
+    .p-3 {
+        width: 45%;
     }
 }
 
@@ -198,6 +267,10 @@ span {
 
     #main-container {
         height: auto;
+    }
+
+    .heading-magaswala {
+        display: none;
     }
 
     .welcome-heading {
@@ -229,14 +302,15 @@ span {
     }
 
     #img-1 {
-        height: 840px;
-        width: 100%;
-        margin-left: -1%;
+        display: none;
     }
 
     .text-info1 {
-        margin-top: 55%;
+        margin-top: 20%;
     }
 
+    #text {
+        height: 580px;
+    }
 }
 </style>
