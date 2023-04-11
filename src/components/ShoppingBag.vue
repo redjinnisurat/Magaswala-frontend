@@ -66,11 +66,11 @@
         alt=""
         style="width: 15em;"
       />
-      <div class="box" style="width: 14em">
+      <div class="box" style="width: 17em">
         <!-- <div class="box-body"> -->
-          <h4 class="box-title">items summary</h4>
+          <h3 class="box-title">items summary</h3>
           <p class="box-text">
-           items:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Rs.875
+           items:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; Rs.875
           </p><br/>
           <hr class="horizontal-line" style="width:85%; margin-left: 14px;">
           <router-link to="/Checkoutpage">
@@ -122,14 +122,14 @@ export default {
   background-color: white;
 }
 .card-title {
-  color: rgb(217, 119, 53);
+  color: #B1622A;
   font-weight: bold;
-  /* margin-left: -14em; */
+  margin-left: -2em;
 }
 
 .container2 {
   margin-right: 20em;
-  /* margin-bottom: 10px; */
+  margin-left: -2em;
 }
 
 .add-remove {
@@ -138,10 +138,12 @@ export default {
 }
 .container3 {
   margin-right: 20em;
+  margin-left: -2em;
   margin-top: -3em;
 }
 .container4 {
   margin-right: 20em;
+  margin-left: -2em;
   margin-top: -3em;
 }
 .ladu {
@@ -185,7 +187,7 @@ export default {
 .weight {
   float: right;
   color: orange;
-  margin-right: 18em;
+  margin-right: 21em;
   margin-top: -21px;
   margin-bottom: 0;
   font-size: 13px;
@@ -193,7 +195,7 @@ export default {
 .dlt {
   float: right;
   margin-top: -19px;
-  margin-right: 10em;
+  margin-right: 12em;
 }
 
 .vertical-line{
@@ -209,31 +211,36 @@ export default {
   margin-top: -20em;
 }
 .box{
-  border: 1.5px solid #A17A35;
-  border-radius: 5px;
+  border: 2px solid #CEB070;
+  border-radius: 20px;
   text-align: center;
-  height: 8em;
+  height: 10.5em;
   padding-top: 1em;
-  margin-left: 34em;
-  margin-top: -8em;
+  margin-left: 33em;
+  margin-top: -9.5em;
 }
 .box .box-title{
   margin-top: -5px;
   margin-bottom: 5px;
 }
 .box .box-text{
-  margin-bottom: -39px;
-  margin-top: -4px;
-  padding-bottom: -5px;
+  margin-bottom: -35px;
+  margin-top: 10px;
+  padding-bottom: -8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.horizontal-line{
+  margin-top: 26px;
 }
 .box .btn{
   background-color: #A17A35;
   color: white;
-  border-radius: 7px;
-  width: 15em;
-  height: 1.5rem;
-  margin-top: -4rem;;
-  font-size: 12px;
+  border-radius: 6px;
+  width: 16em;
+  height: 1.9rem;
+  margin-top: 0.2rem;
+  font-size: 15px;
  padding-top: 2px;
 }
 
