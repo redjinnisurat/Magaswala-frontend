@@ -67,7 +67,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link side-nav-ele" href="#">
+            <a
+              class="nav-link side-nav-ele"
+              href="#"
+              id="help-support-ele"
+              @click="helpSupportColorChange()"
+            >
               <img src="../assets/help.svg" alt="" />
               <p>Help Support</p>
             </a>
@@ -264,6 +269,15 @@ export default {
       document.getElementById("reset-password-id").style = "color:#262626";
       document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("manage-addres").style = "color:#BF9742";
+      document.getElementById("help-support-ele").style = "color:#262626";
+    },
+    helpSupportColorChange() {
+      document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("order-ele").style = "color:#262626";
+      document.getElementById("reset-password-id").style = "color:#262626";
+      document.getElementById("payment-method").style = "color:#262626";
+      document.getElementById("manage-addres").style = "color:#262626";
+      document.getElementById("help-support-ele").style = "color:#BF9742";
     },
     showMobileSidebar() {
       document.getElementById("side-bar-mobile-id").style = "display:block";
