@@ -47,7 +47,7 @@
             <input type="radio" id="K" name="payment">&emsp;<br></h6>
         </div>
         <div id="right">
-            <h5>Order Summary</h5>
+            <h5><span style="font-size: 18px;">Order Summary</span></h5><br>
             <p>Items:&emsp; &emsp; &emsp; &emsp; &emsp;Rs.250</p>
             <p>CGST:&emsp; &emsp; &emsp; &emsp; &emsp; Rs.10</p>
             <p>SGST:&emsp; &emsp; &emsp; &emsp; &emsp; Rs.10</p>
@@ -63,12 +63,12 @@
         <h5> &emsp;Shipping To</h5><br>
         <div id="address">
          <p>&ensp;<span style="color: black;"> &emsp; Home Address</span><br>
-         &ensp;<label><input type="radio">&ensp;<span style="font-size: 15px;">(269) 444-6853<br>
+         &ensp;<label><input type="radio" name="address1">&ensp;<span style="font-size: 15px;">(269) 444-6853<br>
           &ensp;&ensp; Road Number 5649 Akali</span></label></p>
         </div><br>
         <div id="address">
          <p>&ensp;<span style="color: black;"> &emsp;Office Address</span><br>
-         &ensp;<label> <input type="radio">&ensp;<span style="font-size: 15px;">(269) 444-2596<br>
+         &ensp;<label> <input type="radio" name="address1">&ensp;<span style="font-size: 15px;">(269) 444-2596<br>
           &ensp;&ensp; Road Number 2403 Blogshow</span></label></p>
         </div><br>
         <button type="button" id="mpay">Make Payment</button><br>

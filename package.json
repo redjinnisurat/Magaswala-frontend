@@ -11,6 +11,7 @@
     "@chenfengyuan/vue-carousel": "^2.0.0",
     "core-js": "^3.8.3",
     "vue": "^3.2.47",
+    "vue-carousel": "^0.18.0",
     "vue-router": "^4.0.13",
     "vue-template-compiler": "^2.7.14"
   },

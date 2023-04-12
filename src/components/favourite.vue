@@ -11,7 +11,7 @@
     <router-link to="/favourite"><img id="i" src="../assets/image/favselect.svg" /></router-link>
     <img id="i" src="../assets/image/profile.svg" />
     <img id="i" src="../assets/image/switch.svg" /></div>
-    </div><br> 
+    </div><br>
     <br>
     <br>
     <div class="container" id="bg">

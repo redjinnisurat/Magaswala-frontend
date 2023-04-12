@@ -16,7 +16,7 @@
     <div>
         <h3 id="body">The best Magas in the town</h3>
         <p id="data">Made with pure ingredients<br>
-        Price=Rs.250 for 1kg</p><br> 
+        Price=Rs.250 for 1kg</p><br>
         <button type="button" id="btn">Add to bag</button>
         <img id="sweet" src="../assets/image/sweet.png" /></div>
     <h5>&emsp;&emsp;&emsp;&emsp;Our Products</h5><br>
