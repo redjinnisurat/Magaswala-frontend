@@ -91,6 +91,7 @@
     <button
       type="button"
       class="btn btn-secondary dropdown-toggle drop-down-menu-button"
+      id="drop-down-menu-button-id"
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
@@ -224,6 +225,7 @@ export default {
       profilePassword: false,
       resetPassword: false,
       order: false,
+      hoverSlider: false,
     };
   },
   methods: {
@@ -280,7 +282,14 @@ export default {
       document.getElementById("help-support-ele").style = "color:#BF9742";
     },
     showMobileSidebar() {
-      document.getElementById("side-bar-mobile-id").style = "display:block";
+      this.hoverSlider = !this.hoverSlider;
+      document.getElementById("side-bar-mobile-id").style = this.hoverSlider
+        ? "display:block"
+        : "display:none";
+      document.getElementById("drop-down-menu-button-id").style = this
+        .hoverSlider
+        ? "transform: rotate(360deg);"
+        : "transform: rotate(270deg)";
     },
   },
 };
@@ -389,6 +398,11 @@ export default {
     border: none;
     transform: rotate(270deg);
     height: 10%;
+  }
+  .btn:hover {
+    color: #bf9742;
+    background-color: #f9fcff;
+    border-color: var(--bs-btn-hover-border-color);
   }
 }
 </style>
