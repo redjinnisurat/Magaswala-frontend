@@ -15,7 +15,7 @@
             <i class="mdi mdi-settings-outline"></i>
           </div>
           <div class="" style="text-align: left; margin-top: 30px; margin-bottom: -30px">
-            <label class="labels">Contact Info</label>
+            <label class="labelss">Contact Info</label>
           </div>
 
           <div class="row mt-2">
@@ -41,14 +41,14 @@
             </div>
           </div>
           <div class="" style="text-align: left; margin-top: 30px; margin-bottom: -30px">
-            <label class="labels">Address</label>
+           <p> <label class="labelss">Address</label></p>
           </div>
           <div class="row mt-2">
             <div class="col-md-12">
               <label class="labels"></label
               ><input
                 type="text"
-                class="form-control"
+                class="form-control "
                 placeholder="Building name"
                 value=""
               />
@@ -59,24 +59,24 @@
               <label class="labels"></label
               ><input
                 type="text"
-                class="form-control"
+                class="form-control offadd"
                 placeholder="Near by landmark"
                 value=""
               />
             </div>
             <div class="col-md-6">
               <label class="labels"></label
-              ><input type="text" class="form-control" value="" placeholder="Pincode" />
+              ><input type="text" class="form-control offadd" value="" placeholder="Pincode" />
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-md-6">
               <label class="labels"></label
-              ><input type="text" class="form-control" placeholder="state" value="" />
+              ><input type="text" class="form-control offadd" placeholder="state" value="" />
             </div>
             <div class="col-md-6">
               <label class="labels"></label
-              ><input type="text" class="form-control" value="" placeholder="city" />
+              ><input type="text" class="form-control offadd" value="" placeholder="city" />
             </div>
           </div>
 
@@ -95,9 +95,9 @@
             <div class="col-md-12">
               <div
                 class=""
-                style="text-align: left; margin-top: 30px; margin-bottom: -30px"
+                style="text-align: left; margin-top: 40px; margin-bottom: -30px"
               >
-                <label class="labels">Type of address</label>
+                <label class="labelss">Type of address</label>
               </div>
               <br />
               <!-- <input type='radio' name="gender"/>
@@ -115,7 +115,7 @@
                     value="option1"
                     checked
                   />
-                  Home
+                 <span class="rediotext"> Home</span>
                 </label>
 
                 <label>
@@ -125,7 +125,7 @@
                     id="optionsRadios2"
                     value="option2"
                   />
-                  Office
+                <span class="rediotext">  Office</span>
                 </label>
                 <label>
                   <input
@@ -134,7 +134,7 @@
                     id="optionsRadios2"
                     value="option3"
                   />
-                  Other
+               <span class="rediotext">   Other</span>
                 </label>
               </div>
               <div class="checkbox">
@@ -149,7 +149,7 @@
                 width: 481px;
 
                 height: 271px;
-                margin-top: 145px;
+                margin-top: 115px;
               "
             />
           </div>
@@ -159,8 +159,8 @@
       <div class="" style="text-align: right">
         <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
         <button
-          class="btn btn-primary"
-          style="background-color: #bf9742; border: 0px"
+          class="button"
+          style="background-color: #bf9742; border: 0px;    width: 207px;"
           type="submit"
         >
           Save Address
@@ -182,6 +182,16 @@ body {
   background: rgb(99, 39, 120);
 }
 
+    .form-control{
+      width: 420px;
+    height: 40px;
+
+    }
+    .offadd{
+      width: 200px;
+    height: 40px;
+
+    }
 .form-control:focus {
   box-shadow: none;
   border-color: #ba68c8;
@@ -192,7 +202,9 @@ body {
   box-shadow: none;
   border: none;
 }
-
+.rediotext{
+  margin-right: 25px;
+}
 .profile-button:hover {
   background: #682773;
 }
@@ -212,8 +224,8 @@ body {
   cursor: pointer;
 }
 
-.labels {
-  font-size: 11px;
+.labelss {
+  font-size: 18px;
 }
 
 .add-experience:hover {
@@ -224,15 +236,16 @@ body {
 }
 
 .checkbox {
-  font-size: 21px;
+  font-size: 15px;
   color: #999999;
+  text-align: initial;
 }
 
 input[type="radio"]:after {
   width: 10px;
   height: 10px;
   border-radius: 15px;
-  top: -6px;
+  top: -5px;
   left: 1px;
   position: relative;
   background-color: white;
@@ -246,7 +259,7 @@ input[type="radio"]:checked:after {
   width: 8px;
   height: 8px;
   border-radius: 15px;
-  top: -13px;
+  top: -6px;
   left: 2px;
   position: relative;
   background-color: #bf9742;

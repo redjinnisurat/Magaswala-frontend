@@ -12,7 +12,7 @@
                 <tr>
                   <th>
                     <img
-                      src="../assets/food.jpg"
+                      src="../assets/ladu.png"
                       style="width: 50px; float: none"
                       align="left"
                     />
@@ -42,13 +42,13 @@
             </table>
           </div>
           
-          <div class="order1">
+          <div class="order">
             <table class="table" style="border-bottom-color: white">
               <tbody>
                 <tr>
                   <th>
                     <img
-                      src="../assets/food.jpg"
+                      src="../assets/ladu.png"
                       style="width: 50px; float: none"
                       align="left"
                     />
@@ -90,13 +90,27 @@
               </div>
           
           </div>
+          <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
+          
+            <div class="" style="text-align: end;margin-right: 90px;">
+              <select class="form-select" aria-label="Default select example" style="    border: 1px solid  #bf9742;box-shadow: aqua;">
+    <option selected>10/12/2022, Saturday</option>
+    <option value="1">09/12/2022, friday</option>
+    <option value="2">08/12/2022, thurseday</option>
+    <option value="3">06/12/2022, wednesday</option>
+  </select>
+              </div>
+          
+          </div>
+        
+          
           <div class="order">
             <table class="table" style="border-bottom-color: white">
               <tbody>
                 <tr>
                   <th>
                     <img
-                      src="../assets/food.jpg"
+                      src="../assets/ladu.png"
                       style="width: 50px; float: none"
                       align="left"
                     />
@@ -131,7 +145,7 @@
                 <tr>
                   <th>
                     <img
-                      src="../assets/food.jpg"
+                      src="../assets/ladu.png"
                       style="width: 50px; float: none"
                       align="left"
                     />

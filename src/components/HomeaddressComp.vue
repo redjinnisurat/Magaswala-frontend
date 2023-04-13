@@ -46,14 +46,19 @@
             </div>
             <div class="col-md-6">
                 <div class="p-3 py-5">
-                    <div class="flex-shrink-0">
+                    <!-- <div class="flex-shrink-0">
                         <img src="../assets/map.png" alt="Generic placeholder image" class="img-fluid" style="
                     width: 481px;
     
                     height: 271px;
                     margin-top: 110px;
                   " />
-                    </div>
+                    </div> -->
+                    <!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
                 </div>
             </div>
             <div class="" style="text-align:right">
@@ -78,6 +83,20 @@
         background: rgb(99, 39, 120);
     }
     
+    .map-container{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+.map-container iframe{
+  left:0;
+  top:0;
+  width: 481px;
+  margin-top: 110px;
+                    height: 271px;
+  position:absolute;
+}
     .form-control:focus {
         box-shadow: none;
         border-color: #ba68c8;
