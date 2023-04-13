@@ -43,7 +43,7 @@ const routes=[
   },
   {
     name:"editprofileComp",
-  path: '/editaddress',
+  path: '/editprofile',
     component:editprofileComp
 },
 

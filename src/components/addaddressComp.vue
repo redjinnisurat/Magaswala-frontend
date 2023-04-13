@@ -183,7 +183,7 @@ body {
 }
 
     .form-control{
-      width: 420px;
+     
     height: 40px;
 
     }

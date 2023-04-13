@@ -113,7 +113,7 @@
               <label class="labels"></label
               ><input
                 type="text"
-                class="form-control pen"
+                class="form-control pen "
                 value=""
                 placeholder="Plot No."
               />
@@ -122,7 +122,7 @@
               <label class="labels"></label
               ><input
                 type="text"
-                class="form-control pen"
+                class="form-control pen "
                 placeholder="Building name"
                 value=""
               />
@@ -143,7 +143,7 @@
               <label class="labels"></label
               ><input
                 type="number"
-                class="form-control pen"
+                class="form-control pen "
                 value=""
                 placeholder="Pincode"
               />
@@ -158,7 +158,7 @@
               <label class="labels"></label
               ><input
                 type="text"
-                class="form-control pen"
+                class="form-control pen "
                 placeholder="country"
                 value=""
               />

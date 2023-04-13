@@ -16,18 +16,18 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
-                            <label class="labels"></label><input type="text" class="form-control" placeholder="Near by landmark" value="" />
+                            <label class="labels"></label><input type="text" class="form-control offadd" placeholder="Near by landmark" value="" />
                         </div>
                         <div class="col-md-6">
-                            <label class="labels"></label><input type="text" class="form-control" value="" placeholder="Pincode" />
+                            <label class="labels"></label><input type="text" class="form-control offadd" value="" placeholder="Pincode" />
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
-                            <label class="labels"></label><input type="text" class="form-control" placeholder="state" value="" />
+                            <label class="labels"></label><input type="text" class="form-control offadd" placeholder="state" value="" />
                         </div>
                         <div class="col-md-6">
-                            <label class="labels"></label><input type="text" class="form-control" value="" placeholder="city" />
+                            <label class="labels"></label><input type="text" class="form-control offadd" value="" placeholder="city" />
                         </div>
                     </div>
     
