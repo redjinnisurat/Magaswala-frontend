@@ -126,7 +126,7 @@
           some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain 
           that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and</p>
         <a href=""><b>See all review</b></a>
-        </div>
+        </div> 
         </div>
        <div class="col">
         <h5>Reviews with same ratings</h5>
