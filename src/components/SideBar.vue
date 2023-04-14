@@ -281,6 +281,14 @@ export default {
       document.getElementById("manage-addres").style = "color:#262626";
       document.getElementById("help-support-ele").style = "color:#BF9742";
     },
+    termColorChange() {
+      document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("order-ele").style = "color:#262626";
+      document.getElementById("reset-password-id").style = "color:#262626";
+      document.getElementById("payment-method").style = "color:#262626";
+      document.getElementById("manage-addres").style = "color:#262626";
+      document.getElementById("help-support-ele").style = "color:#262626";
+    },
     showMobileSidebar() {
       this.hoverSlider = !this.hoverSlider;
       document.getElementById("side-bar-mobile-id").style = this.hoverSlider
