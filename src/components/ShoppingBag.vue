@@ -1,13 +1,13 @@
 <template>
   <div class="container" style="v-if == width: 60em;">
     <div class="col-lg-20 mt-3 pe-1">
-      <!-- <div class="card"> -->
+      
       <div class="card-body mx-5">
         <h5 class="card-title me-5">Shopping Bag</h5>
 
         <div class="container2 mb-0">
           <img
-            class="ladu mt-4"
+            class="ladu"
             src="@/assets/ladu.png"
             alt=""
             style="width: 8em"
@@ -25,7 +25,7 @@
 
         <div class="container3">
           <img
-            class="ladu2 mt-5"
+            class="ladu2"
             src="@/assets/ladu.png"
             alt=""
             style="width: 8em"
@@ -43,7 +43,7 @@
 
         <div class="container4 mb-0">
           <img
-            class="ladu3 mt-5"
+            class="ladu3"
             src="@/assets/ladu.png"
             alt=""
             style="width: 8em"
@@ -60,32 +60,41 @@
         </div>
       </div>
       <p class="vertical-line"></p>
-      <img
-        class="checkout mb-0 p-0"
-        src="@/assets/checkout.png"
-        alt=""
-        style="width: 15em;"
-      />
-      <div class="box" style="width: 17em">
-        <!-- <div class="box-body"> -->
+
+      <div class="card-right">
+
+        <div class="checkout-img">
+        <img
+          class="checkout"
+          src="@/assets/checkout.png"
+          alt=""
+          style="v-if == width: 15em"
+        />
+      </div>
+        <div class="box" style="width: 17em">
+          
           <h3 class="box-title">items summary</h3>
           <p class="box-text">
-           items:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; Rs.875
-          </p><br/>
-          <hr class="horizontal-line" style="width:85%; margin-left: 14px;">
+            items:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; Rs.875
+          </p>
+          <br />
+          <hr class="horizontal-line" style="width: 85%; margin-left: 14px" />
           <router-link to="/Checkoutpage">
-          <a href="#" class="btn" @click="MyCheckoutpage">Proceed to checkout</a>
-        </router-link>
-        <!-- </div> -->
+            <a href="#" class="btn" @click="MyCheckoutpage"
+              >Proceed to checkout</a
+            >
+          </router-link>
+          
+        </div>
       </div>
-      <!-- </div> -->
+      
     </div>
   </div>
 </template>
 
 
 <script>
-
 import { ref } from "vue";
 export default {
   name: "ShoppingBag",
@@ -94,11 +103,11 @@ export default {
     const isOpen = ref(false);
     return { isOpen };
   },
-  methods :{
-    MyCheckoutpage: function() {
+  methods: {
+    MyCheckoutpage: function () {
       // console.log("1");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -112,7 +121,7 @@ export default {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .container {
-  border: 1px solid #A17A35;
+  border: 1px solid #a17a35;
   border-radius: 5px;
   width: 60em;
   height: 24em;
@@ -122,7 +131,7 @@ export default {
   background-color: white;
 }
 .card-title {
-  color: #B1622A;
+  color: #b1622a;
   font-weight: bold;
   margin-left: -2em;
 }
@@ -149,15 +158,18 @@ export default {
 .ladu {
   width: 20em;
   margin-right: 18em;
+  margin-top: 1em;
 }
 
 .ladu2 {
   width: 20em;
   margin-right: 18em;
+  margin-top: 3.5em;
 }
 .ladu3 {
   width: 20em;
   margin-right: 18em;
+  margin-top: 3.5em;
 }
 
 .outer-text {
@@ -198,8 +210,8 @@ export default {
   margin-right: 12em;
 }
 
-.vertical-line{
-  border-left:1px solid #A17A35;
+.vertical-line {
+  border-left: 1px solid #a17a35;
   height: 22em;
   position: absolute;
   margin-left: 30em;
@@ -208,10 +220,11 @@ export default {
 .checkout {
   float: right;
   margin-right: 10em;
-  margin-top: -20em;
+  margin-top: -16em;
+  width: 15em;
 }
-.box{
-  border: 2px solid #CEB070;
+.box {
+  border: 2px solid #ceb070;
   border-radius: 20px;
   text-align: center;
   height: 10.5em;
@@ -219,311 +232,356 @@ export default {
   margin-left: 33em;
   margin-top: -9.5em;
 }
-.box .box-title{
+.box .box-title {
   margin-top: -5px;
   margin-bottom: 5px;
 }
-.box .box-text{
+.box .box-text {
   margin-bottom: -35px;
   margin-top: 10px;
   padding-bottom: -8px;
   font-size: 18px;
   font-weight: 500;
 }
-.horizontal-line{
+.horizontal-line {
   margin-top: 26px;
 }
-.box .btn{
-  background-color: #A17A35;
+.box .btn {
+  background-color: #a17a35;
   color: white;
   border-radius: 6px;
   width: 16em;
   height: 1.9rem;
   margin-top: 0.2rem;
   font-size: 15px;
- padding-top: 2px;
+  padding-top: 2px;
 }
 
-@media screen and (max-width: 1190px) {
-  .container{
+/* @media screen and (max-width: 1190px) {
+  .container {
     margin-left: 7em;
   }
-  .checkout{
+  .checkout {
     margin-right: 8em;
   }
 
-  .box{
+  .box {
     margin-left: 35em;
     margin-top: -10em;
-  }
-
-  .weight{
-    margin-right: 18em;
-  }
-  .dlt{
-    margin-right: 10em;
-  }
-  .box .btn{
-    margin-top: -10px;
-  }
-  .box .box-text{
-    margin-top: 15px;
-  }
-}
-@media screen and (max-width: 990px) {
-  .container{
-    height: 25em;
-    max-width: 60em;
-    margin-left: 6em;
-    margin-top: 2em;
-  }
-  .weight{
-      margin-right: 17em;
-  }
-
-  .dlt{
-    margin-right: 8em;
-  }
-
-  .add-remove{
-    display: flex;
-    margin-left: 21em;
-    /* padding-right: 5px; */
-  }
-  .add-remove .plus{
-    width: 20px;
-    margin-right: 5px;
-  }
-  .add-remove .minus{
-    width: 20px;
-    margin-left: 5px;
-  }
-  .vertical-line{
-    margin-left: 30em;
-  }
-
-  .checkout{
-    margin-right: 10em;
-    margin-top: -20em;
-  }
-
-  .box{
-    margin-left: 34em;
-    margin-top: -8em;
-  }
-
-  .box .box-title{
-    margin-top: -5px;
-  }
-
-  .box .box-text{
-    margin-top: -4px;
-  }
-  .horizontal-line{
-    margin-top: 32px;
-  }
-  .box .btn{
-    margin-top: -15px;
-  }
-}
-@media screen and (max-width: 890px) {
-  .container{
-    width: 70em;
-  }
-  .checkout{
-    margin-right: 10rem;
-  }
-  .weight{
-    margin-right: 18em;
-  }
-  .dlt{
-    margin-right: 9em;
-  }
-}
-
-@media screen and (max-width: 790px) {
-
-  .container{
-    width: 70em;
-    margin-left: 6em;
-    margin-top: 2em;
-  }
-  .outer-text{
-    display:flex;
-    /* align-items: center; */
-    writing-mode:horizontal-tb;
-    text-orientation:initial;
-  }
-  .checkout{
-    margin-right:10em;
-    margin-top: -20em;
   }
 
   .weight {
     margin-right: 18em;
   }
+  .dlt {
+    margin-right: 10em;
+  }
+  .box .btn {
+    margin-top: -10px;
+  }
+  .box .box-text {
+    margin-top: 15px;
+  }
+} */
+@media screen and (max-width: 990px) {
+  .container {
+    height: 25em;
+    max-width: 50em;
+    margin-left: 2em;
+    margin-top: 2em;
+  }
+  .weight {
+    margin-right: 8em;
+  }
 
-  .dlt{
+  .dlt {
+    margin-right: 1em;
+  }
+
+  .add-remove {
+    display: flex;
+    margin-left: 21em;
+  }
+  .add-remove .plus {
+    width: 20px;
+    margin-right: 5px;
+  }
+  .add-remove .minus {
+    width: 20px;
+    margin-left: 5px;
+  }
+  .vertical-line {
+    margin-left: 30em;
+    margin-top: -20em;
+  }
+
+  .checkout {
+    margin-right: 1em;
+    margin-top: -18em;
+  }
+
+  .box {
+    margin-left: 31em;
+    margin-top: -10em;
+  }
+
+  .box .box-title {
+    margin-top: -5px;
+  }
+
+  .box .box-text {
+    margin-top: -4px;
+  }
+  .horizontal-line {
+    margin-top: 32px;
+  }
+  .box .btn {
+    margin-top: -15px;
+  }
+}
+@media screen and (max-width: 890px) {
+  .container {
+    width: 70em;
+  }
+  .checkout {
+    margin-right: 2rem;
+  }
+  .weight {
     margin-right: 9em;
+  }
+  .dlt {
+    margin-right: 1em;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .container {
+    max-width: 50em;
+    margin-left: 1em;
+    margin-top: 2em;
+  }
+  .outer-text {
+    display: flex;
+    /* align-items: center; */
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+  }
+  .vertical-line {
+    margin-left: 28rem;
+    margin-top: -20em;
+  }
+  .checkout {
+    margin-right: 3em;
+    margin-top: -16em;
+  }
+
+  .weight {
+    margin-right: 8.5em;
+  }
+
+  .dlt {
+    margin-right: 1em;
+  }
+  .box {
+    margin-top: -9em;
+    margin-left: 30em;
   }
 }
 
 @media screen and (max-width: 690px) {
-  .container{
-    margin-left: 7em;
+  .container {
+    margin-left: 3em;
     max-width: 65em;
     margin-top: -2rem;
+    height: 28em;
   }
 
-  .weight{
-    margin-right: 24em;
+  .weight {
+    margin-right: 27em;
   }
 
-  .dlt{
-    margin-right: 14em;
+  .dlt {
+    margin-right: 16em;
   }
-  .vertical-line{
+  .vertical-line {
     margin-left: 32rem;
+    margin-top: -20em;
   }
-  .checkout{
+  .checkout {
     margin-right: 13em;
+    margin-top: -15em;
   }
 
-  .box{
+  .box {
     margin-top: -8em;
     margin-left: 35em;
   }
 
-  .box .box-title{
+  .box .box-title {
     padding-bottom: -5em;
   }
-  .box .box-text{
+  .box .box-text {
     padding-top: -0.5em;
   }
 
-  .box .btn{
+  .box .btn {
     margin-top: -1em;
   }
 }
 @media screen and (max-width: 590px) {
-  .container{
+  .container {
     margin-left: 20em;
-    width: 160em;
+    max-width: 90em;
     margin-top: -3rem;
-    height: 50rem;
+    height: 60em;
   }
 
-  .card-title{
+  .card-title {
     margin-top: 2rem;
     font-size: 50px;
     margin-left: 2rem;
   }
-  .container2{
+  .container2 {
     padding-bottom: 1rem;
-    margin-left: 1rem;
+    margin-left: -1rem;
   }
-  .container3{
+  .container3 {
     padding-bottom: 1rem;
-    margin-left: 1rem;
+    margin-left: -1rem;
   }
-  .container4{
-    margin-left: 1rem;
+  .container4 {
+    margin-left: -1rem;
   }
-  .ladu{
+  .ladu {
     width: 20rem;
-    /* margin-bottom: 5rem; */
+    margin-top: 2rem;
   }
-  .ladu2{
+  .ladu2 {
+    width: 20rem;
+    margin-top: 4rem;
+  }
+  .ladu3 {
     width: 20rem;
   }
-  .ladu3{
-    width: 20rem;
-  }
-  .outer-text{
+  .outer-text {
     font-size: 30px;
     margin-top: -4rem;
     margin-left: 12rem;
   }
-  .inner-text{
+  .inner-text {
     width: 40rem;
     height: 7rem;
     font-size: 30px;
     margin-top: 1rem;
     margin-left: 12rem;
   }
-  .weight{
-    margin-right: 5em;
+  .weight {
+    margin-right: 6em;
     margin-top: -2.8rem;
     font-size: 30px;
     margin-bottom: 0px;
   }
 
-  .dlt{
-    margin-right: -15em;
+  .dlt {
+    margin-right: -14em;
     margin-top: -2rem;
     width: 2rem;
   }
-  .prize{
+  .prize {
     font-size: 30px;
     margin-left: 12rem;
     margin-top: -4rem;
   }
-  .add-remove{
+  .add-remove {
     font-size: 35px;
-    margin-left: 34rem;
+    margin-left: 33rem;
   }
-  .add-remove .plus{
+  .add-remove .plus {
     height: 3rem;
     width: 3rem;
     margin-right: 10px;
   }
-  .add-remove .minus{
+  .add-remove .minus {
     height: 3rem;
     width: 3rem;
     margin-left: 10px;
   }
-  .vertical-line{
-    margin-left: 50rem;
-    margin-top: -32rem;
-    height: 30em;
+  .vertical-line {
+    margin-left: 45em;
+    margin-top: -37rem;
+    height: 35em;
   }
-  .checkout{
-    margin-right: -3em;
+  .checkout {
+    margin-right: -38em;
     margin-top: -32rem;
+    width: 20em;
   }
 
-  .box{
+  .box {
     margin-top: -18em;
-    margin-left: 52em;
+    margin-left: 46em;
   }
 
-  .box .box-title{
-    padding-bottom: -5em;
+  .box .box-title {
+    margin-bottom: 2rem;
   }
-  .box .box-text{
-    padding-top: -0.5em;
+  .box .box-text {
+    margin-bottom: 5rem;
   }
-
-  .box .btn{
-    margin-top: -1em;
+  .horizontal-line {
+    margin-top: -5.5rem;
+  }
+  .box .btn {
+    margin-top: -0.5rem;
   }
 }
-@media screen and (max-width: 490px){
-
-  .container{
+@media screen and (max-width: 490px) {
+  .container {
     margin-top: -1em;
-    max-width: 40em;
-    height: 95rem;
-    margin-left: 7em;
-    font-size: 30px;
+    width: 70em;
+    height: 95em;
+    margin-left: 15em;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
   }
-  .card-body{
-    margin-left: 23rem;
+  .card-body {
+    /* margin-left: 23rem; */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+   
   }
-  .card-title{
+  .container .card-right {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: -15em; */
+  }
+  .ladu{
+    margin-top: 5em;
+  }
+  .outer-text{
+    width: 6em;
+  }
+  .vertical-line{
+    display: none;
+  }
+  .card-right .checkout{
+    width: 25em;
+    margin-top: -18em;
+    margin-right: 10em;
+  }
+  .card-right .box{
+    margin-left: -5em;
+    margin-top: 24em;
+  }
+  .weight{
+    margin-right: -5em;
+  }
+  .dlt{
+    margin-right: -18.5em;
+  }
+  /* .card-title{
     margin-top: 2rem;
     font-size: 50px;
     margin-left: 6rem;
@@ -596,7 +654,6 @@ export default {
 .box .box-text{
   margin-top: 10px;
   padding-top: 15px;
-  /* padding-bottom: 10px; */
   font-size: 50px;
 }
 .horizontal-line{
@@ -629,15 +686,21 @@ export default {
   }
   .container4{
     margin-left: 6rem;
-  }
+  } */
 }
 @media screen and (max-width: 390px) {
-
   .container{
+    margin-top: 3em;
+  }
+}
+/* @media screen and (max-width: 390px) {
+  .container {
     width: 55em;
     margin-left: 5em;
-    height: 100rem;
+    height: 105rem;
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
   }
   .ladu{
     width: 20em;
@@ -675,5 +738,5 @@ export default {
     width: 30rem;
     margin-top: 0rem;
   }
-}
+} */
 </style>

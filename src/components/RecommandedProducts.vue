@@ -87,9 +87,11 @@
   .box .btn{
     background-color: #A17A35;
     color: white;
-    margin-left: 11em;
+    margin-left: 15em;
     margin-top: -3em;
-    width: 7em;
+    padding: 0px;
+    width: 6em;
+    height: 1.7em;
   }
   /* .card2 .btn{
     background-color: #A17A35;

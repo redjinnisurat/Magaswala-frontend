@@ -17,9 +17,8 @@
           alt=""
           width="20px;"
         />
-        <h6 class="weight pt-1 mb-1">₹ 250 Per Kg</h6>
-        <br>
-        <p class="card-text mt-1 mb-2">Description 
+        <h6 class="weight pt-1 mt-1">₹ 250 Per Kg</h6>
+        <p class="card-text mt-1">Description 
           <br/><br/>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr,<br />
           sed diam nonumy eirmod tempor invidunt ut labore et<br />
@@ -229,6 +228,7 @@
       <p class="prize6">Rs.310</p>
     </div>
     </div>
+ 
  
   </div>
   <br />
@@ -869,8 +869,8 @@ export default {
     font-size: 28px;
   }
   .order{
-    margin-top: -2rem;
-    margin-left: -4rem;
+    margin-top: 3rem;
+    margin-left: -3rem;
   }
   .order .summery{
     font-size: 35px;
@@ -906,18 +906,33 @@ export default {
   @media screen and (max-width: 490px) {
     .container{
     margin-top: 1rem;
-    /* display: flex; */
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
     width: 70rem;
     height: 90rem;
   }
   .box{
     width: 100%;
+    margin-left: 12em;
+    /* margin-right: auto; */
+  }
+  .container .box2{
+    width: 30%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .vertical-line{
+    display: none;
+  }
+  /* .box{
+    width: 100%;
     height: 77rem;
     margin-left: 10rem;
     margin-top: -2rem;
-  }
-  .box .card-img-top{
+  } */
+  /* .box .card-img-top{
     width: 40rem;
   }
   .card-body .card-title{
@@ -1100,13 +1115,33 @@ export default {
   }
   .order .corner2{
     margin-left: -2rem;
-  }
+  } */
   }
 @media screen and (max-width: 390px) {
+  .box{
+    margin-top: 2em;
+    margin-left: 1em;
+  }
+  .box2{
+    margin-left: -11em;
+  }
+  .order{
+    margin-left: 20em;
+  }
+}
+/* @media screen and (max-width: 390px) {
   .container{
-    margin-top: 1rem;
+    margin-top: 4rem;
     width: 70rem;
     height: 90rem;
+  }
+  .box{
+    width: 100%;
+  }
+  .box2{
+    width: 30%;
+    margin-right: 2em;
+    margin-left: auto;
   }
   .box{
     width: 100%;
@@ -1300,6 +1335,6 @@ export default {
   .order .corner2{
     margin-left: -2rem;
   }
-}
+} */
 
 </style>

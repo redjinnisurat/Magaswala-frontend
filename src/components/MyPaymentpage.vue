@@ -625,15 +625,29 @@ export default {
 }
 @media screen and (max-width: 490px) {
   .container{
-    height: 110rem;
-    width: 70rem;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80em;
+    height: 110em;
+    
+    /* flex-direction: column; */
     margin-left: 14rem;
-   
   }
-
-  .box{
+  .container .box{
+    width: 50%;
+    align-items: center;
+    margin-left: 20em;
+  }
+  .container .box2{
+    width: 50%;
+    margin-top: -10rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .vertical-line{
+    display: none;
+  }
+  /* .box{
     width: 70rem;
     margin-left: 16rem;
   }
@@ -772,10 +786,10 @@ export default {
   }
   .order .btn2{
     font-size: 1.8rem;
-  }
+  } */
 }
 
-@media screen and (max-width: 390px) {
+/* @media screen and (max-width: 390px) {
   .container{
     height: 110rem;
     width: 70rem;
@@ -925,5 +939,5 @@ export default {
   .order .btn2{
     font-size: 1.8rem;
   }
-}
+} */
 </style>
