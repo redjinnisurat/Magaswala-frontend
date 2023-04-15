@@ -29,7 +29,7 @@
               ><input
                 type="text"
                 class="form-control"
-                style="margin-top: 5px"
+                style=""
                 value=""
                 placeholder="surname"
               />
@@ -204,7 +204,7 @@ body {
 }
 
 .labels {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .add-experience:hover {

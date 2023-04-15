@@ -89,16 +89,23 @@
           </div>
 
           <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="" style="text-align: left">
+            <div class="col-md-6 ">
+              <div class="fake-input" style="text-align: left">
                 <label class="labels">Email</label>
               </div>
-              <input
+              <!-- <div class="fake-input">
+    <input type="text" />
+    <img src="../assets/pen1.svg" width=25 />
+</div> -->
+              <div class="fake-input">
+                <input
                 type="text"
-                class="form-control pen"
                 placeholder="enter email id"
                 value=""
               />
+              <img src="../assets/pen1.svg" width=25 />
+              </div>
+             
             </div>
           </div>
 
@@ -216,6 +223,10 @@ export default {
 body {
   background: rgb(231, 228, 235);
 }
+
+.fake-input { position: relative; width:240px; }
+.fake-input input { border:none; background-color:#fff; display:block; width: 100%; box-sizing: border-box }
+.fake-input img { position: absolute; top: 2px; right: 5px }
 
 .form-control:focus {
   box-shadow: none;
