@@ -78,7 +78,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link side-nav-ele" href="#">
+            <a
+              class="nav-link side-nav-ele"
+              href="#"
+              id="term-id"
+              @click="termColorChange()"
+            >
               <img src="../assets/side_term.png" alt="" />
               <p>Term And Conditions</p>
             </a>
@@ -234,6 +239,7 @@ export default {
       document.getElementById("reset-password-id").style = "color:#262626";
       document.getElementById("order-ele").style = "color:#262626";
       document.getElementById("payment-method").style = "color:#262626";
+      document.getElementById("term-id").style = "color:#262626";
       document.getElementById("side-profile").style = this.profilePassword
         ? "color:#BF9742"
         : "color:#262626";
@@ -244,6 +250,7 @@ export default {
       this.order = !this.order;
       document.getElementById("reset-password-id").style = "color:#262626";
       document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("term-id").style = "color:#262626";
       document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("order-ele").style = this.order
         ? "color:#BF9742"
@@ -251,6 +258,7 @@ export default {
     },
     resetPasswordColorChange() {
       document.getElementById("side-profile").style = "color:#262626";
+      document.getElementById("term-id").style = "color:#262626";
       document.getElementById("order-ele").style = "color:#262626";
       this.resetPassword = !this.resetPassword;
       document.getElementById("payment-method").style = "color:#262626";
@@ -264,6 +272,7 @@ export default {
       document.getElementById("reset-password-id").style = "color:#262626";
       document.getElementById("payment-method").style = "color:#BF9742";
       document.getElementById("manage-addres").style = "color:#262626";
+      document.getElementById("term-id").style = "color:#262626";
     },
     manageAdressColorChange() {
       document.getElementById("side-profile").style = "color:#262626";
@@ -272,6 +281,7 @@ export default {
       document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("manage-addres").style = "color:#BF9742";
       document.getElementById("help-support-ele").style = "color:#262626";
+      document.getElementById("term-id").style = "color:#262626";
     },
     helpSupportColorChange() {
       document.getElementById("side-profile").style = "color:#262626";
@@ -280,6 +290,7 @@ export default {
       document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("manage-addres").style = "color:#262626";
       document.getElementById("help-support-ele").style = "color:#BF9742";
+      document.getElementById("term-id").style = "color:#262626";
     },
     termColorChange() {
       document.getElementById("side-profile").style = "color:#262626";
@@ -288,6 +299,7 @@ export default {
       document.getElementById("payment-method").style = "color:#262626";
       document.getElementById("manage-addres").style = "color:#262626";
       document.getElementById("help-support-ele").style = "color:#262626";
+      document.getElementById("term-id").style = "color:#BF9742";
     },
     showMobileSidebar() {
       this.hoverSlider = !this.hoverSlider;
