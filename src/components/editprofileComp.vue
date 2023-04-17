@@ -1,208 +1,130 @@
 <template>
-  <div class="container rounded bg-white mt-5 mb-5">
-    <div
-      class="row"
-      style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px"
-    >
-      <div class="col-md-12 border-right">
-        <div class="p-3 py-1">
-          <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
-            <h4 class="text-right profile">My Profile</h4>
-            <div class="" style="text-align: end">
-              <a href="#" class="btn btn-outlined btn-black address" data-wow-delay="0.7s"
-                ><img src="../assets/edit.svg" /> <small></small
-              ></a>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row" style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px">
+        <div class="col-md-12 border-right">
+            <div class="p-3 py-1">
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4 editbutton">
+                    <h4 class="text-right profile">My Profile</h4>
+                    <div class="editbutton" style="text-align: end">
+                        <a href="#" class="btn btn-outlined btn-black address" data-wow-delay="0.7s"><img class="editbutton" src="../assets/edit.svg" /> <small></small></a>
 
-              <i class="mdi mdi-settings-outline"></i>
-            </div>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-6">
-              <div class="" style="text-align: left">
-                <label class="labels">Name</label>
-              </div>
-
-              <input
-                type="text"
-                class="form-control pen"
-                placeholder="first name"
-                value=""
-              />
-            </div>
-            <div class="col-md-6">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control pen"
-                style="margin-top: 5px"
-                value=""
-                placeholder="surname"
-              />
-            </div>
-          </div>
-
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="" style="text-align: left">
-                <label class="labels">Mobile Number</label>
-              </div>
-              <input
-                type="text"
-                class="form-control pen"
-                placeholder="enter phone number"
-                value=""
-              />
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-4">
-                  <!-- <label class="labels"></label><input type="text" class="form-control" value="" placeholder="Near by landmark" /> -->
-                  <div class="" style="text-align: left">
-                    <label class="labels">Gender</label>
-                  </div>
-                  <select
-                    class="form-select form-control"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Male</option>
-                    <option value="1">Female</option>
-                    <option value="2">Other</option>
-                  </select>
+                        <i class="mdi mdi-settings-outline"></i>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                  <div class="" style="text-align: left">
-                    <label class="labels">Birthday</label>
-                  </div>
-                  <input
-                    class="form-control"
-                    style="height: 45px"
-                    id="birthday"
-                    type="date"
-                    name="birthday"
-                    placeholder="Enter your birthday"
-                    value="2017-06-01"
-                  />
+
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <div class="" style="text-align: left">
+                            <label class="labels">Name</label>
+                        </div>
+
+                        <input type="text" class="form-control" placeholder="first name" value="" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels"></label><input type="text" class="form-control " style="margin-top: 5px" value="" placeholder="surname" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="row mt-3">
-            <div class="col-md-6 ">
-              <div class="fake-input" style="text-align: left">
-                <label class="labels">Email</label>
-              </div>
-              <!-- <div class="fake-input">
-    <input type="text" />
-    <img src="../assets/pen1.svg" width=25 />
-</div> -->
-              <div class="fake-input">
-                <input
-                type="text"
-                placeholder="enter email id"
-                value=""
-              />
-              <img src="../assets/pen1.svg" width=25 />
-              </div>
-             
-            </div>
-          </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="" style="text-align: left">
+                            <label class="labels">Mobile Number</label>
+                        </div>
+                        <input type="text" class="form-control " placeholder="enter phone number" value="" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- <label class="labels"></label><input type="text" class="form-control" value="" placeholder="Near by landmark" /> -->
+                                <div class="" style="text-align: left">
+                                    <label class="labels">Gender</label>
+                                </div>
+                                <select class="form-select form-control" aria-label="Default select example">
+                                    <option selected>Male</option>
+                                    <option value="1">Female</option>
+                                    <option value="2">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="" style="text-align: left">
+                                    <label class="labels">Birthday</label>
+                                </div>
+                                <input class="form-control" style="height: 45px" id="birthday" type="date" name="birthday" placeholder="Enter your birthday" value="2017-06-01" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="row mt-3">
-            <div class="col-md-2">
-              <div
-                class=""
-                style="text-align: left; margin-bottom: -24px; margin-top: -6px"
-              >
-                <label class="labels">Address</label>
-              </div>
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control pen "
-                value=""
-                placeholder="Plot No."
-              />
-            </div>
-            <div class="col-md-4">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control pen "
-                placeholder="Building name"
-                value=""
-              />
-            </div>
-          </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="" style="text-align: left">
+                            <label class="labels">Email Id</label>
+                        </div>
+                        <input type="text" class="form-control " placeholder="Email Id" value="" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                </div>
 
-          <div class="row mt-3">
-            <div class="col-md-4">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control pen"
-                value=""
-                placeholder="Near by landmark"
-              />
-            </div>
-            <div class="col-md-2">
-              <label class="labels"></label
-              ><input
-                type="number"
-                class="form-control pen "
-                value=""
-                placeholder="Pincode"
-              />
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-2">
-              <label class="labels"> </label
-              ><input type="text" class="form-control pen" value="" placeholder="state" />
-            </div>
-            <div class="col-md-4">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control pen "
-                placeholder="country"
-                value=""
-              />
-            </div>
-          </div>
+                <div class="row mt-3">
+                    <div class="col-md-2">
+                        <div class="" style="text-align: left; margin-bottom: -24px; margin-top: -6px">
+                            <label class="labels">Address</label>
+                        </div>
+                        <label class="labels"></label><input type="text" class="form-control " value="" placeholder="Plot No." />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="labels"></label><input type="text" class="form-control" placeholder="Building name" value="" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                </div>
 
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="" style="text-align: left">
-                <a
-                  href="#"
-                  class="btn btn-outlined btn-black address"
-                  data-wow-delay="0.7s"
-                  ><img src="../assets/plus.svg" /> <small>Add Address</small></a
-                >
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <label class="labels"></label><input type="text" class="form-control " value="" placeholder="Near by landmark" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="labels"></label><input type="number" class="form-control" value="" placeholder="Pincode" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-2">
+                        <label class="labels"> </label><input type="text" class="form-control " value="" placeholder="state" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="labels"></label><input type="text" class="form-control" placeholder="country" value="" />
+                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                    </div>
+                </div>
 
-                <i class="mdi mdi-settings-outline"></i>
-              </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="" style="text-align: left">
+                            <a href="#" class="btn btn-outlined btn-black address" data-wow-delay="0.7s"><img src="../assets/plus.svg" /> <small>Add Address</small></a>
+
+                            <i class="mdi mdi-settings-outline"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="" style="text-align: right">
+                            <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
+                            <button class="btn btn-primary" style="background-color: #bf9742; border: 0px" type="submit">
+                                Save changes
+                            </button>
+                            <i class="mdi mdi-settings-outline"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <div class="" style="text-align: right">
-                <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
-                <button
-                  class="btn btn-primary"
-                  style="background-color: #bf9742; border: 0px"
-                  type="submit"
-                >
-                  Save changes
-                </button>
-                <i class="mdi mdi-settings-outline"></i>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <!-- <div class="col-md-4">
+        <!-- <div class="col-md-4">
                     <div class="p-2 py-5">
                         <div class="d-flex justify-content-between align-items-center experience"><span></span></div><br>
                         <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
@@ -210,61 +132,88 @@
                     </div>
                 </div> -->
     </div>
-  </div>
+</div>
 </template>
 
 <script>
 export default {
-  name: "editprofileComp",
+    name: "editprofileComp",
 };
 </script>
 
 <style>
 body {
-  background: rgb(231, 228, 235);
+    background: rgb(231, 228, 235);
 }
 
-.fake-input { position: relative; width:240px; }
-.fake-input input { border:none; background-color:#fff; display:block; width: 100%; box-sizing: border-box }
-.fake-input img { position: absolute; top: 2px; right: 5px }
+.fake-input {
+    position: relative;
+    width: 240px;
+}
+
+.fake-input input {
+    border: none;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fake-input img {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+}
 
 .form-control:focus {
-  box-shadow: none;
-  border-color: #ba68c8;
+    box-shadow: none;
+    border-color: #ba68c8;
 }
 
 .back:hover {
-  color: #73272b;
-  cursor: pointer;
+    color: #73272b;
+    cursor: pointer;
 }
 
 .labels {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .add-experience:hover {
-  background: #ba68c8;
-  color: #fff;
-  cursor: pointer;
-  border: solid 1px #ba68c8;
+    background: #ba68c8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #ba68c8;
 }
 
 .address {
-  text-align: initial;
-  font: normal normal bold 20px/30px Poppins;
-  letter-spacing: 0px;
-  color: #262626;
+    text-align: initial;
+    font: normal normal bold 20px/30px Poppins;
+    letter-spacing: 0px;
+    color: #262626;
 }
 
 .profile {
-  text-align: initial;
-  font: normal normal bold 20px/30px Poppins;
-  letter-spacing: 0px;
-  color: #b1622a;
+    text-align: initial;
+    font: normal normal bold 20px/30px Poppins;
+    letter-spacing: 0px;
+    color: #b1622a;
 }
+
 .pen {
-  background-image: url(../assets/pen1.svg);
-  background-repeat: no-repeat;
-  background-position: right;
+    margin-top: -33px;
+    margin-right: 15px;
+    opacity: 0;
+    z-index: 1;
+
+    transition: opacity 0.5s ease;
+    position: relative;
+
+    cursor: pointer;
+    z-index: 1;
+}
+
+.editbutton:hover .pen {
+    opacity: 1;
 }
 </style>
