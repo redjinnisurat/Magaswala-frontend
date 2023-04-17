@@ -1,5 +1,5 @@
 <template>
-<div class="main-container">
+<div class="container">
     <div class="row">
         <div class="col-lg-6" id="left-side">
             <div class="text">

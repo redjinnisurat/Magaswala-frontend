@@ -1,28 +1,29 @@
 <template>
-<div class="main-container" id="main-container2">
+<div class="container">
     <div class="row">
         <div class="col-lg-6" id="left-side">
-            <div class="text" id="text-set">
-                <div class="text-info3">
-                    <h2 class="setpass">set new password</h2>
-                    <p>please enter new password </p>
-                    <input class="email" type="text" placeholder="password">
-                    <br>
-                    <input class="email" type="text" placeholder=" confirm password">
-                    <br>
-                    <button class="submit-btn" type="btn">submit</button>
-                    <br>
-
+            <div class="text">
+                <div class="row">
+                    <div class="col-lg-6" id="second-col2">
+                        <h2 class="setpass">set new password</h2>
+                        <p>please enter new password </p>
+                        <input class="email" type="text" placeholder="password">
+                        <br>
+                        <input class="email" type="text" placeholder=" confirm password">
+                        <br>
+                        <button class="submit-btn" type="btn">submit</button>
+                        <br>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-        <div class="col-lg-6" id="right-side">
-            <img src="../assets/backgoundimg.png" alt="" class="img-2">
-            <h2 class="heading-magaswala2">magaswala</h2>
+        <div class="col-lg-6" id="rigth-side">
+            <img src="../assets/backgoundimg.png" alt="">
+            <h2 class="heading-magaswala">magaswala</h2>
         </div>
     </div>
-
 </div>
 </template>
 
@@ -33,110 +34,29 @@ export default {
 </script>
 
 <style>
-#text-set {
-    height: 710px;
+.text {
+    border: 3px solid #BF9742;
+    opacity: 1;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.text-info3 {
-    margin-top: 40%;
+#second-col2 {
+    margin: 0 auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .setpass {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
-}
-
-#right-side .img-2 {
-    width: 101%;
-    height: 719px;
-    margin-top: -1%;
-    margin-left: -2%;
-}
-
-.heading-magaswala2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Courgette', 'cursive';
-    font-weight: normal;
-    font-size: 65px;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-    text-transform: capitalize;
-}
-
-@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
-    #right-side .img-2 {
-        width: 111%;
-        height: 715px;
-    }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1199.98px) {
-    #text-set {
-        height: 480px;
-    }
-
-    .text-info3 {
-        margin-top: 15%;
-    }
-
-    .setpass {
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    #right-side .img-2 {
-        width: 121%;
-        height: 490px;
-        margin-top: -1%;
-        margin-left: -2%;
-    }
-
-    .heading-magaswala2 {
-        top: 50%;
-        left: 58%;
-        font-size: 65px;
-
-    }
-}
-
-@media screen and (min-width: 600px) and (max-width: 999.98px) {
-    #text-set {
-       margin-left: 25%;
-    }
-
-    .text-info3 {
-        margin-top: 40%;
-    }
-
-    #right-side .img-2 {
-        display: none;
-    }
-
-    .heading-magaswala2 {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 300px) and (max-width: 599.98px) {
-    .text-info3 {
-        margin-top: 80%;
-    }
-
-    .setpass {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    #right-side .img-2 {
-        display: none;
-    }
-
-    .heading-magaswala2 {
-        display: none;
-    }
 }
 </style>
