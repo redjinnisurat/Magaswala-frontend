@@ -66,7 +66,7 @@ export default {
 .text {
     border: 3px solid #BF9742;
     opacity: 1;
-    height: 100%;
+    height: 95%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -107,8 +107,7 @@ p {
 
 .email {
     margin-top: 3%;
-    width: 100%;
-    height: 50px;
+    width: 85%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #BF9742;
     border-radius: 10px;
@@ -124,9 +123,8 @@ p {
 }
 
 .submit-btn {
-    margin-top: 3%;
-    width: 100%;
-    height: 50px;
+    margin-top: 2%;
+    width: 85%;
     border: none;
     border-radius: 10px;
     text-align: center;
@@ -138,7 +136,7 @@ p {
 }
 
 .btn {
-    margin-top: 3%;
+    margin-top: 2%;
     text-transform: capitalize;
     font: normal normal normal 20px/24px Roboto;
     letter-spacing: 0px;
@@ -154,7 +152,7 @@ p {
 
 #rigth-side img {
     width: 100%;
-    height: 100%;
+    height: 97%;
     background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     opacity: 1;
@@ -173,5 +171,152 @@ p {
     color: #FFFFFF;
     opacity: 1;
     text-transform: capitalize;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1599.98px) {
+    .text {
+        height: 100%;
+    }
+
+    #second-col {
+        margin: 0 auto;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .email {
+        margin-top: 3%;
+        width: 100%;
+        height: 50px;
+        padding-left: 2%;
+        text-align: left;
+        font-family: 'Roboto';
+        font-size: 20px;
+        letter-spacing: 0px;
+        color: #838282;
+        opacity: 1;
+        text-transform: capitalize;
+    }
+
+    .submit-btn {
+        margin-top: 3%;
+        width: 100%;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Roboto';
+        font-size: 20px;
+        color: #FAFAFA;
+        background-color: #A17A35;
+        opacity: 1;
+    }
+
+    .btn {
+        margin-top: 3%;
+        text-transform: capitalize;
+        font: normal normal normal 20px/24px Roboto;
+        letter-spacing: 0px;
+        color: #838282;
+        opacity: 1;
+        font-family: 'Roboto';
+        font-size: 20px;
+    }
+
+    #right-side {
+        position: relative;
+    }
+
+    #rigth-side img {
+        width: 100%;
+        height: 100%;
+        background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        opacity: 1;
+    }
+
+    .heading-magaswala {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 65%;
+        color: white;
+        font-size: 40px;
+        font-family: 'Courgette', 'cursive';
+        font-weight: normal;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+        text-transform: capitalize;
+    }
+
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
+    .container{
+        height: auto;
+    }
+    .text {
+        height: 100%;
+    }
+
+    #rigth-side img {
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1199.98px) {}
+
+@media screen and (min-width: 600px) and (max-width: 999.98px) {
+    .heading-magaswala {
+        display: none;
+    }
+
+    #rigth-side img {
+        display: none;
+    }
+
+    .text {
+        width: 100%;
+        margin-left: 40%;
+    }
+
+    h2 {
+        font-size: 20px;
+
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 599.98px) {
+    .text {
+        margin-top: 20%;
+
+    }
+
+    h2 {
+        font-size: 18px;
+
+    }
+
+    #rigth-side img {
+        display: none;
+    }
+
+    .heading-magaswala {
+        display: none;
+    }
 }
 </style>
