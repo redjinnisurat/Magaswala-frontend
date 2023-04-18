@@ -424,5 +424,8 @@ export default {
     background-color: #f9fcff;
     border-color: var(--bs-btn-hover-border-color);
   }
+  .user-details {
+    margin-left: 70px;
+  }
 }
 </style>
