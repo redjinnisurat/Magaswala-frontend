@@ -334,7 +334,7 @@ export default {
   display: none;
 }
 .user-details {
-  margin-left: 28px;
+  margin-left: 32px;
   background: #f9f9f9;
 }
 
