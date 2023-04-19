@@ -17,7 +17,7 @@
     <div class="container">
     <div class="row">
         <div class="col" id="bg">
-            <img class="p" src="../assets/image/sweet.png" />
+            <img class="responsive" src="../assets/image/sweet.png" width="490" height="290" />
             <h4>Kesar Magas &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<img id="heart" src="../assets/image/redheart.svg"></h4>
             <h6><span style="color: #E6B325; font-size: 24px;">₹250 Per Kg &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<img src="../assets/image/Star.svg" id="st">
         <img src="../assets/image/Star.svg" id="st"><img src="../assets/image/Star.svg" id="st"><img src="../assets/image/Star.svg" id="st">
@@ -37,6 +37,7 @@
         </div>
         <div class="col">
             <div class="verticaline">
+            <br>
             <h5>Checkout</h5><br>
             <h5>Payment Options</h5><br>
             <h6><label><img id="pay" src="../assets/image/card.png"> Credit Card/Debit Card&emsp;&emsp;&emsp;</label>
@@ -48,20 +49,23 @@
             <h6><label><img id="pay" src="../assets/image/cod.png"> Pay on Delivery &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
             <input type="radio" id="K" name="payment">&emsp;<br></h6>
         </div>
+        <div class="col">
         <div id="right">
-            <h5><span style="font-size: 18px;">Order Summary</span></h5><br>
-            <p>Items:&emsp; &emsp; &emsp; &emsp; &emsp;Rs.250</p>
-            <p>CGST:&emsp; &emsp; &emsp; &emsp; &emsp; Rs.10</p>
-            <p>SGST:&emsp; &emsp; &emsp; &emsp; &emsp; Rs.10</p>
+            <h5><span style="font-size: 17px;">Order Summary</span></h5><br>
+            <p>Items:&emsp; &emsp; &emsp; &emsp;&emsp;Rs.250</p>
+            <p>CGST:&emsp; &emsp; &emsp; &emsp;&emsp; Rs.10</p>
+            <p>SGST:&emsp; &emsp; &emsp; &emsp;&emsp; Rs.10</p>
             <hr class="hr">
-            <p>Total:&emsp; &emsp; &emsp; &emsp; &emsp; Rs.40</p>
-            <p>Delivery:&emsp;&emsp; &emsp; &emsp; Rs.270</p>
+            <p>Total:&emsp; &emsp; &emsp; &emsp;&emsp; Rs.40</p>
+            <p>Delivery:&emsp;&emsp; &emsp; &emsp;Rs.270</p>
             <hr class="hr">
-            <p>Total:&emsp; &emsp; &emsp; &emsp; &emsp;Rs.310</p>
+            <p>Total:&emsp; &emsp; &emsp; &emsp;&emsp;Rs.310</p>
         </div>
+      </div>
         <br>
         <br>
         <br>
+        <div class="col">
         <h5> &emsp;Shipping To</h5><br>
         <div id="address">
          <p>&ensp;<span style="color: black;"> &emsp; Home Address</span><br>
@@ -75,6 +79,7 @@
         </div><br>
         <button type="button" id="mpay">Make Payment</button><br>
         </div>
+      </div>
     </div><br>
     <div class="row">
       <div class="col">
