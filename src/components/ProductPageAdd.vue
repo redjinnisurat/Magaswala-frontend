@@ -85,7 +85,7 @@
         &emsp;<span style="color: #E6B325;">Rs.250/kg</span><br>
         &emsp;Made with pure kesar &emsp;&emsp;&emsp;&emsp;<button id="add">Add to bag</button><br>
         &ensp;</p>
-    </div> 
+    </div>
     </div>
     <div class="col-4">
         <div id="product1">
