@@ -339,7 +339,7 @@ export default {
 }
 
 .user-details img {
-  margin-top: 33.27px;
+  margin-top: 33px;
   width: 151px;
   height: 151px;
   border-radius: 50%;
@@ -354,6 +354,11 @@ export default {
   font: normal normal normal 16px/25px Poppins;
   letter-spacing: 0px;
   color: #262626;
+}
+.right-bordr {
+  content: "";
+  margin-left: 12px;
+  margin-top: 21px;
 }
 .navbar-collapse {
   background: #f9f9f9 0% 0% no-repeat padding-box;
