@@ -1,5 +1,5 @@
 <template>
-   <section>
+    <section>
         <h2 class="heading">Users also bought this</h2>
         <button class="pre-btn" @click="prebtn">
             <img src="@/assets/right_arrow.png" alt="">
@@ -57,32 +57,15 @@
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="@/assets/ladu.png" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 250/kg</span>
-                    <p class="product-short-description">Made with pure kesar</p>
-                    <button href="#" class="btn">Add to Bag</button>
-                </div>
-            </div>
-
         </div>
     </section>
 </template>
 
 <script>
-import { ref } from "vue";
-  export default{
-    name: "RecommandedProducts",
-    setup() {
-    const isOpen = ref(false);
-    return { isOpen };
-  },
+export default {
+    name: "SimpleSlider",
 
-  prebtn() {
+    prebtn() {
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -93,29 +76,22 @@ import { ref } from "vue";
 
         nxtBtn[i].addEventListener('click', () => {
             item.scrollLeft += containerWidth;
+            alert("clicked");
         })
 
         preBtn[i].addEventListener('click', () => {
             item.scrollLeft -= containerWidth;
         })
     })
-  },
-  };
+    
+},
+}
 </script>
 
 <style scoped>
-.heading{
-  margin-top: 20px;
-  margin-left: 100px;
-}
-.product-container{
-  margin-top: 25px;
-  width: 30em;
-  margin-left: 5em;
-}
 .product-card{
     width: 22em;
-    margin-left: 1em;
+    margin-left: 2em;
 }
 .product-image{
     width: 21em;
@@ -166,16 +142,14 @@ import { ref } from "vue";
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff, 100%);
     cursor: pointer;
     z-index: 9;
-    margin-top: 44em;
-    /* background: #edd5a4; */
+    margin-top: 10em;
 }
 .pre-btn{
-   margin-left: 3em;
+    left: 0;
     transform: rotate(180deg);
 }
 .nxt-btn{
-    margin-left: 73em;
-    /* float: right; */
+    right: 0;
 }
 /* .pre-btn img{
     width: 1.5em;
@@ -188,6 +162,7 @@ import { ref } from "vue";
     width: 1.3em;
     opacity: 0.2;
     background: none;
+    
 }
 
 .pre-btn:hover img,

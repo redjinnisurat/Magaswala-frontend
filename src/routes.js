@@ -1,9 +1,11 @@
 import MyHomepage from './components/MyHomepage.vue'
 import MyCheckoutpage from './components/MyCheckoutpage.vue'
 import MyPaymentpage from './components/MyPaymentpage.vue'
-// import RandomItemsProducts from './components/RandomItemsProducts.vue'
+import RandomItemsProducts from './components/RandomItemsProducts.vue'
 // import ProductSlider from './components/ProductSlider.vue'
 import ImageSlider from './components/ImageSlider.vue'
+// import CarouselSlider from './components/CarouselSlider.vue'
+import SimpleSlider from './components/SimpleSlider.vue'
 import { createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
@@ -22,11 +24,11 @@ const routes = [
     component: MyPaymentpage,
     path: "/paymentpage"
   },
-//   {
-//     name: "RandomItemsProducts",
-//     component: RandomItemsProducts,
-//     path: "/"
-//   },
+  {
+    name: "RandomItemsProducts",
+    component: RandomItemsProducts,
+    path: "/"
+  },
   //  {
   //   name: "ProductSlider",
   //   component: ProductSlider,
@@ -36,6 +38,16 @@ const routes = [
     name: "ImageSlider",
     component: ImageSlider,
     path: "/imageslider"
+   },
+  //  {
+  //   name: "CarouselSlider",
+  //   component: CarouselSlider,
+  //   path: "/carouselslider"
+  //  },
+   {
+    name: "SimpleSlider",
+    component: SimpleSlider,
+    path: "/simpleslider"
    },
  ]
 

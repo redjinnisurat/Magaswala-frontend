@@ -476,14 +476,14 @@ export default {
     margin-left: 12rem;
   }
   .weight {
-    margin-right: 6em;
+    margin-right: 9em;
     margin-top: -2.8rem;
     font-size: 30px;
     margin-bottom: 0px;
   }
 
   .dlt {
-    margin-right: -14em;
+    margin-right: -15em;
     margin-top: -2rem;
     width: 2rem;
   }
@@ -512,14 +512,16 @@ export default {
     height: 35em;
   }
   .checkout {
-    margin-right: -38em;
+    margin-right: -41em;
     margin-top: -32rem;
     width: 20em;
   }
 
   .box {
+    max-width: 30em;
+    /* font-size: 70px; */
     margin-top: -18em;
-    margin-left: 46em;
+    margin-left: 48em;
   }
 
   .box .box-title {

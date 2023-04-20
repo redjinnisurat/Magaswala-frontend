@@ -1,86 +1,168 @@
-<!-- <template>
-  <div>
-    <b-carousel
-      id="carousel-1"
-      v-model="slide"
-      :interval="4000"
-      controls
-      indicators
-      background="#ababab"
-      img-width="1024"
-      img-height="480"
-      style="text-shadow: 1px 1px 2px #333;"
-      @sliding-start="onSlideStart"
-      @sliding-end="onSlideEnd"
-    >
-      <!-- Text slides with image -->
-      <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="@/assets/ladu.png"
-      ></b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="@/assets/ladu.png">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="@/assets/ladu.png"></b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="@/assets/ladu.png"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
-    </b-carousel>
-
-    <p class="mt-4">
-      Slide #: {{ slide }}<br>
-      Sliding: {{ sliding }}
-    </p>
+<template>
+  <div class="wrapper">
+    <i id="left" class="fa-solid fa-angle-left" ></i>
+    <div class="carousel">
+      <img src="@/assets/ladu.png" alt="img" draggable="false">
+      <img src="@/assets/ladu.png" alt="img" draggable="false">
+      <img src="@/assets/ladu.png" alt="img" draggable="false">
+      <img src="@/assets/ladu.png" alt="img" draggable="false">
+      <img src="@/assets/ladu.png" alt="img" draggable="false">
+      <img src="@/assets/ladu.png" alt="img" draggable="false">
+    </div>
+    <i id="right" class="fa-solid fa-angle-right"></i>
   </div>
 </template>
 
 <script>
 export default {
   name: "RandomItemsProducts",
-  data() {
-      return {
-        slide: 0,
-        sliding: null
-      }
-    },
-    methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
-      }
+ 
+  function() {
+  const carousel = document.querySelector(".carousel"),
+  firstImg = carousel.querySelectorAll("img")[0];
+  arrowIcons = document.querySelectorAll(".wrapper i");
+
+  let isDragStart = false, isDragging = false, prevPageX,arrowIcons, prevScrollLeft, positionDiff;
+  
+  
+  const showHideIcons = () => {
+    // showing and hiding prev/next icon according to carousel scroll left value
+    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+    arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+    arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+  }
+
+  arrowIcons.forEach(icon => {
+    icon.addEventListener("click", () => {
+      let firstImgWidth = firstImg.clientWidth + 14;  // getting first img width & adding 14 margin value
+      // if clicked icon is left, reduce width value from the carousel scroll left else add to it
+       carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+       setTimeout(() => showHideIcons(), 60);  // calling shoeHideIcons after 60ms
+    });
+  });
+
+  const autoSlide = () => {
+     if(carousel.scrollLeft == (carousel.scrollWidth - carousel.clientWidth)) return;
+
+    positionDiff = Math.abs(positionDiff);  // making positionDiff value to positive
+    let firstImgWidth = firstImg.clientWidth + 14;
+    // getting difference value that needs to add or reduce from carousel left to take middle img center
+    let valDifference = firstImgWidth - positionDiff;
+
+    if(carousel.scrollLeft > prevScrollLeft) {
+      // if user is scrolling to the right
+        return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff; 
     }
+    // if user is scrolling to the left
+    carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+  }
+
+  const dragStart = (e) => {
+    // updating global variables value on mouse down event
+    isDragStart = true;
+    prevPageX = e.pageX || e.touches[0].pageX;
+    prevScrollLeft = carousel.scrollLeft;
+  }
+
+  const dragging  = (e) => {
+    // scrolling images/carousel to left according to mouse pointer
+    if(!isDragStart) return;
+    e.preventDefault();
+    isDragging = true;
+    carousel.classList.add("dragging");
+    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+    carousel.scrollLeft = prevScrollLeft - positionDiff;
+    showHideIcons();
+  }
+
+  const dragStop = () => {
+    isDragStart = false;
+    carousel.classList.remove("dragging");
+
+    if(!isDragging) return;
+    isDragging = false;
+    autoSlide();
+  }
+
+  carousel.addEventListener("mousedown", dragStart);
+  carousel.addEventListener("touchstart", dragStart);
+
+
+  carousel.addEventListener("mousemove", dragging);
+  carousel.addEventListener("touchmove", dragging);
+
+  carousel.addEventListener("mouseup", dragStop);
+  carousel.addEventListener("mouseleave", dragStop);
+  carousel.addEventListener("touchend", dragStop);
+}
 };
 </script>
 
 
 <style scoped>
-*{
-    background-color: silver;
+/* body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+} */
+.wrapper{
+  max-width: 1200px;
+  position: relative;
 }
-</style> -->
+.wrapper i{
+  top: 50%;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 46px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.wrapper i:first-child{
+  left: -23px;
+  display: none;
+}
+.wrapper i:last-child{
+  right: -23px;
+}
+.wrapper .carousel{
+  font-size: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+.carousel.dragging{
+  cursor: grab;
+  scroll-behavior: auto;
+}
+.carousel.dragging img{ 
+  pointer-events: none;
+}
+.carousel img{
+  height: 340px;
+  /* object-fit: cover; */
+  margin-left: 14px;
+  /* width: calc(100% / 3); */
+  width: 350px;
+}
+.carousel img:first-child{
+  margin-left: 0px; 
+}
+
+@media screen and (max-width: 900px) {
+  .carousel img{
+    width: 300px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .carousel img{
+    width: 100%;
+  }
+}
+</style> 
