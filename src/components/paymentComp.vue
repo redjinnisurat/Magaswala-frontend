@@ -82,7 +82,7 @@
             <div class="row mt-2" style=" height: 30px;">
               <div class="col-md-1">
                 <label class="labels"></label>
-                <img src="../assets/Group246.png" align="right" />
+                <img  src="../assets/Group246.png" align="right"  />
               </div>
               <div class="col-md-5">
                 <label class="labels"></label>
@@ -90,8 +90,9 @@
               </div>
               <div class="col-md-1">
                 <label class="labels"></label>
-                <img src="../assets/forword.png" align="right" />
-              </div>
+                <img src="../assets/forword.png" align="left"  />
+              </div> 
+             
             </div>
   
             <div class="row mt-2" style=" height: 30px;">

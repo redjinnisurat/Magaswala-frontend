@@ -1,15 +1,16 @@
 <template>
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row" style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px">
-        <div class="col-md-12 border-right">
-            <div class="p-3 py-1">
-                <div class="d-flex justify-content-between align-items-center mb-3 mt-4 editbutton">
-                    <h4 class="text-right profile">My Profile</h4>
+        <div class="col-md-12 border-right ">
+            <div class="p-3 py-1 ">
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4  editbutton">
+                    <h4 class="text-right profile">My Profile edittt</h4>
                     <div class="editbutton" style="text-align: end">
-                        <a href="#" class="btn btn-outlined btn-black address" data-wow-delay="0.7s"><img class="editbutton" src="../assets/edit.svg" /> <small></small></a>
+                        <a href="#" class="btn btn-outlined btn-black address " data-wow-delay="0.7s"><img  src="../assets/edit.svg" /> <small></small></a>
 
                         <i class="mdi mdi-settings-outline"></i>
                     </div>
+                    
                 </div>
 
                 <div class="row mt-2">
@@ -210,10 +211,11 @@ body {
     position: relative;
 
     cursor: pointer;
-    z-index: 1;
+  
 }
 
 .editbutton:hover .pen {
     opacity: 1;
 }
+
 </style>
