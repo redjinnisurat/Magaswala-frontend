@@ -48,7 +48,7 @@
             <input type="radio" id="K" name="payment">&emsp;<br></h6>
             <h6><label><img id="pay" src="../assets/image/cod.png"> Pay on Delivery &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
             <input type="radio" id="K" name="payment">&emsp;<br></h6>
-        </div>
+        </div> 
         <div class="col">
         <div id="right">
             <h5><span style="font-size: 17px;">Order Summary</span></h5><br>
