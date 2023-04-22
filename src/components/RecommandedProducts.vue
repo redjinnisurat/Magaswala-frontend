@@ -1,243 +1,199 @@
 <template>
-    <h3 class="heading">Recommanded Products</h3>
-    <div class="container d-flex">
-      <div class="box">
-    <img src="@/assets/ladu.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/><a href="#" class="btn">Add to Bag</a></p>
-      
-    </div>
-  </div>
-  
-  <div class="box">
-    <img src="@/assets/ladu.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="text pt-3 px-2">Kesar Magas <br/> Rs.125/500gm <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
-      
-    </div>
-  </div>
-  
-  <div class="box">
-    <img src="@/assets/ladu.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
-    </div>
-  </div>
+  <section>
+       <h2 class="heading">Recommanded Products</h2>
+       <button class="pre-btn" @click="prebtn">
+           <img src="@/assets/right_arrow.png" alt="">
+       </button>
+       <button class="nxt-btn">
+           <img src="@/assets/right_arrow.png" alt="">
+       </button>
 
-  <!-- <div class="box">
-    <img src="@/assets/ladu.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="text pt-3 px-2">Kesar Magas <br/> Rs.250/kg <br/> Made with pure kesar <br/> <a href="#" class="btn">Add to Bag</a></p>
-    </div>
-  </div> -->
+       <div class="product-container d-flex">
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="@/assets/ladu.png" alt="">
+               </div>
+               <div class="product-info">
+                   <p class="product-name">Kesar magas</p>
+                   <span class="price">Rs. 250/kg</span>
+                   <p class="product-short-description">Made with pure kesar</p>
+                   <a href="#" class="btn">Add to Bag</a>
+               </div>
+           </div>
 
-  </div>
-  </template>
-  
-  <script>
-  import { ref } from "vue";
-    export default{
-      name: "RecommandedProducts",
-      setup() {
-      const isOpen = ref(false);
-      return { isOpen };
-    },
-    }
-  </script>
-  
-  <style scoped>
-  .heading{
-  margin-left: 3.8em;
-  font-weight: bold;
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="@/assets/ladu.png" alt="">
+               </div>
+               <div class="product-info">
+                   <p class="product-name">Kesar magas</p>
+                   <span class="price">Rs. 125/500gm</span>
+                   <p class="product-short-description">Made with pure kesar</p>
+                   <button href="#" class="btn">Add to Bag</button>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="@/assets/ladu.png" alt="">
+               </div>
+               <div class="product-info">
+                   <p class="product-name">Kesar magas</p>
+                   <span class="price">Rs. 250/kg</span>
+                   <p class="product-short-description">Made with pure kesar</p>
+                   <button href="#" class="btn">Add to Bag</button>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="@/assets/ladu.png" alt="">
+               </div>
+               <div class="product-info">
+                   <p class="product-name">Kesar magas</p>
+                   <span class="price">Rs. 125/500gm</span>
+                   <p class="product-short-description">Made with pure kesar</p>
+                   <button href="#" class="btn">Add to Bag</button>
+               </div>
+           </div>
+
+           <div class="product-card">
+               <div class="product-image">
+                   <img src="@/assets/ladu.png" alt="">
+               </div>
+               <div class="product-info">
+                   <p class="product-name">Kesar magas</p>
+                   <span class="price">Rs. 250/kg</span>
+                   <p class="product-short-description">Made with pure kesar</p>
+                   <button href="#" class="btn">Add to Bag</button>
+               </div>
+           </div>
+
+       </div>
+   </section>
+</template>
+
+<script>
+import { ref } from "vue";
+ export default{
+   name: "RecommandedProducts",
+   setup() {
+   const isOpen = ref(false);
+   return { isOpen };
+ },
+
+ prebtn() {
+   const productContainers = [...document.querySelectorAll('.product-container')];
+   const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+   const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+   productContainers.forEach((item, i) => {
+       let containerDimensions = item.getBoundingClientRect();
+       let containerWidth = containerDimensions.width;
+
+       nxtBtn[i].addEventListener('click', () => {
+           item.scrollLeft += containerWidth;
+       })
+
+       preBtn[i].addEventListener('click', () => {
+           item.scrollLeft -= containerWidth;
+       })
+   })
+ },
+ };
+</script>
+
+<style scoped>
+.heading{
+ margin-top: 20px;
+ margin-left: 100px;
 }
-.container{
- margin-left: 5.5em; 
+.product-container{
+ margin-top: 25px;
+ width: 30em;
+ margin-left: 5em;
+ overflow:initial;
 }
-  
-  .box img{
-    background-color: #edd5a4;
-    width: 22em;
-  }
-  
-  .box{
-    height: 10em;
-    padding: 9px;
-    width: 45em;
-    border-radius: 0px;
-  }
-  
-  .card-img-top{
-    background: none;
-  }
-  .card-body{
-    width: 22em;
-    background-color: white;
-  }
-  /* .card2{
-    height: 10em;
-    width: 20em;
-    padding: 10px;
-  }
-  
-  .card3{
-    height: 10em;
-    width: 20em;
-    padding: 10px;
-  } */
-  .box .btn{
-    background-color: #A17A35;
-    color: white;
-    margin-left: 15em;
-    margin-top: -3em;
-    padding: 0px;
-    width: 6em;
-    height: 1.7em;
-  }
-  /* .card2 .btn{
-    background-color: #A17A35;
-    color: white;
-    margin-left: 11em;
-    margin-top: -5em;
-    width: 7em;
-  }
-  .card3 .btn{
-    background-color: #A17A35;
-    color: white;
-    margin-left: 11em;
-    margin-top: -5em;
-    width: 7em;
-  } */
-@media screen and (max-width: 1800px) {
-
-  /* .heading{
-    margin-left: 6.5em;
-  }
-   .container{
-    max-width: 80em;
-    margin-left: 10em;
-   } */
+.product-card{
+   width: 22em;
+   margin-left: 1em;
 }
-@media screen and (max-width: 1399px) {
-
-  /* .heading{
-    margin-left: 4em;
-  }
-  .container{
-    margin-left: 6em;
-    max-width: 80em;
-  } */
+.product-image{
+   width: 21em;
+   background-color: #edd5a4;
 }
-  @media screen and (max-width: 993px) {
-    .container{
-      margin-left: 3em;
-      padding-right: 10px;
-      width: 50em;
-    }
-  
-    .card{
-      width: 18em;
-      padding: 10px;
-    }
-  
-    /* .card2{
-      width: 18em;
-    }
-  
-    .card3{
-      width: 18em;
-    } */
-  }
-@media screen and (max-width: 590px) {
-  .container{
-    width: 70rem;
-  }
-  .heading{
-    font-size: 50px;
-    width: 40rem;
-    margin-left: 5rem;
-  }
-  .box{
-    max-width: 37rem;
-    padding-right: 0px;
-    margin-right: 0px;
-  }
-  .box .card-img-top{
-    width: 35rem;
-  }
-  .box .card-body{
-    width: 37rem;
-    font-size: 30px;
-    padding: 0px;
-
-  }
-  .box .btn{
-    margin-left: 25rem;
-    margin-top: -8rem;
-    font-size: 20px;
-  }
+.product-image img{
+   width: 16em;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
 }
-@media screen and (max-width: 490px) {
-  .container{
-    width: 70rem;
-    /* margin-top: 20rem; */
-  }
-  .heading{
-    font-size: 50px;
-    width: 40rem;
-    margin-left: 5rem;
-    margin-top: 57rem;
-  }
-  .box{
-    max-width: 37rem;
-    padding-right: 0px;
-    margin-right: 0px;
-  }
-  .box .card-img-top{
-    width: 35rem;
-  }
-  .box .card-body{
-    width: 80rem;
-    font-size: 30px;
-    padding: 0px;
-
-  }
-  .box .btn{
-    margin-left: 25rem;
-    margin-top: -8rem;
-    font-size: 20px;
-  }
+.product-info{
+   background-color: #fff;
+   height: 6em;
+   opacity: 5;
+   filter: blur(0.5px);
+   padding: 10px 10px;
 }
 
-  @media screen and (max-width: 390px) {
-    .container{
-    width: 70rem;
-    margin-top: 10rem;
-  }
-  .heading{
-    font-size: 50px;
-    width: 40rem;
-    margin-left: 5rem;
-    margin-top: 58rem;
-    margin-bottom: 10rem;
-  }
-  .box{
-    max-width: 35rem;
-    margin-top: -8rem;
-    margin-bottom: -8rem;
-  }
-  .box .card-img-top{
-    width: 28rem;
-  }
-  .box .card-body{
-    width: 28rem;
-    font-size: 25px;
-    padding: 0px;
+.product-name{
+   margin-bottom: 0;
+}
+.product-info .product-short-description{
+   width: 10em;
+  margin-right: 0;
+}
+.product-info .btn{
+   background-color: #A17A35;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   margin-left: 13em;
+   margin-top: -5rem;
+   padding-top:0;
+   width: 6.5em;
+   height: 1.6em;
+   transition: all 0.3s ease;
+}
+.pre-btn,
+.nxt-btn {
+   border: none;
+   width: 2vw;
+   height: 8vh;
+   position: absolute;
+   top: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff, 100%);
+   cursor: pointer;
+   z-index: 9;
+   margin-top: 78em;
+   /* background: #edd5a4; */
+}
+.pre-btn{
+  margin-left: 3em;
+   transform: rotate(180deg);
+}
+.nxt-btn{
+   margin-left: 73em;
+   /* float: right; */
+}
+/* .pre-btn img{
+   width: 1.5em;
+}
+.nxt-btn img{
+   width: 1.5em;
+} */
+.pre-btn img,
+.nxt-btn img {
+   width: 1.3em;
+   opacity: 0.2;
+   background: none;
+}
 
-  }
-  .box .btn{
-    margin-left: 17rem;
-    margin-top: -6rem;
-    font-size: 20px;
-  }
-  }
-  </style>
+.pre-btn:hover img,
+.nxt-btn:hover img {
+   opacity: 1;
+}
+</style>

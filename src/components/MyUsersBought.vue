@@ -17,7 +17,7 @@
                     <p class="product-name">Kesar magas</p>
                     <span class="price">Rs. 250/kg</span>
                     <p class="product-short-description">Made with pure kesar</p>
-                    <button href="#" class="btn">Add to Bag</button>
+                    <a href="#" class="btn">Add to Bag</a>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="product-info">
                     <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 250/kg</span>
+                    <span class="price">Rs. 125/500gm</span>
                     <p class="product-short-description">Made with pure kesar</p>
                     <button href="#" class="btn">Add to Bag</button>
                 </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="product-info">
                     <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 250/kg</span>
+                    <span class="price">Rs. 125/500gm</span>
                     <p class="product-short-description">Made with pure kesar</p>
                     <button href="#" class="btn">Add to Bag</button>
                 </div>
@@ -112,6 +112,7 @@ import { ref } from "vue";
   margin-top: 25px;
   width: 30em;
   margin-left: 5em;
+  overflow:initial;
 }
 .product-card{
     width: 22em;
@@ -129,11 +130,12 @@ import { ref } from "vue";
 }
 .product-info{
     background-color: #fff;
-    height: 7em;
+    height: 6em;
     opacity: 5;
     filter: blur(0.5px);
     padding: 10px 10px;
 }
+
 .product-name{
     margin-bottom: 0;
 }
@@ -146,8 +148,8 @@ import { ref } from "vue";
     color: white;
     border: none;
     border-radius: 5px;
-    margin-left: 12em;
-    margin-top: -2rem;
+    margin-left: 13em;
+    margin-top: -5rem;
     padding-top:0;
     width: 6.5em;
     height: 1.6em;
