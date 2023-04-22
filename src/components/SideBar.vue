@@ -360,6 +360,11 @@ export default {
   margin-left: 12px;
   margin-top: 21px;
 }
+.right-bordr::after {
+  margin-top: 20px;
+  margin-bottom: 29px;
+  margin-left: 30px;
+}
 .navbar-collapse {
   background: #f9f9f9 0% 0% no-repeat padding-box;
 }
