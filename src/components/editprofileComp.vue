@@ -4,10 +4,10 @@
         <div class="col-md-12 border-right ">
             <div class="p-3 py-1 ">
                 <div class="d-flex justify-content-between align-items-center mb-3 mt-4  editbutton">
-                    <h4 class="text-right profile">My Profile edittt</h4>
+                    <h4 class="text-right profile">My Profile</h4>
                     <div class="editbutton" style="text-align: end">
-                        <a href="#" class="btn btn-outlined btn-black address " data-wow-delay="0.7s"><img  src="../assets/edit.svg" /> <small></small></a>
-
+                        <a href="#" class="btn btn-outlined btn-black address" data-wow-delay="0.7s">
+                            <img @mouseover="upHere = true" @mouseleave="upHere = false" class="editbutton" src="../assets/edit.svg" /> <small></small></a> 
                         <i class="mdi mdi-settings-outline"></i>
                     </div>
                     
@@ -20,12 +20,10 @@
                         </div>
 
                         <input type="text" class="form-control" placeholder="first name" value="" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                     <div class="col-md-6">
                         <label class="labels"></label><input type="text" class="form-control " style="margin-top: 5px" value="" placeholder="surname" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                 </div>
 
                 <div class="row mt-3">
@@ -34,8 +32,7 @@
                             <label class="labels">Mobile Number</label>
                         </div>
                         <input type="text" class="form-control " placeholder="enter phone number" value="" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-4">
@@ -65,8 +62,7 @@
                             <label class="labels">Email Id</label>
                         </div>
                         <input type="text" class="form-control " placeholder="Email Id" value="" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                 </div>
 
                 <div class="row mt-3">
@@ -75,34 +71,34 @@
                             <label class="labels">Address</label>
                         </div>
                         <label class="labels"></label><input type="text" class="form-control " value="" placeholder="Plot No." />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                     <div class="col-md-4">
                         <label class="labels"></label><input type="text" class="form-control" placeholder="Building name" value="" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                 </div>
 
                 <div class="row mt-3">
                     <div class="col-md-4">
                         <label class="labels"></label><input type="text" class="form-control " value="" placeholder="Near by landmark" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                     <div class="col-md-2">
                         <label class="labels"></label><input type="number" class="form-control" value="" placeholder="Pincode" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-2">
                         <label class="labels"> </label><input type="text" class="form-control " value="" placeholder="state" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
-                    </div>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                     <div class="col-md-4">
-                        <label class="labels"></label><input type="text" class="form-control" placeholder="country" value="" />
-                        <img class="pen" align="right" src="../assets/pen1.svg" alt="" />
+                        <label class="labels"></label><input id="edit" type="text" class="form-control" placeholder="country"/>
+                        <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                      
                     </div>
                 </div>
+
+
+                
+  
+
 
                 <div class="row mt-3">
                     <div class="col-md-6">
@@ -138,11 +134,16 @@
 
 <script>
 export default {
+  
     name: "editprofileComp",
+    data() {
+    return { upHere: '' }
+  },
 };
+
 </script>
 
-<style>
+<style >
 body {
     background: rgb(231, 228, 235);
 }
@@ -214,7 +215,7 @@ body {
   
 }
 
-.editbutton:hover .pen {
+ .pen {
     opacity: 1;
 }
 
