@@ -381,6 +381,9 @@ export default {
   justify-content: center;
   font-size: 22px;
 }
+.response-get {
+  background-color: #bf9742;
+}
 .side-nav-ele img {
   margin-left: 21px;
 }
