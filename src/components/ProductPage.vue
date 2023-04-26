@@ -117,7 +117,7 @@
 <div class="row">
       <h5>Most Bought Products</h5>
     </div><br>
-    <div class="row">
+    <div class="row"> 
     <div class="col-4">
         <div id="product1">
         <img id="product" src="../assets/image/sweet.png" />

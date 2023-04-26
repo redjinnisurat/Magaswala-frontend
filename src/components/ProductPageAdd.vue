@@ -31,7 +31,7 @@
         <label for="G">500G&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label> <input type="radio" name="select" id="G"><br>
         <label for="g">250G&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label> <input type="radio" name="select" id="g">&emsp;&emsp;&emsp;
         <button type="button" id="btn">Add to bag</button> 
-    </div>
+    </div> 
         </div>
         <div class="col">
             <div class="verticaline">
