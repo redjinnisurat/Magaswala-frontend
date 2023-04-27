@@ -113,14 +113,14 @@ p.a{
     padding-left: 5px;
     margin-top: 20px;
 }
-#del{
+#del{ 
     display: flex;
   align-items: center;
   justify-content: center;
 }
 .responsive{
     width: 100%;
-    height: auto; 
+    height: auto;
 }  
 #Inc{
     background-color: #BF9742;

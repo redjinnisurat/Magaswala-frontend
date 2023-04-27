@@ -15,7 +15,7 @@
     </div><br>
     <br>  
     <div class="container">
-    <div class="row">
+    <div class="row"> 
         <div class="col" id="bg">
             <img class="p" src="../assets/image/sweet.png" />
             <h4>Kesar Magas &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<img id="heart" src="../assets/image/redheart.svg"></h4>
@@ -31,9 +31,9 @@
         <label for="G">500G&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label> <input type="radio" name="select" id="G"><br>
         <label for="g">250G&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label> <input type="radio" name="select" id="g">&emsp;&emsp;&emsp;
         <button type="button" id="btn">Add to bag</button> 
-    </div> 
+    </div>  
         </div>
-        <div class="col">
+        <div class="col"> 
             <div class="verticaline">
             <h4>Checkout</h4><br>
             <h5>Payment Options</h5><br>
