@@ -67,6 +67,12 @@ export default {
   border: none;
   margin-left: 20px;
 }
+.nav-ali-bar {
+  margin: 0;
+  content: "";
+  padding: 0;
+  display: flex;
+}
 .form-div {
   margin-left: 140px;
   width: 537px;
