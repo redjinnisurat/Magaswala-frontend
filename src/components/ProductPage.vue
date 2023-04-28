@@ -125,8 +125,8 @@
         &emsp;<span style="color: #E6B325;">Rs.250/kg</span><br>
         &emsp;Made with pure kesar &emsp;&emsp;&emsp;&emsp;<button id="add">Add to bag</button><br>
         &ensp;</p>
-    </div>  
-    </div>
+    </div>   
+    </div> 
     <div class="col-4">
         <div id="product1">
         <img id="product" src="../assets/image/sweet.png" />
@@ -135,7 +135,7 @@
         &emsp;Made with pure kesar &emsp;&emsp;&emsp;&emsp;<button id="add">Add to bag</button><br>
         &ensp;</p>
     </div>
-</div>
+</div> 
     <div class="col-4">
         <div id="product1">
         <img id="product" src="../assets/image/sweet.png" />
@@ -164,9 +164,9 @@
        <div class="col">
         <div class="vl">
         <h5>Top Reviews</h5>
-        <br>
+        <br> 
         <p><img src="../assets/image/profile.png" id="prop"> Rahul <img id="st" src="../assets/image/Star.svg"><img id="st" src="../assets/image/Star.svg">
-          <img id="st" src="../assets/image/Star.svg"><img id="st" src="../assets/image/Star5.svg"><img id="st" src="../assets/image/Star5.svg"></p>
+         <img id="st" src="../assets/image/Star.svg"><img id="st" src="../assets/image/Star5.svg"><img id="st" src="../assets/image/Star5.svg"></p>
         <p class="rev">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and 
           I will give you a complete account of the system, and expound the actual teachings of the great explorer of
            the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is 

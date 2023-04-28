@@ -113,7 +113,7 @@ p.a{
     padding-left: 5px;
     margin-top: 20px;
 }
-#del{ 
+#del{  
     display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@ p.a{
     width: 100%;
     height: auto;
 }  
-#Inc{
+#Inc{ 
     background-color: #BF9742;
     color: white;
     border: 1px solid #BF9742;
@@ -149,7 +149,7 @@ p.a{
     border-right: 1px solid #E6B325;
     position: absolute;
     right: 25%;
-}
+} 
 #pay{
     width: 15px;
     height: 15px;
