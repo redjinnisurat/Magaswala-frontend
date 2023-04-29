@@ -112,7 +112,7 @@ import { ref } from "vue";
   margin-top: 25px;
   width: 30em;
   margin-left: 5em;
-  overflow:initial;
+  /* overflow:hidden; */
 }
 .product-card{
     width: 22em;
@@ -195,5 +195,27 @@ import { ref } from "vue";
 .pre-btn:hover img,
 .nxt-btn:hover img {
     opacity: 1;
+}
+
+@media screen and (max-width: 690px) {
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 53em;
+    }
+}
+@media screen and (max-width: 590px) {
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 87em;
+    }
+}
+@media screen and (max-width: 490px) {
+    /* .product-container{
+        overflow: hidden;
+    } */
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 124em;
+    }
 }
 </style>
