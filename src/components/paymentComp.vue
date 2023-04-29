@@ -5,7 +5,9 @@
           <h4 class="text-right profile">Payments Methods</h4>
         </div>
         <!-- Cards method -->
-        <div class="col-md-4">
+
+
+        <!-- <div class="col-md-4">
           <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
             <h4 class="text-right profile1">Cards</h4>
           </div>
@@ -48,7 +50,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
   
         <!--UPI method -->
         <div class="col-md-4">
@@ -90,7 +92,7 @@
               </div>
               <div class="col-md-1">
                 <label class="labels"></label>
-                <img src="../assets/forword.png" align="left"  />
+                <img src="../assets/forword.png" align="right"  />
               </div> 
              
             </div>
@@ -141,7 +143,7 @@
           </div>
         </div>
   <!-- Netbanking -->
-  
+ 
   <div class="col-md-4">
           <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
             <h4 class="text-right profile1">Net Banking</h4>
@@ -230,7 +232,7 @@
             </div>
           </div>
         </div>
-  
+   
         <!-- submit buttton -->
         <div class="" style="text-align: right">
           <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
