@@ -158,13 +158,13 @@
         <img src="../assets/image/Star5.svg" id="star"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         <button type="button" id="submit">Submit</button></p>
       </div>
-    </div>
-    <div class="row">
-      <hr class="horizon">
-       <div class="col">
-        <div class="vl">
-        <h5>Top Reviews</h5>
-        <br> 
+    </div> 
+    <div class="row"> 
+      <hr class="horizon"> 
+       <div class="col"> 
+        <div class="vl"> 
+        <h5>Top Reviews</h5> 
+        <br>  
         <p><img src="../assets/image/profile.png" id="prop"> Rahul <img id="st" src="../assets/image/Star.svg"><img id="st" src="../assets/image/Star.svg">
          <img id="st" src="../assets/image/Star.svg"><img id="st" src="../assets/image/Star5.svg"><img id="st" src="../assets/image/Star5.svg"></p>
         <p class="rev">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and 

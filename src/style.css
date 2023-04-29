@@ -149,26 +149,26 @@ p.a{
     border-right: 1px solid #E6B325;
     position: absolute;
     right: 25%;
-} 
+}  
 #pay{
     width: 15px;
     height: 15px;
-}
+} 
 hr.hr{
     border: 1px solid #838282;
     width: 125px;
-}
+} 
 #right{
     margin-top: 50px;
     margin-left: 320px;
     font-size: 11px;
     line-height: 40%;
-}
+} 
 #profile{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-}
+} 
 #review{
     height: 500px;
   width: 100px;
