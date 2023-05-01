@@ -35,7 +35,23 @@
 
 <script>
 export default {
-    name: 'userlogin'
+    name: 'userlogin',
+
+    methods: {
+        togglePassword1() {
+            var passwordField = document.getElementById("passwordField");
+            var togglePassword1 = document.getElementById("togglePassword1");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            } else {
+                passwordField.type = "password";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            }
+        }
+    }
 }
 </script>
 

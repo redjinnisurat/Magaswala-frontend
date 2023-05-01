@@ -5,6 +5,7 @@ import signup from './components/signup.vue'
 import verification from './components/verification.vue'
 import verification2 from './components/verification2.vue'
 
+
 import { createRouter, createWebHistory }
 from 'vue-router'
 
@@ -45,7 +46,6 @@ const routes = [
         path: '/verification2'
 
     },
-
 
 ]
 
