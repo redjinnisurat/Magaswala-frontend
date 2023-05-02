@@ -18,8 +18,10 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.250</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt="" width="15px" /> 2
-            <img class="minus" src="@/assets/minus.png" alt="" width="15px" />
+            
+            <img class="plus" src="@/assets/plus.png"  style="width: 15px; cursor: pointer;" @click="Increment1()" />{{ clicknum1 }}
+              <!-- <button  @click="Increment()" >+</button> -->
+            <img class="minus" src="@/assets/minus.png"  style="width: 15px; cursor: pointer;" @click="Decrement1()" />
           </p>
         </div>
 
@@ -36,8 +38,8 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.125</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt="" width="15px" /> 1
-            <img class="minus" src="@/assets/minus.png" alt="" width="15px" />
+            <img class="plus" src="@/assets/plus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Increment2()" /> {{ clicknum2 }}
+            <img class="minus" src="@/assets/minus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Decrement2()" />
           </p>
         </div>
 
@@ -54,8 +56,8 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.125</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt="" width="15px" /> 2
-            <img class="minus" src="@/assets/minus.png" alt="" width="15px" />
+            <img class="plus" src="@/assets/plus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Increment3()" /> {{ clicknum3 }}
+            <img class="minus" src="@/assets/minus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Decrement3()" />
           </p>
         </div>
       </div>
@@ -103,11 +105,48 @@ export default {
     const isOpen = ref(false);
     return { isOpen };
   },
-  methods: {
-    MyCheckoutpage: function () {
-      // console.log("1");
-    },
+  data(){
+    return {
+      clicknum1: 0,
+      clicknum2: 0,
+      clicknum3: 0,
+    }
   },
+  // methods: {
+  //   MyCheckoutpage: function () {
+  //     // console.log("1");
+  //   },
+  //   buttonclicked1: function() {
+  //     console.log("clicked");
+  //     this.clicknum1++;
+  //   },
+  //   buttonclicked2: function() {
+  //     this.clicknum1--;
+  //   },
+  //   
+  // },
+    methods:{
+      Increment1: function() {
+      this.clicknum1++;
+    },
+    Decrement1: function() {
+      this.clicknum1--;
+    },
+    Increment2: function() {
+      this.clicknum2++;
+    },
+    Decrement2: function() {
+      this.clicknum2--;
+    },
+    Increment3: function() {
+      this.clicknum3++;
+    },
+    Decrement3: function() {
+      this.clicknum3--;
+    },
+  
+    }
+  
 };
 </script>
 

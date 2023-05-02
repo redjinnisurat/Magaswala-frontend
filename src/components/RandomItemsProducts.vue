@@ -2,8 +2,11 @@
 <div ref="carousel" class="carousel" @mousedown="dragStart" @touchstart="dragStart"
        @mousemove="dragging" @touchmove="dragging"
        @mouseup="dragStop" @mouseleave="dragStop" @touchend="dragStop">
-    <div v-for="(image, index) in images" :key="index">
+    <div class="product-card" v-for="(image, index) in images" :key="index">
+      
+      <div class="product-image">
         <img style="width: 40vh; height:40vh;" :src="image.src" />
+      </div>
         <div class="product-info">
                     <p class="product-name">Kesar magas</p>
                     <span class="price">Rs. 250/kg</span>
@@ -11,10 +14,10 @@
                     <button href="#" class="btn">Add to Bag</button>
                 </div>
     </div>
-    <div class="carousel-controls">
+    <!-- <div class="carousel-controls">
       <button @click="slide(-1)">Previous</button>
       <button @click="slide(1)">Next</button>
-    </div>
+    </div> -->
 </div>
 
 </template>
@@ -133,5 +136,48 @@ scroll-snap-align: center;
 .carousel.dragging {
 cursor: grabbing;
 cursor: -webkit-grabbing;
+}
+
+.product-card{
+    width: 22em;
+    margin-left: 2em;
+}
+
+.product-image{
+    width: 21em;
+    background-color: #edd5a4;
+}
+.product-image img{
+    width: 16em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.product-info{
+    background-color: #fff;
+    height: 7em;
+    opacity: 5;
+    filter: blur(0.5px);
+    padding: 10px 10px;
+}
+.product-name{
+    margin-bottom: 0;
+}
+.product-info .product-short-description{
+    width: 10em;
+   margin-right: 0;
+}
+.product-info .btn{
+    background-color: #A17A35;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 12em;
+    margin-top: -2rem;
+    padding-top:0;
+    width: 6.5em;
+    height: 1.6em;
+    transition: all 0.3s ease;
 }
 </style>

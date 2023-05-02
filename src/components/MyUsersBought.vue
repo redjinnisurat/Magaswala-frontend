@@ -1,221 +1,193 @@
 <template>
-   <section>
-        <h2 class="heading">Users also bought this</h2>
-        <button class="pre-btn" @click="prebtn">
-            <img src="@/assets/right_arrow.png" alt="">
-        </button>
-        <button class="nxt-btn">
-            <img src="@/assets/right_arrow.png" alt="">
-        </button>
-
-        <div class="product-container d-flex">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="@/assets/ladu.png" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 250/kg</span>
-                    <p class="product-short-description">Made with pure kesar</p>
-                    <a href="#" class="btn">Add to Bag</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="@/assets/ladu.png" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 125/500gm</span>
-                    <p class="product-short-description">Made with pure kesar</p>
-                    <button href="#" class="btn">Add to Bag</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="@/assets/ladu.png" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 250/kg</span>
-                    <p class="product-short-description">Made with pure kesar</p>
-                    <button href="#" class="btn">Add to Bag</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="@/assets/ladu.png" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 125/500gm</span>
-                    <p class="product-short-description">Made with pure kesar</p>
-                    <button href="#" class="btn">Add to Bag</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="@/assets/ladu.png" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="product-name">Kesar magas</p>
-                    <span class="price">Rs. 250/kg</span>
-                    <p class="product-short-description">Made with pure kesar</p>
-                    <button href="#" class="btn">Add to Bag</button>
-                </div>
-            </div>
-
+     <h2 class="heading">User also Bought</h2>
+    <div ref="carousel" class="carousel" @mousedown="dragStart" @touchstart="dragStart"
+           @mousemove="dragging" @touchmove="dragging"
+           @mouseup="dragStop" @mouseleave="dragStop" @touchend="dragStop">
+        <div class="product-card" v-for="(image, index) in images" :key="index">
+           
+          <div class="product-image">
+            <img style="width: 40vh; height:40vh;" :src="image.src" />
+          </div>
+            <div class="product-info">
+                        <p class="product-name">Kesar magas</p>
+                        <span class="price">Rs. 250/kg</span>
+                        <p class="product-short-description">Made with pure kesar</p>
+                        <button href="#" class="btn">Add to Bag</button>
+                    </div>
         </div>
-    </section>
+        <!-- <div class="carousel-controls">
+          <button @click="slide(-1)">Previous</button>
+          <button @click="slide(1)">Next</button>
+        </div> -->
+    </div>
+    
 </template>
+    
+    <script>
+    export default {
+      data() {
+        return {
+          images: [
+            { src: './img/ladu.0fc7d26a.png' },
+            { src: './img/ladu.0fc7d26a.png' },
+            { src: './img/ladu.0fc7d26a.png' },
+            { src: './img/ladu.0fc7d26a.png' },
+            { src: './img/ladu.0fc7d26a.png' },
+            { src: './img/ladu.0fc7d26a.png' },
+            { src: './img/ladu.0fc7d26a.png' },
+             { src: './img/ladu.0fc7d26a.png' },
+              { src: './img/ladu.0fc7d26a.png' },
+               { src: './img/ladu.0fc7d26a.png' },
+               { src: './img/ladu.0fc7d26a.png' },
+          ],
+          isDragStart: false,
+          isDragging: false,
+          prevPageX: 0,
+          prevScrollLeft: 0,
+          positionDiff: 0,
+        };
+      },
+      mounted() {
+        this.showHideIcons();
+      },
+      methods: {
+        showHideIcons() {
+      const carousel = this.$refs.carousel;
+      const arrowIcons = this.$refs.arrowIcons;
+      // Check if arrowIcons is defined
+      if (!arrowIcons) return;
+      // showing and hiding prev/next icon according to carousel scroll left value
+      const scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+      arrowIcons[0].style.display = carousel.scrollLeft == 0 ? 'none' : 'block';
+      arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? 'none' : 'block';
+    },
+    
+        autoSlide() {
+          const carousel = this.$refs.carousel;
+          if (carousel.scrollLeft == carousel.scrollWidth - carousel.clientWidth) {
+            return;
+          }
+    
+          let firstImgWidth = carousel.querySelectorAll('img')[0].clientWidth + 14;
+          // getting difference value that needs to add or reduce from carousel left to take middle img center
+          let valDifference = firstImgWidth - this.positionDiff;
+    
+          if (carousel.scrollLeft > this.prevScrollLeft) {
+            // if user is scrolling to the right
+            return carousel.scrollLeft += this.positionDiff > firstImgWidth / 3 ? valDifference : -this.positionDiff;
+          }
+          // if user is scrolling to the left
+          carousel.scrollLeft -= this.positionDiff > firstImgWidth / 3 ? valDifference : -this.positionDiff;
+        },
+        dragStart(e) {
+          // updating global variables value on mouse down event
+          this.isDragStart = true;
+          this.prevPageX = e.pageX || e.touches[0].pageX;
+          this.prevScrollLeft = this.$refs.carousel.scrollLeft;
+        },
+        dragging(e) {
+          // scrolling images/carousel to left according to mouse pointer
+          if (!this.isDragStart) return;
+          e.preventDefault();
+          this.isDragging = true;
+          this.$refs.carousel.classList.add('dragging');
+          this.positionDiff = (e.pageX || e.touches[0].pageX) - this.prevPageX;
+          this.$refs.carousel.scrollLeft = this.prevScrollLeft - this.positionDiff;
+          this.showHideIcons();
+        },
+        dragStop() {
+          this.isDragStart = false;
+          this.$refs.carousel.classList.remove('dragging');
+    
+          if(this.isDragging) {
+    // if user has dragged image/carousel, then start auto-slide after 1s
+    setTimeout(() => {
+    this.isDragging = false;
+    this.autoSlide();
+    }, 1000);
+    } else {
+    // if user has not dragged image/carousel, then start auto-slide immediately
+    this.autoSlide();
+    }
+    },
+    },
+    };
+    </script>
 
-<script>
-import { ref } from "vue";
-  export default{
-    name: "RecommandedProducts",
-    setup() {
-    const isOpen = ref(false);
-    return { isOpen };
-  },
+    <style>
 
-  prebtn() {
-    const productContainers = [...document.querySelectorAll('.product-container')];
-    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-    const preBtn = [...document.querySelectorAll('.pre-btn')];
-
-    productContainers.forEach((item, i) => {
-        let containerDimensions = item.getBoundingClientRect();
-        let containerWidth = containerDimensions.width;
-
-        nxtBtn[i].addEventListener('click', () => {
-            item.scrollLeft += containerWidth;
-        })
-
-        preBtn[i].addEventListener('click', () => {
-            item.scrollLeft -= containerWidth;
-        })
-    })
-  },
-  };
-</script>
-
-<style scoped>
 .heading{
-  margin-top: 20px;
-  margin-left: 100px;
+ margin-top: 15px;
+ margin-left: 3em;
+ 
 }
-.product-container{
-  margin-top: 25px;
-  width: 30em;
-  margin-left: 5em;
-  /* overflow:hidden; */
-}
-.product-card{
-    width: 22em;
-    margin-left: 1em;
-}
-.product-image{
-    width: 21em;
-    background-color: #edd5a4;
-}
-.product-image img{
-    width: 16em;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-.product-info{
-    background-color: #fff;
-    height: 6em;
-    opacity: 5;
-    filter: blur(0.5px);
-    padding: 10px 10px;
-}
-
-.product-name{
-    margin-bottom: 0;
-}
-.product-info .product-short-description{
-    width: 10em;
-   margin-right: 0;
-}
-.product-info .btn{
-    background-color: #A17A35;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-left: 13em;
-    margin-top: -5rem;
-    padding-top:0;
-    width: 6.5em;
-    height: 1.6em;
-    transition: all 0.3s ease;
-}
-.pre-btn,
-.nxt-btn {
-    border: none;
-    width: 2vw;
-    height: 8vh;
-    position: absolute;
-    top: 0;
+    .carousel {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff, 100%);
-    cursor: pointer;
-    z-index: 9;
-    margin-top: 44em;
-    /* background: #edd5a4; */
-}
-.pre-btn{
-   margin-left: 3em;
-    transform: rotate(180deg);
-}
-.nxt-btn{
-    margin-left: 73em;
-    /* float: right; */
-}
-/* .pre-btn img{
-    width: 1.5em;
-}
-.nxt-btn img{
-    width: 1.5em;
-} */
-.pre-btn img,
-.nxt-btn img {
-    width: 1.3em;
-    opacity: 0.2;
-    background: none;
-}
-
-.pre-btn:hover img,
-.nxt-btn:hover img {
-    opacity: 1;
-}
-
-@media screen and (max-width: 690px) {
-    .pre-btn,
-    .nxt-btn{
-        margin-top: 53em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin-top: 1em;
+    margin-left: 4em;
     }
-}
-@media screen and (max-width: 590px) {
-    .pre-btn,
-    .nxt-btn{
-        margin-top: 87em;
+    
+    .carousel::-webkit-scrollbar {
+    display: none;
     }
-}
-@media screen and (max-width: 490px) {
-    /* .product-container{
-        overflow: hidden;
-    } */
-    .pre-btn,
-    .nxt-btn{
-        margin-top: 124em;
+    
+    .carousel img {
+    width: 100%;
+    height: auto;
+    scroll-snap-align: center;
     }
-}
-</style>
+    
+    .carousel.dragging {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    }
+    
+    .product-card{
+        width: 22em;
+        margin-left: 0.5em;
+    }
+    
+    .product-image{
+        width: 21em;
+        background-color: #edd5a4;
+    }
+    .product-image img{
+        width: 16em;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    
+    .product-info{
+        background-color: #fff;
+        height: 7em;
+        opacity: 5;
+        filter: blur(0.5px);
+        padding: 10px 10px;
+    }
+    .product-name{
+        margin-bottom: 0;
+    }
+    .product-info .product-short-description{
+        width: 10em;
+       margin-right: 0;
+    }
+    .product-info .btn{
+        background-color: #A17A35;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-left: 12em;
+        margin-top: -2rem;
+        padding-top:0;
+        width: 6.5em;
+        height: 1.6em;
+        transition: all 0.3s ease;
+    }
+    </style>
