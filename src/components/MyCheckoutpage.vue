@@ -694,7 +694,7 @@ export default {
   }
 
   .vertical-line{
-    margin-left: 54rem;
+    margin-left: 52rem;
   }
 }
 @media screen and (max-width: 590px) {

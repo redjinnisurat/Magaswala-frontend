@@ -196,4 +196,30 @@ import { ref } from "vue";
 .nxt-btn:hover img {
    opacity: 1;
 }
+
+@media screen and (max-width: 990px) {
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 84em;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .heading{
+        margin-top: -16em;
+    }
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 126em;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 205em;
+    }
+}
+
+
 </style>

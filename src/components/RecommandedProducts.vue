@@ -196,4 +196,47 @@ import { ref } from "vue";
 .nxt-btn:hover img {
    opacity: 1;
 }
+
+@media screen and (max-width: 990px) {
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 60em;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 63em;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .heading{
+        margin-top: -12em;
+    }
+    /* .product-container{
+        margin-top: -10px;
+    } */
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 103em;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .heading{
+        margin-top: 37em;
+    }
+    .pre-btn,
+    .nxt-btn{
+        margin-top: 183em;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .heading{
+        margin-top: 40em;
+    }
+}
 </style>
