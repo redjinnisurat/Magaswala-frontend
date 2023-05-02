@@ -47,10 +47,10 @@
                                 </select>
                             </div>
                             <div class="col-md-8">
-                                <div class="" style="text-align: left">
+                                <div class="" style="text-align: left;">
                                     <label class="labels">Birthday</label>
                                 </div>
-                                <input class="form-control" style="height: 45px" id="birthday" type="date" name="birthday" placeholder="Enter your birthday" value="2017-06-01" />
+                                <input class="form-control" style="height: 40px" id="birthday" type="date" name="birthday" placeholder="Enter your birthday" value="2017-06-01" />
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <label class="labels"></label><input type="text" class="form-control " value="" placeholder="Plot No." />
                         <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                     <div class="col-md-4">
-                        <label class="labels"></label><input type="text" class="form-control" placeholder="Building name" value="" />
+                        <label class="labels"></label><input type="text" class="form-control" style="    margin-top: -6px;" placeholder="Building name" value="" />
                         <img  v-if="upHere"  class="pen" align="right" src="../assets/pen1.svg" alt="" />                    </div>
                 </div>
 
@@ -132,7 +132,7 @@
 </div>
 </template>
 
-<script>
+<script >
 export default {
   
     name: "editprofileComp",
@@ -141,9 +141,9 @@ export default {
   },
 };
 
-</script>
+</script >
 
-<style >
+<style scoped>
 body {
     background: rgb(231, 228, 235);
 }
@@ -178,7 +178,7 @@ body {
 }
 
 .labels {
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .add-experience:hover {

@@ -70,7 +70,7 @@
                   </div>
                   <input
                     class="form-control"
-                    style="height: 45px"
+                    style="height: 40px"
                     id="birthday"
                     type="date"
                     name="birthday"
@@ -110,6 +110,7 @@
             <div class="col-md-4">
               <label class="labels"></label
               ><input
+              style="    margin-top: -6px;"
                 type="text"
                 class="form-control"
                 placeholder="Building name"
@@ -188,7 +189,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 body {
   background: rgb(231, 228, 235);
 }
