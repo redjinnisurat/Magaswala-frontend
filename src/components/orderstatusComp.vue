@@ -1,6 +1,6 @@
 <template>
   <div class="container rounded bg-white mt-6 mb-5">
-    <div class="row">
+    <div class="row bord">
       <div class="col-md-6 border-right">
         <div class="p-3 py-6">
           <div class="p-3 py-5">
@@ -177,6 +177,10 @@ ul.timeline > li {
   margin: 20px 0;
   padding-left: 20px;
 }
+.bord{
+        border: solid 2px #BF9742;
+    border-radius: 15px;
+    }
 ul.timeline > li:before {
   content: " ";
   background: white;

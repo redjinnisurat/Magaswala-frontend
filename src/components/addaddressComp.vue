@@ -1,6 +1,6 @@
 <template>
   <div class="container rounded bg-white mt-6 mb-5">
-    <div class="row">
+    <div class="row bord">
       <div class="col-md-5 border-right">
         <div class="p-3 py-5">
           <div class="" style="text-align: left; margin-top: -45px; margin-bottom: 30px">
@@ -220,6 +220,10 @@ body {
   color: #682773;
   cursor: pointer;
 }
+.border{
+        border: solid 2px #BF9742;
+    border-radius: 15px;
+    }
 
 .labelss {
   font-size: 18px;

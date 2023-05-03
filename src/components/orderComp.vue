@@ -1,6 +1,6 @@
 <template>
   <div class="container rounded bg-white mt-6 mb-5">
-    <div class="row">
+    <div class="row border">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
           <h4 class="text-right profile">Orders</h4>
@@ -186,10 +186,14 @@
 export default {
   name: "orderComp",
 };
-</script>
-<style>
+</script >
+<style scoped>
 .ccontaine {
   width: 100%;
   height: 100%;
 }
+.border{
+        border: solid 2px #BF9742;
+    border-radius: 15px;
+    }
 </style>

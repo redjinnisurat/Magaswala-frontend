@@ -1,6 +1,6 @@
 <template>
     <div class="container rounded bg-white mt-5 mb-5">
-      <div class="row">
+      <div class="row bord">
         <div class="col-md-6 border-right">
           <div class="p-3 py-5">
             <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
@@ -109,7 +109,10 @@
     cursor: pointer;
     border: solid 1px #ba68c8;
   }
-  
+  .bord{
+        border: solid 2px #BF9742;
+    border-radius: 15px;
+    }
   .address {
     text-align: initial;
     font: normal normal bold 20px/30px Poppins;

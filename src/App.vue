@@ -1,16 +1,30 @@
 <template>
   <router-view/>
+  <myprofileComp/>
+ 
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 
+// export default {
+//   name: 'App',
+//   // components: {
+//   //   HelloWorld
+//   // }
+// }
+import myprofileComp from "./components/myprofileComp.vue";
+
 export default {
-  name: 'App',
-  // components: {
-  //   HelloWorld
-  // }
-}
+  name: "App",
+  components: {
+    myprofileComp,
+    
+
+   
+    
+  },
+};
 </script>
 
 <style>
@@ -20,6 +34,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
+
+  background-color: #F9F9F9;
 }
 </style>

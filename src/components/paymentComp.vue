@@ -1,6 +1,6 @@
 <template>
     <div class="container rounded bg-white mt-6 mb-5">
-      <div class="row">
+      <div class="row bord">
         <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
           <h4 class="text-right profile">Payments Methods</h4>
         </div>
@@ -279,6 +279,9 @@
     margin-bottom: -104px;
     margin-left: 60px;
   }
-  
+  .bord{
+        border: solid 2px #BF9742;
+    border-radius: 15px;
+    }
   </style>
   

@@ -1,4 +1,5 @@
 <template>
+   
   <div class="container rounded bg-white mt-5 mb-5">
     <div
       class="row"
@@ -184,8 +185,10 @@
 </template>
 
 <script>
+
 export default {
-  name: "profileComp",
+  name: "profileComp"
+  
 };
 </script>
 
@@ -227,6 +230,10 @@ body {
   font: normal normal bold 20px/30px Poppins;
   letter-spacing: 0px;
   color: #b1622a;
+}
+.container{
+  width: 715px;
+    
 }
 
 
