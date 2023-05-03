@@ -90,6 +90,11 @@ export default {
 .nav-li p {
   margin-left: -5px;
 }
+.nav-inner-container {
+  display: flex;
+  align-items: center;
+  content: "";
+}
 nav {
   margin-top: 91px;
   margin-left: 146px;
