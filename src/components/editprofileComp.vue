@@ -1,4 +1,9 @@
 <template>
+    <NavComp/>
+   <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row" style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px">
         <div class="col-md-12 border-right ">
@@ -129,21 +134,37 @@
                     </div>
                 </div> -->
     </div>
-</div>
+</div></div>
 </template>
 
 <script >
+ import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
 export default {
   
     name: "editprofileComp",
     data() {
     return { upHere: '' }
   },
+  components:{ NavComp, myprofileComp} 
 };
 
 </script >
 
 <style scoped>
+.bg {
+    background-color: #f8fdff;
+    padding: 2rem;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.container{
+  width: 670px;
+  margin-right: 100px;
+}
 body {
     background: rgb(231, 228, 235);
 }

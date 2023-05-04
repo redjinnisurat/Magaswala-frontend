@@ -1,5 +1,9 @@
 <template>
-   
+   <NavComp/>
+   <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
   <div class="container rounded bg-white mt-5 mb-5">
     <div
       class="row"
@@ -10,7 +14,7 @@
           <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
             <h4 class="text-right profile">My Profile</h4>
             <div class="" style="text-align: end">
-              <a href="#" class="btn btn-outlined btn-black address" data-wow-delay="0.7s"
+              <a href="./editprofile" class="btn btn-outlined btn-black address" data-wow-delay="0.7s"
                 ><img src="../assets/edit.svg" /> <small></small
               ></a>
 
@@ -181,18 +185,28 @@
             </div>
         </div> -->
     </div>
-  </div>
+  </div> </div>
 </template>
 
 <script>
-
+import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
 export default {
-  name: "profileComp"
-  
+  name: "profileComp",
+  components:{ NavComp, myprofileComp} 
 };
 </script>
 
 <style scoped>
+.bg {
+    background-color: #f8fdff;
+    padding: 2rem;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
 body {
   background: rgb(231, 228, 235);
 }
@@ -232,8 +246,8 @@ body {
   color: #b1622a;
 }
 .container{
-  width: 715px;
-    
+  width: 670px;
+  margin-right: 100px;
 }
 
 

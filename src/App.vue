@@ -1,6 +1,6 @@
 <template>
   <router-view/>
-  <myprofileComp/>
+  <!-- <myprofileComp/> -->
  
 </template>
 
@@ -13,18 +13,29 @@
 //   //   HelloWorld
 //   // }
 // }
-import myprofileComp from "./components/myprofileComp.vue";
+// import myprofileComp from "./components/myprofileComp.vue";
 
-export default {
-  name: "App",
-  components: {
-    myprofileComp,
+// export default {
+//   name: "App",
+//   components: {
+//     myprofileComp,
     
 
    
     
-  },
-};
+//   },
+// };
+export default {
+  name: 'App',
+  components: {
+    // loginComp,
+    // HomeComp,
+    // SuperadminComp,
+    // T_CComp,
+    // recordsComp,
+    // supadminComp
+}
+}
 </script>
 
 <style>

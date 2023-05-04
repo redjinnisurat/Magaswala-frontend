@@ -1,6 +1,11 @@
 <template>
+     <NavComp/>
+   <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
 <div class="container rounded bg-white mt-6 mb-5">
-    <div class="row">
+    <div class="row bord">
 
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -53,18 +58,34 @@
 
         </div>
     </div>
-</div>
+</div></div>
 </template>
 
     
 <script>
+  import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
 export default {
     name: "manageaddressComp",
+    components:{ NavComp, myprofileComp} 
 };
 </script>
 
     
-<style >
+<style scoped>
+ .bg {
+    background-color: #f8fdff;
+    padding: 2rem;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.container{
+  width: 670px;
+  margin-right: 100px;
+}
 body {
     background: rgb(99, 39, 120);
 }
@@ -73,7 +94,10 @@ body {
     box-shadow: none;
     border-color: #ba68c8;
 }
-
+.bord{
+        border: solid 2px #BF9742;
+    border-radius: 15px;
+    }
 .profile-button {
     background: rgb(99, 39, 120);
     box-shadow: none;

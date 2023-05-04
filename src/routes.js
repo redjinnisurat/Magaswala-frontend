@@ -15,6 +15,9 @@ import resetpassComp from "./components/resetpassComp.vue"
 import termComp from "./components/termComp.vue"
 import orderstatusComp from "./components/orderstatusComp.vue"
 import myprofileComp from "./components/myprofileComp.vue"
+
+import DashComp from "./components/DashComp.vue"
+import NavComp from "./components/NavComp.vue"
 const routes=[
     {
         name:"HelloWorld",
@@ -39,7 +42,7 @@ const routes=[
     },
     {
       name:"testComp",
-    path: '/test',
+    path: '/',
       component:testComp
   },
   {
@@ -47,7 +50,11 @@ const routes=[
   path: '/editprofile',
     component:editprofileComp
 },
-
+{
+  path: "/d",
+  name: "DashComp",
+  component: DashComp,
+},
 {
   name:"manageaddressComp",
 path: '/manageaddress',
@@ -92,6 +99,11 @@ path: '/orderstatus',
   name:"myprofileComp",
 path: '/mp',
   component:myprofileComp
+},
+{
+  name:"NavComp",
+path: '/NavComp.vue',
+  component:NavComp
 },
 
 

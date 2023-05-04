@@ -1,4 +1,9 @@
 <template>
+  <NavComp/>
+   <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
     <div class="container rounded bg-white mt-5 mb-5">
       <div class="row bord">
         <div class="col-md-6 border-right">
@@ -75,16 +80,32 @@
               </button>
             </div>
       </div>
-    </div>
+    </div></div>
   </template>
   
   <script>
+  import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
   export default {
     name: "resetpassComp",
+    components:{ NavComp, myprofileComp} 
   };
   </script>
   
   <style>
+  .bg {
+    background-color: #f8fdff;
+    padding: 2rem;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.container{
+  width: 670px;
+  margin-right: 100px;
+}
   body {
     background: rgb(231, 228, 235);
   }

@@ -3,6 +3,11 @@
 
 
 <template>
+  <NavComp/>
+   <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
     <div class="container rounded bg-white mt-6 mb-5">
       <div class="row">
         <!-- <div class="col-md-3 border-right">
@@ -79,12 +84,15 @@
         </div>
         
       </div>
-    </div>
+    </div></div>
   </template>
   
   <script>
+  import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
   export default {
     name: "termComp",
+    components:{ NavComp, myprofileComp} 
   };
   </script>
   

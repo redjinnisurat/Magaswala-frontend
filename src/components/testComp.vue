@@ -1,4 +1,7 @@
 <template>
+   <li class="lmenu">
+            <router-link to="./profile">Next<span><img src="../assets/side_bag.svg" /></span></router-link>
+        </li>
   <div class="trengel">
   <div class="shape">
   </div>

@@ -1,4 +1,9 @@
 <template>
+   <NavComp/>
+   <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
     <div class="container rounded bg-white mt-6 mb-5">
       <div class="row bord">
         <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
@@ -246,16 +251,32 @@
           <i class="mdi mdi-settings-outline"></i>
         </div>
       </div>
-    </div>
+    </div></div>
   
   
   </template>
   <script>
+  import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
   export default {
     name: "paymentComp",
+    components:{ NavComp, myprofileComp} 
   };
   </script>
   <style>
+  .bg {
+    background-color: #f8fdff;
+    padding: 2rem;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.container{
+  width: 670px;
+  margin-right: 100px;
+}
   .ccontaine {
     width: 100%;
     height: 100%;

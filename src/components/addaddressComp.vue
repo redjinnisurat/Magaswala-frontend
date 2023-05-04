@@ -7,7 +7,7 @@
             <a
               href="#"
               class="btn btn-outlined btn-black address"
-              data-wow-delay="0.7s"
+              data-wow-delay="0.7s "
               style="color: #bf9742"
               ><img src="../assets/back.svg" /> <small>Add Address</small></a
             >
