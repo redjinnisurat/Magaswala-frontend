@@ -8,7 +8,8 @@
                         <h2 class="welcome-heading">welcome back!</h2>
                         <p class="p-1">please enter credentials for sign in </p>
                         <input class="email" type="text" placeholder="email" id="email">
-                        <input class="password" type="password" placeholder="password" id="passwordField"> <img class="eye" src="../assets/eye-open.svg" alt="" id="togglePassword" @click="togglePassword1()">
+                        <!-- <input class="password" type="password" placeholder="password" id="passwordField"><i class="fa fa-eye" aria-hidden="true" id="togglePassword" v-on:click="togglePassword1()"></i>  -->
+                        <input class="password" type="password" placeholder="password" id="password"> <img id="eye" src="../assets/Icon-eye.svg" alt="" v-on:click="togglePassword1()">
                         <div class=" col-lg-3 p-3">
                             <p>Remember me</p>
                         </div>
@@ -38,20 +39,37 @@ export default {
     name: 'userlogin',
 
     methods: {
+        // togglePassword1() {
+        //     var password= document.getElementById("password");
+        //     var togglePassword = document.getElementById("togglePassword");
+        //     if (password.type === "password") {
+        //         password.type = "text";
+        //         togglePassword.classList.remove("fa-eye-slash");
+        //         togglePassword.classList.add("fa-eye");
+        //     } else {
+        //         password.type = "password";
+        //         togglePassword.classList.remove("fa-eye");
+        //         togglePassword.classList.add("fa-eye-slash");
+
+        //     }
+
+        // }
+
         togglePassword1() {
-            var passwordField = document.getElementById("passwordField");
-            var togglePassword = document.getElementById("togglePassword");
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                togglePassword.classList.remove("eye-open.svg");
-                togglePassword.classList.add("Icon-eye.svg");
+            var password = document.getElementById("password");
+            var eye = document.getElementById("eye");
+            if (password.type === "password") {
+                password.type = "text";
+                eye.src = "../assets/Icon-eye.svg";
+
             } else {
-                passwordField.type = "password";
-                togglePassword.classList.remove("Icon-eye.svg");
-                togglePassword.classList.add("eye-open.svg");
+                password.type = "password";
+                eye.src = "../assets/eye-open.svg";
 
             }
+
         }
+
     }
 }
 </script>
@@ -93,10 +111,11 @@ export default {
     text-transform: capitalize;
 }
 
-.eye {
+#eye {
     margin-left: 72%;
     transform: translateY(-50%);
     margin-top: -4%;
+    cursor: pointer;
 }
 
 .p-3 {
