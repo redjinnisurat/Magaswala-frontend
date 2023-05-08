@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar bg-#F9F9F9 row" style="margin-top: 3px; ">
+<nav class="navbar bg-#F9F9F9 row  " style="margin-top: 3px; ">
     <div class="col-sm-2">
         <a class="container navbar-brand " href="#">
             <img src="../assets/Magaswala.svg" alt="" class="d-inline-block align-text-top" style="    width: 276px;
@@ -17,31 +17,31 @@
         </form>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-1 col-xl-1 px-sm-1">
 
         <!-- <img src="../assets/home.svg" />
 
         <a class="home" href="#"><br>Home</a> -->
         <p><a href="#"><img src="../assets/home.svg"><br>Home</a></p>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1 col-xl-1 px-sm-1">
 
         <!-- <img src="../assets/bag.svg" />
 
         <a class="home" href="#"><br>Bag</a> -->
         <p><a href="#"><img src="../assets/bag.svg"><br>Bag</a></p>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1 col-xl-1 px-sm-1">
 
         <p><a href="#"><img src="../assets/favourite.svg"><br>Favourite</a></p>
 
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1 col-xl-1 px-sm-1">
 
         <p><a href="#"><img src="../assets/profile.svg"><br>Profile</a></p>
 
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1 col-xl-1 px-sm-1">
 
         <p><a href="#"><img src="../assets/logout.svg"><br>Logout</a></p>
     </div>

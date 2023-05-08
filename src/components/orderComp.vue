@@ -395,12 +395,14 @@ export default {
   width: 100%;
   height: 100%;
 }
+.container{
+  width: 1070px;
+  margin-right: 100px;
+  height: 624px;
+}
 .border{
         border: solid 2px #BF9742;
     border-radius: 15px;
     }
-    .container{
-  width: 670px;
-  margin-right: 100px;
-}
+  
 </style>

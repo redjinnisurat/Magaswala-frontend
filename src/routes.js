@@ -32,7 +32,7 @@ const routes=[
     },
     {
         name:"profileComp",
-      path: '/profile',
+      path: '/',
         component:profileComp
     },
     {
@@ -42,7 +42,7 @@ const routes=[
     },
     {
       name:"testComp",
-    path: '/',
+    path: '/test',
       component:testComp
   },
   {

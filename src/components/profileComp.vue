@@ -246,8 +246,9 @@ body {
   color: #b1622a;
 }
 .container{
-  width: 670px;
+  width: 1070px;
   margin-right: 100px;
+  height: 624px;
 }
 
 

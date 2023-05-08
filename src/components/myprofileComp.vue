@@ -1,6 +1,6 @@
 <template>
 <div class="sidebar-container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav  ">
         <div class="smenu navbar-collapse" id="navbarNav">
             <ul class="navbar-nav flex-column">
                 <li class="nav-item">
@@ -13,7 +13,7 @@
                 
          
                 <li class="nav-item">
-                    <a class="nav-link side-nav-ele" id="reset-password-id" href="./profile">
+                    <a class="nav-link side-nav-ele" id="reset-password-id" href="./">
                         <img src="../assets/side_profile.svg" alt="" />
                         <p>Profile</p>
                     </a>
@@ -66,27 +66,53 @@
 export default {
     name: "myprofileComp"
 }
-</script>
+</script >
 
-<style>
+<style scopped>
 .lmenu {
     padding: 10px;
     font-size: 12px;
     font-weight: 500;
     text-decoration: none;
 }
+ 
 
 li:hover {
-    background-color: white;
+
     color: #10b6e9;
     font-weight: 700;
+    
+}
+p:hover{
+    color: #BF9742;
 }
 /* .smenu {
     background-color: #06bcf5;
     height: 570px;
     color: white;
 } */
-
+.trengel{
+position: relative;
+height: 561px;
+margin-left: 126px;
+width: 405px;
+background: white;
+border: solid 2px #BF9742;
+border-right: none;
+}
+.shape{
+  position: absolute;
+    width: 289px;
+    height: 122px;
+    background:#F9F9F9;
+    border: solid 2px #BF9742;
+    top: 218px;
+    left: 257px;
+    transform: skew(295deg);
+    rotate: 102.5deg;
+    border-left: none;
+    border-top: none; 
+}
 .sidebar-nav {
     margin: 0;
     background: #ffffff;
@@ -97,8 +123,8 @@ li:hover {
     margin-left: 140px;
     width: 330px;
     height: 815px;
-    background: #f9f9f9 0% 0% no-repeat padding-box;
-    border: 1px solid #bf9742;
+   
+    border: 2px solid #bf9742;
     opacity: 1;
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -109,7 +135,7 @@ li:hover {
 }
 
 .user-details {
-    margin-left: 32px;
+    
     background: #f9f9f9;
 }
 
@@ -127,7 +153,7 @@ li:hover {
 }
 
 .user-details p {
-    text-align: left;
+
     font: normal normal normal 16px/25px Poppins;
     letter-spacing: 0px;
     color: #262626;
@@ -226,7 +252,7 @@ li:hover {
 
     .btn:hover {
         color: #bf9742;
-        background-color: #f9fcff;
+        background-color: #bf9742;
         border-color: var(--bs-btn-hover-border-color);
     }
 

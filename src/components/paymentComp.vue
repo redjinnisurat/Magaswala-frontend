@@ -274,8 +274,9 @@ import NavComp from './NavComp.vue';
     grid-template-columns: 15% 85%;
 }
 .container{
-  width: 670px;
+  width: 1070px;
   margin-right: 100px;
+  height: 658px;
 }
   .ccontaine {
     width: 100%;
