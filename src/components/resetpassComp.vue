@@ -103,7 +103,7 @@ import NavComp from './NavComp.vue';
     grid-template-columns: 15% 85%;
 }
 .container{
-  width: 1070px;
+  width: 690px;
   margin-right: 100px;
   height: 624px;
 }

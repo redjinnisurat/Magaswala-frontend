@@ -396,7 +396,7 @@ export default {
   height: 100%;
 }
 .container{
-  width: 1070px;
+  width: 690px;
   margin-right: 100px;
   height: 624px;
 }

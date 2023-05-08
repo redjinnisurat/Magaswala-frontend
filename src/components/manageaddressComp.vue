@@ -83,9 +83,9 @@ export default {
     grid-template-columns: 15% 85%;
 }
 .container{
-  width: 1070px;
+  width: 690px;
   margin-right: 100px;
-  height: 750px;
+  height: 624px;
 }
 body {
     background: rgb(99, 39, 120);

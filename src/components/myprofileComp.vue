@@ -121,8 +121,10 @@ border-right: none;
 .sidebar-container {
     top: 238px;
     margin-left: 140px;
-    width: 330px;
-    height: 815px;
+    width: 345px;
+    
+    height: 687px;
+
    
     border: 2px solid #bf9742;
     opacity: 1;
