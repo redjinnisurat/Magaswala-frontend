@@ -4,7 +4,7 @@ import userlogin from './components/userlogin.vue'
 import signup from './components/signup.vue'
 import verification from './components/verification.vue'
 import verification2 from './components/verification2.vue'
-import abc from './components/abc.vue'
+
 
 
 import { createRouter, createWebHistory }
@@ -48,11 +48,7 @@ const routes = [
 
     },
 
-    {
-        name: 'abc',
-        component: abc,
-        path: '/abc'
-    }
+
 
 ]
 
