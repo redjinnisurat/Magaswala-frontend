@@ -81,6 +81,8 @@
             </div>
       </div>
     </div></div>
+
+
   </template>
   
   <script>
@@ -92,7 +94,7 @@ import NavComp from './NavComp.vue';
   };
   </script>
   
-  <style>
+  <style >
   .bg {
     background-color: #f8fdff;
     padding: 2rem;
