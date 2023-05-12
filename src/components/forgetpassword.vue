@@ -1,26 +1,24 @@
 <template>
-<div class="container">
+<div class="main-container">
     <div class="row">
         <div class="col-lg-6" id="left-side">
             <div class="text">
-                <div class="row ">
-                    <div class="col-6-lg" id="second-col">
+                <div class="row">
+                    <div class="col-lg-12" id="second-col">
                         <h2>forgot password no problem !!</h2>
                         <p>please enter email id for verification</p>
-                        <input class="email" type="text" placeholder="email">
+                        <input class="email form-control" type="text" placeholder="email">
                         <br>
                         <router-link to="/verification" custom v-slot="{navigate}">
-                            <button class="submit-btn" type="btn" @click="navigate" role="link">submit</button>
+                            <button class="submit-btn " type="button" @click="navigate" role="link">submit</button>
                         </router-link>
                         <br>
                         <router-link to="/userlogin" custom v-slot="{navigate}">
-                            <button class="btn" type="btn" @click="navigate" role="link">back to sign in</button>
+                            <button class="btn" type="button" @click="navigate" role="link">back to sign in</button>
                         </router-link>
                     </div>
-
                 </div>
             </div>
-
         </div>
 
         <div class="col-lg-6" id="rigth-side">
@@ -31,12 +29,14 @@
 </div>
 </template>
 
+    
 <script>
 export default {
     name: 'forgetpassword'
 }
 </script>
 
+    
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
@@ -50,10 +50,9 @@ export default {
     /* height: 100%; */
 }
 
-.container {
+.main-container {
     height: 100vh;
     display: flex;
-    padding: 10px;
     width: 95%;
     background: #F9F9F9;
     opacity: 1;
@@ -66,7 +65,9 @@ export default {
 .text {
     border: 3px solid #BF9742;
     opacity: 1;
-    height: 95%;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -76,7 +77,6 @@ export default {
 
 #second-col {
     margin: 0 auto;
-    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +88,7 @@ h2 {
     text-align: center;
     font-weight: bold;
     font-family: 'Roboto';
-    font-size: 30px;
+    font-size: 25px;
     letter-spacing: 0px;
     color: #262626;
     opacity: 1;
@@ -98,7 +98,7 @@ h2 {
 p {
     text-align: center;
     font-family: 'Roboto';
-    font-size: 20px;
+    font-size: 1rem;
     letter-spacing: 0px;
     color: #838282;
     opacity: 1;
@@ -107,7 +107,7 @@ p {
 
 .email {
     margin-top: 3%;
-    width: 85%;
+    width: 100%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #BF9742;
     border-radius: 10px;
@@ -115,35 +115,29 @@ p {
     padding-left: 2%;
     text-align: left;
     font-family: 'Roboto';
-    font-size: 20px;
+    font-size: 1rem;
     letter-spacing: 0px;
     color: #838282;
     opacity: 1;
     text-transform: capitalize;
 }
+
+
 
 .submit-btn {
     margin-top: 2%;
-    width: 85%;
+    width: 100%;
+    height: 40px;
     border: none;
     border-radius: 10px;
-    text-align: center;
-    font-family: 'Roboto';
-    font-size: 20px;
-    color: #FAFAFA;
-    background-color: #A17A35;
-    opacity: 1;
-}
-
-.btn {
-    margin-top: 2%;
     text-transform: capitalize;
     font: normal normal normal 20px/24px Roboto;
     letter-spacing: 0px;
-    color: #838282;
+    color: white;
+    background-color: #A17A35;
     opacity: 1;
     font-family: 'Roboto';
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 #right-side {
@@ -151,20 +145,35 @@ p {
 }
 
 #rigth-side img {
-    width: 100%;
-    height: 97%;
     background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     opacity: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    
+}
+.btn {
+    margin-top: -2%;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    font: normal normal normal 20px/24px Roboto;
+    letter-spacing: 0px;
+    color: #838282;
+    opacity: 1;
+    font-family: 'Roboto';
+    font-size: 1.3rem;
 }
 
 .heading-magaswala {
     position: absolute;
     text-align: center;
     top: 50%;
-    left: 65%;
+    left: 59%;
     color: white;
-    font-size: 40px;
+    font-size: 4rem;
     font-family: 'Courgette', 'cursive';
     font-weight: normal;
     letter-spacing: 0px;
@@ -173,150 +182,143 @@ p {
     text-transform: capitalize;
 }
 
-@media screen and (min-width: 1400px) and (max-width: 1599.98px) {
-    .text {
-        height: 100%;
-    }
+/* @media screen and (min-width: 1400px) and (max-width: 1599.98px) {
+        .text {
+            height: 100%;
+        }
 
-    #second-col {
-        margin: 0 auto;
-        height: 50vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+        #second-col {
+            margin: 0 auto;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    h2 {
-        font-size: 30px;
-    }
+        h2 {
+            font-size: 30px;
+        }
 
-    p {
-        font-size: 20px;
-    }
+        p {
+            font-size: 20px;
+        }
 
-    .email {
-        margin-top: 3%;
-        width: 100%;
-        height: 50px;
-        padding-left: 2%;
-        text-align: left;
-        font-family: 'Roboto';
-        font-size: 20px;
-        letter-spacing: 0px;
-        color: #838282;
-        opacity: 1;
-        text-transform: capitalize;
-    }
+        .email {
+            margin-top: 3%;
+            width: 100%;
+            height: 50px;
+            padding-left: 2%;
+            text-align: left;
+            font-family: 'Roboto';
+            font-size: 20px;
+            letter-spacing: 0px;
+            color: #838282;
+            opacity: 1;
+            text-transform: capitalize;
+        }
 
-    .submit-btn {
-        margin-top: 3%;
-        width: 100%;
-        height: 50px;
-        border: none;
-        border-radius: 10px;
-        text-align: center;
-        font-family: 'Roboto';
-        font-size: 20px;
-        color: #FAFAFA;
-        background-color: #A17A35;
-        opacity: 1;
-    }
+        .submit-btn {
+            width: auto;
+        }
 
-    .btn {
-        margin-top: 3%;
-        text-transform: capitalize;
-        font: normal normal normal 20px/24px Roboto;
-        letter-spacing: 0px;
-        color: #838282;
-        opacity: 1;
-        font-family: 'Roboto';
-        font-size: 20px;
-    }
+        .btn {
+            margin-top: -2%;
+            border-radius: 10px;
+            text-align: center;
+            text-transform: capitalize;
+            font: normal normal normal 20px/24px Roboto;
+            letter-spacing: 0px;
+            color: #838282;
+            opacity: 1;
+            font-family: 'Roboto';
+            font-size: 18px;
+        }
 
-    #right-side {
-        position: relative;
-    }
+        #right-side {
+            position: relative;
+        }
 
-    #rigth-side img {
-        width: 100%;
-        height: 100%;
-        background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
-        border: 1px solid #707070;
-        opacity: 1;
-    }
+        #rigth-side img {
+            width: 100%;
+            height: 100%;
+            background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            opacity: 1;
+        }
 
-    .heading-magaswala {
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        left: 65%;
-        color: white;
-        font-size: 40px;
-        font-family: 'Courgette', 'cursive';
-        font-weight: normal;
-        letter-spacing: 0px;
-        color: #FFFFFF;
-        opacity: 1;
-        text-transform: capitalize;
-    }
-
-}
-
-@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
-    .container{
-        height: auto;
-    }
-    .text {
-        height: 100%;
-    }
-
-    #rigth-side img {
-        width: 100%;
-        height: 100%;
-
-    }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1199.98px) {}
-
-@media screen and (min-width: 600px) and (max-width: 999.98px) {
-    .heading-magaswala {
-        display: none;
-    }
-
-    #rigth-side img {
-        display: none;
-    }
-
-    .text {
-        width: 100%;
-        margin-left: 40%;
-    }
-
-    h2 {
-        font-size: 20px;
-
-    }
-}
-
-@media screen and (min-width: 300px) and (max-width: 599.98px) {
-    .text {
-        margin-top: 20%;
+        .heading-magaswala {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 65%;
+            color: white;
+            font-size: 40px;
+            font-family: 'Courgette', 'cursive';
+            font-weight: normal;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            opacity: 1;
+            text-transform: capitalize;
+        }
 
     }
 
-    h2 {
-        font-size: 18px;
+    @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
+        .container {
+            height: auto;
+        }
 
+        .text {
+            height: 100%;
+        }
+
+        #rigth-side img {
+            width: 100%;
+            height: 100%;
+
+        }
     }
 
-    #rigth-side img {
-        display: none;
+    @media screen and (min-width: 1000px) and (max-width: 1199.98px) {}
+
+    @media screen and (min-width: 600px) and (max-width: 999.98px) {
+        .heading-magaswala {
+            display: none;
+        }
+
+        #rigth-side img {
+            display: none;
+        }
+
+        .text {
+            width: 100%;
+            margin-left: 40%;
+        }
+
+        h2 {
+            font-size: 20px;
+
+        }
     }
 
-    .heading-magaswala {
-        display: none;
-    }
-}
+    @media screen and (min-width: 300px) and (max-width: 599.98px) {
+        .text {
+            margin-top: 20%;
+
+        }
+
+        h2 {
+            font-size: 18px;
+
+        }
+
+        #rigth-side img {
+            display: none;
+        }
+
+        .heading-magaswala {
+            display: none;
+        }
+    } */
 </style>
