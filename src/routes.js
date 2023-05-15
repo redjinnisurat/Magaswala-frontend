@@ -5,6 +5,7 @@ import ProductPage from './components/ProductPage.vue'
 import ProductPageAdd from './components/ProductPageAdd.vue'
 
 const routes=[
+   
     {
         name:'Home',
         path:'/home',
