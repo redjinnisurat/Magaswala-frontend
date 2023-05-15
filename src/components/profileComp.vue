@@ -7,7 +7,7 @@
   <div class="container rounded bg-white mt-5 mb-5">
     <div
       class="row"
-      style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px"
+      style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px;    "
     >
       <div class="col-md-12 border-right">
         <div class="p-3 py-1">
@@ -202,7 +202,10 @@ export default {
     background-color: #f8fdff;
     padding: 2rem;
 }
-
+/* .sidebar{
+  width: 66px;
+  height: 666px;
+} */
 .mainContainer {
     display: grid;
     grid-template-columns: 15% 85%;
