@@ -1,131 +1,41 @@
 <template>
-<div class="trengel">
-    <div class="sidebar-container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav ">
-            <div class="smenu navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex-column">
-                    <li class="nav-item">
-                        <div class="user-details">
-                            <img src="../assets/useprofile.jpg" alt="" />
-                            <h2>Zack Gonsalves</h2>
-                            <p>ZackGonsalves@gmail.com</p>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link side-nav-ele" id="reset-password-id" href="./">
-                            <img src="../assets/side_profile.svg" alt="" />
-                            <p>Profile</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link side-nav-ele" id="reset-password-id" href="./order">
-                            <img src="../assets/side_bag.svg" alt="" />
-                            <p>Order</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link side-nav-ele" id="reset-password-id" href="./reset">
-                            <img src="../assets/side_changepassword.png" alt="" />
-                            <p>Reset Password</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link side-nav-ele" href="./payment" id="payment-method">
-                            <img src="../assets/side_changepassword.png" alt="" />
-                            <p>Payment methods</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link side-nav-ele" href="./manageaddress" id="manage-addres">
-                            <img src="../assets/side_manage.png" alt="" />
-                            <p>Manage Address</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link side-nav-ele" href="#" id="help-support-ele">
-                            <img src="../assets/help.svg" alt="" />
-                            <p>Help Support</p>
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item">
-                    <a class="nav-link side-nav-ele" href="#" id="term-id">
-                        <img src="../assets/side_term.png" alt="" />
-                        <p>Term And Conditions</p>
-                    </a>
-                </li> -->
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div class="shape">
-
-    </div>
-
-</div>
+ <p>Some text ... </p>
 </template>
 
 <script>
-export default {
-    name: "testComp",
-};
+export default{
+  name:"testComp"
+}
+
 </script>
 
 <style scoped>
-.float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
+body{background:url('http://lorempixel.com/image_output/food-q-c-640-480-1.jpg');background-size:cover;}
+p{
+  position: relative;
+  width: 150px; height: 150px;
+  overflow: hidden;
+  border-top:3px solid #EF0EFE;
 }
-
-.my-float {
-    margin-top: 16px;
+p:before, p:after{
+  content: '';
+  position: absolute;
+  top: -3px;
+  height: 100%; width: 50%;
+  z-index: -1;
+  border:2px solid #EF0EFE;
+  box-sizing:border-box;
 }
-
-.trengel {
-    position: relative;
-    height: 561px;
-    margin-left: 126px;
-    width: 405px;
-    background: white;
-    border: solid 2px #BF9742;
-    border-right: none;
+p:before{
+  left: 0;  
+  transform-origin: 0 0;
+  transform: skewY(-20deg);
+  border-width:0 0 4px 3px;
 }
-
-.shape {
-    position: absolute;
-    width: 289px;
-    height: 122px;
-    background: red#F9F9F9;
-    border: solid 2px #BF9742;
-    top: 218px;
-    left: 257px;
-    transform: skew(295deg);
-    rotate: 102.5deg;
-    border-left: none;
-    border-top: none;
+p:after{
+  right: 0;
+  transform-origin: 100% 0;
+  transform: skewY(20deg);
+  border-width:0 3px 4px 0;
 }
-
-/* .shape2{
- position: absolute;
-   width: 269px;
-   height: 0px;
-   background: white;
-   border: solid 2px #BF9742;
-   transform: rotate(70deg);
-   top: 434px;
-   left: 79px;
-   border-right: none;
-   border-top: none;
-} */
 </style>
