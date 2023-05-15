@@ -19,7 +19,7 @@
                     <router-link to="/setnewpassword" custom v-slot="{navigate}">
                         <button class="submit-btn" type="btn" @click="navigate" role="link">Verify</button>
                     </router-link>
-                    <p class="p-2">code has been sent again! <span>Send again 1:25</span></p>
+                   
                 </div>
             </div>
         </div>

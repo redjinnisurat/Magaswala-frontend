@@ -1,40 +1,38 @@
 <template>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6" id="left-side">
-            <div class="text">
-                <div class="row ">
-                    <div class="col-6-lg" id="second-col">
-                        <h2 class="welcome-heading">verification</h2>
-                        <p class="p-1">6-digit code has been sent<br>to your register email </p>
-                        <br>
-                        <div class="otp2">
-                            <!-- <input id="partitioned" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" maxlength="1" v-model="email_otp" autocomplete="off"  /> -->
-                            <input type="text" id="o1" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" v-model="email_otp" v-on:click="focus( )" required>
-                            <input type="text" id="o2" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
-                            <input type="text" id="o3" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
-                            <input type="text" id="o4" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
-                            <input type="text" id="o5" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
-                            <input type="text" id="o6" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
-
-                        </div>
-
-                        <router-link to="/setnewpassword" custom v-slot="{navigate}">
-                            <button class="submit-btn" type="btn" @click="navigate" role="link">Verify</button>
-                        </router-link>
-                        <p id="p-2"> Didn't receive code ? <router-link to="/verification2" custom v-slot="{navigate}"><span @click="navigate" role="link">Resend</span></router-link>
-                        </p>
+<div class="main-container">
+    <img class="main-img" src="../assets/backgoundimg.png" alt="">
+    <div class="row1">
+        <div class="text">
+            <div class="row ">
+                <div class="col-6-lg" id="second-col">
+                    <h2 class="welcome-heading">verification</h2>
+                    <p class="p-1">6-digit code has been sent<br>to your register email </p>
+                    <br>
+                    <div class="otp2">
+                        <!-- <input id="partitioned" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" maxlength="1" v-model="email_otp" autocomplete="off"  /> -->
+                        <input type="text" id="o1" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" v-model="email_otp" v-on:click="focus( )" required>
+                        <input type="text" id="o2" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
+                        <input type="text" id="o3" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
+                        <input type="text" id="o4" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
+                        <input type="text" id="o5" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
+                        <input type="text" id="o6" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
 
                     </div>
 
-                </div>
-            </div>
+                    <router-link to="/setnewpassword" custom v-slot="{navigate}">
+                        <button class="submit-btn" type="btn" @click="navigate" role="link" id="sub-btn">Verify</button>
+                    </router-link>
+                    <p id="p-2"> Didn't receive code ? <router-link to="/verification2" custom v-slot="{navigate}"><span @click="navigate" role="link">Resend</span></router-link>
+                    </p>
 
+                </div>
+
+            </div>
         </div>
-        <div class="col-lg-6" id="rigth-side">
-            <img src="../assets/backgoundimg.png" alt="">
-            <h2 class="heading-magaswala">magaswala</h2>
-        </div>
+
+    </div>
+    <div class="col-lg-6" id="rigth-side">
+        <h2 class="heading-magaswala">magaswala</h2>
     </div>
 </div>
 </template>
@@ -101,7 +99,7 @@ export default {
 
 .otp2 {
     display: flex;
-    margin-left: 8%;
+    margin-left: 10%;
 }
 
 .otp2 input {
@@ -118,14 +116,7 @@ export default {
     margin-top: 2%;
 }
 
-@media screen and (min-width: 1400px) and (max-width: 1599.98px) {
-    .submit-btn {
-        width: 85%;
-    }
-
-    .otp-field {
-        margin-left: 15%;
-    }
-
+#sub-btn {
+    width: 85%;
 }
 </style>
