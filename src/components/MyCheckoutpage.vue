@@ -274,6 +274,7 @@ export default {
 
 .container{
   margin-left: 14rem;
+  overflow-x: hidden;
 }
 .box {
   border: 2px solid #bf9742;

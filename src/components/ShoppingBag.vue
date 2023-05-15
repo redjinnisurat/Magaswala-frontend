@@ -396,7 +396,7 @@ export default {
 @media screen and (max-width: 790px) {
   .container {
     max-width: 50em;
-    margin-left: 1em;
+    margin-left: 5em;
     margin-top: 2em;
   }
   .outer-text {
@@ -473,6 +473,7 @@ export default {
     max-width: 90em;
     margin-top: -3rem;
     height: 60em;
+    overflow-x: hidden;
   }
 
   .card-title {
@@ -533,16 +534,16 @@ export default {
   }
   .add-remove {
     font-size: 35px;
-    margin-left: 33rem;
+    margin-left: 35rem;
   }
   .add-remove .plus {
     height: 3rem;
-    width: 3rem;
+    width: 6rem;
     margin-right: 10px;
   }
   .add-remove .minus {
     height: 3rem;
-    width: 3rem;
+    width: 4rem;
     margin-left: 10px;
   }
   .vertical-line {
@@ -621,6 +622,12 @@ export default {
   }
   .dlt{
     margin-right: -18.5em;
+  }
+  .checkout{
+    margin-top: 2em;
+  }
+  .box{
+    font-size: 20px;
   }
   /* .card-title{
     margin-top: 2rem;
@@ -732,6 +739,7 @@ export default {
 @media screen and (max-width: 390px) {
   .container{
     margin-top: 3em;
+    margin-left: 10em;
   }
 }
 /* @media screen and (max-width: 390px) {

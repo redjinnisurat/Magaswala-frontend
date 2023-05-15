@@ -24,22 +24,28 @@
         <li class="nav-item my-0">
           <a class="nav-link active mx-5 me-3" aria-current="page" href="#">&nbsp; &nbsp;<img src="@/assets/home.png" alt="" style="width: 1em;"><br/>Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item nav-li">
           <a class="nav-link me-3 mx-2" href="#">&nbsp;<img src="@/assets/bag.png" alt="" style="width: 1em;"><br/><p style="color: #B1622A;">Bag</p></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link mx-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> &nbsp; &nbsp; &nbsp;<img src="@/assets/favorite.png" alt="" style="width: 1em;"><br/>Favorites
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item nav-li">
           <a class="nav-link mx-2">&nbsp; &nbsp;<img src="@/assets/profile.png" alt="" style="width: 1em;"><br/>Profile</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item nav-li">
           <a class="nav-link mx-4">&nbsp; &nbsp; <img src="@/assets/logout.png" alt="" style="width: 1em;"><br/>Logout</a>
         </li>
       </ul>
       
+      <div class="hamburger" @click="openNavbar" :class="{'active': isMenuOpen}">
+        <span class="bar">1</span>
+        <span class="bar">2</span>
+        <span class="bar">3</span>
+      </div>
+
     </div>
   </div>
 </nav>
@@ -56,14 +62,33 @@ import { ref } from "vue";
     const isOpen = ref(false);
     return { isOpen };
   },
-  openNavbar() {
-    var navbarToggleExternalContent = document.getElementById('navbarToggleExternalContent');
-    if(navbarToggleExternalContent.click.visibility == "hidden") {
-      navbarToggleExternalContent.click.visibility = "visible";
-    } else {
-      navbarToggleExternalContent.click.visibility = "hidden";
-    }
+  data() {
+     return {
+      isMenuOpen: false
+     };
+  },
+  methods: {
+   
+    openNavbar() {
+      // alert("cliked");
+      // this.isMenuOpen = !this.isMenuOpen;
+      const hamburger = document.querySelector(".hamburger");
+  const navBar = document.querySelector(".navbar-nav");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navBar.classList.toggle("active");
+    })
   }
+}
+  // openNavbar() {
+  //   var navbarToggleExternalContent = document.getElementById('navbarToggleExternalContent');
+  //   if(navbarToggleExternalContent.click.visibility == "hidden") {
+  //     navbarToggleExternalContent.click.visibility = "visible";
+  //   } else {
+  //     navbarToggleExternalContent.click.visibility = "hidden";
+  //   }
+  // }
 
   // methods: {
   //   openNavbar: function(){
@@ -71,6 +96,15 @@ import { ref } from "vue";
   //     navbarToggleExternalContent.classList.add('open-navbar');
   //   }
   // }
+//   methods: {
+//   const hamburger = document.querySelector(".hamburger");
+//   const navBar = document.querySelector(".navbar");
+
+//   hamburger.addEventListener("click", () => {
+//     hamburger.classList.toggle("active");
+//     navBar.classList.toggle("active");
+//   })
+// }
 }
 </script>
 
@@ -95,7 +129,20 @@ import { ref } from "vue";
   margin-left: -2.5em;
   
 }
+.hamburger{
+  display: none;
+  cursor: pointer;
+}
 
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
 @media screen and (max-width: 1800px) {
   .navbar {
     margin-left: 15em;
@@ -112,34 +159,64 @@ import { ref } from "vue";
 
   .navbar{
     margin-top: 2em;
-    margin-left: 7em;
+    margin-left: 3em;
   }
 
   #search{
     display: flex;
-    float: left;
-    margin-left: 13em;
-    margin-top: -3em;
+    /* float: left; */
+    margin-left: 8em;
+    margin-top: -2.5em;
   }
   .navbar-toggler{
     float: right;
-    margin-left: 14em;
+    margin-left: 15em;
+    /* display: none; */
   }
   .navbar-toggler-icon{
     margin:0px;
-    width: 2em;
+    width: 1.5em;
+  }
+  .hamburger{
+    display: block;
+  }
+  .hamburger .active .bar:nth-child(2){
+    opacity:0;
+  }
+  .hamburger .active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger .active .bar:nth-child(1){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .navbar-nav{
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap:0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .nav-item{
+    margin: 16px 0;
+  }
+  .navbar.active{
+    left: 0;
   }
 }
 
 @media screen and (max-width: 890px) {
 
-  .search{
-    margin-top: 10px;
+  #search{
+    margin-top: -2.5em;
+    margin-right: 8em;
     /* display:flex; */
   }
   .navbar-toggler{
     float: right;
-    margin-right: -10em;
+    margin-right: 2em;
   }
 }
 
@@ -184,10 +261,13 @@ import { ref } from "vue";
   .navbar-toggler{
     margin-left: 110rem;
   }
+  .navbar-toggler-icon{
+    margin-left: -80rem;
+  }
 }
 @media screen and (max-width: 490px) {
   .navbar-toggler-icon{
-    margin-left: -50rem;
+    margin-left: -80rem;
   }
 }
 @media screen and (max-width: 390px) {
@@ -195,6 +275,9 @@ import { ref } from "vue";
     /* float:right; */
     margin-left: 70em;
     margin-top: -8rem;
+  }
+  .navbar-toggler-icon{
+    margin-left: -40rem;
   }
   .navbar-logo{
     font-size: 3rem;

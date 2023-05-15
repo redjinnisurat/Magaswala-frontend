@@ -114,7 +114,7 @@
     };
     </script>
 
-    <style>
+<style>
 
 .heading{
  margin-top: 15px;
@@ -190,4 +190,45 @@
         height: 1.6em;
         transition: all 0.3s ease;
     }
-    </style>
+
+    @media screen and (max-width: 790px) {
+      .carousel{
+        width: 50em;
+      }
+    }
+  @media screen and (max-width: 690px) {
+    .carousel{
+      width: 70em;
+    }
+  }
+
+  @media screen and (max-width: 590px) {
+    .heading{
+      width: 100%;
+      margin-left: 12em;
+    }
+    .carousel{
+      margin-left: 18em;
+    }
+  }
+
+  @media screen and (max-width: 490px) {
+    .heading{
+      width: 100%;
+      margin-left: 10em;
+    }
+    .carousel{
+      width: 70em;
+      margin-left: 13em;
+    }
+  }
+  @media screen and (max-width: 390px) {
+    .heading{
+      width: 100%;
+      margin-left: 7em;
+    }
+    .carousel{
+      margin-left: 9em;
+    }
+  }
+</style>
