@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row " style="    margin-top: -70px;">
             <div class="col-md-6">
                 <div class="" style="text-align: left">
                     <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small>Add Address</small></a>
@@ -83,9 +83,9 @@ export default {
     grid-template-columns: 15% 85%;
 }
 .container{
-  width: 690px;
+  width:800px;
   margin-right: 100px;
-  height: 624px;
+  height:600px;
 }
 body {
     background: rgb(99, 39, 120);
@@ -98,6 +98,7 @@ body {
 .bord{
         border: solid 2px #BF9742;
     border-radius: 15px;
+    height: 600px;
     }
 .profile-button {
     background: rgb(99, 39, 120);

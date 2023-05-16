@@ -4,7 +4,7 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-  <div class="container rounded bg-white mt-5 mb-5">
+  <div class="container rounded bg-white mt-5 mb-5" >
     <div
       class="row"
       style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px;    "
@@ -22,7 +22,7 @@
             </div>
           </div>
 
-          <div class="row mt-2">
+          <div class="row ">
             <div class="col-md-6">
               <div class="" style="text-align: left">
                 <label class="labels">Name</label>
@@ -41,7 +41,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row mt-2">
             <div class="col-md-6">
               <div class="" style="text-align: left">
                 <label class="labels">Mobile Number</label>
@@ -87,7 +87,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row mt-2">
             <div class="col-md-6">
               <div class="" style="text-align: left">
                 <label class="labels">Email</label>
@@ -101,7 +101,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row mt-2">
             <div class="col-md-2">
               <div
                 class=""
@@ -124,7 +124,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row mt-2">
             <div class="col-md-4">
               <label class="labels"></label
               ><input
@@ -139,7 +139,7 @@
               ><input type="number" class="form-control" value="" placeholder="Pincode" />
             </div>
           </div>
-          <div class="row mt-3">
+          <div class="row mt-2">
             <div class="col-md-2">
               <label class="labels"></label
               ><input type="text" class="form-control" value="" placeholder="state" />
@@ -150,7 +150,7 @@
             </div>
           </div>
 
-          <div class="row mt-3">
+          <div class="row mt-2">
             <div class="col-md-6">
               <div class="" style="text-align: left">
                 <a
@@ -202,10 +202,10 @@ export default {
     background-color: #f8fdff;
     padding: 2rem;
 }
-/* .sidebar{
-  width: 66px;
-  height: 666px;
-} */
+.sidebar{
+  
+  margin-top: -90px;
+}
 .mainContainer {
     display: grid;
     grid-template-columns: 15% 85%;
@@ -249,9 +249,9 @@ body {
   color: #b1622a;
 }
 .container{
-  width: 690px;
+  width: 800px;
   margin-right: 100px;
-  height: 624px;
+  height: 580px;
 }
 
 

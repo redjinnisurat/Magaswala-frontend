@@ -263,7 +263,7 @@ import NavComp from './NavComp.vue';
     components:{ NavComp, myprofileComp} 
   };
   </script>
-  <style>
+  <style scoped>
   .bg {
     background-color: #f8fdff;
     padding: 2rem;
@@ -274,7 +274,7 @@ import NavComp from './NavComp.vue';
     grid-template-columns: 15% 85%;
 }
 .container{
-  width: 1070px;
+  width: 840px;
   margin-right: 100px;
   height: 658px;
 }
