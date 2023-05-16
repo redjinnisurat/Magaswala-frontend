@@ -6,7 +6,7 @@
         <div class="product-card" v-for="(image, index) in images" :key="index">
            
           <div class="product-image">
-            <img style="width: 40vh; height:40vh;" :src="image.src" />
+            <img style="width: 43vh; height:35vh;" :src="image.src" />
           </div>
             <div class="product-info">
                         <p class="product-name">Kesar magas</p>
@@ -154,11 +154,11 @@
     }
     
     .product-image{
-        width: 21em;
+        width: 20em;
         background-color: #edd5a4;
     }
     .product-image img{
-        width: 16em;
+        width: 19em;
         margin-left: auto;
         margin-right: auto;
         display: block;
@@ -166,9 +166,10 @@
     
     .product-info{
         background-color: #fff;
-        height: 7em;
+        width: 21em;
+        height: 6em;
         opacity: 5;
-        filter: blur(0.5px);
+        /* filter: blur(0.5px); */
         padding: 10px 10px;
     }
     .product-name{
@@ -183,15 +184,27 @@
         color: white;
         border: none;
         border-radius: 5px;
-        margin-left: 12em;
-        margin-top: -2rem;
+        margin-left: 13em;
+        margin-top: -5rem;
         padding-top:0;
-        width: 6.5em;
+        width: 5.5em;
         height: 1.6em;
         transition: all 0.3s ease;
+        /* letter-spacing: 0px; */
     }
+@media screen and (max-width: 990px) {
+  .product-card{
+    width: 13em;
+  }
+  .heading{
+    margin-left: 1em;
+  }
+  .carousel{
+    margin-left: 0.5em;
+  }
+}
 
-    @media screen and (max-width: 790px) {
+  @media screen and (max-width: 790px) {
       .carousel{
         width: 50em;
       }
@@ -205,30 +218,30 @@
   @media screen and (max-width: 590px) {
     .heading{
       width: 100%;
-      margin-left: 12em;
+      margin-left: 6em;
     }
     .carousel{
-      margin-left: 18em;
+      margin-left: 8em;
     }
   }
 
   @media screen and (max-width: 490px) {
     .heading{
       width: 100%;
-      margin-left: 10em;
+      margin-left: 6em;
     }
     .carousel{
       width: 70em;
-      margin-left: 13em;
+      margin-left: 8em;
     }
   }
   @media screen and (max-width: 390px) {
     .heading{
       width: 100%;
-      margin-left: 7em;
+      margin-left: 4em;
     }
     .carousel{
-      margin-left: 9em;
+      margin-left: 5em;
     }
   }
 </style>

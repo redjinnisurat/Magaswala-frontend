@@ -259,26 +259,40 @@ import { ref } from "vue";
     font-size: 30px;
   }
   .navbar-toggler{
-    margin-left: 110rem;
+    margin-left: 70rem;
   }
-  .navbar-toggler-icon{
+  /* .navbar-toggler-icon{
     margin-left: -80rem;
-  }
+  } */
 }
 @media screen and (max-width: 490px) {
-  .navbar-toggler-icon{
-    margin-left: -80rem;
+  .navbar{
+    margin-left: 10em;
   }
+  .navbar-toggler{
+    margin-left: 48em;
+    margin-top: -5em;
+  }
+  #search{
+    margin-top: -6em;
+    margin-left: 14em;
+  }
+  /* .navbar-toggler-icon{
+    margin-left: -20rem;
+  } */
 }
 @media screen and (max-width: 390px) {
+  .navbar{
+    margin-left: 8em;
+  }
   .navbar-toggler{
     /* float:right; */
-    margin-left: 70em;
+    margin-left: 50em;
     margin-top: -8rem;
   }
-  .navbar-toggler-icon{
+  /* .navbar-toggler-icon{
     margin-left: -40rem;
-  }
+  } */
   .navbar-logo{
     font-size: 3rem;
     margin-left: -5rem;
@@ -301,7 +315,7 @@ import { ref } from "vue";
     margin-right: 10rem;
     margin-bottom: 5rem;
     padding-bottom: -3rem;;
-    width: 20em;
+    width: 25em;
   }
   
 }

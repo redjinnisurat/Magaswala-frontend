@@ -471,7 +471,7 @@ export default {
   .container{
     width: 180em;
     height: 68rem;
-    margin-left: 30rem;
+    margin-left: 10rem;
     margin-top: -1rem;
   }
   .box{
@@ -627,26 +627,27 @@ export default {
   .container{
     display: flex;
     flex-wrap: wrap;
-    width: 80em;
+    width: 65em;
     height: 110em;
-    
-    /* flex-direction: column; */
-    margin-left: 14rem;
+    margin-left: 6rem;
   }
   .container .box{
     width: 50%;
     align-items: center;
-    margin-left: 20em;
+    margin-left: 18em;
   }
   .container .box2{
-    width: 50%;
-    margin-top: -10rem;
-    margin-left: auto;
+    width: 100%;
+    margin-top: -19rem;
+    margin-left: 18em;
     margin-right: auto;
   }
   .vertical-line{
     display: none;
   }
+  
+  
+
   /* .box{
     width: 70rem;
     margin-left: 16rem;
@@ -789,8 +790,11 @@ export default {
   } */
 }
 
-/* @media screen and (max-width: 390px) {
+@media screen and (max-width: 390px) {
   .container{
+    margin-top: 2em;
+  }
+  /* .container{
     height: 110rem;
     width: 70rem;
     display: flex;
@@ -938,6 +942,6 @@ export default {
   }
   .order .btn2{
     font-size: 1.8rem;
-  }
-} */
+  } */
+}
 </style>

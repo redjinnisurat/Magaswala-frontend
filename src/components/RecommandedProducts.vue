@@ -6,7 +6,7 @@
        <div class="product-card" v-for="(image, index) in images" :key="index">
           
          <div class="product-image">
-           <img style="width: 40vh; height:40vh;" :src="image.src" />
+           <img style="width: 43vh; height:35vh;" :src="image.src" />
          </div>
            <div class="product-info">
                        <p class="product-name">Kesar magas</p>
@@ -121,7 +121,7 @@ margin-top: -1em;
 margin-left: 3em;
 
 }
-   .carousel {
+.carousel {
    display: flex;
    overflow-x: auto;
    scroll-snap-type: x mandatory;
@@ -133,52 +133,52 @@ margin-left: 3em;
    margin-left: 6em;
    }
    
-   .carousel::-webkit-scrollbar {
+.carousel::-webkit-scrollbar {
    display: none;
    }
    
-   .carousel img {
+.carousel img {
    width: 100%;
    height: auto;
    scroll-snap-align: center;
    }
    
-   .carousel.dragging {
+.carousel.dragging {
    cursor: grabbing;
    cursor: -webkit-grabbing;
    }
    
-   .product-card{
+.product-card{
        width: 22em;
        margin-left: 0.5em;
    }
    
-   .product-image{
+.product-image{
        width: 21em;
        background-color: #edd5a4;
    }
-   .product-image img{
+.product-image img{
        width: 16em;
        margin-left: auto;
        margin-right: auto;
        display: block;
    }
    
-   .product-info{
+.product-info{
        background-color: #fff;
        height: 7em;
        opacity: 5;
        filter: blur(0.5px);
        padding: 10px 10px;
    }
-   .product-name{
+.product-name{
        margin-bottom: 0;
    }
-   .product-info .product-short-description{
+.product-info .product-short-description{
        width: 10em;
       margin-right: 0;
    }
-   .product-info .btn{
+.product-info .btn{
        background-color: #A17A35;
        color: white;
        border: none;
@@ -189,5 +189,46 @@ margin-left: 3em;
        width: 6.5em;
        height: 1.6em;
        transition: all 0.3s ease;
-   }
-   </style>
+}
+@media screen and (max-width: 990px) {
+  .heading{
+    margin-left: 1em;
+  }
+  .carousel{
+    margin-left: 1.5em;
+    width: 65em;
+  }
+}
+@media screen and (max-width: 590px) {
+  /* .product-card{
+    width: 20em;
+  } */
+    .heading{
+      width: 100%;
+      margin-top: -10em;
+      margin-left: 6em;
+    }
+    .carousel{
+      width: 70em;
+      margin-left: 8em;
+    }
+}
+@media screen and (max-width: 490px) {
+  .heading{
+    margin-top: 35em;
+    margin-left: 4em;
+  }
+  .carousel{
+    margin-left: 6em;
+  }
+}
+@media screen and (max-width: 390px) {
+  .heading{
+    margin-top: 40em;
+    margin-left: 4em;
+  }
+  .carousel{
+    margin-left: 6em;
+  }
+}
+</style>

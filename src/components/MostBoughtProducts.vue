@@ -6,7 +6,7 @@
        <div class="product-card" v-for="(image, index) in images" :key="index">
           
          <div class="product-image">
-           <img style="width: 40vh; height:40vh;" :src="image.src" />
+           <img style="width: 43vh; height:35vh;" :src="image.src" />
          </div>
            <div class="product-info">
                        <p class="product-name">Kesar magas</p>
@@ -117,7 +117,7 @@
    <style scoped>
 
 .heading{
-margin-top: -13em;
+margin-top: -13.5em;
 margin-left: 3em;
 
 }
@@ -190,4 +190,44 @@ margin-left: 3em;
        height: 1.6em;
        transition: all 0.3s ease;
    }
-   </style>
+@media screen and (max-width: 990px) {
+  .heading{
+    margin-top: -15em;
+    margin-left: 1em;
+  }
+  .carousel{
+    margin-left: 1.5em;
+    width: 65em;
+  }
+}
+@media screen and (max-width: 590px) {
+    .heading{
+      width: 100%;
+      margin-left: 6em;
+    }
+    .carousel{
+      width: 70em;
+      margin-left: 8em;
+    }
+}
+@media screen and (max-width: 490px) {
+  .heading{
+    margin-top: -16em;
+    margin-left: 4em;
+  }
+  .carousel{
+    margin-left: 6em;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .heading{
+    margin-top: -15em;
+    margin-left: 4em;
+  }
+  .carousel{
+    margin-left: 6em;
+  }
+ 
+}
+</style>

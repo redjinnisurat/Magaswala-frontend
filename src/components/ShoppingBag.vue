@@ -396,7 +396,7 @@ export default {
 @media screen and (max-width: 790px) {
   .container {
     max-width: 50em;
-    margin-left: 5em;
+    margin-left: 1em;
     margin-top: 2em;
   }
   .outer-text {
@@ -469,7 +469,7 @@ export default {
 }
 @media screen and (max-width: 590px) {
   .container {
-    margin-left: 20em;
+    margin-left: 10em;
     max-width: 90em;
     margin-top: -3rem;
     height: 60em;
@@ -580,9 +580,9 @@ export default {
 @media screen and (max-width: 490px) {
   .container {
     margin-top: -1em;
-    width: 70em;
+    width: 60em;
     height: 95em;
-    margin-left: 15em;
+    margin-left: 10em;
     display: flex;
     flex-wrap: wrap;
   }
@@ -738,8 +738,9 @@ export default {
 }
 @media screen and (max-width: 390px) {
   .container{
+    width: 60em;
     margin-top: 3em;
-    margin-left: 10em;
+    margin-left: 6em;
   }
 }
 /* @media screen and (max-width: 390px) {

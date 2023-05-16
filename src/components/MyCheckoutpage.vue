@@ -274,7 +274,7 @@ export default {
 
 .container{
   margin-left: 14rem;
-  overflow-x: hidden;
+  
 }
 .box {
   border: 2px solid #bf9742;
@@ -607,7 +607,7 @@ export default {
 }
 @media screen and (max-width: 1201px) {
   .container {
-    margin-left: 7em;
+    margin-left: 2em;
   }
   .box{
     padding: 15px;
@@ -649,7 +649,7 @@ export default {
   @media screen and (max-width: 990px) {
 
     .container{
-      margin-left: 2em;
+      margin-left: 1em;
       margin-top: 2rem;
       max-width: 150rem;
     }
@@ -664,7 +664,7 @@ export default {
       margin-top: -1rem;
     }
     .box2{
-      margin-left: 2rem;
+      margin-left: 0rem;
       max-width: 50rem;
       padding: 10px;
     }
@@ -691,11 +691,11 @@ export default {
 @media screen and (max-width: 690px) {
   .container{
     margin-top: -2rem;
-    margin-left: 5rem;
+    margin-left: 2rem;
   }
 
   .vertical-line{
-    margin-left: 52rem;
+    margin-left: 50rem;
   }
 }
 @media screen and (max-width: 590px) {
@@ -705,7 +705,7 @@ export default {
     height: 90rem;
   }
   .box{
-    width: 70em;
+    width: 67em;
     height: 73rem;
     margin-left: -2rem;
     margin-top: -2rem;
@@ -906,26 +906,33 @@ export default {
 }
   @media screen and (max-width: 490px) {
     .container{
-    margin-top: 1rem;
+    margin-top: -2rem;
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: column; */
     width: 70rem;
     height: 90rem;
+    margin-left: -4em;
   }
   .box{
     width: 100%;
-    margin-left: 12em;
+    margin-left: 8em;
     /* margin-right: auto; */
   }
   .container .box2{
     width: 30%;
     margin-top: auto;
-    margin-left: auto;
+    margin-left: 9em;
     margin-right: auto;
   }
   .vertical-line{
     display: none;
+  }
+  .order{
+    margin-right: 8em;
+  }
+  .box2 .title2{
+    width: 10em;
   }
   /* .box{
     width: 100%;
@@ -1121,13 +1128,13 @@ export default {
 @media screen and (max-width: 390px) {
   .box{
     margin-top: 2em;
-    margin-left: 1em;
+    margin-left: 6em;
   }
   .box2{
-    margin-left: -11em;
+    margin-left: 3em;
   }
   .order{
-    margin-left: 20em;
+    margin-left: 5em;
   }
 }
 /* @media screen and (max-width: 390px) {
