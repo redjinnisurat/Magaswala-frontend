@@ -3,7 +3,7 @@ import forgetpassword from './components/forgetpassword.vue'
 import userlogin from './components/userlogin.vue'
 import signup from './components/signup.vue'
 import verification from './components/verification.vue'
-import verification2 from './components/verification2.vue'
+
 
 
 
@@ -41,14 +41,6 @@ const routes = [
         component: verification,
         path: '/verification'
     },
-    {
-        name: 'verification2',
-        component: verification2,
-        path: '/verification2'
-
-    },
-
-
 
 ]
 

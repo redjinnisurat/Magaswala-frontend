@@ -11,7 +11,9 @@
                     <br>
                     <input class="email" type="text" placeholder=" confirm password">
                     <br>
-                    <button class="submit-btn" type="btn">submit</button>
+                    <router-link to="/userlogin" custom v-slot="{navigate}">
+                        <button class="submit-btn" @click="navigate" role="link" type="btn">submit</button>
+                    </router-link>
 
                 </div>
             </div>
@@ -30,9 +32,10 @@ export default {
 </script>
 
 <style>
-#heading-magaswala{
+#heading-magaswala {
     left: 23%;
 }
+
 @media screen and (min-width: 1400px) and (max-width: 1599.98px) {
     .submit-btn {
         width: 100%;

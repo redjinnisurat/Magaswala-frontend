@@ -22,8 +22,8 @@
                     <router-link to="/setnewpassword" custom v-slot="{navigate}">
                         <button class="submit-btn" type="btn" @click="navigate" role="link" id="sub-btn">Verify</button>
                     </router-link>
-                    <p id="p-2"> Didn't receive code ? <router-link to="/verification2" custom v-slot="{navigate}"><span @click="navigate" role="link">Resend</span></router-link>
-                    </p>
+                    <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext"> Didn't receive code ? <span v-on:click="toggletext()">Resend</span></p>
+                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">code has been sent again! <span>send again 1:25</span></p>
 
                 </div>
 
@@ -40,7 +40,11 @@
 <script>
 export default {
     name: 'verification',
-
+    data() {
+        return {
+            showtext: false
+        };
+    },
     methods: {
         focus() {
             let otp2 = document.getElementsByClassName("otp2")[0];
@@ -81,8 +85,13 @@ export default {
             let o6 = document.getElementById("o6").value
 
             let otp123 = o1 + o2 + o3 + o4 + o5 + o6
+        },
+
+        toggletext() {
+            this.showtext = !this.showtext;
         }
     }
+
 }
 </script>
 
@@ -118,5 +127,14 @@ export default {
 
 #sub-btn {
     width: 85%;
+}
+
+span {
+    color: #BF9742;
+    font-weight: bold;
+}
+
+.second-p {
+    margin-top: 3%;
 }
 </style>
