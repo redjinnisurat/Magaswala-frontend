@@ -1,6 +1,6 @@
 import setnewpassword from './components/setnewpassword.vue'
 import forgetpassword from './components/forgetpassword.vue'
-import userlogin from './components/userlogin.vue'
+import login from './components/login.vue'
 import signup from './components/signup.vue'
 import verification from './components/verification.vue'
 
@@ -27,9 +27,9 @@ const routes = [
     },
 
     {
-        name: 'userlogin',
-        component: userlogin,
-        path: '/userlogin'
+        name: 'login',
+        component: login,
+        path: '/login'
     },
     {
         name: 'signup',

@@ -11,7 +11,7 @@
                     <br>
                     <input class="email" type="text" placeholder=" confirm password">
                     <br>
-                    <router-link to="/userlogin" custom v-slot="{navigate}">
+                    <router-link to="/login" custom v-slot="{navigate}">
                         <button class="submit-btn" @click="navigate" role="link" type="btn">submit</button>
                     </router-link>
 

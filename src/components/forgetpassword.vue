@@ -13,7 +13,7 @@
                         <button class="submit-btn " type="button" @click="navigate" role="link">submit</button>
                     </router-link>
                     <br>
-                    <router-link to="/userlogin" custom v-slot="{navigate}">
+                    <router-link to="/login" custom v-slot="{navigate}">
                         <button class="btn" type="button" @click="navigate" role="link">back to sign in</button>
                     </router-link>
 

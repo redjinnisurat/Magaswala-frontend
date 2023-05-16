@@ -17,7 +17,7 @@
                     <br>
                     <button class="login-btn1" type="btn"> <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png"> login with google</button>
                     <br>
-                    <p class="p-2">Already have an account ? <router-link to="/userlogin" custom v-slot="{navigate}"> <span @click="navigate" role="link">Sign in now</span></router-link>
+                    <p class="p-2">Already have an account ? <router-link to="/login" custom v-slot="{navigate}"> <span @click="navigate" role="link">Sign in now</span></router-link>
                     </p>
 
                 </div>

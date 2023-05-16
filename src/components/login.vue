@@ -43,7 +43,7 @@
 
 <script>
 export default {
-    name: 'userlogin',
+    name: 'login',
     data() {
         return {
             showPassword: false
