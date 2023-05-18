@@ -305,5 +305,10 @@ import NavComp from './NavComp.vue';
         border: solid 2px #BF9742;
     border-radius: 15px;
     }
+    .container{
+  width: 800px;
+  margin-right: 100px;
+  height: 580px;
+}
   </style>
   

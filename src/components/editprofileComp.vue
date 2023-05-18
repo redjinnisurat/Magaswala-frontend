@@ -4,7 +4,7 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-<div class="container rounded bg-white mt-5 mb-5">
+<div class="container rounded bg-white mt-1 mb-5">
     <div class="row" style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px">
         <div class="col-md-12 border-right ">
             <div class="p-3 py-1 ">
@@ -239,5 +239,9 @@ body {
  .pen {
     opacity: 1;
 }
-
+.container{
+  width: 800px;
+  margin-right: 100px;
+  height: 580px;
+}
 </style>

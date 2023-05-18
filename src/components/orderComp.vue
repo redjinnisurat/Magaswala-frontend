@@ -4,7 +4,7 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-      <div class="container rounded bg-white mt-6 mb-5">
+      <div class="container rounded bg-white mt-1 mb-5">
     <div class="row row2">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
@@ -220,5 +220,7 @@ export default {
         border: solid 2px #BF9742;
     border-radius: 15px;
     }
-  
+  .sidebar{
+    margin-bottom: 66px;
+  }
 </style>

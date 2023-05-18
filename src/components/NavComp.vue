@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar bg-#F9F9F9 row  " style="margin-top: 3px; ">
+<nav class="navbar bg-#F9F9F9 row  " style="margin-top: 0px; ">
     <div class="col-sm-2">
         <a class="container navbar-brand " href="#">
             <img src="../assets/Magaswala.svg" alt="" class="d-inline-block align-text-top" style="    width: 276px;

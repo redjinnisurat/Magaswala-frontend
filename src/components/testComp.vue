@@ -1,5 +1,8 @@
 <template>
   <div class="gg">
+  hello
+  </div>
+  <!-- <div class="gg">
     <div class="sidebar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
         <div class="smenu navbar-collapse" id="navbarNav">
@@ -53,7 +56,7 @@
         </div>
       </nav>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -64,33 +67,34 @@ export default {
 
 <style scoped>
 .gg {
-  height: 464px;
-  width: 235px;
-  margin: 111px;
-  position: relative;
-  overflow: hidden;
-  border: solid 3px #bf9742;
-  border-right: none;
-  text-align: start;
+  height: 536px;
+    width: 239px;
+    margin: 111px;
+    position: relative;
+    overflow: hidden;
+    border: solid 3px #bf9742;
+    border-right: none;
+    text-align: start;
 }
 
 .gg:before,
 .gg:after {
   content: "";
-  display: block;
-  height: 100%;
-  width: 187%;
-  transform: rotate(75deg);
-  box-shadow: 165px 0 0 3px #bf9742;
-  position: absolute;
-  top: 1px;
-  right: -169%;
+    display: block;
+    height: 100%;
+    width: 147%;
+    transform: rotate(75deg);
+    box-shadow: 4px 0 0 3px #bf9742;
+    position: absolute;
+    top: 90px;
+    right: -170%;
 }
 
 .gg:after {
-  transform: rotate(104deg);
-  left: 83%;
-  box-shadow: -157px 0 0 3px #bf9742;
+  transform: rotate(105deg);
+    left: 123%;
+    box-shadow: -4px 0 0 3px #bf9742;
+    top: -98px;
 }
 .lmenu {
         padding: 10px;

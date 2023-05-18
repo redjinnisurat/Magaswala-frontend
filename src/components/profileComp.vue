@@ -4,7 +4,7 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-  <div class="container rounded bg-white mt-5 mb-5" >
+  <div class="container rounded bg-white mt-1 mb-5" >
     <div
       class="row"
       style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px;    "
@@ -202,10 +202,7 @@ export default {
     background-color: #f8fdff;
     padding: 2rem;
 }
-.sidebar{
-  
-  margin-top: -90px;
-}
+
 .mainContainer {
     display: grid;
     grid-template-columns: 15% 85%;

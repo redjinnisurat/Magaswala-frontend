@@ -4,7 +4,7 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="container rounded bg-white mt-1 mb-5">
       <div class="row bord">
         <div class="col-md-6 border-right">
           <div class="p-3 py-5">
@@ -150,5 +150,10 @@ import NavComp from './NavComp.vue';
     letter-spacing: 0px;
     color: #b1622a;
   }
+  .container{
+  width: 800px;
+  margin-right: 100px;
+  height: 580px;
+}
   </style>
   

@@ -64,34 +64,35 @@
   
   <style scoped>
   .gg {
-    height: 464px;
-    width: 235px;
-    margin: 111px;
+  height: 536px;
+    width: 239px;
+    margin-left: 139px;
     position: relative;
     overflow: hidden;
-    border: solid 2px #bf9742;
+    border: solid 3px #bf9742;
     border-right: none;
     text-align: start;
-  }
-  
-  .gg:before,
-  .gg:after {
-    content: "";
+}
+
+.gg:before,
+.gg:after {
+  content: "";
     display: block;
     height: 100%;
-    width: 187%;
+    width: 147%;
     transform: rotate(75deg);
-    box-shadow: 165px 0 0 2px #bf9742;
+    box-shadow: 4px 0 0 3px #bf9742;
     position: absolute;
-    top: 1px;
-    right: -169%;
-  }
-  
-  .gg:after {
-    transform: rotate(104deg);
-    left: 83%;
-    box-shadow: -157px 0 0 2px #bf9742;
-  }
+    top: 90px;
+    right: -170%;
+}
+
+.gg:after {
+  transform: rotate(105deg);
+    left: 123%;
+    box-shadow: -4px 0 0 3px #bf9742;
+    top: -98px;
+}
   .lmenu {
           padding: 10px;
           font-size: 12px;
