@@ -19,9 +19,9 @@
           <p class="prize">Rs.250</p>
           <p class="add-remove">
             
-            <img class="plus" src="@/assets/plus.png"  style="width: 15px; cursor: pointer;" @click="Increment1()" />{{ clicknum1 }}
+            <img class="plus" src="@/assets/plus.png"  style=" cursor: pointer;" @click="Increment1()" />{{ clicknum1 }}
               <!-- <button  @click="Increment()" >+</button> -->
-            <img class="minus" src="@/assets/minus.png"  style="width: 15px; cursor: pointer;" @click="Decrement1()" />
+            <img class="minus" src="@/assets/minus.png"  style=" cursor: pointer;" @click="Decrement1()" />
           </p>
         </div>
 
@@ -38,8 +38,8 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.125</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Increment2()" /> {{ clicknum2 }}
-            <img class="minus" src="@/assets/minus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Decrement2()" />
+            <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment2()" /> {{ clicknum2 }}
+            <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement2()" />
           </p>
         </div>
 
@@ -56,8 +56,8 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.125</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Increment3()" /> {{ clicknum3 }}
-            <img class="minus" src="@/assets/minus.png" alt=""  style="width: 15px; cursor: pointer;" @click="Decrement3()" />
+            <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3()" /> {{ clicknum3 }}
+            <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3()" />
           </p>
         </div>
       </div>
@@ -163,7 +163,7 @@ export default {
   border: 1px solid #a17a35;
   border-radius: 5px;
   width: 60em;
-  height: 24em;
+  height: 25em;
   padding-right: 10px;
   margin-left: 6.5em;
   margin-top: -0.2em;
@@ -246,9 +246,18 @@ export default {
 .dlt {
   float: right;
   margin-top: -19px;
-  margin-right: 12em;
+  margin-right: 10em;
 }
-
+.add-remove{
+  margin-left: 22em;
+}
+.add-remove .plus{
+  width: 1.5em;
+  margin-right: 2px;
+}
+.add-remove .minus{
+  width: 1.5em;
+}
 .vertical-line {
   border-left: 1px solid #a17a35;
   height: 22em;
@@ -523,7 +532,7 @@ export default {
   }
 
   .dlt {
-    margin-right: -15em;
+    margin-right: -14em;
     margin-top: -2rem;
     width: 2rem;
   }
@@ -534,16 +543,16 @@ export default {
   }
   .add-remove {
     font-size: 35px;
-    margin-left: 35rem;
+    margin-left: 32rem;
   }
   .add-remove .plus {
     height: 3rem;
-    width: 6rem;
+    width: 3rem;
     margin-right: 10px;
   }
   .add-remove .minus {
     height: 3rem;
-    width: 4rem;
+    width: 3rem;
     margin-left: 10px;
   }
   .vertical-line {
@@ -581,7 +590,7 @@ export default {
   .container {
     margin-top: -1em;
     width: 60em;
-    height: 95em;
+    height: 90em;
     margin-left: 10em;
     display: flex;
     flex-wrap: wrap;
@@ -610,25 +619,24 @@ export default {
   }
   .card-right .checkout{
     width: 25em;
-    margin-top: -18em;
-    margin-right: 10em;
+    margin-top: -19em;
+    margin-right: 7em;
   }
   .card-right .box{
     margin-left: -5em;
-    margin-top: 24em;
+    margin-top: 18em;
+    font-size: 20px;
   }
   .weight{
     margin-right: -5em;
   }
   .dlt{
-    margin-right: -18.5em;
+    margin-right: -23em;
   }
-  .checkout{
-    margin-top: 2em;
+  .add-remove{
+    margin-left: 17em;
   }
-  .box{
-    font-size: 20px;
-  }
+  
   /* .card-title{
     margin-top: 2rem;
     font-size: 50px;
@@ -741,6 +749,9 @@ export default {
     width: 60em;
     margin-top: 3em;
     margin-left: 6em;
+  }
+  .dlt{
+    margin-right: -23em;
   }
 }
 /* @media screen and (max-width: 390px) {

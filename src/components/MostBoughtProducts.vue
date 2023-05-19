@@ -147,7 +147,9 @@ margin-left: 3em;
    cursor: grabbing;
    cursor: -webkit-grabbing;
    }
-   
+   .price{
+      color: orange;
+    }
    .product-card{
        width: 22em;
        margin-left: 0.5em;

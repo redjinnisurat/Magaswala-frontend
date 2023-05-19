@@ -1,54 +1,36 @@
 <template>
-  <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h5 class="text-white h4">Collapsed content</h5>
-    <span class="text-body-secondary" aria-hidden="false">Toggleable via the navbar brand.</span>
-  </div>
-</div>
-    <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand mx-2" href="#"><img class="navbar-logo" src="@/assets/Magaswala.png" alt="" style="width: 6em;"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" aria-hidden="false" @click="openNavbar"></span>
-      <!-- <i class="fa fa-bars" aria-hidden="true" style="color:black"></i> -->
-    </button>
-    <form class="search d-flex" role="search" id="search">
-        <input class="form-control me-2" type="search" placeholder="Search for food products" aria-label="Search" style="width: 20em; height: 2em;">
-        <img class="img-logo mt-2 my-2" src="@/assets/search.png" alt="" style="width: 18px; height: 20px;">
-        <!-- <div class="btn-serach">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div> -->
+  <nav>
+      <div class="logo"><img src="@/assets/Magaswala.png"></div>
+      <form class="search-bar">
+        <input type="text" placeholder="Search for food products">
+        <button type="submit"><i class="fas fa-search"></i></button>
       </form>
-    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-      <ul class="navbar-nav me-auto mb-1 mt-lg-4">
-        <li class="nav-item my-0">
-          <a class="nav-link active mx-5 me-3" aria-current="page" href="#">&nbsp; &nbsp;<img src="@/assets/home.png" alt="" style="width: 1em;"><br/>Home</a>
-        </li>
-        <li class="nav-item nav-li">
-          <a class="nav-link me-3 mx-2" href="#">&nbsp;<img src="@/assets/bag.png" alt="" style="width: 1em;"><br/><p style="color: #B1622A;">Bag</p></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link mx-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> &nbsp; &nbsp; &nbsp;<img src="@/assets/favorite.png" alt="" style="width: 1em;"><br/>Favorites
-          </a>
-        </li>
-        <li class="nav-item nav-li">
-          <a class="nav-link mx-2">&nbsp; &nbsp;<img src="@/assets/profile.png" alt="" style="width: 1em;"><br/>Profile</a>
-        </li>
+      <input type="checkbox" id="click"/>
+     <label for="click" class="menu-btn" >
+        <i class="fas fa-bars"></i>
+     </label>
+      <ul :class="{'navbar-collapse': isNavbarOpen}">
+        <!-- <li :class="{active: activeLink === 'home'}" @click="activeLink = 'home'">
+          <a><span class="nav-icon" id="home-icon"></span>Home</a>
+        </li> -->
+        <li :class="{active: activeLink === 'home'}" @click="goToHome()">
+            <a><span class="nav-icon" id="home-icon"></span>Home</a>
+            </li>
 
-        <li class="nav-item nav-li">
-          <a class="nav-link mx-4">&nbsp; &nbsp; <img src="@/assets/logout.png" alt="" style="width: 1em;"><br/>Logout</a>
+        <li :class="{active: activeLink === 'bag'}" @click="goTOBag()">
+          <a><span class="nav-icon" id="bag-icon"></span>Bag</a>
+        </li>
+        <li :class="{active: activeLink === 'favorites'}" @click="goToFav()">
+          <a><span class="nav-icon" id="fav-icon"></span>Favourites</a>
+        </li>
+        <li :class="{active: activeLink === 'profile'}" @click="goTOProfile()">
+          <a><span class="nav-icon" id="profile-icon"></span>Profile</a>
+        </li>
+        <li :class="{active: activeLink === 'logout'}" @click="goTOlogout()">
+          <a><span class="nav-icon" id="logout-icon"></span>Logout</a>
         </li>
       </ul>
-      
-      <div class="hamburger" @click="openNavbar" :class="{'active': isMenuOpen}">
-        <span class="bar">1</span>
-        <span class="bar">2</span>
-        <span class="bar">3</span>
-      </div>
-
-    </div>
-  </div>
-</nav>
+    </nav>
  
 </template>
 
@@ -63,260 +45,332 @@ import { ref } from "vue";
     return { isOpen };
   },
   data() {
-     return {
-      isMenuOpen: false
-     };
-  },
-  methods: {
-   
-    openNavbar() {
-      // alert("cliked");
-      // this.isMenuOpen = !this.isMenuOpen;
-      const hamburger = document.querySelector(".hamburger");
-  const navBar = document.querySelector(".navbar-nav");
+      return {
+        activeLink: 'home'
+      }
+    },
+    methods:{
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navBar.classList.toggle("active");
-    })
-  }
-}
-  // openNavbar() {
-  //   var navbarToggleExternalContent = document.getElementById('navbarToggleExternalContent');
-  //   if(navbarToggleExternalContent.click.visibility == "hidden") {
-  //     navbarToggleExternalContent.click.visibility = "visible";
-  //   } else {
-  //     navbarToggleExternalContent.click.visibility = "hidden";
-  //   }
-  // }
+        goToHome(){
+            this.activeLink = 'home';
+            this.$router.push('/home')
+        },
+        goTOBag(){
+            this.activeLink = 'bag'; 
+        },
+        goToFav(){
+            this.activeLink = 'favorites';
 
-  // methods: {
-  //   openNavbar: function(){
-  //     let navbarToggleExternalContent = document.getElementById('navbarToggleExternalContent');
-  //     navbarToggleExternalContent.classList.add('open-navbar');
-  //   }
-  // }
-//   methods: {
-//   const hamburger = document.querySelector(".hamburger");
-//   const navBar = document.querySelector(".navbar");
+        },
+        goTOProfile(){
+            this.activeLink = 'profile';
+        },
+        goTOlogout(){
+            this.activeLink = 'logout';
+        }
 
-//   hamburger.addEventListener("click", () => {
-//     hamburger.classList.toggle("active");
-//     navBar.classList.toggle("active");
-//   })
-// }
+    }
 }
 </script>
 
 <style scoped>
-.navbar{
-  margin-top: -2em;
-  margin-left: -5em;
-  /* background: whitesmoke; */
-}
-.navbar-logo{
-  margin-left: -2em;
-  margin-top: 0.3em;
-}
-.search{
-  margin-top: 10px;
-  /* border: 1px solid #A17A35; */
-  border-radius: 8px;
-  margin-left: 3em;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   font: normal normal medium 20px/30px Poppins;
+   overflow-x: hidden;
 }
 
-.search .img-logo{
-  margin-left: -2.5em;
+.navbar-toggle {
+    display: none; /* Hide the button by default */
+  }
+  .navbar-toggle-icon {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    margin: 4px 0;
+  }
+  @media (min-width: 940px) {
+    .menu-btn{
+        display: none;
+    }
+    nav ul {
+        display: flex;
+    }
+
+    nav ul li{
+        display: grid;
+        
+            margin: 0 20px;
+        color: #707070;
+
+    }
   
-}
-.hamburger{
-  display: none;
-  cursor: pointer;
+    #click{
+
+display: none;
 }
 
-.bar{
+}
+
+  /* Media query for screens smaller than 900px */
+  @media (max-width: 940px) {
+
+    .menu-btn{
   display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background-color: white;
-}
-@media screen and (max-width: 1800px) {
-  .navbar {
-    margin-left: 15em;
-  }
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
 }
 
-@media screen and (max-width: 1390px) {
-  .navbar {
-    margin-left: 8em;
-  }
+nav .menu-btn i{
+  color: #B1622A;
 }
 
-@media screen and (max-width: 990px){
+nav .search-bar {
+  display: none;
 
-  .navbar{
-    margin-top: 2em;
-    margin-left: 3em;
-  }
-
-  #search{
-    display: flex;
-    /* float: left; */
-    margin-left: 8em;
-    margin-top: -2.5em;
-  }
-  .navbar-toggler{
-    float: right;
-    margin-left: 15em;
-    /* display: none; */
-  }
-  .navbar-toggler-icon{
-    margin:0px;
-    width: 1.5em;
-  }
-  .hamburger{
-    display: block;
-  }
-  .hamburger .active .bar:nth-child(2){
-    opacity:0;
-  }
-  .hamburger .active .bar:nth-child(1){
-    transform: translateY(8px) rotate(45deg);
-  }
-  .hamburger .active .bar:nth-child(1){
-    transform: translateY(-8px) rotate(-45deg);
-  }
-  .navbar-nav{
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    gap:0;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-  }
-  .nav-item{
-    margin: 16px 0;
-  }
-  .navbar.active{
-    left: 0;
-  }
+}
+#click{
+    display: none;
 }
 
-@media screen and (max-width: 890px) {
+#click:checked ~ ul{
 
-  #search{
-    margin-top: -2.5em;
-    margin-right: 8em;
-    /* display:flex; */
-  }
-  .navbar-toggler{
-    float: right;
-    margin-right: 2em;
-  }
+    left: 0%;
+
+    
+}
+#click:checked ~ .menu-btn i::before{
+    content: "\f00d     ";
+}
+nav ul {
+  position: fixed;
+  top: 150px;
+  left: -100%;
+  height: 100vh;
+  width: 100%;
+  display: block;
+  text-align: center;
+  transition:all 0.3s ease; /* Add transition */
 }
 
-@media screen and (max-width: 690px) {
-
-  .navbar {
-    margin-left: 8em;
-  }
-  .navbar-logo{
-    font-size: 3rem;
-  }
-  .navbar-toggler{
-    /* float:right; */
-    margin-left: 50em;
-    margin-top: -4em;
-  }
-
-  #search{
-    margin-left: 20rem;
-    width: 40rem;
-    height: 10rem;
-    margin-top: -5rem;
-    padding: 20px;
-  }
-  .box{
-    max-width: 100rem;
-  }
+#logout-icon ,#profile-icon ,#fav-icon ,#bag-icon,#home-icon{
+  display: none;
 }
-@media screen and (max-width: 590px) {
-  .navbar-logo{
-    margin-top: 2rem;
-  }
-  .navbar{
-    margin-left: 15rem;
-  }
-  .search{
-    margin-bottom: 2rem;
-  }
-  .form-control{
-    font-size: 30px;
-  }
-  .navbar-toggler{
-    margin-left: 70rem;
-  }
-  /* .navbar-toggler-icon{
-    margin-left: -80rem;
-  } */
-}
-@media screen and (max-width: 490px) {
-  .navbar{
-    margin-left: 10em;
-  }
-  .navbar-toggler{
-    margin-left: 48em;
-    margin-top: -5em;
-  }
-  #search{
-    margin-top: -6em;
-    margin-left: 14em;
-  }
-  /* .navbar-toggler-icon{
-    margin-left: -20rem;
-  } */
-}
-@media screen and (max-width: 390px) {
-  .navbar{
-    margin-left: 8em;
-  }
-  .navbar-toggler{
-    /* float:right; */
-    margin-left: 50em;
-    margin-top: -8rem;
-  }
-  /* .navbar-toggler-icon{
-    margin-left: -40rem;
-  } */
-  .navbar-logo{
-    font-size: 3rem;
-    margin-left: -5rem;
-  }
 
-  #search{
-    /* margin-right: 8rem; */
-    margin-left: 20rem;
-    width: 45rem;
-    height: 3rem;
-    margin-top: -9rem;
-    padding: 20px;
-    /* font-size: 50px; */
-  }
-  .form-control{
-    font-size: 40px;
+.navbar-toggle {
+  display: block; /* Show the button */
+}
+
+nav ul li {
+  margin:  40px 0;
+  height: 10%;
+  margin-top: 10%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #707070;
+  transition: 0.9s ease-in-out;
+}
+
+   
     
   }
-  .search img{
-    margin-right: 10rem;
-    margin-bottom: 5rem;
-    padding-bottom: -3rem;;
-    width: 25em;
-  }
+/* Define the background images for each icon */
+nav ul li.active #home-icon {
+  background-image: url('@/assets/home.png');
+}
+
+nav ul li.active #bag-icon {
+  background-image: url('@/assets/bag.png');
+}
+
+nav ul li.active #fav-icon {
+  background-image: url('@/assets/favorite.png');
+}
+
+nav ul li.active #profile-icon {
+  background-image: url('@/assets/profile.png');
+}
+
+nav ul li.active #logout-icon {
+  background-image: url('@/assets/logout.png');
+}
+#bag-icon {
+  background-image: url('@/assets/bag.png');
+}
+
+#home-icon {
+  background-image: url('@/assets/home.png');
+}
+
+#fav-icon {
+  background-image: url('@/assets/favorite.png');
+}
+
+#profile-icon {
+  background-image: url('@/assets/profile.png');
+}
+
+#logout-icon {
+  background-image: url('@/assets/logout.png');
+}
+
+nav ul li:nth-child(1):hover #home-icon,
+nav ul li:nth-child(1):active #home-icon {
+  background-image: url('@/assets/home.png');
+}
+
+nav ul li:nth-child(2):hover #bag-icon,
+nav ul li:nth-child(2):active #bag-icon {
+  background-image: url('@/assets/bag.png');
+}
+
+nav ul li:nth-child(3):hover #fav-icon,
+nav ul li:nth-child(3):active #fav-icon {
+  background-image: url('@/assets/favorite.png');
+}
+
+nav ul li:nth-child(4):hover #profile-icon,
+nav ul li:nth-child(4):active #profile-icon {
+  background-image: url('@/assets/profile.png');
+}
+
+nav ul li:nth-child(5):hover #logout-icon,
+nav ul li:nth-child(5):active #logout-icon {
+  background-image: url('@/assets/logout.png');
+}
+
+
+/* Define the styles for the nav icons */
+.nav-icon {
+  display: grid;
+  width: 25px;
+  height: 29px;
+  background-size: contain;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+}
+
+/* Define the styles for the nav links */
+nav ul {
+
+  list-style: none; 
+}
+
+nav ul li {
+  margin: 0 20px;
+  cursor: pointer;
   
+}
+nav ul :hover {
+  
+  cursor: pointer;
+  color: #B1622A;
+}
+
+
+nav ul li a {
+  color: #ffff;
+  text-decoration: none;
+  font-size: 15px;
+
+
+}
+nav ul li.active {
+  color: #B1622A;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.logo{
+  width: 18em;
+  margin-left: -1em;
+  margin-top: -1em;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  width: 27em;
+}
+
+.search-bar input[type="text"] {
+    border:0.5px solid #CEB070;
+    border-radius:10px ;
+  padding: 0.7rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  margin-left: 5%;
+  width: 25rem;
+}
+
+.search-bar input[type="text"]:focus {
+ 
+  border: 1px solid  #CEB070;
+}
+
+.search-bar button[type="submit"] {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left:-10% ;
+}
+
+.search-bar button[type="submit"] i {
+  color: #707070;
+  font-size: 1.5rem;
+
+}
+
+nav{
+    
+    height: 180px;
+    background: #F9F9F9;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font: normal normal medium 20px/30px Poppins;
+    width: 100%;
+    max-width: 100%;
+
+    
+}
+nav ul {
+    /* display: flex; */
+    list-style: none; 
+}
+
+nav ul li a{
+
+    color: #ffff;
+    text-decoration: none;
+    font: normal normal medium 20px/30px Poppins;
+letter-spacing: 0px;
+font-weight: 450;
+}
+nav {
+  /* position: sticky; */
+  top: 0;
+
+  padding: 10px;
+  width: 100%;
+  z-index: 999;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #BF9742;
 }
 </style>

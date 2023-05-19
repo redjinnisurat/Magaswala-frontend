@@ -26,8 +26,8 @@
         </p>
         <p class="weight2">1Kg</p>
         <p class="add-remove">
-          <img class="plus" src="@/assets/plus.png" alt="" width="17px" /> 1
-          <img class="minus" src="@/assets/minus.png" alt="" width="17px" />
+          <img class="plus" src="@/assets/plus.png" alt=""  @click="Increment()" /> {{ clicknum }}
+          <img class="minus" src="@/assets/minus.png" alt=""  @click="Decrement()" />
         </p>
         <img
           class="checkin"
@@ -263,6 +263,20 @@ import MostBoughtProducts from "@/components/MostBoughtProducts.vue";
 export default {
   name: "MyCheckoutpage",
   components: { MyNavbar, RecommandedProducts, MostBoughtProducts },
+  data(){
+    return {
+      clicknum: 0,
+     
+    }
+  },
+  methods:{
+      Increment: function() {
+      this.clicknum++;
+    },
+    Decrement: function() {
+      this.clicknum--;
+    },
+  }
 };
 </script>
 
@@ -322,10 +336,16 @@ export default {
   margin-left: 3em;
   color: #bf9742;
 }
-
+.add-remove .plus{
+  width: 1.5em;
+  /* margin-right: 2px; */
+}
+.add-remove .minus{
+  width: 1.5em;
+}
 .checkin {
   margin-top: -5em;
-  margin-left: 9em;
+  margin-left: 2em;
 }
 /* .box .form-check1 {
   float: right;
@@ -762,7 +782,7 @@ export default {
     font-size: 28px;
   }
   .vertical-line {
-    margin-left: 98.5rem;
+    margin-left: 96rem;
     width: 2rem;
     height: 15rem;
   }

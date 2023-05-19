@@ -163,7 +163,9 @@
         margin-right: auto;
         display: block;
     }
-    
+    .price{
+      color: orange;
+    }
     .product-info{
         background-color: #fff;
         width: 21em;
@@ -187,7 +189,7 @@
         margin-left: 13em;
         margin-top: -5rem;
         padding-top:0;
-        width: 5.5em;
+        width: 5em;
         height: 1.6em;
         transition: all 0.3s ease;
         /* letter-spacing: 0px; */

@@ -152,7 +152,9 @@ margin-left: 3em;
        width: 22em;
        margin-left: 0.5em;
    }
-   
+   .price{
+      color: orange;
+    }
 .product-image{
        width: 21em;
        background-color: #edd5a4;
