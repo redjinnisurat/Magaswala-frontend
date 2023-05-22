@@ -62,5 +62,9 @@ export default {
     name:"trangelprofile"
 } </script>
 <style>
-
+.container{
+  width: 800px;
+  margin-right: 100px;
+  height: 580px;
+}
 </style>

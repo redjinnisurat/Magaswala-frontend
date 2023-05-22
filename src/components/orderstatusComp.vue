@@ -1,9 +1,9 @@
 <template>
-  <div class="container rounded bg-white mt-6 mb-5">
+  <div class="container rounded bg-white mt-0 mb-0">
     <div class="row bord">
       <div class="col-md-6 border-right">
-        <div class="p-3 py-6">
-          <div class="p-3 py-5">
+        <div class=" py-6">
+          <div class="p-3 py-0">
             <div class="flex-shrink-0">
               <img
                 src="../assets/track.png"
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 py-5">
+        <div class=" py-0">
           <div class="container mt-5 mb-5">
             <div class="row">
               <div class="col-md-12">
@@ -180,6 +180,7 @@ ul.timeline > li {
 .bord{
         border: solid 2px #BF9742;
     border-radius: 15px;
+    background-color: white;
     }
 ul.timeline > li:before {
   content: " ";
@@ -253,5 +254,10 @@ label.star:before {
   content: "\f006";
 
   font-family: FontAwesome;
+}
+.container{
+  width: 800px;
+  margin-right: 100px;
+  height: 550px;
 }
 </style>

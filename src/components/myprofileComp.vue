@@ -44,9 +44,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" href="#" id="help-support-ele">
+                <a class="nav-link side-nav-ele" href="./term" id="help-support-ele">
                   <img src="../assets/help.svg" alt="" />
-                  <p>Help Support</p>
+                  <p>Term & Condition</p>
                 </a>
               </li>
             </ul>
@@ -88,10 +88,11 @@
 }
 
 .gg:after {
-  transform: rotate(105deg);
+  transform: rotate(106deg);
     left: 123%;
     box-shadow: -4px 0 0 3px #bf9742;
-    top: -98px;
+    top: -100px;
+    top: -99px;
 }
   .lmenu {
           padding: 10px;
@@ -186,6 +187,9 @@
       font: normal normal normal 10px/0px Poppins;
       letter-spacing: 0px;
       color: #262626;
+      
+    text-align: center;
+
   
       }
       

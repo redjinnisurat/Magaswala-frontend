@@ -1,12 +1,12 @@
 <template>
 <NavComp/>
-  <div class="mainContainer">
+  <div class="mainContainer" style="    height: 100px;">
       <div class="sidebar">
         <myprofileComp/>
       </div>
-      <div class="container rounded bg-white mt-1 mb-5">
+      <div class="container rounded bg-white mt-0 mb-0">
     <div class="row row2">
-      <div class="p-3 py-5">
+      <div class="p-3 py-3">
         <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
           <h4 class="text-right profile">Orders</h4>
         </div>
@@ -29,7 +29,10 @@
                   <span class="right"> 1 kg suger </span>
                 </th>
                 <th>
-                  <button
+                
+
+                  <a href="./orderstatus">
+                    <button
                     class="btn btn-primary"
                     style="
                       background-color: #bf9742;
@@ -41,6 +44,9 @@
                   >
                     track Order
                   </button>
+                  </a>
+                  <!-- <a href="https://google.com" class="button">Track 
+                  order</a> -->
                 </th>
               </tr>
             </tbody>
@@ -211,11 +217,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.container{
-  width: 800px;
-  margin-right: 100px;
-  height: 624px;
-}
+
 .row2{
         border: solid 2px #BF9742;
     border-radius: 15px;
@@ -223,4 +225,18 @@ export default {
   .sidebar{
     margin-bottom: 66px;
   }
+
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+.container{
+  width: 800px;
+  margin-right: 100px;
+  height: 542px;
+}
 </style>

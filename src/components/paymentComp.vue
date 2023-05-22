@@ -4,19 +4,18 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-    <div class="container rounded bg-white mt-6 mb-5">
+    <div class="container rounded bg-white mt-0 mb-0">
       <div class="row bord">
-        <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+        <div class="d-flex justify-content-between align-items-center mb-0 mt-0">
           <h4 class="text-right profile">Payments Methods</h4>
         </div>
         <!-- Cards method -->
 
-
-        <!-- <div class="col-md-4">
+ <div class="col-md-4">
           <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
             <h4 class="text-right profile1">Cards</h4>
           </div>
-          <div class="p-3 py-5">
+          <div class="p-0 py-5">
             <div class="flex-shrink-0">
               <img
                 src="../assets/card.png"
@@ -28,7 +27,7 @@
           </div>
         </div>
         <div class="col-md-5">
-          <div class="p-3 py-5">
+          <div class="p-0 py-5">
             <div class="row mt-2">
               <div class="col-md-1">
                 <label class="labels"></label>
@@ -55,8 +54,8 @@
               </div>
             </div>
           </div>
-        </div> -->
-  
+        </div> 
+   
         <!--UPI method -->
         <div class="col-md-4">
           <div class="d-flex justify-content-between align-items-center mb-3 mt-2">

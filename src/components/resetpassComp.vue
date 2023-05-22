@@ -4,10 +4,10 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-    <div class="container rounded bg-white mt-1 mb-5">
+    <div class="container rounded bg-white mt-1 mb-0">
       <div class="row bord">
         <div class="col-md-6 border-right">
-          <div class="p-3 py-5">
+          <div class="p-0 py-0">
             <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
               <h4 class="text-right profile">Reset Password</h4>
             </div>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="p-3 py-5">
+          <div class="p-0 py-0">
             <div class="flex-shrink-0">
               <img
                 src="../assets/password.png"

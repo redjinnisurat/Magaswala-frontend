@@ -4,15 +4,15 @@
       <div class="sidebar">
         <myprofileComp/>
       </div>
-<div class="container rounded bg-white mt-6 mb-5">
+<div class="container rounded bg-white mt-0 mb-0">
     <div class="row bord">
 
         <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+            <div class="p-1 py-2">
+                <div class="d-flex justify-content-between align-items-center mb-1 mt-1">
                     <h4 class="text-right profile">Home Address</h4>
                 </div>
-                <div class="row mt-2">
+                <div class="row mt-1">
                     <div class="col-md-12">
                         <label class="labels"></label><input type="text" class="form-control " placeholder="Building name" value="" />
                  
@@ -35,10 +35,10 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="p-3 py-5">
+            <div class="p-3 py-0">
 
                 <!--Google map-->
-                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 370px">
                     <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
 
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="row " style="    margin-top: -70px;">
+        <div class="row " style="       margin-top: initial;">
             <div class="col-md-6">
                 <div class="" style="text-align: left">
                     <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small>Add Address</small></a>
@@ -85,7 +85,7 @@ export default {
 .container{
   width:800px;
   margin-right: 100px;
-  height:600px;
+  height:530px;
 }
 body {
     background: rgb(99, 39, 120);
@@ -96,9 +96,10 @@ body {
     border-color: #ba68c8;
 }
 .bord{
-        border: solid 2px #BF9742;
+    border: solid 2px #BF9742;
     border-radius: 15px;
-    height: 600px;
+    height: 536px;
+
     }
 .profile-button {
     background: rgb(99, 39, 120);
