@@ -122,7 +122,7 @@ p {
 .email {
     margin-top: 3%;
     width: 100%;
-    height: 50px;
+    height: 40px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #BF9742;
     border-radius: 10px;
@@ -174,7 +174,7 @@ p {
     position: absolute;
     text-align: center;
     top: 50%;
-    left: 59%;
+     left: 59%; 
     color: white;
     font-size: 4rem;
     font-family: 'Courgette', 'cursive';

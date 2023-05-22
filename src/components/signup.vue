@@ -43,7 +43,7 @@ export default {
 .password1 {
     margin-top: -3%;
     width: 100%;
-    height: 50px;
+    height: 40px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #BF9742;
     border-radius: 10px;

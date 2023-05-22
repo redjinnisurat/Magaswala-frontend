@@ -22,9 +22,10 @@
                     <router-link to="/setnewpassword" custom v-slot="{navigate}">
                         <button class="submit-btn" type="btn" @click="navigate" role="link" id="sub-btn">Verify</button>
                     </router-link>
-                    <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext"> Didn't receive code ? <span v-on:click="toggletext()">Resend</span></p>
-                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">code has been sent again! <span>send again 1:25</span></p>
-
+                    <!-- <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext"> Didn't receive code ? <span v-on:click="toggletext()" @click="startTimer" v-if="!timerRunning">Resend</span></p>
+                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">Code has been sent again! <span @click="startTimer" v-if="!timerRunning">Send again 00</span></p> -->
+                    <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext">Didn't receive code? <span v-on:click="toggletext()">Resend</span></p>
+                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">Code has been sent again! <span @click="startTimer" v-if="!timerRunning">Send again 00</span></p>
                 </div>
 
             </div>
@@ -42,9 +43,38 @@ export default {
     name: 'verification',
     data() {
         return {
-            showtext: false
+            showtext: false,
+            timerRunning: false,
+            time: 0,
+            intervalId: null
         };
     },
+    computed: {
+        formatTime() {
+            const minutes = Math.floor(this.time / 60);
+            const seconds = this.time % 60;
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+    },
+    methods: {
+        startTimer() {
+            this.timerRunning = true;
+            this.intervalId = setInterval(() => {
+                this.time++;
+            }, 1000);
+        },
+
+    },
+    resendCode() {
+        this.timerRunning = false;
+        this.time = 0;
+        clearInterval(this.intervalId);
+
+    },
+    beforeDestroy() {
+        clearInterval(this.intervalId);
+    },
+
     methods: {
         focus() {
             let otp2 = document.getElementsByClassName("otp2")[0];

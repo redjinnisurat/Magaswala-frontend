@@ -122,12 +122,13 @@ export default {
     width: 10%;
     margin-left: 83%;
     transform: translateY(-50%);
-    margin-top: -8%;
+    margin-top: -6%;
     cursor: pointer;
 }
 
 #p-3 {
-    margin-left: -52%;
+    margin-left: -62%;
+    margin-top: 3%;
 }
 
 #submit-btn {
