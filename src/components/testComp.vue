@@ -248,7 +248,7 @@ body {
 .container{
  width: 800px;
  margin-right: 100px;
- height: 551px;
+ height: 550px;
 }
 
 
