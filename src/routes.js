@@ -6,6 +6,7 @@ import RandomItemsProducts from './components/RandomItemsProducts.vue'
 import ImageSlider from './components/ImageSlider.vue'
 // import CarouselSlider from './components/CarouselSlider.vue'
 import SimpleSlider from './components/SimpleSlider.vue'
+import ResponsiveNavbar from './components/ResponsiveNavbar.vue'
 import { createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
@@ -48,6 +49,11 @@ const routes = [
     name: "SimpleSlider",
     component: SimpleSlider,
     path: "/simpleslider"
+   },
+   {
+    name: "ResponsiveNavbar",
+    component: ResponsiveNavbar,
+    path: "/navbar"
    },
  ]
 

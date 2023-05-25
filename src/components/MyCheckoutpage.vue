@@ -142,7 +142,7 @@
   <input class="form-check2-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
   </div> -->
 
-      <div class="box-address mx-2 mt-1">
+      <div class="box-address mx-2 mt-4">
         <h6 id="title">Shipping To</h6>
         <div class="home-address mx-2 mb-2">
           <img
@@ -295,7 +295,7 @@ export default {
   border-radius: 4px;
   padding: 7px;
   background-color: white;
-  height: 32em;
+  height: 33em;
 }
 
 .box .card-img-top {
@@ -467,7 +467,7 @@ export default {
   border-left: 1px solid #bf9742;
   height: 17em;
   position: absolute;
-  margin-left: 46em;
+  margin-left: 48em;
   margin-top: 0em;
 }
 

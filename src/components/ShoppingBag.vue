@@ -238,7 +238,7 @@ export default {
 .weight {
   float: right;
   color: orange;
-  margin-right: 21em;
+  margin-right: 18em;
   margin-top: -21px;
   margin-bottom: 0;
   font-size: 13px;
@@ -246,7 +246,7 @@ export default {
 .dlt {
   float: right;
   margin-top: -19px;
-  margin-right: 10em;
+  margin-right: 8em;
 }
 .add-remove{
   margin-left: 22em;
@@ -260,15 +260,15 @@ export default {
 }
 .vertical-line {
   border-left: 1px solid #a17a35;
-  height: 22em;
+  height: 23em;
   position: absolute;
   margin-left: 30em;
-  margin-top: -21em;
+  margin-top: -25em;
 }
 .checkout {
   float: right;
   margin-right: 10em;
-  margin-top: -16em;
+  margin-top: -18em;
   width: 15em;
 }
 .box {
@@ -278,7 +278,7 @@ export default {
   height: 10.5em;
   padding-top: 1em;
   margin-left: 33em;
-  margin-top: -9.5em;
+  margin-top: -13em;
 }
 .box .box-title {
   margin-top: -5px;
@@ -300,7 +300,7 @@ export default {
   border-radius: 6px;
   width: 16em;
   height: 1.9rem;
-  margin-top: 0.2rem;
+  margin-top: -0.5rem;
   font-size: 15px;
   padding-top: 2px;
 }
@@ -334,9 +334,9 @@ export default {
 @media screen and (max-width: 990px) {
   .container {
     height: 25em;
-    max-width: 50em;
+    max-width: 52em;
     margin-left: 2em;
-    margin-top: 2em;
+    margin-top: -1em;
   }
   .weight {
     margin-right: 8em;
@@ -359,18 +359,18 @@ export default {
     margin-left: 5px;
   }
   .vertical-line {
-    margin-left: 30em;
-    margin-top: -20em;
+    margin-left: 29em;
+    margin-top: -24em;
   }
 
   .checkout {
-    margin-right: 1em;
+    margin-right: 4em;
     margin-top: -18em;
   }
 
   .box {
     margin-left: 31em;
-    margin-top: -10em;
+    margin-top: -13em;
   }
 
   .box .box-title {
@@ -392,10 +392,10 @@ export default {
     width: 70em;
   }
   .checkout {
-    margin-right: 2rem;
+    margin-right: 4rem;
   }
   .weight {
-    margin-right: 9em;
+    margin-right: 8em;
   }
   .dlt {
     margin-right: 1em;
@@ -406,7 +406,7 @@ export default {
   .container {
     max-width: 50em;
     margin-left: 1em;
-    margin-top: 2em;
+    margin-top: -1em;
   }
   .outer-text {
     display: flex;
@@ -416,22 +416,22 @@ export default {
   }
   .vertical-line {
     margin-left: 28rem;
-    margin-top: -20em;
+    margin-top: -24em;
   }
   .checkout {
     margin-right: 3em;
-    margin-top: -16em;
+    margin-top: -18em;
   }
 
   .weight {
-    margin-right: 8.5em;
+    margin-right: 6em;
   }
 
   .dlt {
-    margin-right: 1em;
+    margin-right: -1em;
   }
   .box {
-    margin-top: -9em;
+    margin-top: -13em;
     margin-left: 30em;
   }
 }
@@ -439,29 +439,29 @@ export default {
 @media screen and (max-width: 690px) {
   .container {
     margin-left: 3em;
-    max-width: 65em;
+    max-width: 60em;
     margin-top: -2rem;
     height: 28em;
   }
 
   .weight {
-    margin-right: 27em;
+    margin-right: 18em;
   }
 
   .dlt {
-    margin-right: 16em;
+    margin-right: 9em;
   }
   .vertical-line {
     margin-left: 32rem;
-    margin-top: -20em;
+    margin-top: -23em;
   }
   .checkout {
-    margin-right: 13em;
+    margin-right: 8em;
     margin-top: -15em;
   }
 
   .box {
-    margin-top: -8em;
+    margin-top: -9em;
     margin-left: 35em;
   }
 
@@ -478,10 +478,10 @@ export default {
 }
 @media screen and (max-width: 590px) {
   .container {
-    margin-left: 10em;
+    margin-left: 3em;
     max-width: 90em;
-    margin-top: -3rem;
-    height: 60em;
+    margin-top: -1rem;
+    height: 55em;
     overflow-x: hidden;
   }
 
@@ -525,7 +525,7 @@ export default {
     margin-left: 12rem;
   }
   .weight {
-    margin-right: 9em;
+    margin-right: 8em;
     margin-top: -2.8rem;
     font-size: 30px;
     margin-bottom: 0px;
@@ -562,7 +562,7 @@ export default {
   }
   .checkout {
     margin-right: -41em;
-    margin-top: -32rem;
+    margin-top: -27rem;
     width: 20em;
   }
 
@@ -583,14 +583,14 @@ export default {
     margin-top: -5.5rem;
   }
   .box .btn {
-    margin-top: -0.5rem;
+    margin-top: -3rem;
   }
 }
 @media screen and (max-width: 490px) {
   .container {
     margin-top: -1em;
     width: 60em;
-    height: 90em;
+    height: 85em;
     margin-left: 10em;
     display: flex;
     flex-wrap: wrap;
@@ -619,13 +619,14 @@ export default {
   }
   .card-right .checkout{
     width: 25em;
-    margin-top: -19em;
+    margin-top: -17em;
     margin-right: 7em;
   }
   .card-right .box{
     margin-left: -5em;
-    margin-top: 18em;
-    font-size: 20px;
+    margin-top: 17em;
+    /* width: 22em; */
+    /* font-size: 20px; */
   }
   .weight{
     margin-right: -5em;
