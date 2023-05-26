@@ -54,9 +54,9 @@
           <p class="weight">1kg</p>
           <img class="dlt" src="@/assets/delete.png" alt="" width="15px" />
           <p class="inner-text">Made with pure kesar</p>
-          <p class="prize">Rs.125</p>
+          <p class="prize">Rs.250</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3()" /> {{ clicknum3 }}
+            <img class="plus" id="1" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3()" /> {{ clicknum3 }}
             <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3()" />
           </p>
         </div>
@@ -77,12 +77,12 @@
           
           <h3 class="box-title">items summary</h3>
           <p class="box-text">
-            items:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; Rs.875
+            items: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;Rs 875
           </p>
           <br />
           <hr class="horizontal-line" style="width: 85%; margin-left: 14px" />
-          <router-link to="/Checkoutpage">
+          <router-link to="/paymentpage">
             <a href="#" class="btn" @click="MyCheckoutpage"
               >Proceed to checkout</a
             >
@@ -110,6 +110,10 @@ export default {
       clicknum1: 0,
       clicknum2: 0,
       clicknum3: 0,
+      products: null,
+      showAddForm: false,
+      items: [],
+      price: []
     }
   },
   // methods: {
@@ -140,7 +144,9 @@ export default {
     },
     Increment3: function() {
       this.clicknum3++;
+      
     },
+    
     Decrement3: function() {
       this.clicknum3--;
     },
@@ -260,7 +266,7 @@ export default {
 }
 .vertical-line {
   border-left: 1px solid #a17a35;
-  height: 23em;
+  height: 25em;
   position: absolute;
   margin-left: 30em;
   margin-top: -25em;

@@ -53,10 +53,11 @@ import { ref } from "vue";
 
         goToHome(){
             this.activeLink = 'home';
-            this.$router.push('/home')
+            this.$router.push('/Checkoutpage')
         },
         goTOBag(){
             this.activeLink = 'bag'; 
+            this.$router.push('/addbag')
         },
         goToFav(){
             this.activeLink = 'favorites';

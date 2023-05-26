@@ -64,7 +64,8 @@
         <!-- <div class="form-check1 pt-0">
   <input class="form-check1-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
     </div> -->
-        <a href="#" class="btn">Add to Bag</a>
+   
+        <a href="#" class="btn" @click="AddProduct()">Add to Bag</a>
       </div>
     </div>
 
@@ -266,7 +267,12 @@ export default {
   data(){
     return {
       clicknum: 0,
-     
+      products: null,
+      showAddForm: false,
+      tempName: "",
+      tempDescription: "",
+      tempPrice: "",
+      tempImageURL: ""
     }
   },
   methods:{
@@ -276,6 +282,15 @@ export default {
     Decrement: function() {
       this.clicknum--;
     },
+    // AddProduct: function() {
+    //   const newProduct = {
+    //     id: this.products.length+1,
+    //     name: this.tempName,
+    //     description: this.tempDescription,
+    //     price: this.tempPrice,
+    //     imageURL: this.tempImageURL
+    //   }
+    // }
   }
 };
 </script>

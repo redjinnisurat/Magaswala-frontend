@@ -1,4 +1,5 @@
 import MyHomepage from './components/MyHomepage.vue'
+import AddBagpage from './components/AddBagpage.vue'
 import MyCheckoutpage from './components/MyCheckoutpage.vue'
 import MyPaymentpage from './components/MyPaymentpage.vue'
 import RandomItemsProducts from './components/RandomItemsProducts.vue'
@@ -7,12 +8,18 @@ import ImageSlider from './components/ImageSlider.vue'
 // import CarouselSlider from './components/CarouselSlider.vue'
 import SimpleSlider from './components/SimpleSlider.vue'
 import ResponsiveNavbar from './components/ResponsiveNavbar.vue'
+
 import { createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
   {
     name: "MyHomepage",
     component: MyHomepage,
+    path: "/homepage"
+  },
+  {
+    name: "AddBagpage",
+    component: AddBagpage,
     path: "/addbag"
   },
   {
