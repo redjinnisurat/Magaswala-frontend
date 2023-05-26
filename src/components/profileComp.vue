@@ -154,7 +154,7 @@
             <div class="col-md-6">
               <div class="" style="text-align: left">
                 <a
-                  href="#"
+                  href="./addaddress"
                   class="btn btn-outlined btn-black address"
                   data-wow-delay="0.7s"
                   ><img src="../assets/plus.svg" /> <small>Add Address</small></a
@@ -213,11 +213,15 @@ body {
 
 .form-control:focus {
   box-shadow: none;
-  border-color: #ba68c8;
+  border-color: #BF9742;
+ 
+}
+.form-control{
+  height: 40px;
 }
 
 .back:hover {
-  color: #73272b;
+  color: #BF9742;
   cursor: pointer;
 }
 
@@ -226,17 +230,17 @@ body {
 }
 
 .add-experience:hover {
-  background: #ba68c8;
+  background: #BF9742;
   color: #fff;
   cursor: pointer;
-  border: solid 1px #ba68c8;
+  border: solid 1px #BF9742;
 }
 
 .address {
   text-align: initial;
   font: normal normal bold 20px/30px Poppins;
   letter-spacing: 0px;
-  color: #262626;
+  color: #BF9742;
 }
 
 .profile {
@@ -248,7 +252,7 @@ body {
 .container{
   width: 800px;
   margin-right: 100px;
-  height: 550px;
+  height: 535px;
 }
 
 

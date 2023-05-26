@@ -9,8 +9,8 @@
 
         <div class="col-md-5 border-right">
             <div class="p-1 py-2">
-                <div class="d-flex justify-content-between align-items-center mb-1 mt-1">
-                    <h4 class="text-right profile">Home Address</h4>
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-1">
+                    <h4 class="text-right profile  " style="    font-size: 21px;">Home Address</h4>
                 </div>
                 <div class="row mt-1">
                     <div class="col-md-12">
@@ -129,23 +129,6 @@ body {
 .labels {
     font-size: 17px;
 }
-
-/* .add-experience:hover {
-    background: #ba68c8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #ba68c8;
-} */
-
-/* .add {
-    width: 345px;
-    background-image: url(../assets/pen1.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 120px;
-    margin-left: 77px;
-
-} */
 .pen {
     margin-top: -33px;
     margin-right: 15px;
@@ -156,6 +139,6 @@ body {
     position: relative;
 
     cursor: pointer;
-  
 }
+ 
 </style>

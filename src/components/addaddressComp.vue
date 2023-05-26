@@ -1,4 +1,9 @@
 <template>
+  <NavComp/>
+  <div class="mainContainer">
+      <div class="sidebar">
+        <myprofileComp/>
+      </div>
   <div class="container rounded bg-white mt-6 mb-5">
     <div class="row bord">
       <div class="col-md-5 border-right">
@@ -54,6 +59,8 @@
               />
             </div>
           </div>
+
+
           <div class="row mt-2">
             <div class="col-md-6">
               <label class="labels"></label
@@ -69,6 +76,10 @@
               ><input type="text" class="form-control offadd" value="" placeholder="Pincode" />
             </div>
           </div>
+
+
+
+
           <div class="row mt-2">
             <div class="col-md-6">
               <label class="labels"></label
@@ -166,15 +177,20 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
+
 <script>
+import myprofileComp from './myprofileComp.vue';
+import NavComp from './NavComp.vue';
 export default {
   name: "addaddressComp",
+  components:{ NavComp, myprofileComp} 
 };
 </script>
 
-<style>
+<style scoped>
 body {
   background: rgb(99, 39, 120);
 }
@@ -184,11 +200,11 @@ body {
     height: 40px;
 
     }
-    .offadd{
+    /* .offadd{
       width: 200px;
     height: 40px;
 
-    }
+    } */
 .form-control:focus {
   box-shadow: none;
   border-color: #ba68c8;

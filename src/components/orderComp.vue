@@ -8,7 +8,7 @@
     <div class="row row2">
       <div class="p-3 py-3">
         <div class="d-flex justify-content-between align-items-center mb-2 mt-1">
-          <h4 class="text-right profile">Orders</h4>
+          <h2 class="text-right profile" style="font-size:21px">Orders</h2>
         </div>
 
         <div class="order">
@@ -237,6 +237,6 @@ export default {
 .container{
   width: 800px;
   margin-right: 100px;
-  height: 542px;
+  height: 535px;
 }
 </style>

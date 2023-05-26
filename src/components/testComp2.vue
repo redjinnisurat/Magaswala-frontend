@@ -4,7 +4,7 @@
      <div class="sidebar">
        <myprofileComp/>
      </div>
- <div class="container rounded  mt-0 mb-0" >
+ <div class="container rounded bg-white mt-0 mb-0" >
    <div
      class="row"
      style="border: #bf9742; border-style: solid; border-width: 2px; border-radius: 15px;    "
@@ -106,7 +106,7 @@
 import myprofileComp from './myprofileComp.vue';
 import NavComp from './NavComp.vue';
 export default {
- name: "ternComp",
+ name: "profileComp",
  components:{ NavComp, myprofileComp} 
 };
 </script>
@@ -167,8 +167,6 @@ body {
  width: 800px;
  margin-right: 100px;
  height: 535px;
- background-color: white;
- border-radius: 4%;
 }
 
 

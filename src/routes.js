@@ -4,7 +4,7 @@ import HelloWorld from "./components/HelloWorld.vue"
 import gridComp from "./components/gridComp.vue"
 import profileComp from "./components/profileComp.vue"
 import HomeaddressComp from "./components/HomeaddressComp.vue"
-import testComp from "./components/testComp.vue"
+
 import editprofileComp from "./components/editprofileComp.vue"
 import manageaddressComp from "./components/manageaddressComp.vue"
 import addaddressComp from "./components/addaddressComp.vue"
@@ -15,7 +15,7 @@ import resetpassComp from "./components/resetpassComp.vue"
 import termComp from "./components/termComp.vue"
 import orderstatusComp from "./components/orderstatusComp.vue"
 import myprofileComp from "./components/myprofileComp.vue"
-
+import testComp2 from "./components/testComp2.vue"
 import DashComp from "./components/DashComp.vue"
 import NavComp from "./components/NavComp.vue"
 const routes=[
@@ -40,11 +40,16 @@ const routes=[
       path: '/homeaddress',
         component:HomeaddressComp
     },
-    {
-      name:"testComp",
-    path: '/test',
-      component:testComp
-  },
+  //   {
+  //     name:"testComp",
+  //   path: '/t',
+  //     component:testComp
+  // },
+  {
+    name:"testComp2",
+  path: '/test',
+    component:testComp2
+},
   {
     name:"editprofileComp",
   path: '/editprofile',

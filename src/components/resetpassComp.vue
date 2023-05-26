@@ -94,7 +94,7 @@ import NavComp from './NavComp.vue';
   };
   </script>
   
-  <style >
+  <style scoped >
   .bg {
     background-color: #f8fdff;
     padding: 2rem;
@@ -115,7 +115,7 @@ import NavComp from './NavComp.vue';
   
   .form-control:focus {
     box-shadow: none;
-    border-color: #ba68c8;
+    border-color: #BF9742;
   }
   
   .back:hover {
@@ -128,10 +128,10 @@ import NavComp from './NavComp.vue';
   }
   
   .add-experience:hover {
-    background: #ba68c8;
+    background: #BF9742;
     color: #fff;
     cursor: pointer;
-    border: solid 1px #ba68c8;
+    border: solid 1px #BF9742;
   }
   .bord{
         border: solid 2px #BF9742;
@@ -153,7 +153,7 @@ import NavComp from './NavComp.vue';
   .container{
   width: 800px;
   margin-right: 100px;
-  height: 580px;
+  height: 530px;
 }
   </style>
   
