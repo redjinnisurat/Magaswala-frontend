@@ -9,6 +9,7 @@ import ImageSlider from './components/ImageSlider.vue'
 import SimpleSlider from './components/SimpleSlider.vue'
 import ResponsiveNavbar from './components/ResponsiveNavbar.vue'
 
+
 import { createRouter, createWebHistory} from 'vue-router'
 
 const routes = [

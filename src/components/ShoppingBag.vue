@@ -244,7 +244,7 @@ export default {
 .weight {
   float: right;
   color: orange;
-  margin-right: 18em;
+  margin-right: 21em;
   margin-top: -21px;
   margin-bottom: 0;
   font-size: 13px;
@@ -252,7 +252,7 @@ export default {
 .dlt {
   float: right;
   margin-top: -19px;
-  margin-right: 8em;
+  margin-right: 10em;
 }
 .add-remove{
   margin-left: 22em;
@@ -266,10 +266,10 @@ export default {
 }
 .vertical-line {
   border-left: 1px solid #a17a35;
-  height: 25em;
+  height: 23em;
   position: absolute;
   margin-left: 30em;
-  margin-top: -25em;
+  margin-top: -22em;
 }
 .checkout {
   float: right;
@@ -284,7 +284,7 @@ export default {
   height: 10.5em;
   padding-top: 1em;
   margin-left: 33em;
-  margin-top: -13em;
+  margin-top: -11em;
 }
 .box .box-title {
   margin-top: -5px;
@@ -306,7 +306,7 @@ export default {
   border-radius: 6px;
   width: 16em;
   height: 1.9rem;
-  margin-top: -0.5rem;
+  margin-top: -0.2rem;
   font-size: 15px;
   padding-top: 2px;
 }
@@ -342,14 +342,14 @@ export default {
     height: 25em;
     max-width: 52em;
     margin-left: 2em;
-    margin-top: -1em;
+    margin-top: 1em;
   }
   .weight {
-    margin-right: 8em;
+    margin-right: 11em;
   }
 
   .dlt {
-    margin-right: 1em;
+    margin-right: 3em;
   }
 
   .add-remove {
@@ -366,7 +366,7 @@ export default {
   }
   .vertical-line {
     margin-left: 29em;
-    margin-top: -24em;
+    margin-top: -22em;
   }
 
   .checkout {
@@ -376,15 +376,15 @@ export default {
 
   .box {
     margin-left: 31em;
-    margin-top: -13em;
+    margin-top: -12em;
   }
 
   .box .box-title {
-    margin-top: -5px;
+    margin-top: -6px;
   }
 
   .box .box-text {
-    margin-top: -4px;
+    margin-top: 11px;
   }
   .horizontal-line {
     margin-top: 32px;
@@ -401,10 +401,10 @@ export default {
     margin-right: 4rem;
   }
   .weight {
-    margin-right: 8em;
+    margin-right: 11em;
   }
   .dlt {
-    margin-right: 1em;
+    margin-right: 3em;
   }
 }
 
@@ -412,7 +412,7 @@ export default {
   .container {
     max-width: 50em;
     margin-left: 1em;
-    margin-top: -1em;
+    margin-top: 1em;
   }
   .outer-text {
     display: flex;
@@ -422,7 +422,7 @@ export default {
   }
   .vertical-line {
     margin-left: 28rem;
-    margin-top: -24em;
+    margin-top: -22em;
   }
   .checkout {
     margin-right: 3em;
@@ -430,14 +430,14 @@ export default {
   }
 
   .weight {
-    margin-right: 6em;
+    margin-right: 8em;
   }
 
   .dlt {
-    margin-right: -1em;
+    margin-right: 1em;
   }
   .box {
-    margin-top: -13em;
+    margin-top: -12em;
     margin-left: 30em;
   }
 }
@@ -451,15 +451,15 @@ export default {
   }
 
   .weight {
-    margin-right: 18em;
+    margin-right: 21em;
   }
 
   .dlt {
-    margin-right: 9em;
+    margin-right: 11em;
   }
   .vertical-line {
     margin-left: 32rem;
-    margin-top: -23em;
+    margin-top: -21em;
   }
   .checkout {
     margin-right: 8em;
@@ -479,7 +479,7 @@ export default {
   }
 
   .box .btn {
-    margin-top: -1em;
+    margin-top: 1px;
   }
 }
 @media screen and (max-width: 590px) {
@@ -531,7 +531,7 @@ export default {
     margin-left: 12rem;
   }
   .weight {
-    margin-right: 8em;
+    margin-right: 9em;
     margin-top: -2.8rem;
     font-size: 30px;
     margin-bottom: 0px;
@@ -589,7 +589,7 @@ export default {
     margin-top: -5.5rem;
   }
   .box .btn {
-    margin-top: -3rem;
+    margin-top: -9px;
   }
 }
 @media screen and (max-width: 490px) {

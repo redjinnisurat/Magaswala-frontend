@@ -23,8 +23,9 @@
    
 </template>
    
-   <script>
-   export default {
+<script>
+  export default {
+    name: "MostBoughtProducts",
      data() {
        return {
          images: [

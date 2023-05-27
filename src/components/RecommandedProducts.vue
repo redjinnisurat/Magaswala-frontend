@@ -23,8 +23,9 @@
    
 </template>
    
-   <script>
-   export default {
+<script>
+  export default {
+    name: "RecommandedProducts",
      data() {
        return {
          images: [

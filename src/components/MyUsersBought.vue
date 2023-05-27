@@ -26,11 +26,12 @@
           <button @click="slide(-1)">Previous</button>
           <button @click="slide(1)">Next</button>
         </div> -->
-  </div>
+      </div>
 </template>
     
-    <script>
+<script>
 export default {
+  name: "MyUsersBought",
   data() {
     return {
       images: [
@@ -123,9 +124,7 @@ export default {
         this.autoSlide();
       }
     },
-    AddBag() {
-      
-    }
+  
   },
 };
 </script>
