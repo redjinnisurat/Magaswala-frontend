@@ -133,6 +133,7 @@ export default {
   
   <style>
   .heading {
+    font-weight: bold;
     margin-top: 15px;
     margin-left: 3em;
   }
@@ -248,21 +249,28 @@ export default {
   
   @media screen and (max-width: 490px) {
     .heading {
-      width: 100%;
-      margin-left: 6em;
+      width: 15em;
+      font-size: 3em;
+      margin-left: 4em;
     }
     .carousel {
-      width: 70em;
+      width: 80em;
+      margin-top: 3em;
       margin-left: 8em;
     }
   }
   @media screen and (max-width: 390px) {
     .heading {
-      width: 100%;
-      margin-left: 4em;
+      width: 50em;
+      margin-left: -2em;
     }
     .carousel {
-      margin-left: 5em;
+      font-size: 1em;
+      width: 50em;
+      margin-left: 2em;
+    }
+    .product-card{
+      width: 60em;
     }
   }
   </style>

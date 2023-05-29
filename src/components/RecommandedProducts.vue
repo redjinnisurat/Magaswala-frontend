@@ -203,22 +203,29 @@ margin-left: 3em;
   }
 }
 @media screen and (max-width: 590px) {
-  /* .product-card{
-    width: 20em;
-  } */
+  
     .heading{
-      width: 100%;
       margin-top: -10em;
       margin-left: 6em;
     }
     .carousel{
-      width: 70em;
+      width: 65em;
+      font-size: 1.5em;
       margin-left: 8em;
+    }
+    .product-image img{
+      width: 30em;
+    }
+    .product-info .btn{
+      margin-left: 16em;
+      margin-right: 5em;
+      width: 7em;
+      font-size: 0.8em;
     }
 }
 @media screen and (max-width: 490px) {
   .heading{
-    margin-top: 35em;
+    margin-top: 20em;
     margin-left: 4em;
   }
   .carousel{
@@ -227,7 +234,7 @@ margin-left: 3em;
 }
 @media screen and (max-width: 390px) {
   .heading{
-    margin-top: 40em;
+    margin-top: 20em;
     margin-left: 4em;
   }
   .carousel{

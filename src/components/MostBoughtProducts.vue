@@ -209,13 +209,25 @@ margin-left: 3em;
       margin-left: 6em;
     }
     .carousel{
-      width: 70em;
+      width: 65em;
+      font-size: 1.5em;
       margin-left: 8em;
+    }
+    /* .product-card{
+      width: 15em;
+      padding-left: 1em;
+    } */
+
+    .product-info .btn{
+      margin-left: 16em;
+      margin-right: 5em;
+      width: 7em;
+      font-size: 0.8em;
     }
 }
 @media screen and (max-width: 490px) {
   .heading{
-    margin-top: -16em;
+    margin-top: -8em;
     margin-left: 4em;
   }
   .carousel{
@@ -225,7 +237,7 @@ margin-left: 3em;
 
 @media screen and (max-width: 390px) {
   .heading{
-    margin-top: -15em;
+    margin-top: -8em;
     margin-left: 4em;
   }
   .carousel{

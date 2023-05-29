@@ -90,7 +90,7 @@ export default{
   background-color: #A17A35;
   width: 11em;
   height: 2.3em;
-  
+  color: white;
 }
 /* .content{
   margin-top: -0.5em;
@@ -132,19 +132,85 @@ content::after {
 
 @media screen and (max-width: 690px) {
   .container{
+    margin-top: -1em;
     width: 60em;
-}
+ }
+ .first-heading{
+  font-size: 3em;
+ }
+ .second-heading{
+  font-size: 2em;
+ }
+ .ladu{
+  margin-left: 39em;
+ }
+ .third-heading{
+  font-size: 3em;
+ }
+ .fourth-heading{
+  font-size: 2em;
+ }
+ .ladu{
+  margin-left: 39em;
+ }
 }
 
 @media screen and (max-width: 590px) {
   .container{
-    margin-top: -4em;
+    margin-top: -2em;
   }
 }
-
+@media screen and (max-width: 490px) {
+  .second-heading{
+    font-size: 3em;
+  }
+  .fourth-heading{
+    font-size: 3em;
+  }
+  .ladu{
+    width: 20em;
+    margin-top: -15em;
+    margin-left: 45em;
+  }
+  .ladu2{
+    width: 20em;
+    margin-top: -15em;
+    margin-left: 45em;
+  }
+  .btn{
+    font-size: 2em;
+  }
+}
 @media screen and (max-width: 390px){
   .container{
     margin-top: 1em;
+    margin-left: 1em;
+  }
+  .first-heading{
+    font-size: 3em;
+  }
+  .second-heading{
+    font-size: 2.5em;
+  }
+  .third-heading{
+    font-size: 3em;
+  }
+  .fourth-heading{
+    font-size: 2.5em;
+  }
+  .btn{
+    width: 10em;
+    font-size: 2em;
+  }
+  .ladu{
+    width: 22em;
+    margin-top: -14em;
+    margin-left: 45em;
+  }
+  .ladu2{
+    width: 22em;
+    margin-top: -14em;
+    margin-left: 45em;
   }
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
+  <h5 class="know">Know about us</h5>
     <div class="container">
-      <h5 class="know">Know about us</h5>
-      <br>
+      
+    
       <div class="row">
         <div class="left">
            <img src="@/assets/dham.png" alt="" style="width: 28em; height: 31em;">
@@ -30,10 +31,12 @@ body{
 }
 .container{
   margin-left: 5em;
+  margin-top: 1.5em;
 }
 .know{
   font-weight: bold;
   font-size: 1.5em;
+  margin-left: 4em;
 }
 .row{
   width: 80%;
@@ -71,7 +74,10 @@ width: 794px;
 height: 916px; */
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 990px) {
+  .know{
+    margin-left: 1em;
+  }
   .container{
     margin-left: 1em;
   }
@@ -83,7 +89,7 @@ height: 916px; */
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 790px) {
     .row .left img{
         width: 100%;
     }
@@ -100,15 +106,25 @@ height: 916px; */
 }
 
 @media screen and (max-width: 590px) {
+  .know{
+    margin-left: 6em;
+  }
   .container{
     margin-left: 9em;
-    margin-top: 4em;
+    margin-top: 3em;
+    width: 90em;
   }
 }
-
+@media screen and (max-width: 490px) {
+  .know{
+    width: 15em;
+    font-size: 3em;
+    margin-left: 3em;
+  }
+}
 @media screen and (max-width: 390px) {
   .container{
-    margin-left: 4em;
+    margin-left: 8em;
   }
 }
 </style>

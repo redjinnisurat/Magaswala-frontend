@@ -184,7 +184,7 @@ export default {
   cursor: -webkit-grabbing;
 }
 .review1{
-  width: 40em;
+  width: 60em;
 }
 .user{
   margin-left: 3.5em;
@@ -202,7 +202,7 @@ export default {
 } 
 #review{
   height: 30em;
-  width: 150em;
+  width: 155em;
   position: relative;
   border-left: 2px solid #BF9742;
   border-top: 2px solid #BF9742;
@@ -211,7 +211,7 @@ export default {
   font-size: 15px;
   margin-left: 15px;
   padding-top: 100px;
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
 }
 #review:before{
   content: "";
@@ -239,7 +239,14 @@ export default {
   border-bottom: 2px solid #BF9742;
   border-right: 2px solid #BF9742;
 }
-
+@media screen and (max-width: 990px) {
+  .user{
+    margin-left: 1em;
+  }
+  .carousel{
+    margin-left: -0.5em;
+  }
+}
 @media screen and (max-width: 790px) {
   .user{
     margin-left: 2em;
@@ -253,15 +260,38 @@ export default {
 @media screen and (max-width: 690px) {
   #boxes{
     width: 150em;
+    margin-left: 1em;
   }
 }
 
 @media screen and (max-width: 590px) {
   .user{
-    margin-left: 4em;
+    margin-left: 6em;
   }
   #boxes{
-    margin-left: 4em;
+    width: 160em;
+    margin-left: 7em;
+  }
+  #review {
+    width: 150em;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .user{
+    width: 10em;
+    font-size: 3em;
+    margin-left: 3em;
+  }
+  #boxes{
+    width: 150em;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #boxes{
+    margin-left: 7em;
+    width: 150em;
   }
 }
 </style>

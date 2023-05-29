@@ -482,7 +482,7 @@ export default {
   border-left: 1px solid #bf9742;
   height: 17em;
   position: absolute;
-  margin-left: 48em;
+  margin-left: 46em;
   margin-top: 0em;
 }
 
@@ -703,10 +703,7 @@ export default {
       max-width: 50rem;
       padding: 10px;
     }
-    .vertical-line{
-      margin-left: 25rem;
-      margin-right: -20rem;
-    }
+
     .order{
       margin-left: 4rem;
     }
@@ -720,7 +717,7 @@ export default {
     }
 
     .vertical-line{
-      margin-left: 51rem;
+      margin-left: 50em;
     }
   }
 @media screen and (max-width: 690px) {
