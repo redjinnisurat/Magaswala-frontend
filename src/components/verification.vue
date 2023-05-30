@@ -8,9 +8,20 @@
                     <h2 class="welcome-heading">verification</h2>
                     <p class="p-1">6-digit code has been sent<br>to your register email </p>
                     <br>
+                    <!-- <div class="input-group justify-content-end flex-nowrap">
+                            <input type="text" class="form-control form-control--otp js-otp-input" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" required>
+                            <input type="text" class="form-control form-control--otp js-otp-input" inputmode="numeric" pattern="[0-9]*" required>
+                            <input type="text" class="form-control form-control--otp js-otp-input" inputmode="numeric" pattern="[0-9]*" required>
+                        </div>
+                        <div class="input-group-seperator"></div>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control form-control--otp js-otp-input" inputmode="numeric" pattern="[0-9]*" required>
+                            <input type="text" class="form-control form-control--otp js-otp-input" inputmode="numeric" pattern="[0-9]*" required>
+                            <input type="text" class="form-control form-control--otp js-otp-input" inputmode="numeric" pattern="[0-9]*" required>
+                        </div> -->
                     <div class="otp2">
-                        <!-- <input id="partitioned" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" maxlength="1" v-model="email_otp" autocomplete="off"  /> -->
-                        <input type="text" id="o1" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" v-model="email_otp" v-on:click="focus( )" required>
+                        <input id="partitioned" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" maxlength="1" v-model="email_otp" autocomplete="off" />
+                        <input type="text" id="o1" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" v-on:click="focus( )" required>
                         <input type="text" id="o2" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
                         <input type="text" id="o3" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
                         <input type="text" id="o4" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
@@ -18,14 +29,12 @@
                         <input type="text" id="o6" class="text1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');" placeholder="" maxlength="1" required>
 
                     </div>
-
                     <router-link to="/setnewpassword" custom v-slot="{navigate}">
                         <button class="submit-btn" type="btn" @click="navigate" role="link" id="sub-btn">Verify</button>
                     </router-link>
-                    <!-- <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext"> Didn't receive code ? <span v-on:click="toggletext()" @click="startTimer" v-if="!timerRunning">Resend</span></p>
-                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">Code has been sent again! <span @click="startTimer" v-if="!timerRunning">Send again 00</span></p> -->
-                    <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext">Didn't receive code? <span v-on:click="toggletext()">Resend</span></p>
-                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">Code has been sent again! <span @click="startTimer" v-if="!timerRunning">Send again 00</span></p>
+                    <p id="p-2" :type="showtext? 'text' : 'text'" v-show="!showtext"> Didn't receive code ? <span v-on:click="toggletext()">Resend</span></p>
+                    <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">code has been sent again! <span>send again 00</span></p>
+
                 </div>
 
             </div>
@@ -38,9 +47,11 @@
 </div>
 </template>
 
+    
 <script>
 export default {
     name: 'verification',
+
     data() {
         return {
             showtext: false,
@@ -63,16 +74,31 @@ export default {
                 this.time++;
             }, 1000);
         },
-
+        beforeDestroy() {
+            clearInterval(this.intervalId);
+        },
+        otpVerify() {
+            const otp123 = this.retrieveOTP();
+            // Use otp123 in your verification logic
+        },
+        retrieveOTP() {
+            const inputs = document.querySelectorAll('.js-otp-input');
+            let otp = '';
+            for (let i = 0; i < inputs.length; i++) {
+                otp += inputs[i].value;
+            }
+            return otp;
+        },
+        toggletext() {
+            this.showtext = !this.showtext;
+        }
     },
-    resendCode() {
-        this.timerRunning = false;
-        this.time = 0;
-        clearInterval(this.intervalId);
-
-    },
-    beforeDestroy() {
-        clearInterval(this.intervalId);
+    mounted() {
+        const otpModule = otp("otp-inputs");
+        otpModule.init((passcode) => {
+            // Callback function when OTP is complete
+            console.log('Received OTP:', passcode);
+        });
     },
 
     methods: {
@@ -122,9 +148,58 @@ export default {
         }
     }
 
+    // methods: {
+    //     focus() {
+    //         let otp2 = document.getElementsByClassName("otp2")[0];
+    //         otp2.onkeyup = function (e) {
+    //             let target = e.srcElement;
+    //             let maxLength = parseInt(target.attributes["maxlength"].value, 10);
+    //             let myLength = target.value.length;
+    //             if (myLength >= maxLength) {
+    //                 let next = target;
+    //                 while ((next = next.nextElementSibling)) {
+    //                     if (next == null)
+    //                         break;
+    //                     if (next.tagName.toLowerCase() == "input") {
+    //                         next.focus();
+    //                         break;
+    //                     }
+    //                 }
+    //             } else if (myLength === 0) {
+    //                 let previous = target;
+    //                 while ((previous = previous.previousElementSibling)) {
+    //                     if (previous == null)
+    //                         break;
+    //                     if (previous.tagName.toLowerCase() === "input") {
+    //                         previous.focus();
+    //                         break;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     },
+
+    //     otpVerify() {
+    //         let o1 = document.getElementById("o1").value
+    //         let o2 = document.getElementById("o2").value
+    //         let o3 = document.getElementById("o3").value
+    //         let o4 = document.getElementById("o4").value
+    //         let o5 = document.getElementById("o5").value
+    //         let o6 = document.getElementById("o6").value
+
+    //         let otp123 = o1 + o2 + o3 + o4 + o5 + o6
+    //     },
+
+    //     toggletext() {
+    //         this.showtext = !this.showtext;
+    //     },
+
+    // },
+
 }
 </script>
 
+    
 <style>
 .digit-group {
     width: 30px;
