@@ -65,7 +65,7 @@
   <input class="form-check1-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
     </div> -->
    
-        <a href="#" class="btn" @click="AddProduct()">Add to Bag</a>
+        <a href="#"  class="btn" v-on:click="addToBag()">Add to Bag</a>
       </div>
     </div>
 
@@ -264,10 +264,11 @@ import MostBoughtProducts from "@/components/MostBoughtProducts.vue";
 export default {
   name: "MyCheckoutpage",
   components: { MyNavbar, RecommandedProducts, MostBoughtProducts },
+  props: ["product"],
   data(){
     return {
       clicknum: 0,
-      products: null,
+      // product: null,
       showAddForm: false,
       tempName: "",
       tempDescription: "",
@@ -282,6 +283,19 @@ export default {
     Decrement: function() {
       this.clicknum--;
     },
+
+    addToBag(){
+      this.$store.dispatch('addProductToBag', {
+        product: this.product,
+        quantity: 1
+      })
+    },
+    AddProduct(){
+      let product = document.getElementById("product");
+      product.classList.add("product-all");
+      let prod = document.getElementById("prod");
+      prod.classList.remove("prod-all");
+    }
     // AddProduct: function() {
     //   const newProduct = {
     //     id: this.products.length+1,
@@ -296,11 +310,9 @@ export default {
 </script>
 
 <style scoped>
-/* *{
-  background-color: #F9F9F9 0% 0% no-repeat padding-box;
-  opacity: 1;
-} */
-
+body{
+  overflow-x: hidden;
+}
 .container{
   margin-left: 14rem;
   

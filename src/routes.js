@@ -21,12 +21,12 @@ const routes = [
   {
     name: "AddBagpage",
     component: AddBagpage,
-    path: "/addbag"
+    path: "/Checkoutpage"
   },
   {
     name: "MyCheckoutpage",
     component: MyCheckoutpage,
-    path: "/Checkoutpage"
+    path: "/addbag"
   },
   {
     name: "MyPaymentpage",

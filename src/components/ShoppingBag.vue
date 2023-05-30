@@ -54,10 +54,10 @@
           <p class="weight">1kg</p>
           <img class="dlt" src="@/assets/delete.png" alt="" width="15px" />
           <p class="inner-text">Made with pure kesar</p>
-          <p class="prize">Rs.250</p>
+          <p class="prize">{{ price }}</p>
           <p class="add-remove">
-            <img class="plus" id="1" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3()" /> {{ clicknum3 }}
-            <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3()" />
+            <img class="plus" id="1" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3" /> {{ clicknum3 }}
+            <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3" />
           </p>
         </div>
       </div>
@@ -78,7 +78,7 @@
           <h3 class="box-title">items summary</h3>
           <p class="box-text">
             items: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp;Rs 875
+            &nbsp; {{ productPrice + price }}
           </p>
           <br />
           <hr class="horizontal-line" style="width: 85%; margin-left: 14px" />
@@ -107,28 +107,19 @@ export default {
   },
   data(){
     return {
+      
       clicknum1: 0,
       clicknum2: 0,
       clicknum3: 0,
-      products: null,
+      product: null,
       showAddForm: false,
       items: [],
-      price: []
+      productPrice: 0,
+      price: 250,
+      
     }
   },
-  // methods: {
-  //   MyCheckoutpage: function () {
-  //     // console.log("1");
-  //   },
-  //   buttonclicked1: function() {
-  //     console.log("clicked");
-  //     this.clicknum1++;
-  //   },
-  //   buttonclicked2: function() {
-  //     this.clicknum1--;
-  //   },
-  //   
-  // },
+
     methods:{
       Increment1: function() {
       this.clicknum1++;
@@ -142,17 +133,21 @@ export default {
     Decrement2: function() {
       this.clicknum2--;
     },
-    Increment3: function() {
+    Increment3(){
       this.clicknum3++;
-      
+      this.product += 1;
+      this.productPrice += 1;
     },
     
     Decrement3: function() {
       this.clicknum3--;
     },
-  
-    }
-  
+    },
+  computed: {
+      bag() {
+        return this.$store.state.bag;
+      }
+  }
 };
 </script>
 

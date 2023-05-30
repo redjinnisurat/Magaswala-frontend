@@ -13,7 +13,7 @@
   >
     <div class="product-card" v-for="(image, index) in images" :key="index">
       <div class="product-image">
-        <img style="width: 43vh; height: 35vh" :src="image.src" />
+        <img :src="image.src" />
       </div>
       <div class="product-info">
         <p class="product-name">Kesar magas</p>
@@ -150,11 +150,11 @@ export default {
   display: none;
 }
 
-.carousel img {
+/* .carousel img {
   width: 100%;
   height: auto;
   scroll-snap-align: center;
-}
+} */
 
 .carousel.dragging {
   cursor: grabbing;
@@ -171,7 +171,7 @@ export default {
   background-color: #edd5a4;
 }
 .product-image img {
-  width: 19em;
+  width: 23em;
   margin-left: auto;
   margin-right: auto;
   display: block;

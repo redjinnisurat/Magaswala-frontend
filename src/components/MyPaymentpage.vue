@@ -153,7 +153,7 @@
       <p class="items6">Total:</p>
       <p class="prize6">Rs.950</p>
       </div>
-      <button href="#" class="btn2 mx-0">Make Payment</button>
+      <button href="#" class="btn2">Make Payment</button>
     </div>
     <!-- </div> -->
   </div>
@@ -439,6 +439,7 @@ export default {
   color: white;
   margin-left: -5em;
   padding: 1px;
+  margin-left: -1em;
 }
 
 @media screen and (max-width: 1800px) {

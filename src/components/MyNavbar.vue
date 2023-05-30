@@ -2,7 +2,7 @@
   <div class="collapse" id="navbarToggleExternalContent">
   <div class="bg-light p-4 ham">
     <a href="/homepage" class="text-black h4 home">Home</a>
-    <a href="/Checkoutpage" class="text-black h4 bag">Bag</a>
+    <a href="/addbag" class="text-black h4 bag">Bag</a>
     <a href="#" class="text-black h4 profile">Favourites</a>
     <a href="#" class="text-black h4 profile">Profile</a>
     <a href="#" class="text-black h4 log">Logout</a>
@@ -26,7 +26,7 @@
           <a class="nav-link active mx-5 me-3" aria-current="page" href="/homepage">&nbsp; &nbsp;<img src="@/assets/home.png" alt="" style="width: 1em;"><br/>Home</a>
         </li>
         <li class="nav-item nav-li">
-          <a class="nav-link me-3 mx-2" href="/Checkoutpage">&nbsp;<img src="@/assets/bag.png" alt="" style="width: 1em;"><br/><p style="color: #B1622A;">Bag</p></a>
+          <a class="nav-link me-3 mx-2" href="/addbag">&nbsp;<img src="@/assets/bag.png" alt="" style="width: 1em;"><br/><p style="color: #B1622A;">Bag</p></a>
         </li>
         <li class="nav-item">
           <a class="nav-link mx-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> &nbsp; &nbsp; &nbsp;<img src="@/assets/favorite.png" alt="" style="width: 1em;"><br/>Favorites

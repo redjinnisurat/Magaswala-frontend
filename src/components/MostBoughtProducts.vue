@@ -6,7 +6,7 @@
        <div class="product-card" v-for="(image, index) in images" :key="index">
           
          <div class="product-image">
-           <img style="width: 43vh; height:35vh;" :src="image.src" />
+           <img :src="image.src" />
          </div>
            <div class="product-info">
                        <p class="product-name">Kesar magas</p>
@@ -113,10 +113,12 @@
    },
    },
    };
-   </script>
+</script>
 
-   <style scoped>
-
+<style scoped>
+body{
+  overflow-x: hidden;
+}
 .heading{
 margin-top: -13.5em;
 margin-left: 3em;
@@ -169,7 +171,7 @@ margin-left: 3em;
    
    .product-info{
        background-color: #fff;
-       height: 7em;
+       height: 6em;
        opacity: 5;
        filter: blur(0.5px);
        padding: 10px 10px;
@@ -186,8 +188,8 @@ margin-left: 3em;
        color: white;
        border: none;
        border-radius: 5px;
-       margin-left: 12em;
-       margin-top: -2rem;
+       margin-left: 13em;
+       margin-top: -5rem;
        padding-top:0;
        width: 6.5em;
        height: 1.6em;
