@@ -174,7 +174,7 @@ p {
     position: absolute;
     text-align: center;
     top: 50%;
-     left: 60%; 
+     left: 59%; 
     color: white;
     font-size: 4rem;
     font-family: 'Courgette', 'cursive';
@@ -192,7 +192,7 @@ p {
     }
 
     .heading-magaswala {
-        left: 65%;
+        margin-left: 66%;
     }
 }
 
