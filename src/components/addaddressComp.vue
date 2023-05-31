@@ -1,10 +1,16 @@
 <template>
-  <NavComp/>
+  <NavComp />
   <div class="mainContainer">
-      <div class="sidebar">
-        <myprofileComp/>
-      </div>
-  <div class="container rounded bg-white mt-6 mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="sidebar">
+            <myprofileComp />
+          </div>
+        </div>
+        <div class="col-md-6">
+           
+          <div class="container rounded bg-white mt-6 mb-5">
     <div class="row bord">
       <div class="col-md-5 border-right">
         <div class="p-3 py-5">
@@ -177,112 +183,58 @@
       </div>
     </div>
   </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-
 <script>
-import myprofileComp from './myprofileComp.vue';
-import NavComp from './NavComp.vue';
+import myprofileComp from "./myprofileComp.vue";
+import NavComp from "./NavComp.vue";
 export default {
   name: "addaddressComp",
-  components:{ NavComp, myprofileComp} 
+  components: {
+    NavComp,
+    myprofileComp,
+  },
 };
 </script>
-
 <style scoped>
-body {
-  background: rgb(99, 39, 120);
+.bg {
+    background-color: #f8fdff;
+    padding: 2rem;
 }
 
-    .form-control{
-     
-    height: 40px;
-
-    }
-    /* .offadd{
-      width: 200px;
-    height: 40px;
-
-    } */
-.form-control:focus {
-  box-shadow: none;
-  border-color: #ba68c8;
+.mainContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.ccontaine {
+  width: 100%;
+  height: 100%;
 }
 
-.profile-button {
-  background: rgb(99, 39, 120);
-  box-shadow: none;
-  border: none;
-}
-.rediotext{
-  margin-right: 25px;
-}
-.profile-button:hover {
-  background: #682773;
-}
-
-.profile-button:focus {
-  background: #682773;
-  box-shadow: none;
-}
-
-.profile-button:active {
-  background: #682773;
-  box-shadow: none;
-}
-
-.back:hover {
-  color: #682773;
-  cursor: pointer;
-}
-.border{
+.row2{
         border: solid 2px #BF9742;
     border-radius: 15px;
     }
+  .sidebar{
+    margin-bottom: 66px;
+  }
 
-.labelss {
-  font-size: 18px;
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
 }
-
-.add-experience:hover {
-  background: #ba68c8;
-  color: #fff;
-  cursor: pointer;
-  border: solid 1px #ba68c8;
-}
-
-.checkbox {
-  font-size: 15px;
-  color: #999999;
-  text-align: initial;
-}
-
-input[type="radio"]:after {
-  width: 10px;
-  height: 10px;
-  border-radius: 15px;
-  top: -5px;
-  left: 1px;
-  position: relative;
-  background-color: white;
-  content: "";
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid white;
-}
-
-input[type="radio"]:checked:after {
-  width: 8px;
-  height: 8px;
-  border-radius: 15px;
-  top: -6px;
-  left: 2px;
-  position: relative;
-  background-color: #bf9742;
-  content: "";
-  display: inline-block;
-  visibility: visible;
-  border: 3px solid #bf9742;
+.container{
+  width: 800px;
+  margin-right: 100px;
+  height: 535px;
 }
 </style>
+

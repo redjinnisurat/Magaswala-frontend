@@ -1,9 +1,13 @@
 <template>
      <NavComp/>
    <div class="mainContainer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
       <div class="sidebar">
         <myprofileComp/>
-      </div>
+      </div></div>
+      <div class="col-md-6">
 <div class="container rounded bg-white mt-0 mb-0">
     <div class="row bord">
 
@@ -57,7 +61,7 @@
             </div>
 
         </div>
-    </div>
+    </div></div></div></div>
 </div></div>
 </template>
 

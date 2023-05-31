@@ -1,6 +1,7 @@
 <template>
    
     <div class="mainContainer">
+       
         <div class="sidebar">
             <myprofileComp/>
         </div>

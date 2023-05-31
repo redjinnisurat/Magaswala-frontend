@@ -1,9 +1,13 @@
 <template>
     <NavComp/>
    <div class="mainContainer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
       <div class="sidebar">
         <myprofileComp/>
-      </div>
+      </div></div>
+      <div class="col-md-6">
 <div class="container rounded bg-white mt-1 mb-5">
     <div class="row" style="border: #b1622a; border-style: solid; border-width: 2px; border-radius: 15px">
         <div class="col-md-12 border-right ">
@@ -134,7 +138,7 @@
                     </div>
                 </div> -->
     </div>
-</div></div>
+</div></div></div></div></div>
 </template>
 
 <script >
