@@ -201,7 +201,7 @@ export default {
     border-radius: 50%;
 } 
 #review{
-  height: 30em;
+  height: 28em;
   width: 155em;
   position: relative;
   border-left: 2px solid #BF9742;

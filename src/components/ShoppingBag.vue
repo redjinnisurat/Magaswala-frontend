@@ -19,9 +19,9 @@
           <p class="prize">Rs.250</p>
           <p class="add-remove">
             
-            <img class="plus" src="@/assets/plus.png"  style=" cursor: pointer;" @click="Increment1()" />{{ clicknum1 }}
+            <img class="plus" src="@/assets/plus.png"  style=" cursor: pointer;" @click="Increment1" />{{ clicknum1 }}
               <!-- <button  @click="Increment()" >+</button> -->
-            <img class="minus" src="@/assets/minus.png"  style=" cursor: pointer;" @click="Decrement1()" />
+            <img class="minus" src="@/assets/minus.png"  style=" cursor: pointer;" @click="Decrement1" />
           </p>
         </div>
 
@@ -38,8 +38,8 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.125</p>
           <p class="add-remove">
-            <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment2()" /> {{ clicknum2 }}
-            <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement2()" />
+            <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment2" /> {{ clicknum2 }}
+            <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement2" />
           </p>
         </div>
 
@@ -54,7 +54,7 @@
           <p class="weight">1kg</p>
           <img class="dlt" src="@/assets/delete.png" alt="" width="15px" />
           <p class="inner-text">Made with pure kesar</p>
-          <p class="prize">{{ price }}</p>
+          <p class="prize">Rs.{{ price }}</p>
           <p class="add-remove">
             <img class="plus" id="1" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3" /> {{ clicknum3 }}
             <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3" />
@@ -105,6 +105,7 @@ export default {
     const isOpen = ref(false);
     return { isOpen };
   },
+  // props: ['productPrice', 'price'],
   data(){
     return {
       
@@ -114,7 +115,7 @@ export default {
       product: null,
       showAddForm: false,
       items: [],
-      productPrice: 0,
+      productPrice: 875,
       price: 250,
       
     }
@@ -123,25 +124,39 @@ export default {
     methods:{
       Increment1: function() {
       this.clicknum1++;
+      this.product += 1;
+      this.productPrice += 250;
     },
     Decrement1: function() {
       this.clicknum1--;
+      this.product -= 1;
+      this.productPrice -= 250;
     },
     Increment2: function() {
       this.clicknum2++;
+      this.product += 1;
+      this.productPrice += 125;
     },
     Decrement2: function() {
       this.clicknum2--;
+      this.product -= 1;
+      this.productPrice -= 125;
     },
     Increment3(){
       this.clicknum3++;
       this.product += 1;
-      this.productPrice += 1;
+      this.productPrice += 250;
+      
     },
     
     Decrement3: function() {
       this.clicknum3--;
+      this.product -= 1;
+      this.productPrice -= 250;
     },
+    MyCheckoutpage: function(){
+      this.$router.push({ name: 'MyPaymentpage', params: {productPrice:this.productPrice , price: this.price} });
+    }
     },
   computed: {
       bag() {

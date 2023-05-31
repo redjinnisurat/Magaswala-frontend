@@ -159,6 +159,11 @@ content::after {
   .container{
     margin-top: -2em;
   }
+  .ladu2{
+    width: 20em;
+    margin-top: -15em;
+    margin-left: 45em;
+  }
 }
 @media screen and (max-width: 490px) {
   .second-heading{

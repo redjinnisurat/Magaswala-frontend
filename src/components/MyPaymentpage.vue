@@ -126,7 +126,7 @@
       <h5 class="summery">Order Summery</h5>
       <div id="bill">
       <p class="items">items:</p>
-      <p class="prize">Rs.875</p>
+      <p class="prize">Rs.{{ productPrice + price }}</p>
       <p class="items2">CGST:</p>
       <p class="prize2">Rs.20</p>
       <p class="items3">SGST:</p>
@@ -167,6 +167,16 @@ import MyUsersBought from "@/components/MyUsersBought.vue";
 export default {
   name: "MyPaymentpage",
   components: { MyNavbar, MyUsersBought },
+  props: ['productPrice','price'],
+  // data(){
+  //   return {
+  //     productPrice: null,
+  //     price: null,
+  //   }
+  // }
+  mounted(){
+    console.log(this.productPrice + this.price);
+  }
 };
 </script>
 
@@ -473,7 +483,7 @@ export default {
     width: 180em;
     height: 68rem;
     margin-left: 10rem;
-    margin-top: -1rem;
+    margin-top: 1rem;
   }
   .box{
     width: 70rem;
