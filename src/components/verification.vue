@@ -6,19 +6,18 @@
             <div class="row">
                 <div class="col-6-lg" id="second-col">
                     <h2 class="welcome-heading">verification</h2>
-                    <p class="p-1">6-digit code has been sent<br>to your register email </p>
+                    <p class="p-1">6-digit code has been sent<br>to your registered email</p>
                     <br>
-
-                    <div class="input-group ">
-                        <input v-for="(value, index) in code" :key="index" v-model="code[index]" @paste="handlePaste($event, index)" type="text" inputmode="numeric" pattern="[0-9]*" required id="input">
+                    <div class="input-group">
+                        <input v-for="(value, index) in code" :key="index" v-model="code[index]" @paste="handlePaste($event, index)" type="text" inputmode="numeric" pattern="[0-9]*" required :ref="index === 0 ? 'firstInput' : null" @input="handleInput(index)" autofocus>
+                        <!-- <input v-for="(value, index) in code" :key="index" v-model="code[index]" @paste="handlePaste($event, index)" type="text" inputmode="numeric" pattern="[0-9]*" required :ref="index === 0 ? 'firstInput' : null" @input="handleInput(index)"> -->
                     </div>
-
                 </div>
                 <router-link to="/setnewpassword" custom v-slot="{navigate}">
                     <button class="submit-btn" type="btn" @click="navigate" role="link" id="sub-btn">Verify</button>
                 </router-link>
-                <p id="p-2" :type="showtext ? 'text' : 'text'" v-show="!showtext">Didn't receive code? <span v-on:click="toggletext()">Resend</span></p>
-                <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext">Code has been sent again! <span @click="startTimer" v-if="!timerRunning">Send again 00</span></p>
+                <p id="p-2" :type="showtext ? 'text' : 'text'" v-show="!showtext">Didn't receive code? <span @click="resendCode" :disabled="resendDisabled" v-on:click="toggletext()">Resend</span></p>
+                <p class="second-p" :type="showtext ? 'text' : 'text'" v-show="showtext" v-if=" resendTimer> 0"> Code has been sent again! <span> Send again {{ resendTimer }}</span> </p>
             </div>
         </div>
     </div>
@@ -34,10 +33,28 @@ export default {
     data() {
         return {
             showtext: false,
-            code: ['', '', '', '', '', ''], // Assuming a 6-digit OTP
+            code: ['', '', '', '', '', ''],
+            resendTimer: 0, // Countdown timer in seconds
+            resendDisabled: false // Disable the button during the countdown
         };
     },
     methods: {
+        resendCode() {
+            // Disable the button and start the countdown
+            this.resendDisabled = true;
+            this.resendTimer = 100;
+
+            // Start the countdown timer
+            const timer = setInterval(() => {
+                if (this.resendTimer > 0) {
+                    this.resendTimer--;
+                } else {
+                    // Enable the button after the countdown is finished
+                    this.resendDisabled = false;
+                    clearInterval(timer);
+                }
+            }, 1000);
+        },
         handlePaste(event, index) {
             event.preventDefault();
             const pastedText = event.clipboardData.getData('text/plain');
@@ -52,7 +69,7 @@ export default {
             this.showtext = !this.showtext;
         },
 
-    },
+    }
 };
 </script>
 
