@@ -21,7 +21,7 @@ const routes = [
   {
     name: "AddBagpage",
     component: AddBagpage,
-    path: "/Checkoutpage"
+    path: "/checkoutpage"
   },
   {
     name: "MyCheckoutpage",

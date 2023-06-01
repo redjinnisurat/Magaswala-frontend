@@ -155,7 +155,7 @@ export default {
       this.productPrice -= 250;
     },
     MyCheckoutpage: function(){
-      this.$router.push({ name: 'MyPaymentpage', params: {productPrice:this.productPrice , price: this.price} });
+      this.$router.push({ name: 'MyPaymentpage', params: {productPrice: this.productPrice , price: this.price} });
     }
     },
   computed: {

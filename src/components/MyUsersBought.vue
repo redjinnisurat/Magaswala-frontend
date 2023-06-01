@@ -221,7 +221,7 @@ export default {
 
 @media screen and (max-width: 790px) {
   .carousel {
-    width: 50em;
+    width: 60em;
   }
 }
 @media screen and (max-width: 690px) {
@@ -236,6 +236,7 @@ export default {
     margin-left: 6em;
   }
   .carousel {
+    width: 75em;
     margin-left: 8em;
   }
 }
@@ -246,7 +247,7 @@ export default {
     margin-left: 6em;
   }
   .carousel {
-    width: 70em;
+    /* width: 70em; */
     margin-left: 8em;
   }
 }

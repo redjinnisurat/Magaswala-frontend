@@ -65,7 +65,7 @@
   <input class="form-check1-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
     </div> -->
    
-        <a href="#"  class="btn" v-on:click="addToBag()">Add to Bag</a>
+        <a href="/checkoutpage"  class="btn" v-on:click="addToBag()">Add to Bag</a>
       </div>
     </div>
 
@@ -284,12 +284,12 @@ export default {
       this.clicknum--;
     },
 
-    addToBag(){
-      this.$store.dispatch('addProductToBag', {
-        product: this.product,
-        quantity: 1
-      })
-    },
+    // addToBag(){
+    //   this.$store.dispatch('addProductToBag', {
+    //     product: this.product,
+    //     quantity: 1
+    //   })
+    // },
     AddProduct(){
       let product = document.getElementById("product");
       product.classList.add("product-all");

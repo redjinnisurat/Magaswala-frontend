@@ -126,7 +126,7 @@
       <h5 class="summery">Order Summery</h5>
       <div id="bill">
       <p class="items">items:</p>
-      <p class="prize">Rs.{{ productPrice + price }}</p>
+      <p class="prize">Rs.{{ price }}</p>
       <p class="items2">CGST:</p>
       <p class="prize2">Rs.20</p>
       <p class="items3">SGST:</p>
@@ -139,7 +139,7 @@
         style="width: 10px"
       />
       <p class="items4">Total:</p>
-      <p class="prize4">Rs.915</p>
+      <p class="prize4">Rs.{{ price }}</p>
       <img class="plus" src="@/assets/plus2.png" alt="" style="width: 10px" />
       <p class="items5">Delivery:</p>
       <p class="prize5">Rs.45</p>
@@ -151,7 +151,7 @@
       />
       <hr />
       <p class="items6">Total:</p>
-      <p class="prize6">Rs.950</p>
+      <p class="prize6">Rs.{{ price }}</p>
       </div>
       <button href="#" class="btn2">Make Payment</button>
     </div>
@@ -175,7 +175,7 @@ export default {
   //   }
   // }
   mounted(){
-    console.log(this.productPrice + this.price);
+    console.log(this.price);
   }
 };
 </script>
@@ -467,8 +467,9 @@ export default {
 
 @media screen and (max-width: 990px) {
   .container {
-    max-width: 60em;
-    margin-left: 5em;
+    max-width: 58em;
+    margin-left: 1em;
+    margin-top: 1em;
   }
 }
 
