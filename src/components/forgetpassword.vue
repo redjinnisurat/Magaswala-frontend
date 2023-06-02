@@ -174,7 +174,7 @@ p {
     position: absolute;
     text-align: center;
     top: 50%;
-     left: 59%; 
+    left: 65%;
     color: white;
     font-size: 4rem;
     font-family: 'Courgette', 'cursive';
@@ -183,22 +183,22 @@ p {
     color: #FFFFFF;
     opacity: 1;
     text-transform: capitalize;
-}
-
-@media screen and (min-width: 1400px) and (max-width: 1599.98px) {
+} 
+@media screen and (min-width: 1400px) and (max-width: 1699.98px) {
     .main-container {
         width: 80%;
         height: 100vh;
     }
 
     .heading-magaswala {
-        margin-left: 66%;
+        left:65%;
     }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
     .heading-magaswala {
-        left: 63%;
+        left: 0;
+        margin-left: 10%;
     }
 }
 
