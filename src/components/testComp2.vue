@@ -1,240 +1,316 @@
 <template>
-  <NavComp />
-  <div class="mainContainer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="sidebar">
-            <myprofileComp />
-          </div>
+  <div class="gg">
+    <div class="sidebar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
+          <div class="smenu navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav flex-column" style="    height: 0px;">
+              <li class="nav-item">
+                <div class="user-details">
+                  <img src="../assets/useprofile.jpg" alt="" />
+                  <h2>Zack Gonsalves</h2>
+                  <p>ZackGonsalves@gmail.com</p>
+                </div>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link side-nav-ele test1 " id="reset-password-id" href="./">
+                  <img src="../assets/side_profile.svg" alt="" />
+                  <p>Profile</p>
+                </a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link side-nav-ele test1" id="reset-password-id" href="./order">
+                  <img src="../assets/side_bag.svg" alt="" />
+                  <p>Order</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link side-nav-ele" id="reset-password-id" href="./reset">
+                  <img src="../assets/side_changepassword.png" alt="" />
+                  <p>Reset Password</p>
+                </a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link side-nav-ele" href="./payment" id="payment-method">
+                <img src="../assets/side_changepassword.png" alt="" />
+                <p>Payment methods</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  side-nav-ele" href="./manageaddress" id="manage-addres">
+                <img src="../assets/side_manage.png" alt="" />
+                <p>Manage Address</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link side-nav-ele" href="./term" id="help-support-ele">
+                <img src="../assets/help.svg" alt="" />
+                <p>Term & Condition</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link side-nav-ele" href="./term" id="help-support-ele">
+                <img src="../assets/help.svg" alt="" />
+                <p>Condition</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link side-nav-ele" href="./term" id="help-support-ele">
+                <img src="../assets/help.svg" alt="" />
+                <p>Log Out</p>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="col-md-6">
-           
-          <div class="container rounded bg-white mt-6 mb-5">
-    <div class="row bord">
-      <div class="col-md-5 border-right">
-        <div class="p-3 py-5">
-          <div class="" style="text-align: left; margin-top: -45px; margin-bottom: 30px">
-            <a
-              href="#"
-              class="btn btn-outlined btn-black address"
-              data-wow-delay="0.7s "
-              style="color: #bf9742"
-              ><img src="../assets/back.svg" /> <small>Add Address</small></a
-            >
-
-            <i class="mdi mdi-settings-outline"></i>
-          </div>
-          <div class="" style="text-align: left; margin-top: 30px; margin-bottom: -30px">
-            <label class="labelss">Contact Info</label>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control"
-                placeholder="Building name"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control"
-                placeholder="Building name"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="" style="text-align: left; margin-top: 30px; margin-bottom: -30px">
-           <p> <label class="labelss">Address</label></p>
-          </div>
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control "
-                placeholder="Building name"
-                value=""
-              />
-            </div>
-          </div>
-
-
-          <div class="row mt-2">
-            <div class="col-md-6">
-              <label class="labels"></label
-              ><input
-                type="text"
-                class="form-control offadd"
-                placeholder="Near by landmark"
-                value=""
-              />
-            </div>
-            <div class="col-md-6">
-              <label class="labels"></label
-              ><input type="text" class="form-control offadd" value="" placeholder="Pincode" />
-            </div>
-          </div>
-
-
-
-
-          <div class="row mt-2">
-            <div class="col-md-6">
-              <label class="labels"></label
-              ><input type="text" class="form-control offadd" placeholder="state" value="" />
-            </div>
-            <div class="col-md-6">
-              <label class="labels"></label
-              ><input type="text" class="form-control offadd" value="" placeholder="city" />
-            </div>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <label class="labels"></label
-              ><input type="text" class="form-control" placeholder="country" value="" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="p-3 py-5">
-          <div class="flex-shrink-0">
-            <div class="col-md-12">
-              <div
-                class=""
-                style="text-align: left; margin-top: 40px; margin-bottom: -30px"
-              >
-                <label class="labelss">Type of address</label>
-              </div>
-              <br />
-              <!-- <input type='radio' name="gender"/>
-
-    <input type='radio' name="gender"/>
-
-    <input type='radio' name="gender"/> -->
-
-              <div class="radio checkbox">
-                <label>
-                  <input
-                    type="radio"
-                    name="optionsRadios"
-                    id="optionsRadios1"
-                    value="option1"
-                    checked
-                  />
-                 <span class="rediotext"> Home</span>
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    name="optionsRadios"
-                    id="optionsRadios2"
-                    value="option2"
-                  />
-                <span class="rediotext">  Office</span>
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="optionsRadios"
-                    id="optionsRadios2"
-                    value="option3"
-                  />
-               <span class="rediotext">   Other</span>
-                </label>
-              </div>
-              <div class="checkbox">
-                <label> <input type="checkbox" /> Make as default address </label>
-              </div>
-            </div>
-            
-            <!--Google map-->
-<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
-  <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-    style="border:0" allowfullscreen></iframe>
-</div>
-
-<!--Google Maps-->
-          </div>
-        </div>
-      </div>
-
-      <div class="" style="text-align: right">
-        <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
-        <button
-          class="button"
-          style="background-color: #bf9742; border: 0px;    width: 207px;"
-          type="submit"
-        >
-          Save Address
-        </button>
-        <i class="mdi mdi-settings-outline"></i>
-      </div>
-    </div>
-  </div>
-        </div>
-      </div>
+      </nav>
     </div>
   </div>
 </template>
 
 <script>
-import myprofileComp from "./myprofileComp.vue";
-import NavComp from "./NavComp.vue";
 export default {
-  name: "profileComp",
-  components: {
-    NavComp,
-    myprofileComp,
-  },
+  name: "testComp",
 };
 </script>
+
 <style scoped>
-.bg {
-    background-color: #f8fdff;
-    padding: 2rem;
+.gg {
+height: 536px;
+  width: 239px;
+  margin-left: 139px;
+  position: relative;
+  overflow: hidden;
+  border: solid 3px #bf9742;
+  border-right: none;
+  text-align: start;
 }
 
-.mainContainer {
-    display: grid;
-    grid-template-columns: 15% 85%;
-}
-.ccontaine {
-  width: 100%;
+.gg:before,
+.gg:after {
+content: "";
+  display: block;
   height: 100%;
+  width: 147%;
+  transform: rotate(75deg);
+  box-shadow: 4px 0 0 3px #bf9742;
+  position: absolute;
+  top: 90px;
+  right: -170%;
 }
 
-.row2{
-        border: solid 2px #BF9742;
-    border-radius: 15px;
+.gg:after {
+transform: rotate(106deg);
+  left: 123%;
+  box-shadow: -4px 0 0 3px #bf9742;
+  top: -100px;
+  top: -99px;
+}
+.lmenu {
+        padding: 10px;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: none;
     }
-  .sidebar{
-    margin-bottom: 66px;
-  }
+     
+    
+    li:hover {
+    
+        color: #10b6e9;
+        font-weight: 700;
+        
+    }
+    p:hover{
+        color: #BF9742;
+    }
+    /* .smenu {
+        background-color: #06bcf5;
+        height: 570px;
+        color: white;
+    } */
+    .trengel{
+    position: relative;
+    height: 561px;
+    margin-left: 126px;
+    width: 405px;
+    background: white;
+    border: solid 2px #BF9742;
+    border-right: none;
+    }
+    .shape{
+      position: absolute;
+        width: 289px;
+        height: 122px;
+        background:#F9F9F9;
+        border: solid 2px #BF9742;
+        top: 218px;
+        left: 257px;
+        transform: skew(295deg);
+        rotate: 102.5deg;
+        border-left: none;
+        border-top: none; 
+    }
+    .sidebar-nav {
+        margin: 0;
+        background: #ffffff;
+    }
+    
+    .sidebar-container {
+        top: 238px;
+        margin-left: 140px;
+        width: 345px; 
+        
+        height: 687px;
+    
+       
+        border: 2px solid #bf9742;
+        opacity: 1;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+    
+    .drop-down-menu-button {
+        display: none;
+    }
+    
+    .user-details {
+        
+        background: #f9f9f9;
+    }
+    
+    .user-details img {
+        margin-top: 33px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-left: 60px;
+    }
+    
+    .user-details h2 {
+      font: normal normal 600 17px/43px Poppins;
+    letter-spacing: 0px;
+    color: #262626;
+    text-align: center;
+    }
+    
+    .user-details p {
+    
+        
+    font: normal normal normal 10px/0px Poppins;
+    letter-spacing: 0px;
+    color: #262626;
+    
+  text-align: center;
 
-  a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
 
-    text-decoration: none;
-    color: initial;
-}
-.container{
-  width: 800px;
-  margin-right: 100px;
-  height: 535px;
-}
+    }
+    
+    .right-bordr {
+        content: "";
+        margin-left: 12px;
+        margin-top: 21px;
+    }
+    
+    .right-bordr::after {
+        margin-top: 20px;
+        margin-bottom: 29px;
+        margin-left: 30px;
+    }
+    
+    .navbar-collapse {
+        background: #f9f9f9 0% 0% no-repeat padding-box;
+    }
+  
+    .side-nav-ele {
+        display: flex;
+        align-items: center;
+    }
+    
+    .side-nav-ele p {
+        margin-left: 21px;
+    
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+
+    }
+    
+    .response-get {
+        background-color: #bf9742;
+    }
+    
+    .side-nav-ele img {
+        margin-left: 21px;
+    }
+    
+    .sidebar-container-mobile {
+        display: none;
+    }
+    
+    @media (max-width: 600px) {
+        .sidebar-container {
+            display: none;
+        }
+    
+        .form-div {
+            margin-left: 0;
+            width: 344px;
+        }
+    
+        .sidebar-container-mobile {
+            margin-left: 6%;
+            display: none;
+            width: 320px;
+            height: 837px;
+            background: #f9f9f9 0% 0% no-repeat padding-box;
+            border: 1px solid #bf9742;
+            opacity: 1;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+    
+        .mobile-ele {
+            display: flex;
+            margin-left: 25px;
+        }
+    
+        .dropdown-toggle::after {
+            margin-top: 10px;
+        }
+    
+        .mobile-ele p {
+            margin-left: 20px;
+        }
+    
+        link.show {
+            color: #bf9742;
+        }
+    
+        .drop-down-menu-button {
+            display: block;
+            background-color: #f9f9f9;
+            color: #bf9742;
+            border: none;
+            transform: rotate(270deg);
+            height: 10%;
+        }
+    
+        .btn:hover {
+            color: #bf9742;
+            background-color: #bf9742;
+            border-color: var(--bs-btn-hover-border-color);
+        }
+    
+        .user-details {
+            margin-left: 70px;
+        }
+    .nav-link {
+      padding: 0px;
+    }
+          
+    }
+   
+   
 </style>
-
