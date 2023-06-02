@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "image": "ladu.png",
+        "name": "kesar Magas",
+        "price": "250",
+        "quantity": 1
+    },
+    {
+        "id": 2,
+        "image": "ladu.png",
+        "name": "kesar Magas",
+        "price": "125",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "image": "ladu.png",
+        "name": "kesar Magas",
+        "price": "250",
+        "quantity": 1
+    },
+    {
+        "id": 4,
+        "image": "ladu.png",
+        "name": "kesar Magas",
+        "price": "125",
+        "quantity": 1
+    }
+
+]

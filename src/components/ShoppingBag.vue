@@ -56,7 +56,7 @@
           <p class="inner-text">Made with pure kesar</p>
           <p class="prize">Rs.{{ price }}</p>
           <p class="add-remove">
-            <img class="plus" id="1" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3" /> {{ clicknum3 }}
+            <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3" /> {{ clicknum3 }}
             <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3" />
           </p>
         </div>
@@ -84,8 +84,8 @@
           <hr class="horizontal-line" style="width: 85%; margin-left: 14px" />
           <router-link to="/paymentpage">
             <a href="#" class="btn" @click="MyCheckoutpage"
-              >Proceed to checkout</a
-            >
+              >Proceed to checkout</a>
+           
           </router-link>
           
         </div>
@@ -112,12 +112,13 @@ export default {
       clicknum1: 0,
       clicknum2: 0,
       clicknum3: 0,
-      product: null,
+      product: 250,
+      productData: null,
       showAddForm: false,
       items: [],
       productPrice: 875,
       price: 250,
-      
+      products: [ {price: 250} ],
     }
   },
 
@@ -154,14 +155,23 @@ export default {
       this.product -= 1;
       this.productPrice -= 250;
     },
-    MyCheckoutpage: function(){
-      this.$router.push({ name: 'MyPaymentpage', params: {productPrice: this.productPrice , price: this.price} });
+    // MyCheckoutpage: function(){
+    //   this.$router.push({ name: 'MyPaymentpage', params: {productPrice: this.productPrice , price: this.price} });
+    // }
+    MyCheckoutpage(){
+      localStorage.setItem("Product",JSON.stringify(this.product));
+      this.productData = JSON.parse(localStorage.getItem("Product"));
     }
     },
-  computed: {
-      bag() {
-        return this.$store.state.bag;
-      }
+  mounted() {
+    if(localStorage.product){
+      this.product = localStorage.product;
+    }
+  },
+  watch: {
+    product(newProduct){
+      localStorage.product = newProduct;
+    }
   }
 };
 </script>

@@ -64,8 +64,8 @@
         <!-- <div class="form-check1 pt-0">
   <input class="form-check1-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
     </div> -->
-   
-        <a href="/checkoutpage"  class="btn" v-on:click="addToBag()">Add to Bag</a>
+        <!-- <input v-model="newproduct"> -->
+        <a href="/checkoutpage"  class="btn" @click="addToBag">Add to Bag</a>
       </div>
     </div>
 
@@ -268,13 +268,110 @@ export default {
   data(){
     return {
       clicknum: 0,
-      // product: null,
-      showAddForm: false,
-      tempName: "",
-      tempDescription: "",
-      tempPrice: "",
-      tempImageURL: ""
+      products: [],
+      newProduct: null,
+      item: [],
+      items: [],
     }
+  },
+mounted(){
+//   fetch("products.json")
+//     .then(function(response){
+//       return response.json();
+//   })
+//   .then(function(data){
+//       localStorage.setItem("products", JSON.stringify(data));
+//       if(!localStorage.getItem("cart")){
+//       localStorage.setItem("cart", "[]");
+//   }
+// });
+
+// let products = JSON.parse(localStorage.getItem("products"));
+// let cart = JSON.parse(localStorage.getItem("cart"));
+
+// function addToBag(productId){
+//   let product = products.find(function(product){
+//     return product.id == productId;
+//   });
+
+//   if(cart.length == 0){
+//     cart.push(product);
+//   }else{
+//     let res = cart.find(element => element.id == productId);
+//     if(res === undefined){
+//       cart.push(product);
+//     }
+//   }
+
+//   localStorage.setItem("cart",JSON.stringify(cart));
+// }
+
+// addToBag(1);
+
+// function removeItemFromCart(productId){
+//   let temp = cart.filter(item => item.id != productId);
+//   localStorage.setItem("cart", JSON.stringify(temp));
+// }
+
+// removeItemFromCart(3);
+
+
+// function getTotal(){
+//   let temp = cart.Map(function(item){
+//     return parseInt(item.price);
+//   });
+
+//   let sum = temp.reduce(function(prev, next){
+//     return prev + next;
+//   }, 0);
+
+//   console.log(sum);
+// }
+
+// getTotal();
+    
+
+const addToBag = document.getElementsByClassName('btn');
+let products = [];
+for(let i=0; i<addToBag.length;i++){
+  addToBag[i].addEventListener("click",function(e){
+    console.log(e.target.parentElement.childern[1].childern[0].textContent);
+    if(typeof(Storage) !== 'undefined'){
+      let product = {
+        id:i+1,
+        name: e.target.parentElement.childern[0].textContent,
+        price:e.target.parentElement.childern[1].childern[0].textContent,
+        no: 1
+      };
+      if(JSON.parse(localStorage.getItem('products')) === null){
+        products.push(product);
+        localStorage.setItem("products",JSON.stringify(products));
+      }else{
+        const localItems = JSON.parse(localStorage.getItem("products"));
+        localItems.map(data=>{
+          if(product.id == data.id){
+            console.log(true);
+          }else{
+            console.log(false);
+          }
+        })
+        
+      }
+    }else{
+      console.log('storage is not working on your browser');
+    }
+  });
+}
+
+
+
+    //  if(localStorage.getItem('products')){
+    //     try{
+    //       this.products = JSON.parse(localStorage.getItem('products'));
+    //     } catch(e){
+    //       localStorage.removeItem('products');
+    //     }
+    //  }
   },
   methods:{
       Increment: function() {
@@ -284,28 +381,12 @@ export default {
       this.clicknum--;
     },
 
-    // addToBag(){
-    //   this.$store.dispatch('addProductToBag', {
-    //     product: this.product,
-    //     quantity: 1
-    //   })
-    // },
-    AddProduct(){
-      let product = document.getElementById("product");
-      product.classList.add("product-all");
-      let prod = document.getElementById("prod");
-      prod.classList.remove("prod-all");
-    }
-    // AddProduct: function() {
-    //   const newProduct = {
-    //     id: this.products.length+1,
-    //     name: this.tempName,
-    //     description: this.tempDescription,
-    //     price: this.tempPrice,
-    //     imageURL: this.tempImageURL
-    //   }
-    // }
-  }
+
+
+  },
+
+  
+  
 };
 </script>
 
