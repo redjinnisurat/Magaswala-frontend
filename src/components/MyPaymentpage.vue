@@ -139,7 +139,7 @@
         style="width: 10px"
       />
       <p class="items4">Total:</p>
-      <p class="prize4">Rs.{{ price }}</p>
+      <p class="prize4">Rs.{{  }}</p>
       <img class="plus" src="@/assets/plus2.png" alt="" style="width: 10px" />
       <p class="items5">Delivery:</p>
       <p class="prize5">Rs.45</p>
@@ -151,7 +151,7 @@
       />
       <hr />
       <p class="items6">Total:</p>
-      <p class="prize6">Rs.{{ price }}</p>
+      <p class="prize6">Rs.{{  }}</p>
       </div>
       <button href="#" class="btn2">Make Payment</button>
     </div>
@@ -167,15 +167,18 @@ import MyUsersBought from "@/components/MyUsersBought.vue";
 export default {
   name: "MyPaymentpage",
   components: { MyNavbar, MyUsersBought },
-  props: ['productPrice','price'],
-  // data(){
-  //   return {
-  //     productPrice: null,
-  //     price: null,
-  //   }
-  // }
+  // props: ['productPrice','price'],
+  data(){
+    return {
+      productPrice: null,
+      price: null,
+    }
+  },
   mounted(){
-    console.log(this.price);
+    this.price = localStorage.getItem('productPrice');
+    this.productPrice = localStorage.getItem('price');
+    
+    console.log(this.price + this.productPrice);
   }
 };
 </script>

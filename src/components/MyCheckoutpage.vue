@@ -332,6 +332,7 @@ mounted(){
     
 
 const addToBag = document.getElementsByClassName('btn');
+
 let products = [];
 for(let i=0; i<addToBag.length;i++){
   addToBag[i].addEventListener("click",function(e){
@@ -346,16 +347,19 @@ for(let i=0; i<addToBag.length;i++){
       if(JSON.parse(localStorage.getItem('products')) === null){
         products.push(product);
         localStorage.setItem("products",JSON.stringify(products));
+        window.location.reload();
       }else{
         const localItems = JSON.parse(localStorage.getItem("products"));
         localItems.map(data=>{
           if(product.id == data.id){
-            console.log(true);
+            product.no = data.no + 1;
           }else{
-            console.log(false);
+            products.push(data);
           }
-        })
-        
+        });
+        products.push(product);
+        localStorage.setItem('products',JSON.stringify(products));
+        window.location.reload();
       }
     }else{
       console.log('storage is not working on your browser');
@@ -363,6 +367,7 @@ for(let i=0; i<addToBag.length;i++){
   });
 }
 
+// adding data to shopping bag
 
 
     //  if(localStorage.getItem('products')){

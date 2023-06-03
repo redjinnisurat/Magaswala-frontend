@@ -1,14 +1,5 @@
 <template>
-  <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-light p-4 ham">
-    <a href="/homepage" class="text-black h4 home">Home</a>
-    <a href="/addbag" class="text-black h4 bag">Bag</a>
-    <a href="#" class="text-black h4 profile">Favourites</a>
-    <a href="#" class="text-black h4 profile">Profile</a>
-    <a href="#" class="text-black h4 log">Logout</a>
-    <!-- <span class="text-body-secondary">Toggleable via the navbar brand.</span> -->
-  </div>
-</div>
+  
     <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand mx-2" href="#"><img class="navbar-logo" src="@/assets/Magaswala.png" alt=""></a>
@@ -48,6 +39,17 @@
         <span class="bar">Profile</span>
         <span class="bar">Logout</span>
       </div> -->
+  
+      <div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-light p-4 ham">
+    <a href="/homepage" class="text-black h4 home">Home</a>
+    <a href="/addbag" class="text-black h4 bag">Bag</a>
+    <a href="#" class="text-black h4 profile">Favourites</a>
+    <a href="#" class="text-black h4 profile">Profile</a>
+    <a href="#" class="text-black h4 log">Logout</a>
+    <!-- <span class="text-body-secondary">Toggleable via the navbar brand.</span> -->
+  </div>
+</div>
 
     </div>
   </div>

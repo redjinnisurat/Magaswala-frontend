@@ -5,6 +5,13 @@
       <div class="card-body mx-5">
         <h5 class="card-title me-5">Shopping Bag</h5>
 
+        <ul>
+          <li v-for="(price, index) in productdata" :key="index"
+             @click="$emit('clickedItem', price)">
+              {{ price }}
+          </li>
+        </ul>
+
         <div class="container2 mb-0">
           <img
             class="ladu"
@@ -78,7 +85,7 @@
           <h3 class="box-title">items summary</h3>
           <p class="box-text">
             items: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; {{ productPrice + price }}
+            &nbsp; {{ price + productPrice }}
           </p>
           <br />
           <hr class="horizontal-line" style="width: 85%; margin-left: 14px" />
@@ -105,7 +112,15 @@ export default {
     const isOpen = ref(false);
     return { isOpen };
   },
-  // props: ['productPrice', 'price'],
+  props: {
+    productdata: {
+      type: Array,
+      required: true,
+      validator: (price) => {
+        return price.length <= 5;
+      }
+    }
+  },
   data(){
     return {
       
@@ -116,8 +131,8 @@ export default {
       productData: null,
       showAddForm: false,
       items: [],
-      productPrice: 875,
-      price: 250,
+      productPrice: 250,
+      price: 875,
       products: [ {price: 250} ],
     }
   },
@@ -155,13 +170,16 @@ export default {
       this.product -= 1;
       this.productPrice -= 250;
     },
-    // MyCheckoutpage: function(){
-    //   this.$router.push({ name: 'MyPaymentpage', params: {productPrice: this.productPrice , price: this.price} });
+    MyCheckoutpage: function(){
+      localStorage.setItem('price', this.productPrice);
+      localStorage.setItem('productPrice', this.price);
+      this.$router.push({ name: 'MyPaymentpage' });
+
+    },
+    // MyCheckoutpage(){
+    //   localStorage.setItem("Product",JSON.stringify(this.product));
+    //   this.productData = JSON.parse(localStorage.getItem("Product"));
     // }
-    MyCheckoutpage(){
-      localStorage.setItem("Product",JSON.stringify(this.product));
-      this.productData = JSON.parse(localStorage.getItem("Product"));
-    }
     },
   mounted() {
     if(localStorage.product){
@@ -170,7 +188,7 @@ export default {
   },
   watch: {
     product(newProduct){
-      localStorage.product = newProduct;
+      localStorage.product = newProduct; 
     }
   }
 };
