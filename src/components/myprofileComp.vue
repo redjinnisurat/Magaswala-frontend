@@ -13,40 +13,52 @@
               </li>
   
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" id="reset-password-id" href="./">
-                  <img src="../assets/side_profile.svg" alt="" />
+                <a class="nav-link side-nav-ele t" id="reset-password-id" href="./">
+                  <img class="img"  src="../assets/side-profile.png" alt="" />
                   <p>Profile</p>
                 </a>
               </li>
   
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" id="reset-password-id" href="./order">
-                  <img src="../assets/side_bag.svg" alt="" />
+                <a class="nav-link side-nav-ele t" id="reset-password-id" href="./order">
+                  <img class="img" src="../assets/side_bag.svg" alt="" />
                   <p>Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" id="reset-password-id" href="./reset">
-                  <img src="../assets/side_changepassword.png" alt="" />
+                <a class="nav-link side-nav-ele t" id="reset-password-id" href="./reset">
+                  <img class="img" src="../assets/side_changepassword.png" alt="" />
                   <p>Reset Password</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" href="./payment" id="payment-method">
-                  <img src="../assets/side_changepassword.png" alt="" />
+                <a class="nav-link side-nav-ele t" href="./payment" id="payment-method">
+                  <img class="img" src="../assets/side_changepassword.png" alt="" />
                   <p>Payment methods</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" href="./manageaddress" id="manage-addres">
-                  <img src="../assets/side_manage.png" alt="" />
+                <a class="nav-link side-nav-ele t" href="./manageaddress" id="manage-addres">
+                  <img class="img" src="../assets/side_manage.png" alt="" />
                   <p>Manage Address</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele" href="./term" id="help-support-ele">
-                  <img src="../assets/help.svg" alt="" />
+                <a class="nav-link side-nav-ele t" href="./help" id="help-support-ele">
+                  <img class="img" src="../assets/help.svg" alt="" />
+                  <p>Help & Support</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link side-nav-ele t" href="./term" id="help-support-ele">
+                  <img class="img" src="../assets/side_term.png" alt="" />
                   <p>Term & Condition</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link side-nav-ele t" href="#" id="help-support-ele">
+                  <img class="img" src="../assets/logoutt.png" alt="" />
+                  <p>LogOut</p>
                 </a>
               </li>
             </ul>
@@ -63,6 +75,15 @@
   </script>
   
   <style scoped>
+ .t{
+  padding: 2px;
+ }
+ .img{
+ 
+    width: 13px;
+    height: 13px;
+    margin-bottom: 15px;
+ }
   .gg {
   height: 536px;
     width: 239px;
@@ -215,7 +236,7 @@
       }
       
       .side-nav-ele p {
-          margin-left: 21px;
+          margin-left: 12px;
       
           text-align: center;
           display: flex;
@@ -230,7 +251,7 @@
       }
       
       .side-nav-ele img {
-          margin-left: 21px;
+          margin-left: 15px;
       }
       
       .sidebar-container-mobile {

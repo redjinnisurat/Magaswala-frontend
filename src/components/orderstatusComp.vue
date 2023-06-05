@@ -1,8 +1,15 @@
 <template>
+  <NavComp />
+  <div class="col-md-4">
+    <div class="sidebar">
+      <myprofileComp />
+    </div>
+  </div>
+  <div class="col-md-6">
   <div class="container rounded bg-white mt-0 mb-0">
     <div class="row bord">
       <div class="col-md-6 border-right">
-        <div class=" py-6">
+        <div class="py-6">
           <div class="p-3 py-0">
             <div class="flex-shrink-0">
               <img
@@ -21,7 +28,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class=" py-0">
+        <div class="py-0">
           <div class="container mt-5 mb-5">
             <div class="row">
               <div class="col-md-12">
@@ -100,50 +107,24 @@
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   </div>
 </template>
 
 <script>
+import myprofileComp from "./myprofileComp.vue";
+import NavComp from "./NavComp.vue";
 export default {
   name: "orderstatusComp",
+  components: { NavComp, myprofileComp },
 };
 </script>
 
-<style>
+<style scoped>
 body {
   background: rgb(99, 39, 120);
 }
 
-.form-control:focus {
-  box-shadow: none;
-  border-color: #ba68c8;
-}
-
-.profile-button {
-  background: rgb(99, 39, 120);
-  box-shadow: none;
-  border: none;
-}
-
-.profile-button:hover {
-  background: #682773;
-}
-
-.profile-button:focus {
-  background: #682773;
-  box-shadow: none;
-}
-
-.profile-button:active {
-  background: #682773;
-  box-shadow: none;
-}
-
-.back:hover {
-  color: #682773;
-  cursor: pointer;
-}
 .heading {
   /* font-size: 25px; */
   margin-right: 25px;
@@ -177,11 +158,11 @@ ul.timeline > li {
   margin: 20px 0;
   padding-left: 20px;
 }
-.bord{
-        border: solid 2px #BF9742;
-    border-radius: 15px;
-    background-color: white;
-    }
+.bord {
+  border: solid 2px #bf9742;
+  border-radius: 15px;
+  background-color: white;
+}
 ul.timeline > li:before {
   content: " ";
   background: white;
@@ -202,15 +183,15 @@ ul.timeline > li:before {
   font-weight: 700;
 }
 
-div.stars {
+/* div.stars {
   width: 270px;
 
   display: inline-block;
-}
-
+} */
+/* 
 .mt-200 {
   margin-top: 200px;
-}
+} */
 
 input.star {
   display: none;
@@ -236,15 +217,8 @@ input.star:checked ~ label.star:before {
   transition: all 0.25s;
 }
 
-input.star-5:checked ~ label.star:before {
-  color: #fe7;
 
-  text-shadow: 0 0 20px #952;
-}
 
-input.star-1:checked ~ label.star:before {
-  color: #f62;
-}
 
 label.star:hover {
   transform: rotate(-15deg) scale(1.3);
@@ -255,7 +229,7 @@ label.star:before {
 
   font-family: FontAwesome;
 }
-.container{
+.container {
   width: 800px;
   margin-right: 100px;
   height: 550px;

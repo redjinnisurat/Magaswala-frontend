@@ -18,6 +18,7 @@ import myprofileComp from "./components/myprofileComp.vue"
 import testComp2 from "./components/testComp2.vue"
 import DashComp from "./components/DashComp.vue"
 import NavComp from "./components/NavComp.vue"
+import helpandsupportComp from "./components/helpandsupportComp.vue"
 const routes=[
     {
         name:"HelloWorld",
@@ -109,6 +110,11 @@ path: '/mp',
   name:"NavComp",
 path: '/NavComp.vue',
   component:NavComp
+},
+{
+  name:"helpandsupportComp",
+path: '/help',
+  component:helpandsupportComp
 },
 
 
