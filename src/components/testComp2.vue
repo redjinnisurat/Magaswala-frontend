@@ -1,323 +1,91 @@
 <template>
-  <NavComp />
-  <div class="mainContainer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
+    <NavComp />
+ <div class="container">
+  <div class="row justify-content-md-center">
+   
+    <div class="col-md-auto" style="    border-style: solid;
+    border-width: 2px;
+    width: 100%;
+    height: 100%;">
+    <div class="col-md-6">
           <div class="sidebar">
             <myprofileComp />
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="container rounded bg-white mt-1 mb-0">
-            <div class="row row2">
-              <div class="p-3 py-0">
-                <div class="col-md-6">
-                  <div class="py-6">
-                    <div class="p-3 py-0">
-                      <img
-                        src="../assets/track.png"
-                        alt="Generic placeholder image"
-                        class="img-fluid"
-                        style="
-                          width: 592px;
-
-                          height: 428px;
-                          margin-top: 70px;
-                        "
-                      />
-                    </div>
-             
-
-                  <div class="col-md-6 content">
-                  
-                      <div class="container mt-5 mb-5">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="col" style="text-align: initial">
-                              <p class="text">
-                                <b>Order details</b> <span class="order"></span>
-                              </p>
-                              <p class="text">
-                                <b>Order No.:</b><span class="order">#951452</span>
-                              </p>
-                            </div>
-                          </div>
-                          <div class="col-md-5">
-                            <div class="col">
-                              <img
-                                align="right"
-                                class="icon"
-                                src="../assets/ladu.png"
-                                style="
-                                  top: 410px;
-                                  left: 1476px;
-                                  width: 131px;
-                                  height: 92px;
-                                "
-                              />
-                              <div class="d-flex flex-column" style="text-align: initial">
-                                <p class="text">
-                                  <b>Magas </b
-                                  ><span class="font-weight-bold text-dark"
-                                    ><br />1KG</span
-                                  >
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- ratting -->
-
-                          <div class="col-md-12">
-                            <div class="col">
-                              <div style="text-align: initial">
-                                <p class="text">
-                                  <span align="left" class="heading">Rating</span>
-                                </p>
-                              </div>
-                              <div align="left" class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                              </div>
-                              <div></div>
-                            </div>
-                          </div>
-
-                          <!-- order status -->
-                          <div class="col-md-8">
-                            <div class="row"></div>
-                            <h4 style="text-align: initial">Track Order</h4>
-                            <div class="status">
-                              <ul class="timeline" style="text-align: initial">
-                                <li>
-                                  <!-- <a target="_blank" href="https://www.totoprayogo.com/#">Track order</a> -->
-                                  <a href="#" class="float">Order Placed</a>
-                                  <p>We Have received your order.</p>
-                                </li>
-                                <li>
-                                  <a href="#" class="float"  >Comformed</a>
-                                  <p>Your order has been conferment.</p>
-                                </li>
-                                <li>
-                                  <a href="#" class="float">Order Shiped</a>
-                                  <p>Estimated for 29 September , 2022</p>
-                                </li>
-                                <li>
-                                  <a href="#" class="float">Out for Delivery</a>
-                                  <p>Estimated for 30 September , 2022</p>
-                                </li>
-                                <li>
-                                  <a href="#" class="float">Delivered</a>
-                                  <p>Estimated for 3 October , 2022</p>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+</div>
   </div>
+</div>
+</div>
 </template>
 <script>
+
 import myprofileComp from "./myprofileComp.vue";
 import NavComp from "./NavComp.vue";
-
 export default {
   name: "orderComp",
-  components: { NavComp, myprofileComp },
+  components: {
+    NavComp, myprofileComp,
+    
+  },
 };
 </script>
+
 <style scoped>
-ul{
-  margin: o;
-}
-.content{
-  margin-top: -509px;
-    margin-left: 403px;
-}
-.order {
-  text-align: left;
-  font: normal normal medium 22px/20px Poppins;
-  letter-spacing: 0px;
-  color: #262626;
-  opacity: 1;
-}
-.float{
-  font-size: small;
-}
-/* .bg {
+.bg {
   background-color: #f8fdff;
   padding: 2rem;
-} */
-.heading {
-  /* font-size: 25px; */
-  margin-right: 25px;
-  text-align: left;
 }
+
 .mainContainer {
   display: grid;
   grid-template-columns: 15% 85%;
 }
-/* .ccontaine {
-  width: 100%;
-  height: 100%;
-} */
 
-.row2 {
-  border: solid 2px #bf9742;
-  border-radius: 15px;
-  height: 537px;
-}
-.sidebar {
-  margin-bottom: 0px;
+body {
+  background: rgb(231, 228, 235);
 }
 
-/* a.button {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
+.form-control:focus {
+  box-shadow: none;
+  border-color: #bf9742;
+}
 
-  text-decoration: none;
-  color: initial;
-} */
-.container {
+.form-control {
+  height: 40px;
+}
+
+.back:hover {
+  color: #bf9742;
+  cursor: pointer;
+}
+
+.labels {
+  font-size: 16px;
+}
+
+.add-experience:hover {
+  background: #bf9742;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #bf9742;
+}
+
+.address {
+  text-align: initial;
+  font: normal normal bold 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: #bf9742;
+}
+
+.profile {
+  text-align: initial;
+  font: normal normal bold 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: #b1622a;
+}
+
+.container5 {
   width: 800px;
   margin-right: 100px;
   height: 535px;
-}
-p{
-  
-  margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: small;
-
-}
-/* ul.timeline > li {
-    margin: -10px 0;
-    padding-left: 16px;
-} */
-body {
-  background: rgb(99, 39, 120);
-}
-
-.heading {
-  /* font-size: 25px; */
-  margin-right: 25px;
-  text-align: left;
-}
-.order {
-  text-align: left;
-  font: normal normal medium 22px/20px Poppins;
-  letter-spacing: 0px;
-  color: #262626;
-  opacity: 1;
-}
-.checked {
-  color: orange;
-}
-ul.timeline {
-  list-style-type: none;
-  position: relative;
-}
-ul.timeline:before {
-  content: " ";
-  background: #d4d9df;
-  display: inline-block;
-  position: absolute;
-  left: 29px;
-  width: 2px;
-  height: 86%;
-  z-index: 400;
-}
-ul.timeline > li {
-  margin: -7px 0;
-  padding-left: 20px;
-}
-.bord {
-  border: solid 2px #bf9742;
-  border-radius: 15px;
-  background-color: white;
-}
-ul.timeline > li:before {
-  content: " ";
-  background: white;
-  display: inline-block;
-  position: absolute;
-  border-radius: 50%;
-  border: 3px solid #22c0e8;
-  left: 20px;
-  width: 20px;
-  height: 20px;
-  z-index: 400;
-}
-.float {
-  text-decoration: none;
-  text-decoration: none;
-  color: black;
-
-  font-weight: 700;
-}
-
-/* div.stars {
-  width: 270px;
-
-  display: inline-block;
-} */
-/* 
-.mt-200 {
-  margin-top: 200px;
-} */
-
-input.star {
-  display: none;
-}
-
-label.star {
-  float: left;
-
-  padding: 10px;
-
-  font-size: 10px;
-
-  color: #4a148c;
-
-  transition: all 0.2s;
-}
-
-input.star:checked ~ label.star:before {
-  content: "\f005";
-
-  color: #fd4;
-
-  transition: all 0.25s;
-}
-
-
-
-
-label.star:hover {
-  transform: rotate(-15deg) scale(1.3);
-}
-
-label.star:before {
-  content: "\f006";
-
-  font-family: FontAwesome;
-}
-.container {
-  width: 800px;
-  margin-right: 100px;
-  height: 536px;
 }
 </style>
