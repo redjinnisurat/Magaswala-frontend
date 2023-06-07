@@ -174,32 +174,34 @@ p {
     position: absolute;
     text-align: center;
     top: 50%;
-    left: 65%;
+     left: 65%; 
     color: white;
-    font-size: 4rem;
+    font-size: 2.4rem;
     font-family: 'Courgette', 'cursive';
     font-weight: normal;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
     text-transform: capitalize;
-} 
+}
+
 @media screen and (min-width: 1400px) and (max-width: 1699.98px) {
+
     .main-container {
         width: 80%;
         height: 100vh;
     }
 
     .heading-magaswala {
-        left:65%;
+      font-size: 2.4rem;
     }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
-    .heading-magaswala {
+    /* .heading-magaswala {
         left: 0;
         margin-left: 10%;
-    }
+    } */
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {}

@@ -7,29 +7,34 @@
                 <div class="col-lg-12" id="second-col">
                     <h2 class="welcome-heading">welcome back!</h2>
                     <p class="p-1">please enter credentials for sign in</p>
-                    <input class="email form-control" type="text" placeholder="email">
-                    <input class="password" :type="showPassword ? 'text' : 'password'" placeholder="password" id="password">
-                    <img id="eye" v-show="!showPassword" src="../assets/Icon-eye.svg" v-on:click="togglePassword1()">
-                    <img id="eye" v-show="showPassword" src="../assets/eye-open.svg" v-on:click="togglePassword1()" style="width:10%">
-                    <div class="col-lg-6" id="p-3">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                        <!-- <input type="checkbox" class="form-check-input" id="rememberMe"> -->
-                    </div>
-                    <button class="submit-btn" type="btn" id="submit-btn">sign in</button>
-                    <br>
-                    <button class="login-btn1" type="btn" id="login-btn1"> <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png"> login with google</button>
-                    <br>
-                    <p class="p-2">Don't have an account ? <router-link to="/signup" custom v-slot="{navigate}"><span @click="navigate" role="link">Sign up now</span></router-link>
-                    </p>
+                    <form>
+                        <input class="email form-control" type="text" placeholder="email" v-model="email">
+                        <input class="password" :type="showPassword ? 'text' : 'password'" placeholder="password" v-model="password" autocomplete="current-password">
+                        <img id="eye" v-show="!showPassword" src="../assets/Icon-eye.svg" v-on:click="togglePassword1()">
+                        <img id="eye" v-show="showPassword" src="../assets/eye-open.svg" v-on:click="togglePassword1()" style="width:10%">
+                        <div class="col-lg-6" id="p-3">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                            <router-link to="/forgetpassword" custom v-slot="{navigate}">
+                                <label class="form-check-label" for="rememberMe" id="forget-label" @click="navigate" role="link">Forget password?</label>
+                            </router-link>
 
+                            <!-- <input type="checkbox" class="form-check-input" id="rememberMe"> -->
+                        </div>
+                        <button class="submit-btn" type="btn" id="submit-btn" v-on:click="login()">Login</button>
+                        <br>
+                        <button class="login-btn1" type="btn" id="login-btn1"> <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png"> login with google</button>
+                        <br>
+                        <p class="p-2">Don't have an account ? <router-link to="/signup" custom v-slot="{navigate}"><span @click="navigate" role="link">Sign up now</span></router-link>
+                        </p>
+                    </form>
                     <!-- <button class="btn btn-primary submit-btn" type="button" id="submit-btn">Sign In</button>
-                        <br>
-                        <button class="btn btn-light login-btn1" type="button">
-                            <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png" alt=""> Login with Google
-                        </button>
-                        <br>
-                        <p class="p-2">Don't have an account? <router-link to="/signup" custom v-slot="{navigate}"><span @click="navigate" role="link">Sign up now</span></router-link>
-                        </p> -->
+                                <br>
+                                <button class="btn btn-light login-btn1" type="button">
+                                    <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png" alt=""> Login with Google
+                                </button>
+                                <br>
+                                <p class="p-2">Don't have an account? <router-link to="/signup" custom v-slot="{navigate}"><span @click="navigate" role="link">Sign up now</span></router-link>
+                                </p> -->
                 </div>
             </div>
         </div>
@@ -41,40 +46,36 @@
 </div>
 </template>
 
+    
 <script>
+import axios from 'axios';
+
 export default {
     name: 'login',
     data() {
         return {
-            showPassword: false
+            showPassword: false,
+            email: "",
+            password: ""
         };
     },
     methods: {
-        //     togglePassword1() {
-        //         var passwordField = document.getElementById("passwordField");
-        //         var togglePassword = document.getElementById("togglePassword");
-        //         if (passwordField.type === "password") {
-        //             passwordField.type = "text";
-        //             togglePassword.classList.remove("fa-eye-slash");
-        //             togglePassword.classList.add("fa-eye");
-        //         } else {
-        //             passwordField.type = "password";
-        //             togglePassword.classList.remove("fa-eye");
-        //             togglePassword.classList.add("fa-eye-slash");
-
-        //         }
-        //     }
-        // }
+        async Login() {
+            const response = await axios.post('login', {
+                email: this.email,
+                password: this.password
+            })
+            console.log(response);
+        },
         togglePassword1() {
             this.showPassword = !this.showPassword;
         }
     }
-}
+};
 </script>
 
+    
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
 .welcome-heading {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -111,33 +112,34 @@ export default {
 }
 
 /* #togglePassword {
-    margin-left: 83%;
-    transform: translateY(-50%);
-    margin-top: -6%;
-    cursor: pointer;
-    color: #BF9742;
-} */
+        margin-left: 83%;
+        transform: translateY(-50%);
+        margin-top: -6%;
+        cursor: pointer;
+        color: #BF9742;
+    } */
 
 #eye {
     width: 10%;
     margin-left: 83%;
     transform: translateY(-50%);
-    margin-top: -6%;
+    margin-top: -11%;
     cursor: pointer;
 }
 
 #p-3 {
-    margin-left: -62%;
-    margin-top: 3%;
+    margin-left: -5%;
+    margin-top: -3%;
+
 }
 
 #submit-btn {
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 .login-btn1 {
     position: relative;
-    margin-top: -3%;
+    margin-top: 5%;
     width: 100%;
     height: 40px;
     border-radius: 10px;
@@ -158,26 +160,31 @@ export default {
 
 .p-2 {
     margin-left: -5%;
-    margin-top: -4%;
+    margin-top: 5%;
     font-family: 'Poppins', sans-serif;
     font-weight: regualar;
     font-size: 1rem;
 }
 
-.heading-magaswala {
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 59%;
-    color: white;
-    font-size: 4rem;
-    font-family: 'Courgette', 'cursive';
-    font-weight: normal;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-    text-transform: capitalize;
+#forget-label {
+    float: right;
+    margin-right: -100%;
 }
+
+/* .heading-magaswala {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 65%;
+        color: white;
+        font-size: 4rem;
+        font-family: 'Courgette', 'cursive';
+        font-weight: normal;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+        text-transform: capitalize;
+    }  */
 
 #right-side {
     position: relative;
@@ -188,11 +195,22 @@ export default {
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {}
 
 @media screen and (min-width: 320px) and (max-width: 990.98px) {
-    #login-btn1{
+    #login-btn1 {
         width: 100%;
     }
-    #eye{
-        margin-top: -6%;
+
+    #eye {
+        margin-top: -12%;
+    }
+
+    #forget-label {
+        float: right;
+        margin-right: 4%;
+
+    }
+
+    #p-3 {
+        margin-left: -10%;
     }
 }
 
@@ -220,7 +238,8 @@ export default {
     #eye {
         margin-left: 65%;
     }
-    #p-3{
+
+    #p-3 {
         margin-left: -35%;
     }
 }
