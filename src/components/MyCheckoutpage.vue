@@ -820,7 +820,7 @@ body{
   }
 @media screen and (max-width: 690px) {
   .container{
-    margin-top: -2rem;
+    margin-top: 1rem;
     margin-left: 2rem;
   }
 
@@ -830,7 +830,7 @@ body{
 }
 @media screen and (max-width: 590px) {
   .container{
-    margin-top: 1rem;
+    margin-top: 4em;
     width: 70rem;
     height: 90rem;
   }
@@ -1036,13 +1036,13 @@ body{
 }
   @media screen and (max-width: 490px) {
     .container{
-    margin-top: -2rem;
+    margin-top: 3em;
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: column; */
-    width: 70rem;
+    width: 75em;
     height: 90rem;
-    margin-left: -4em;
+    margin-left: 2em;
   }
   .box{
     width: 100%;

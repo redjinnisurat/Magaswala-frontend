@@ -23,7 +23,7 @@
           <p class="weight">1kg</p>
           <img class="dlt" src="@/assets/delete.png" alt="" width="15px" />
           <p class="inner-text">Made with pure kesar</p>
-          <p class="prize">Rs.250</p>
+          <p class="prize">Rs.{{ productPrice }}</p>
           <p class="add-remove">
             
             <img class="plus" src="@/assets/plus.png"  style=" cursor: pointer;" @click="Increment1" />{{ clicknum1 }}
@@ -43,7 +43,7 @@
           <p class="weight">1kg</p>
           <img class="dlt" src="@/assets/delete.png" alt="" width="15px" />
           <p class="inner-text">Made with pure kesar</p>
-          <p class="prize">Rs.125</p>
+          <p class="prize">Rs.{{ productPrice2 }}</p>
           <p class="add-remove">
             <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment2" /> {{ clicknum2 }}
             <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement2" />
@@ -61,7 +61,7 @@
           <p class="weight">1kg</p>
           <img class="dlt" src="@/assets/delete.png" alt="" width="15px" />
           <p class="inner-text">Made with pure kesar</p>
-          <p class="prize">Rs.{{ price }}</p>
+          <p class="prize">Rs.{{ productPrice }}</p>
           <p class="add-remove">
             <img class="plus" src="@/assets/plus.png" alt=""  style=" cursor: pointer;" @click="Increment3" /> {{ clicknum3 }}
             <img class="minus" src="@/assets/minus.png" alt=""  style=" cursor: pointer;" @click="Decrement3" />
@@ -85,7 +85,7 @@
           <h3 class="box-title">items summary</h3>
           <p class="box-text">
             items: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; {{ price + productPrice }}
+            &nbsp; Rs.{{ 875 + totalPrice  }}
           </p>
           <br />
           <hr class="horizontal-line" style="width: 85%; margin-left: 14px" />
@@ -132,7 +132,9 @@ export default {
       showAddForm: false,
       items: [],
       productPrice: 250,
-      price: 875,
+      productPrice2: 125,
+      price: 0,
+      totalPrice: 0,
       products: [ {price: 250} ],
     }
   },
@@ -141,38 +143,52 @@ export default {
       Increment1: function() {
       this.clicknum1++;
       this.product += 1;
-      this.productPrice += 250;
+      this.productPrice = 250;
+      this.price += 250;
+      this.totalPrice = this.productPrice;
     },
     Decrement1: function() {
       this.clicknum1--;
       this.product -= 1;
-      this.productPrice -= 250;
+      this.productPrice = 250;
+      this.price -= 250;
+      this.totalPrice = this.productPrice;
     },
     Increment2: function() {
       this.clicknum2++;
       this.product += 1;
-      this.productPrice += 125;
+      this.productPrice2 = 125;
+      this.price += 125;
+      this.totalPrice = this.productPrice2;
     },
     Decrement2: function() {
       this.clicknum2--;
       this.product -= 1;
-      this.productPrice -= 125;
+      this.productPrice2 = 125;
+      this.price -= 125;
+      this.totalPrice = this.productPrice2;
     },
-    Increment3(){
+    Increment3: function(){
       this.clicknum3++;
       this.product += 1;
-      this.productPrice += 250;
-      
+      this.productPrice = 250;
+      this.price += 250;
+      this.totalPrice = this.price;
     },
     
     Decrement3: function() {
       this.clicknum3--;
       this.product -= 1;
-      this.productPrice -= 250;
+      this.productPrice = 250;
+      this.price -= 250;
+      this.totalPrice = this.price;
     },
     MyCheckoutpage: function(){
-      localStorage.setItem('price', this.productPrice);
-      localStorage.setItem('productPrice', this.price);
+      localStorage.setItem('price', JSON.stringify(this.productPrice));
+      localStorage.setItem('productPrice', JSON.stringify(this.price));
+      localStorage.setItem('productPrice2', JSON.stringify(this.price));
+      localStorage.setItem('totalPrice', JSON.stringify(this.productPrice));
+      localStorage.setItem('totalPrice', JSON.stringify(this.productPrice2));
       this.$router.push({ name: 'MyPaymentpage' });
 
     },
@@ -434,6 +450,7 @@ export default {
 @media screen and (max-width: 890px) {
   .container {
     width: 70em;
+    margin-left: -1em;
   }
   .checkout {
     margin-right: 4rem;
@@ -484,7 +501,7 @@ export default {
   .container {
     margin-left: 3em;
     max-width: 60em;
-    margin-top: -2rem;
+    margin-top: 1rem;
     height: 28em;
   }
 
@@ -522,9 +539,9 @@ export default {
 }
 @media screen and (max-width: 590px) {
   .container {
-    margin-left: 3em;
+    margin-left: 5em;
     max-width: 90em;
-    margin-top: -1rem;
+    margin-top: 2rem;
     height: 55em;
     overflow-x: hidden;
   }
@@ -632,7 +649,7 @@ export default {
 }
 @media screen and (max-width: 490px) {
   .container {
-    margin-top: -1em;
+    margin-top: 2em;
     width: 60em;
     height: 85em;
     margin-left: 10em;

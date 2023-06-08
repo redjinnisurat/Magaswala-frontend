@@ -192,7 +192,7 @@ export default {
   font-size: 1.5em;
 }
 #boxes{
-  width: 140em;
+  width: 150em;
   margin-left: 1em;
 }
 #profile{
@@ -273,6 +273,7 @@ export default {
     margin-left: 7em;
   }
   #review {
+    font-size: 20px;
     width: 150em;
   }
 }

@@ -13,7 +13,7 @@
     >
       <div class="product-card" v-for="(image, index) in images" :key="index">
         <div class="product-image">
-          <img style="width: 43vh; height: 35vh" :src="image.src" />
+          <img :src="image.src" />
         </div>
         <div class="product-info">
           <p class="product-name">Kesar magas</p>
@@ -134,7 +134,7 @@ export default {
   <style>
   .heading {
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 3em;
     margin-left: 3em;
   }
   .carousel {
@@ -153,11 +153,11 @@ export default {
     display: none;
   }
   
-  .carousel img {
+  /* .carousel img {
     width: 100%;
     height: auto;
     scroll-snap-align: center;
-  }
+  } */
   
   .carousel.dragging {
     cursor: grabbing;
@@ -174,7 +174,7 @@ export default {
     background-color: #edd5a4;
   }
   .product-image img {
-    width: 19em;
+    width: 20em;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -210,12 +210,15 @@ export default {
     transition: all 0.3s ease;
     /* letter-spacing: 0px; */
   }
+
+
   @media screen and (max-width: 990px) {
     .product-card {
       width: 13em;
     }
     .heading {
       margin-left: 1em;
+      margin-top: 3em;
     }
     .carousel {
       margin-left: 0.5em;
@@ -237,13 +240,24 @@ export default {
     .heading {
       width: 100%;
       margin-left: 6em;
+      margin-top: 3em;
     }
     .carousel {
-      width: 60em;
+      width: 100em;
       margin-left: 8em;
     }
-    .product-card{
+    .product-image{
       width: 50em;
+    }
+    .product-image img{
+      width: 40em;
+    }
+    .product-card{
+      width: 80em;
+    }
+    .product-info{
+      width: 70em;
+      font-size: 30px;
     }
   }
   
@@ -255,7 +269,7 @@ export default {
     }
     .carousel {
       width: 80em;
-      margin-top: 3em;
+      margin-top: 5em;
       margin-left: 8em;
     }
   }

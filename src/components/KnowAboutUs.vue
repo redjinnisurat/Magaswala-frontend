@@ -37,6 +37,7 @@ body{
   font-weight: bold;
   font-size: 1.5em;
   margin-left: 4em;
+  margin-top: 2em;
 }
 .row{
   width: 80%;

@@ -199,13 +199,16 @@ import { ref } from "vue";
 
 @media screen and (max-width: 990px){
 
+  .navbar-logo{
+    margin-left: -2em;
+  }
   .navbar{
     margin-top: 2em;
     margin-left: 3em;
   }
   .search-bar{
     margin-top: -3.3em;
-    margin-left: 10em;
+    margin-left: 15em;
   }
 
   /* #search{
@@ -260,12 +263,12 @@ import { ref } from "vue";
   } */
   .navbar-toggler{
     float: right;
-    margin-right: 2em;
+    margin-right: -3em;
   }
 }
 @media screen and (max-width: 790px) {
   .navbar-toggler{
-    margin-right: -6em;
+    margin-right: -9em;
   }
 }
 @media screen and (max-width: 690px) {
@@ -274,11 +277,12 @@ import { ref } from "vue";
     margin-left: 13em;
   }
   .navbar-logo{
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-left: -4em;
   }
   .navbar-toggler{
     /* float:right; */
-    margin-left: 44em;
+    margin-left: 42em;
     margin-top: -6em;
   }
   .search-bar{
@@ -301,7 +305,7 @@ import { ref } from "vue";
     margin-top: 2rem;
   }
   .navbar{
-    margin-left: 15rem;
+    margin-left: 20em;
   }
   /* #search{
     width: 30em;

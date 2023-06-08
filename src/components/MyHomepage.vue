@@ -71,8 +71,8 @@ export default{
 }
 .ladu{
     width: 25em;
-    margin-left: 24em;
-    margin-top: -13em;
+    margin-left: 29em;
+    margin-top: -15em;
 }
 .third-heading{
     color: #B1622A;
@@ -83,8 +83,8 @@ export default{
 }
 .ladu2{
   width: 25em;
-  margin-left: 24em;
-  margin-top: -13em;
+  margin-left: 29em;
+  margin-top: -15em;
 }
 .btn{
   background-color: #A17A35;
@@ -118,9 +118,11 @@ content::after {
   .container{
     margin-left: 1em;
     width: 100%;
+    margin-top: 5em;
   }
   .ladu{
     width: 20em;
+    margin-top: -17em;
   }
 }
 
@@ -132,7 +134,7 @@ content::after {
 
 @media screen and (max-width: 690px) {
   .container{
-    margin-top: -1em;
+    margin-top: 4em;
     width: 60em;
  }
  .first-heading{
@@ -143,6 +145,7 @@ content::after {
  }
  .ladu{
   margin-left: 39em;
+  width: 25em;
  }
  .third-heading{
   font-size: 3em;
@@ -150,18 +153,20 @@ content::after {
  .fourth-heading{
   font-size: 2em;
  }
- .ladu{
-  margin-left: 39em;
- }
+ 
 }
 
 @media screen and (max-width: 590px) {
   .container{
-    margin-top: -2em;
+    margin-top: 5em;
+  }
+  .ladu{
+    width: 27em;
+    margin-top: -18em;
   }
   .ladu2{
-    width: 20em;
-    margin-top: -15em;
+    width: 25em;
+    margin-top: -20em;
     margin-left: 45em;
   }
 }
@@ -173,13 +178,13 @@ content::after {
     font-size: 3em;
   }
   .ladu{
-    width: 20em;
-    margin-top: -15em;
+    width: 35em;
+    margin-top: -24em;
     margin-left: 45em;
   }
   .ladu2{
-    width: 20em;
-    margin-top: -15em;
+    width: 30em;
+    margin-top: -20em;
     margin-left: 45em;
   }
   .btn{
@@ -188,7 +193,7 @@ content::after {
 }
 @media screen and (max-width: 390px){
   .container{
-    margin-top: 1em;
+    margin-top: 5em;
     margin-left: 1em;
   }
   .first-heading{
@@ -208,13 +213,13 @@ content::after {
     font-size: 2em;
   }
   .ladu{
-    width: 22em;
-    margin-top: -14em;
+    width: 30em;
+    margin-top: -22em;
     margin-left: 45em;
   }
   .ladu2{
-    width: 22em;
-    margin-top: -14em;
+    width: 30em;
+    margin-top: -20em;
     margin-left: 45em;
   }
 }

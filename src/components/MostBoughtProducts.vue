@@ -155,7 +155,7 @@ margin-left: 3em;
     }
    .product-card{
        width: 22em;
-       margin-left: 0.5em;
+       margin-left: 1.5em;
    }
    
    .product-image{

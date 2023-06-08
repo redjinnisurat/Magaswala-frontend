@@ -113,9 +113,9 @@
    },
    },
    };
-   </script>
+</script>
 
-   <style scoped>
+<style scoped>
 body{
   overflow-x: hidden;
 }
@@ -153,7 +153,7 @@ margin-left: 3em;
    
 .product-card{
        width: 22em;
-       margin-left: 0.5em;
+       margin-left: 1.5em;
    }
    .price{
       color: orange;

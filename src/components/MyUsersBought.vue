@@ -162,7 +162,7 @@ export default {
 }
 
 .product-card {
-  width: 22em;
+  width: 24em;
   margin-left: 0.5em;
 }
 

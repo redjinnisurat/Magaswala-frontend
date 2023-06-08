@@ -126,7 +126,7 @@
       <h5 class="summery">Order Summery</h5>
       <div id="bill">
       <p class="items">items:</p>
-      <p class="prize">Rs.{{ price }}</p>
+      <p class="prize">Rs.{{ 875 + totalPrice }}</p>
       <p class="items2">CGST:</p>
       <p class="prize2">Rs.20</p>
       <p class="items3">SGST:</p>
@@ -139,7 +139,7 @@
         style="width: 10px"
       />
       <p class="items4">Total:</p>
-      <p class="prize4">Rs.{{  }}</p>
+      <p class="prize4">Rs.{{ 875 + totalPrice + 20 + 20}}</p>
       <img class="plus" src="@/assets/plus2.png" alt="" style="width: 10px" />
       <p class="items5">Delivery:</p>
       <p class="prize5">Rs.45</p>
@@ -151,7 +151,7 @@
       />
       <hr />
       <p class="items6">Total:</p>
-      <p class="prize6">Rs.{{  }}</p>
+      <p class="prize6">Rs.{{ 875 + totalPrice + 20 + 20 + 45}}</p>
       </div>
       <button href="#" class="btn2">Make Payment</button>
     </div>
@@ -171,14 +171,18 @@ export default {
   data(){
     return {
       productPrice: null,
+      productPrice2: null,
       price: null,
+      totalPrice: null,
     }
   },
   mounted(){
-    this.price = localStorage.getItem('productPrice');
-    this.productPrice = localStorage.getItem('price');
-    
-    console.log(this.price + this.productPrice);
+    this.price = JSON.parse(localStorage.getItem('productPrice'));
+    this.productPrice = JSON.parse(localStorage.getItem('price'));
+    this.productPrice2 = JSON.parse(localStorage.getItem('price'));
+    this.totalPrice = JSON.parse(localStorage.getItem('productPrice'));
+    this.totalPrice = JSON.parse(localStorage.getItem('productPrice2'));
+    console.log(this.totalPrice + this.productPrice);
   }
 };
 </script>
