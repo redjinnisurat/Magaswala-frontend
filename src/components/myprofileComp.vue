@@ -43,7 +43,7 @@
                   <p>Manage Address</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item">                                                                                                                                                                                                                                                                                                                                                                                                                                               
                 <a class="nav-link side-nav-ele t" href="./help" id="help-support-ele">
                   <img class="img" src="../assets/help.svg" alt="" />
                   <p>Help & Support</p>
@@ -56,7 +56,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele t" href="#" id="help-support-ele">
+                <a class="nav-link side-nav-ele t" href="#                                                                                                                                                                                                                                                                                                                            " id="help-support-ele">
                   <img class="img" src="../assets/logoutt.png" alt="" />
                   <p>LogOut</p>
                 </a>
@@ -87,7 +87,7 @@
   .gg {
   height: 536px;
     width: 239px;
-    margin-left: 139px;
+ 
     position: relative;
     overflow: hidden;
     border: solid 3px #bf9742;

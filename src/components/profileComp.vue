@@ -1,11 +1,11 @@
 <template>
   <NavComp />
   <div class="mainContainer">
-    <div class="container">
+    <div class="container"  >
       <div class="row">
         <div class="col-md-6">
           <div class="sidebar">
-            <myprofileComp />
+            <myprofileComp />                 
           </div>
         </div>
         <div class="col-md-6">
@@ -83,6 +83,9 @@
                           <select
                             class="form-select form-control"
                             aria-label="Default select example"
+                            style="
+    padding: 12px;
+"
                           >
                             <option selected>Male</option>
                             <option value="1">Female</option>
@@ -95,7 +98,7 @@
                           </div>
                           <input
                             class="form-control"
-                            style="height: 34px"
+                        
                             id="birthday"
                             type="date"
                             name="birthday"
