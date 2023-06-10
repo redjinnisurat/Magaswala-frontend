@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="v-if == width: 60em;">
+  <div class="container">
     <div class="col-lg-20 mt-3 pe-1">
       
       <div class="card-body mx-5">
@@ -17,7 +17,7 @@
             class="ladu"
             src="@/assets/ladu.png"
             alt=""
-            style="width: 8em"
+            
           />
           <p class="outer-text mb-0">Kesar Magas</p>
           <p class="weight">1kg</p>
@@ -37,7 +37,7 @@
             class="ladu2"
             src="@/assets/ladu.png"
             alt=""
-            style="width: 8em"
+            
           />
           <p class="outer-text mb-0">Kesar Magas</p>
           <p class="weight">1kg</p>
@@ -55,7 +55,7 @@
             class="ladu3"
             src="@/assets/ladu.png"
             alt=""
-            style="width: 8em"
+            
           />
           <p class="outer-text mb-0">Kesar Magas</p>
           <p class="weight">1kg</p>
@@ -80,7 +80,7 @@
           style="v-if == width: 15em"
         />
       </div>
-        <div class="box" style="width: 17em">
+        <div class="box">
           
           <h3 class="box-title">items summary</h3>
           <p class="box-text">
@@ -222,11 +222,10 @@ export default {
 .container {
   border: 1px solid #a17a35;
   border-radius: 5px;
-  width: 60em;
-  height: 25em;
-  padding-right: 10px;
-  margin-left: 6.5em;
-  margin-top: -0.2em;
+  width: 100%;
+  height: 30em;
+  margin-right: 3em;
+  margin-top: 1em;
   background-color: white;
 }
 .card-title {
@@ -255,36 +254,36 @@ export default {
   margin-top: -3em;
 }
 .ladu {
-  width: 20em;
+  width: 10em;
   margin-right: 18em;
   margin-top: 1em;
 }
 
 .ladu2 {
-  width: 20em;
+  width: 10em;
   margin-right: 18em;
   margin-top: 3.5em;
 }
 .ladu3 {
-  width: 20em;
+  width: 10em;
   margin-right: 18em;
   margin-top: 3.5em;
 }
 
 .outer-text {
-  margin-top: -5em;
+  margin-top: -6em;
   letter-spacing: 0px;
   opacity: 1;
-  margin-left: 10em;
+  margin-left: 11em;
 }
 .inner-text {
   margin-top: 0em;
-  margin-left: 10em;
+  margin-left: 11em;
 }
 
 .prize {
   margin-top: -1em;
-  margin-left: 12.5em;
+  margin-left: 13.5em;
   color: orange;
   font-size: small;
   font-weight: bold;
@@ -298,7 +297,7 @@ export default {
 .weight {
   float: right;
   color: orange;
-  margin-right: 21em;
+  margin-right: 33em;
   margin-top: -21px;
   margin-bottom: 0;
   font-size: 13px;
@@ -306,7 +305,7 @@ export default {
 .dlt {
   float: right;
   margin-top: -19px;
-  margin-right: 10em;
+  margin-right: 21em;
 }
 .add-remove{
   margin-left: 22em;
@@ -320,25 +319,26 @@ export default {
 }
 .vertical-line {
   border-left: 1px solid #a17a35;
-  height: 23em;
+  height: 25em;
   position: absolute;
-  margin-left: 30em;
+  margin-left: 33em;
   margin-top: -22em;
 }
 .checkout {
   float: right;
-  margin-right: 10em;
+  margin-right: 13em;
   margin-top: -18em;
-  width: 15em;
+  width: 20em;
 }
 .box {
+  width: 20em;
   border: 2px solid #ceb070;
   border-radius: 20px;
   text-align: center;
   height: 10.5em;
   padding-top: 1em;
-  margin-left: 33em;
-  margin-top: -11em;
+  margin-left: 37em;
+  margin-top: -8em;
 }
 .box .box-title {
   margin-top: -5px;
@@ -365,17 +365,43 @@ export default {
   padding-top: 2px;
 }
 
-/* @media screen and (max-width: 1190px) {
+@media screen and (max-width: 2340px) {
+  .container {
+    /* margin-left: 40em; */
+    width: 100%;
+  }
+  .weight{
+    margin-right: 47em;
+  }
+  .dlt{
+    margin-right: 32em;
+  }
+  .checkout{
+    margin-right: 25em;
+  }
+}
+@media screen and (max-width: 1390px){
+  .weight{
+    margin-right: 33em;
+  }
+  .dlt{
+    margin-right: 21em;
+  }
+  .checkout{
+    margin-right: 15em;
+  }
+}
+@media screen and (max-width: 1190px) {
   .container {
     margin-left: 7em;
   }
   .checkout {
-    margin-right: 8em;
+    margin-right: 4em;
   }
 
   .box {
-    margin-left: 35em;
-    margin-top: -10em;
+    margin-left: 36em;
+    margin-top: -8em;
   }
 
   .weight {
@@ -390,16 +416,16 @@ export default {
   .box .box-text {
     margin-top: 15px;
   }
-} */
+}
 @media screen and (max-width: 990px) {
   .container {
-    height: 25em;
+    height: 28em;
     max-width: 52em;
     margin-left: 2em;
     margin-top: 1em;
   }
   .weight {
-    margin-right: 11em;
+    margin-right: 10em;
   }
 
   .dlt {
@@ -420,17 +446,17 @@ export default {
   }
   .vertical-line {
     margin-left: 29em;
-    margin-top: -22em;
+    margin-top: -24em;
   }
 
   .checkout {
-    margin-right: 4em;
-    margin-top: -18em;
+    margin-right: 1em;
+    margin-top: -21em;
   }
 
   .box {
     margin-left: 31em;
-    margin-top: -12em;
+    margin-top: -11em;
   }
 
   .box .box-title {
@@ -453,10 +479,10 @@ export default {
     margin-left: -1em;
   }
   .checkout {
-    margin-right: 4rem;
+    margin-right: 1em;
   }
   .weight {
-    margin-right: 11em;
+    margin-right: 10em;
   }
   .dlt {
     margin-right: 3em;
@@ -465,7 +491,7 @@ export default {
 
 @media screen and (max-width: 790px) {
   .container {
-    max-width: 50em;
+    max-width: 55em;
     margin-left: 1em;
     margin-top: 1em;
   }
@@ -477,7 +503,7 @@ export default {
   }
   .vertical-line {
     margin-left: 28rem;
-    margin-top: -22em;
+    margin-top: -23em;
   }
   .checkout {
     margin-right: 3em;
@@ -485,15 +511,15 @@ export default {
   }
 
   .weight {
-    margin-right: 8em;
+    margin-right: 13em;
   }
 
   .dlt {
-    margin-right: 1em;
+    margin-right: 6em;
   }
   .box {
-    margin-top: -12em;
-    margin-left: 30em;
+    margin-top: -9em;
+    margin-left: 31em;
   }
 }
 
@@ -506,19 +532,25 @@ export default {
   }
 
   .weight {
-    margin-right: 21em;
+    margin-right: 20em;
   }
 
   .dlt {
     margin-right: 11em;
   }
+  .add-remove .plus{
+    width: 2em;
+  }
+  .add-remove .minus{
+    width: 2em;
+  }
   .vertical-line {
     margin-left: 32rem;
-    margin-top: -21em;
+    margin-top: -23em;
   }
   .checkout {
-    margin-right: 8em;
-    margin-top: -15em;
+    margin-right: 5em;
+    margin-top: -19em;
   }
 
   .box {
@@ -541,9 +573,11 @@ export default {
   .container {
     margin-left: 5em;
     max-width: 90em;
-    margin-top: 2rem;
-    height: 55em;
-    overflow-x: hidden;
+    margin-top: 2em;
+    height: 90em;
+    /* overflow-x: hidden; */
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .card-title {
@@ -575,18 +609,18 @@ export default {
   }
   .outer-text {
     font-size: 30px;
-    margin-top: -4rem;
-    margin-left: 12rem;
+    margin-top: -6em;
+    margin-left: 12em;
   }
   .inner-text {
     width: 40rem;
     height: 7rem;
     font-size: 30px;
     margin-top: 1rem;
-    margin-left: 12rem;
+    margin-left: 12em;
   }
   .weight {
-    margin-right: 9em;
+    margin-right: 13em;
     margin-top: -2.8rem;
     font-size: 30px;
     margin-bottom: 0px;
@@ -599,12 +633,12 @@ export default {
   }
   .prize {
     font-size: 30px;
-    margin-left: 12rem;
+    margin-left: 12em;
     margin-top: -4rem;
   }
   .add-remove {
     font-size: 35px;
-    margin-left: 32rem;
+    margin-left: 20em;
   }
   .add-remove .plus {
     height: 3rem;
@@ -617,41 +651,44 @@ export default {
     margin-left: 10px;
   }
   .vertical-line {
-    margin-left: 45em;
-    margin-top: -37rem;
-    height: 35em;
+    display: none;
   }
   .checkout {
-    margin-right: -41em;
-    margin-top: -27rem;
-    width: 20em;
+    margin-right: 40em;
+    margin-top: -16em;
+    width: 25em;
   }
 
   .box {
-    max-width: 30em;
-    /* font-size: 70px; */
-    margin-top: -18em;
-    margin-left: 48em;
+    width: 30em;
+    height: 15em;
+    margin-top: 20em;
+    margin-left: 20em;
   }
 
   .box .box-title {
+    font-size: 40px;
     margin-bottom: 2rem;
   }
   .box .box-text {
+    font-size: 35px;
     margin-bottom: 5rem;
   }
   .horizontal-line {
     margin-top: -5.5rem;
   }
   .box .btn {
-    margin-top: -9px;
+    width: 13em;
+    height: 1.9em;
+    font-size: 30px;
+    margin-top: -3px;
   }
 }
 @media screen and (max-width: 490px) {
   .container {
     margin-top: 2em;
-    width: 60em;
-    height: 85em;
+    width: 65em;
+    height: 90em;
     margin-left: 10em;
     display: flex;
     flex-wrap: wrap;
@@ -690,13 +727,13 @@ export default {
     /* font-size: 20px; */
   }
   .weight{
-    margin-right: -5em;
+    margin-right: -7em;
   }
   .dlt{
     margin-right: -23em;
   }
   .add-remove{
-    margin-left: 17em;
+    margin-left: 19.5em;
   }
   
   /* .card-title{

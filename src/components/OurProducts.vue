@@ -147,6 +147,8 @@ export default {
     scrollbar-width: none;
     margin-top: 1em;
     margin-left: 4em;
+    width: 100%;
+    height: 290px;
   }
   
   .carousel::-webkit-scrollbar {
@@ -165,7 +167,7 @@ export default {
   }
   
   .product-card {
-    width: 22em;
+    width: 100%;
     margin-left: 0.5em;
   }
   
@@ -221,22 +223,23 @@ export default {
       margin-top: 3em;
     }
     .carousel {
+      width: 100%;
       margin-left: 0.5em;
     }
   }
   
   @media screen and (max-width: 790px) {
     .carousel {
-      width: 50em;
+      width: 100%;
     }
   }
   @media screen and (max-width: 690px) {
     .carousel {
-      width: 70em;
+      width: 100%;
     }
   }
   
-  @media screen and (max-width: 590px) {
+  /* @media screen and (max-width: 590px) {
     .heading {
       width: 100%;
       margin-left: 6em;
@@ -256,8 +259,9 @@ export default {
       width: 80em;
     }
     .product-info{
-      width: 70em;
-      font-size: 30px;
+      height: 300px;
+      width: 100%;
+      font-size: 20px;
     }
   }
   
@@ -286,5 +290,5 @@ export default {
     .product-card{
       width: 60em;
     }
-  }
+  } */
   </style>

@@ -185,9 +185,25 @@ import { ref } from "vue";
 .log{
   text-decoration: none;
 }
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 2340px) {
+  .navbar{
+    width: 100%;
+    margin-left: 45em;
+  }
+  .container{
+    margin-right: 30em;
+  }
+}
+@media screen and (max-width: 1920px) {
   .navbar {
-    margin-left: 15em;
+    margin-left: 20em;
+    width: 100%;
+  }
+  /* .navbar-nav{
+    margin-left: 10em;
+  } */
+  .search-bar{
+    margin-left: 5em;
   }
 }
 

@@ -10,7 +10,7 @@
             class="checkin3"
             src="@/assets/checkin.png"
             alt=""
-            style="width: 11px"
+            style="width: 15px"
           />
           <img
             class="edit-icon"
@@ -22,28 +22,42 @@
 
           <p class="base-address">(269) 444-6853<br />Road Number 5649 Akali</p>
         </div>
-
-        <div class="office-address mx-0 mb-2">
-          <img
-            class="checkout6"
-            src="@/assets/checkout2.png"
-            alt=""
-            style="width: 11px"
-          />
+        
+        <div class="office-address">
+          
           
           <p class="office">Office Address</p>
           <p class="base-address2">
             (269) 444-2596<br />Road Number 2403 Blogshow
           </p>
+          <img
+            class="checkout6"
+            src="@/assets/checkout2.png"
+            alt=""
+            style="width: 15px"
+          />
+    
         </div>
         
+        <h6 class="promo-code">Promo Code</h6>
+    <div id="input">
+    <input
+      type="text"
+      class="input-box col-1 row-2"
+      placeholder="Promo code"
+      aria-label="Search"
+      
+    />
+    <button href="#" class="btn-apply">Apply</button>
+  </div>
+
       </div>
        <br/>
        <br/>
        <br/>
        <br/>
        <br/>
-        <h6 class="title2">Payment Options</h6>
+        <!-- <h6 class="title2">Payment Options</h6>
 
         <div id="box">
           <img
@@ -102,25 +116,15 @@
             alt=""
             style="width: 11px"
           />
-        </div>
-      </div>
+        </div> -->
+      </div> 
     
     <br />
     <br />
     <p class="vertical-line"></p>
 
     <div class="box2">
-    <h6 class="promo-code">Promo Code</h6>
-    <div id="input">
-    <input
-      type="text"
-      class="input-box col-1 row-2"
-      placeholder="Promo code"
-      aria-label="Search"
-      style="width: 15em; height: 2em"
-    />
-    <button href="#" class="btn-apply mx-0">Apply</button>
-  </div>
+    
 
     <div class="order">
       <h5 class="summery">Order Summery</h5>
@@ -157,7 +161,7 @@
     </div>
     <!-- </div> -->
   </div>
-</div>
+  </div>
   <MyUsersBought />
 </template>
 
@@ -168,22 +172,22 @@ export default {
   name: "MyPaymentpage",
   components: { MyNavbar, MyUsersBought },
   // props: ['productPrice','price'],
-  data(){
+  data() {
     return {
       productPrice: null,
       productPrice2: null,
       price: null,
       totalPrice: null,
-    }
+    };
   },
-  mounted(){
-    this.price = JSON.parse(localStorage.getItem('productPrice'));
-    this.productPrice = JSON.parse(localStorage.getItem('price'));
-    this.productPrice2 = JSON.parse(localStorage.getItem('price'));
-    this.totalPrice = JSON.parse(localStorage.getItem('productPrice'));
-    this.totalPrice = JSON.parse(localStorage.getItem('productPrice2'));
+  mounted() {
+    this.price = JSON.parse(localStorage.getItem("productPrice"));
+    this.productPrice = JSON.parse(localStorage.getItem("price"));
+    this.productPrice2 = JSON.parse(localStorage.getItem("price"));
+    this.totalPrice = JSON.parse(localStorage.getItem("productPrice"));
+    this.totalPrice = JSON.parse(localStorage.getItem("productPrice2"));
     console.log(this.totalPrice + this.productPrice);
-  }
+  },
 };
 </script>
 
@@ -191,10 +195,12 @@ export default {
 .container {
   border: 1px solid #bf9742;
   border-radius: 10px;
-  width: 59rem;
+  /* width: 59rem; */
+  width: 100%;
   height: 30rem;
   margin-right: 11em;
   background-color: white;
+  
 }
 .box {
   margin-right: 5em;
@@ -202,9 +208,12 @@ export default {
 .box .title {
   color: #b1622a;
   font-weight: bold;
+  font-size: 30px;
 }
-.box #title{
+.box #title {
   font-weight: bold;
+  font-size: 20px;
+  margin-top: 1.5em;
 }
 .box-address .checkin3 {
   margin-left: 0em;
@@ -217,48 +226,80 @@ export default {
 .home-address {
   border: 1px solid #e6b325;
   border-radius: 7px;
-  padding: 0.5em;
-  width: 10em;
-  height: 3.5em;
+  padding: 1em;
+  width: 15em;
+  height: 5.5em;
 }
 .home {
   font-weight: 700;
-  font-size: 80%;
-  margin-top: -2.5em;
+  font-size: 20px;
+  margin-top: -2em;
   margin-left: 1.5em;
 }
 
 .base-address {
-  font-size: 54%;
   margin-left: 2em;
-  margin-top: -2em;
+  margin-top: -1em;
+  font-size: 15px;
 }
 
-.box-address .checkout6 {
-  margin-left: 0em;
-  margin-top: 1em;
+.checkout6 {
+  margin-top: -8em;
+  margin-left: 0.5em;
 }
 .office-address {
   background-color: white;
   border-radius: 7px;
   padding: 0.5em;
-  width: 10em;
-  height: 3.5em;
+  width: 15em;
+  height: 5.5em;
 }
 .office {
   font-weight: 700;
-  font-size: 80%;
-  margin-top: -2.5em;
-  margin-left: 1.5em;
+  font-size: 20px;
+  margin-top: 1.5em;
+  margin-left: 2em;
 }
 
 .base-address2 {
-  font-size: 54%;
-  margin-left: 2em;
-  margin-top: -2em;
+  margin-left: 2.5em;
+  margin-top: -1em;
+  font-size: 15px;
+  width: 14em;
 }
 
-.box .title2 {
+.promo-code {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 3em;
+  margin-left: 2em;
+}
+#input {
+  /* margin-bottom: 8rem; */
+  margin-top: -18em;
+  margin-left: -1.5em;
+}
+.input-box {
+  width: 15em;
+  margin-top: 15rem;
+  margin-bottom: 2rem;
+  margin-left: 4em;
+  padding-left: 1em;
+  margin-right: 0.5em;
+  border: 1px solid #a17a35;
+  border-radius: 5px;
+}
+.btn-apply {
+  margin-top: 5em;
+  border: 2px solid #a17a35;
+  border-radius: 5px;
+  background-color: #a17a35;
+  color: white;
+  width: 5em;
+  height: 1.9em;
+}
+
+/* .box .title2 {
   margin-top: -6.5em;
   margin-left: 1em;
   font-weight: bold;
@@ -291,7 +332,6 @@ export default {
 }
 .apple-card {
   float: left;
-  /* margin-left: 1em; */
 }
 .apple {
   margin-right: 1em;
@@ -317,58 +357,37 @@ export default {
   margin-left: 3em;
   margin-top: -3em;
   font-weight: 500;
-}
+} 
 
-/* .box2 .form-check2{
+.box2 .form-check2{
   margin-left: 16em;
   margin-top: -2.5em;
 } */
 
 .vertical-line {
   border-left: 1px solid #bf9742;
-  height: 25em;
+  height: 28em;
   position: absolute;
-  margin-left: 26em;
+  margin-left: 35em;
   margin-top: 1em;
 }
-.box2{
-  margin-left: 2rem;
+.box2 {
+  margin-left: 5em;
 }
-.box2 .promo-code {
-  font-weight: 700;
-  margin-top: 3em;
-  margin-left: 4em;
-}
-.box2 #input{
-  margin-bottom: 14rem;
-  margin-top: -15rem;
-}
-.box2 .input-box {
-  margin-top: 15rem;
-  margin-bottom: 2rem;
-  margin-left: 4em;
-  padding-left: 1em;
-  margin-right: 0.5em;
-  border: 1px solid #a17a35;
-  border-radius: 5px;
-}
-.btn-apply {
-  margin-top: 5em;
-  border: 2px solid #a17a35;
-  border-radius: 5px;
-  background-color: #a17a35;
-  color: white;
-  width: 5em;
-  height: 1.9em;
-}
+
 .box2 .order {
   margin-left: 5em;
-  margin-top: -14em;
+  margin-top: 5em;
   height: 10em;
   width: 15em;
 }
-.order .summery{
+
+#bill{
+  font-size: 20px;
+}
+.order .summery {
   font-weight: bold;
+  font-size: 25px;
 }
 .order .items {
   font-size: 90%;
@@ -458,12 +477,17 @@ export default {
   padding: 1px;
   margin-left: -1em;
 }
-
-@media screen and (max-width: 1800px) {
-  /* .container{
-    margin-left: 20em;
-    max-width: 80em;
-  } */
+@media screen and (max-width: 2340px) {
+  .container {
+    margin-right: auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .container {
+    margin-right: auto;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1190px) {
@@ -478,8 +502,21 @@ export default {
     margin-left: 1em;
     margin-top: 1em;
   }
+  .vertical-line{
+    margin-left: 30em;
+  }
+  .btn-apply{
+    margin-top: -2em;
+    /* float: right; */
+    margin-right: -5em;
+  }
 }
-
+@media screen and (max-width: 890px){
+  .container{
+    width: 54em;
+  }
+  
+}
 @media screen and (max-width: 690px) {
   .container {
     max-width: 75em;
@@ -487,185 +524,196 @@ export default {
   }
 }
 @media screen and (max-width: 590px) {
-  .container{
+  .container {
     width: 180em;
     height: 68rem;
     margin-left: 10rem;
     margin-top: 1rem;
   }
-  .box{
+  .box {
     width: 70rem;
     margin-left: 2rem;
   }
-  .box .title{
+  .box .title {
     font-size: 70px;
     font-weight: bold;
     margin-top: 3rem;
   }
-  .box #title{
+  .box #title {
     font-size: 50px;
     font-weight: bold;
     margin-top: 2rem;
   }
-  .box .home{
+  .box .home {
     font-weight: bold;
+    font-size: 40px;
+    margin-top: -2em;
   }
-  .box .home-address{
-    font-size: 50px;
-    margin-top: 2rem;
+  .box .home-address {
+    /* font-size: 50px; */
+    width: 30em;
+    height: 13em;
+    margin-top: 4em;
   }
 
-  .home-address .checkin3{
-    size: 30px;
+  .home-address .checkin3 {
+    width: 10em;
+    margin-top: 5em;
   }
-  .home-address .edit-icon{
-    padding:0;
-    width: 30px;
+  .home-address .edit-icon {
+    margin-top: 5em;
+    width: 10em;
   }
-  .box .office{
+  .box .office {
     font-weight: bold;
+    font-size: 40px;
   }
-  .home-address .base-address{
+  .home-address .base-address {
     margin-top: 1rem;
     font-size: 30px;
   }
-  .box .office-address{
+  .checkout6{
+    /* margin-left: -0.3em; */
+    margin-top: -6em;
+  }
+  .box .office-address {
     font-size: 50px;
-    margin-top: 2rem;
-    width: 35rem;
+    margin-top: 0.5em;
+    width: 10em;
+    margin-left: -0.5em;
   }
-  .office-address .base-address2{
+  .office-address .base-address2 {
     margin-top: 1rem;
     font-size: 30px;
   }
-  .box .title2{
+  /* .box .title2 {
     font-size: 50px;
     font-weight: bold;
     margin-top: -4rem;
     margin-left: 0.5rem;
     margin-bottom: 3rem;
   }
-  #box{
+  #box {
     font-size: 35px;
   }
-  #box .debit-card{
+  #box .debit-card {
     margin-bottom: 14px;
     width: 2rem;
   }
 
-  #box .credit{
+  #box .credit {
     margin-left: 3rem;
   }
-  #box .checkout3{
+  #box .checkout3 {
     margin-left: 29rem;
     margin-top: -9rem;
   }
-  #box2{
+  #box2 {
     font-size: 35px;
   }
-  #box2 .apple-card{
+  #box2 .apple-card {
     margin-top: 15px;
   }
-  #box2 .checkout4{
+  #box2 .checkout4 {
     margin-left: 29rem;
     margin-top: -9rem;
   }
-  #box3{
+  #box3 {
     font-size: 35px;
   }
-  #box3 .upi-card{
+  #box3 .upi-card {
     margin-bottom: 20px;
     margin-left: 10px;
   }
-  #box3 .upi{
+  #box3 .upi {
     margin-left: 3rem;
   }
-  #box3 .checkout5{
+  #box3 .checkout5 {
     margin-left: 29rem;
     margin-top: -9rem;
   }
-  #box4{
+  #box4 {
     font-size: 35px;
   }
-  #box4 .payon-card{
+  #box4 .payon-card {
     margin-left: 10px;
   }
-  #box4 .pay{
+  #box4 .pay {
     margin-left: 3rem;
   }
-  #box4 .checkin2{
+  #box4 .checkin2 {
     margin-left: 29rem;
     margin-top: -9rem;
-  }
-  .vertical-line{
+  } */
+  .vertical-line {
     margin-left: 37rem;
     margin-top: 5rem;
     height: 40em;
   }
-  .box2{
+  .box2 {
     margin-left: -9rem;
   }
-  .box2 .promo-code{
+  .promo-code {
     font-size: 40px;
-    margin-left: 0.5rem;
+    margin-top: 2em;
+    margin-left: 0em;
   }
-  .box2 .input-box{
-    margin-left: 0.5rem;
+  .input-box {
+    margin-left: 0.5em;
+    margin-top: 11em;
     font-size: 28px;
   }
-  .btn-apply{
+  .btn-apply {
     font-size: 19px;
     height: 3.5rem;
     margin-bottom: -3rem;
   }
-  .order{
+  .order {
     margin-right: 14rem;
   }
-  .order .summery{
+  .order .summery {
     font-size: 35px;
     width: 20rem;
   }
-  .order #bill{
+  .order #bill {
     font-size: 40px;
     width: 38rem;
   }
-  .order .prize4{
+  .order .prize4 {
     margin-top: -4rem;
   }
-  .order .prize5{
+  .order .prize5 {
     margin-top: -2rem;
   }
-  .order .prize6{
+  .order .prize6 {
     margin-top: -4rem;
   }
-  .order .btn2{
+  .order .btn2 {
     font-size: 1.8rem;
   }
 }
 @media screen and (max-width: 490px) {
-  .container{
+  .container {
     display: flex;
     flex-wrap: wrap;
     width: 65em;
     height: 110em;
     margin-left: 6rem;
   }
-  .container .box{
+  .container .box {
     width: 50%;
     align-items: center;
     margin-left: 18em;
   }
-  .container .box2{
+  .container .box2 {
     width: 100%;
     margin-top: -19rem;
     margin-left: 18em;
     margin-right: auto;
   }
-  .vertical-line{
+  .vertical-line {
     display: none;
   }
-  
-  
 
   /* .box{
     width: 70rem;
@@ -810,7 +858,7 @@ export default {
 }
 
 @media screen and (max-width: 390px) {
-  .container{
+  .container {
     margin-top: 2em;
   }
   /* .container{

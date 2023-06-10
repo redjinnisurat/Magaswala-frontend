@@ -9,8 +9,8 @@
     <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
     
     </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
+        <div class="carousel-inner row">
+            <div class="carousel-item active col-lg-6 col-md-6 col-sm-6">
                 <div>
                 <h2 class="first-heading">The best Magas in the town</h2>
                 <h3 class="second-heading">Made with pure ingredients<br>Price=Rs.250 for 1kg</h3>
@@ -22,7 +22,7 @@
                 <img class="ladu" src="@/assets/ladu.png" alt="">
             </div>
 
-            <div class="carousel-item">
+            <div class="carousel-item col-lg-6 col-md-6 col-sm-6">
               <div>
                 <h2 class="third-heading">Now get 25% discount</h2>
                 <h3 class="fourth-heading">On order of 1kg of magas<br>Price=Rs.250 for 1kg</h3>
@@ -61,28 +61,34 @@ export default{
 </script>
 
 <style scoped>
-
+.container{
+  width: 100%;
+}
 .first-heading{
+  font-size: 40px;
     color: #B1622A;
     font-weight: bold;
 }
 .second-heading{
+  font-size: 30px;
     color: #B1622A;
 }
 .ladu{
-    width: 25em;
+    width: 30em;
     margin-left: 29em;
     margin-top: -15em;
 }
 .third-heading{
+  font-size: 40px;
     color: #B1622A;
     font-weight: bold;
 }
 .fourth-heading{
+  font-size: 30px;
     color: #B1622A;
 }
 .ladu2{
-  width: 25em;
+  width: 30em;
   margin-left: 29em;
   margin-top: -15em;
 }
@@ -171,6 +177,9 @@ content::after {
   }
 }
 @media screen and (max-width: 490px) {
+  .container{
+    height: 400px;
+  }
   .second-heading{
     font-size: 3em;
   }
@@ -189,6 +198,8 @@ content::after {
   }
   .btn{
     font-size: 2em;
+    align-items: center;
+    /* height: 200px; */
   }
 }
 @media screen and (max-width: 390px){

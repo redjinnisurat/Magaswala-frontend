@@ -134,6 +134,7 @@ margin-left: 3em;
    scrollbar-width: none;
    margin-top: 1em;
    margin-left: 6em;
+   height: 350px;
    }
    
    .carousel::-webkit-scrollbar {
@@ -212,6 +213,7 @@ margin-left: 3em;
     }
     .carousel{
       width: 65em;
+      height: 20em;
       font-size: 1.5em;
       margin-left: 8em;
     }
@@ -229,7 +231,7 @@ margin-left: 3em;
 }
 @media screen and (max-width: 490px) {
   .heading{
-    margin-top: -8em;
+    margin-top: -13em;
     margin-left: 4em;
   }
   .carousel{
@@ -239,7 +241,7 @@ margin-left: 3em;
 
 @media screen and (max-width: 390px) {
   .heading{
-    margin-top: -8em;
+    margin-top: -13em;
     margin-left: 4em;
   }
   .carousel{

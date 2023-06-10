@@ -331,41 +331,41 @@ mounted(){
 // getTotal();
     
 
-const addToBag = document.getElementsByClassName('btn');
+// const addToBag = document.getElementsByClassName('btn');
 
-let products = [];
-for(let i=0; i<addToBag.length;i++){
-  addToBag[i].addEventListener("click",function(e){
-    console.log(e.target.parentElement.childern[1].childern[0].textContent);
-    if(typeof(Storage) !== 'undefined'){
-      let product = {
-        id:i+1,
-        name: e.target.parentElement.childern[0].textContent,
-        price:e.target.parentElement.childern[1].childern[0].textContent,
-        no: 1
-      };
-      if(JSON.parse(localStorage.getItem('products')) === null){
-        products.push(product);
-        localStorage.setItem("products",JSON.stringify(products));
-        window.location.reload();
-      }else{
-        const localItems = JSON.parse(localStorage.getItem("products"));
-        localItems.map(data=>{
-          if(product.id == data.id){
-            product.no = data.no + 1;
-          }else{
-            products.push(data);
-          }
-        });
-        products.push(product);
-        localStorage.setItem('products',JSON.stringify(products));
-        window.location.reload();
-      }
-    }else{
-      console.log('storage is not working on your browser');
-    }
-  });
-}
+// let products = [];
+// for(let i=0; i<addToBag.length;i++){
+//   addToBag[i].addEventListener("click",function(e){
+//     console.log(e.target.parentElement.childern[1].childern[0].textContent);
+//     if(typeof(Storage) !== 'undefined'){
+//       let product = {
+//         id:i+1,
+//         name: e.target.parentElement.childern[0].textContent,
+//         price:e.target.parentElement.childern[1].childern[0].textContent,
+//         no: 1
+//       };
+//       if(JSON.parse(localStorage.getItem('products')) === null){
+//         products.push(product);
+//         localStorage.setItem("products",JSON.stringify(products));
+//         window.location.reload();
+//       }else{
+//         const localItems = JSON.parse(localStorage.getItem("products"));
+//         localItems.map(data=>{
+//           if(product.id == data.id){
+//             product.no = data.no + 1;
+//           }else{
+//             products.push(data);
+//           }
+//         });
+//         products.push(product);
+//         localStorage.setItem('products',JSON.stringify(products));
+//         window.location.reload();
+//       }
+//     }else{
+//       console.log('storage is not working on your browser');
+//     }
+//   });
+// }
 
 // adding data to shopping bag
 
@@ -729,9 +729,9 @@ body{
   padding: 1px;
 }
 
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 2340px) {
   .container{
-    margin-left: 6em;
+    margin-left: auto;
   }
 
   .box-address .btn2{

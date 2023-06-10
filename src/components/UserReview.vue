@@ -167,6 +167,7 @@ export default {
   scrollbar-width: none;
   margin-top: 1em;
   margin-left: 4em;
+  height: 600px;
 }
 
 .carousel::-webkit-scrollbar {

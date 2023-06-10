@@ -144,6 +144,7 @@ export default {
   scrollbar-width: none;
   margin-top: 1em;
   margin-left: 4em;
+  height: 350px;
 }
 
 .carousel::-webkit-scrollbar {
@@ -239,6 +240,9 @@ export default {
     width: 75em;
     margin-left: 8em;
   }
+  .product-card{
+    width: 50em;
+  }
 }
 
 @media screen and (max-width: 490px) {
@@ -247,7 +251,6 @@ export default {
     margin-left: 6em;
   }
   .carousel {
-    /* width: 70em; */
     margin-left: 8em;
   }
 }
