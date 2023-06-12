@@ -439,7 +439,7 @@ export default {
 .order .prize5 {
   font-size: 90%;
   float: right;
-  margin-top: -1em;
+  /* margin-top: -0em; */
   margin-right: 6.8em;
 }
 .order .items6 {

@@ -100,6 +100,9 @@
       
     </div>
   </div>
+
+  
+
 </template>
 
 
@@ -325,9 +328,9 @@ export default {
   margin-top: -22em;
 }
 .checkout {
-  float: right;
-  margin-right: 13em;
-  margin-top: -18em;
+  /* float: right; */
+  margin-left: 37em;
+  margin-top: -29em;
   width: 20em;
 }
 .box {
@@ -341,12 +344,12 @@ export default {
   margin-top: -8em;
 }
 .box .box-title {
-  margin-top: -5px;
-  margin-bottom: 5px;
+  margin-top: -13px;
+  /* margin-bottom: 5px; */
 }
 .box .box-text {
   margin-bottom: -35px;
-  margin-top: 10px;
+  margin-top: 25px;
   padding-bottom: -8px;
   font-size: 18px;
   font-weight: 500;
@@ -360,7 +363,7 @@ export default {
   border-radius: 6px;
   width: 16em;
   height: 1.9rem;
-  margin-top: -0.2rem;
+  margin-top: -0.5em;
   font-size: 15px;
   padding-top: 2px;
 }
@@ -420,16 +423,16 @@ export default {
 @media screen and (max-width: 990px) {
   .container {
     height: 28em;
-    max-width: 52em;
+    max-width: 55em;
     margin-left: 2em;
     margin-top: 1em;
   }
   .weight {
-    margin-right: 10em;
+    margin-right: 13em;
   }
 
   .dlt {
-    margin-right: 3em;
+    margin-right: 6em;
   }
 
   .add-remove {
@@ -450,8 +453,8 @@ export default {
   }
 
   .checkout {
-    margin-right: 1em;
-    margin-top: -21em;
+    margin-left: 30em;
+    margin-top: -35em;
   }
 
   .box {
@@ -482,10 +485,10 @@ export default {
     margin-right: 1em;
   }
   .weight {
-    margin-right: 10em;
+    margin-right: 13em;
   }
   .dlt {
-    margin-right: 3em;
+    margin-right: 6em;
   }
 }
 
@@ -507,7 +510,7 @@ export default {
   }
   .checkout {
     margin-right: 3em;
-    margin-top: -18em;
+    margin-top: -33em;
   }
 
   .weight {
@@ -518,7 +521,7 @@ export default {
     margin-right: 6em;
   }
   .box {
-    margin-top: -9em;
+    margin-top: -10em;
     margin-left: 31em;
   }
 }
@@ -532,11 +535,11 @@ export default {
   }
 
   .weight {
-    margin-right: 20em;
+    margin-right: 19em;
   }
 
   .dlt {
-    margin-right: 11em;
+    margin-right: 10em;
   }
   .add-remove .plus{
     width: 2em;
@@ -549,12 +552,12 @@ export default {
     margin-top: -23em;
   }
   .checkout {
-    margin-right: 5em;
-    margin-top: -19em;
+    margin-left: 34em;
+    margin-top: -35em;
   }
 
   .box {
-    margin-top: -9em;
+    margin-top: -11em;
     margin-left: 35em;
   }
 
@@ -654,15 +657,15 @@ export default {
     display: none;
   }
   .checkout {
-    margin-right: 40em;
-    margin-top: -16em;
-    width: 25em;
+    margin-left: 23em;
+    margin-top: 3em;
+    width: 28em;
   }
 
   .box {
     width: 30em;
     height: 15em;
-    margin-top: 20em;
+    margin-top: -1em;
     margin-left: 20em;
   }
 
@@ -688,7 +691,7 @@ export default {
   .container {
     margin-top: 2em;
     width: 65em;
-    height: 90em;
+    height: 93em;
     margin-left: 10em;
     display: flex;
     flex-wrap: wrap;
@@ -717,12 +720,12 @@ export default {
   }
   .card-right .checkout{
     width: 25em;
-    margin-top: -17em;
-    margin-right: 7em;
+    margin-top: 1em;
+    margin-left: -7em;
   }
   .card-right .box{
-    margin-left: -5em;
-    margin-top: 17em;
+    margin-left: -10em;
+    margin-top: 1em;
     /* width: 22em; */
     /* font-size: 20px; */
   }

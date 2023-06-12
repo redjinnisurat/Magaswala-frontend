@@ -2,11 +2,11 @@
     <MyNavbar />
     <br>
     <div class="container">
-    <div id="carouselExampleSlidesOnly"  class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleDark"  class="carousel carousel-dark slide" data-bs-ride="carousel">
       <br><br>
       <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
     
     </div>
         <div class="carousel-inner row">
@@ -75,7 +75,7 @@ export default{
 }
 .ladu{
     width: 30em;
-    margin-left: 29em;
+    margin-left: 35em;
     margin-top: -15em;
 }
 .third-heading{
@@ -89,7 +89,7 @@ export default{
 }
 .ladu2{
   width: 30em;
-  margin-left: 29em;
+  margin-left: 35em;
   margin-top: -15em;
 }
 .btn{
