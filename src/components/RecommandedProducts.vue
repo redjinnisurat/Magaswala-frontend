@@ -116,9 +116,9 @@
 </script>
 
 <style scoped>
-body{
-  overflow-x: hidden;
-}
+/* body{
+  overflow-y: hidden;
+} */
 .heading{
 margin-top: -1em;
 margin-left: 3em;
@@ -127,6 +127,7 @@ margin-left: 3em;
 .carousel {
    display: flex;
    overflow-x: auto;
+   /* overflow-y: hidden; */
    scroll-snap-type: x mandatory;
    scroll-behavior: smooth;
    -webkit-overflow-scrolling: touch;
@@ -134,6 +135,7 @@ margin-left: 3em;
    scrollbar-width: none;
    margin-top: 1em;
    margin-left: 6em;
+   width: 100%;
    height: 350px;
    }
    

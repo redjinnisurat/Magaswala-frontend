@@ -329,22 +329,22 @@ export default {
 }
 .checkout {
   /* float: right; */
-  margin-left: 37em;
-  margin-top: -29em;
+  margin-left: 36em;
+  margin-top: -33em;
   width: 20em;
 }
 .box {
-  width: 20em;
+  width: 18em;
   border: 2px solid #ceb070;
   border-radius: 20px;
   text-align: center;
-  height: 10.5em;
+  height: 11em;
   padding-top: 1em;
   margin-left: 37em;
-  margin-top: -8em;
+  margin-top: -10em;
 }
 .box .box-title {
-  margin-top: -13px;
+  margin-top: -2px;
   /* margin-bottom: 5px; */
 }
 .box .box-text {
@@ -381,6 +381,12 @@ export default {
   }
   .checkout{
     margin-right: 25em;
+  }
+}
+@media screen and (max-width: 1490px){
+  .container{
+    margin-left: auto;
+    width: 100%;
   }
 }
 @media screen and (max-width: 1390px){

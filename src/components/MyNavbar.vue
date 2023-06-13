@@ -106,7 +106,7 @@ import { ref } from "vue";
 <style scoped>
 .navbar{
   margin-top: -2em;
-  margin-left: -5em;
+  margin-right: -6em;
   /* background: whitesmoke; */
 }
 .navbar-logo{
@@ -206,7 +206,12 @@ import { ref } from "vue";
     margin-left: 5em;
   }
 }
-
+@media screen and (max-width: 1490px){
+  .navbar{
+    margin-left: 10em;
+    width: 100%;
+  }
+}
 @media screen and (max-width: 1390px) {
   .navbar {
     margin-left: 8em;

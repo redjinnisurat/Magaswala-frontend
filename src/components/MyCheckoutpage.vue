@@ -2,7 +2,7 @@
   <MyNavbar />
 
   <div class="container d-flex">
-    <div class="box" style="v-if == width: 35rem">
+    <div class="box">
       <img
         src="@/assets/ladu.png"
         class="card-img-top"
@@ -263,7 +263,7 @@ import RecommandedProducts from "@/components/RecommandedProducts.vue";
 import MostBoughtProducts from "@/components/MostBoughtProducts.vue";
 export default {
   name: "MyCheckoutpage",
-  components: { MyNavbar, RecommandedProducts, MostBoughtProducts },
+  components: {MyNavbar, RecommandedProducts, MostBoughtProducts },
   props: ["product"],
   data(){
     return {
