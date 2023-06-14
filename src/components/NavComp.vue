@@ -25,7 +25,7 @@
         <a href="./"><span class="nav-icon" id="profile-icon"></span>Profile</a>
       </li>
       <li :class="{active: activeLink === 'logout'}" >
-        <a><span class="nav-icon" id="logout-icon"></span>Logout</a>
+        <a href="./test"><span class="nav-icon" id="logout-icon"></span>Logout</a>
       </li>
     </ul>
   </nav>

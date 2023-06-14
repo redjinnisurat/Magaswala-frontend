@@ -232,7 +232,7 @@ export default {
   name: "HomeComp",
 };
 </script>
-<style>
+<style scoped>
 body {
   margin-top: 20px;
   background-color: #f2f6fc;
@@ -292,7 +292,7 @@ body {
     background-clip: padding-box;
     border: 1px solid #BF9742;
 }
-.profile {
+/* .profile {
   top: 276px;
   left: 640px;
   width: 172px;
@@ -303,5 +303,5 @@ body {
   color: #b1622a;
   opacity: 1;
   font-family: Poppins;
-}
+} */
 </style>

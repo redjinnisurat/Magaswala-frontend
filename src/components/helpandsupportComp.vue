@@ -1,16 +1,27 @@
 <template>
   <NavComp />
-  <div class="mainContainer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="sidebar">
-            <myprofileComp />
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
+        <div id="mySidenav" class="sidenav" style="position: absolute">
+          <myprofileComp />
         </div>
+      </div>
+
+      <div class="col-lg-8 col-sm-8 col-md-8" style="height: 100%">
         <div class="col-md-6">
-          <div class="container rounded bg-white mt-1 mb-0">
-            <div class="row bord">
+          <div id="item" class="container rounded bg-white mt-0 mb-0">
+            <div
+              class="row"
+              style="
+                border: #bf9742;
+                border-style: solid;
+                border-width: 2px;
+                border-radius: 15px;
+                height: 535px;
+               
+              "
+            >
               <div class="col-md-6 border-right">
                 <div class="p-0 py-0">
                   <div
@@ -36,11 +47,12 @@
                         />
                           
                         </button>
-                      </li>
-                      <button type="button" class="item">
+                        <button type="button" class="item">
                         <span>Payment FAQs</span>
                         <img src="../assets/for.svg" />
                       </button>
+                      </li>
+                      
                     </ul>
                    
                   </div>
@@ -64,10 +76,38 @@ export default {
 </script>
 
 <style scoped>
-.item{
-  border-bottom: 1px solid rgb(243, 235, 235);
-  left: -25px;
+#item {
+  width: 746px;
 }
+
+.form-control {
+  height: 41px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #bf9742;
+}
+
+body {
+  margin-top: 20px;
+  background-color: #f2f6fc;
+  color: #69707a;
+}
+
+
+.img-account-profile {
+  height: 10rem;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.card {
+  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+
 button {
   /* padding-top: 100px; */
   width: 100%;
@@ -91,6 +131,10 @@ button img {
   position: relative;
   right: -50%;
   width: 6px;
+}
+.item{
+  border-bottom: 1px solid rgb(243, 235, 235);
+  left: -25px;
 }
 .search-bar input[type="text"] {
   border: 0.5px solid #ceb070;
@@ -117,59 +161,58 @@ button img {
   color: #707070;
   font-size: 1.5rem;
 }
-.list {
-  list-style-type: none;
 
-}
-.mainContainer {
-  display: grid;
-  grid-template-columns: 15% 85%;
-}
-.container {
-  width: 690px;
-  margin-right: 100px;
-  height: 624px;
-}
-body {
-  background: rgb(231, 228, 235);
+
+.card .card-header {
+  font-weight: 500;
 }
 
-.bord {
-  border: solid 2px #bf9742;
-  border-radius: 15px;
+.card-header:first-child {
+  border-radius: 0.35rem 0.35rem 0 0;
 }
-.address {
-  text-align: initial;
-  font: normal normal bold 20px/30px Poppins;
-  letter-spacing: 0px;
-  color: #262626;
+
+.card-header {
+  padding: 1rem 1.35rem;
+  margin-bottom: 0;
+  background-color: rgba(33, 40, 50, 0.03);
+  border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  font-size: -0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #69707a;
+  background-color: #f9f9f9;
+  background-clip: padding-box;
+  border: 1px solid #bf9742;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control {
+  background-color: #f9f9f9;
+  background-clip: padding-box;
+  border: 1px solid #bf9742;
 }
 
 .profile {
-  text-align: initial;
-  font: normal normal bold 20px/30px Poppins;
+  top: 276px;
+  left: 640px;
+
+  height: 49px;
+  text-align: left;
+  font: normal normal 600 35px/53px Poppins;
   letter-spacing: 0px;
   color: #b1622a;
-}
-.container {
-  width: 800px;
-  margin-right: 100px;
-  height: 530px;
-}
-.smenu {
-  height: 359px;
-}
-
-.lmenu {
-  padding: 10px;
-  font-size: 12px;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-li:hover {
-  background-color: white;
-  color: #bf9742;
-  font-weight: 700;
+  opacity: 1;
+  font-family: Poppins;
 }
 </style>
+
