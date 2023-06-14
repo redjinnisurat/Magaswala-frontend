@@ -131,7 +131,7 @@ export default {
   };
   </script>
   
-  <style>
+  <style scoped>
   .heading {
     font-weight: bold;
     margin-top: 3em;
@@ -148,7 +148,7 @@ export default {
     margin-top: 1em;
     margin-left: 4em;
     width: 100%;
-    height: 290px;
+    height: 320px;
   }
   
   .carousel::-webkit-scrollbar {
@@ -168,15 +168,15 @@ export default {
   
   .product-card {
     width: 100%;
-    margin-left: 0.5em;
+    margin-left: 1em;
   }
   
   .product-image {
-    width: 20em;
+    width: 21em;
     background-color: #edd5a4;
   }
   .product-image img {
-    width: 20em;
+    width: 17em;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -188,7 +188,7 @@ export default {
     background-color: #fff;
     width: 21em;
     height: 6em;
-    opacity: 5;
+    /* opacity: 5; */
     /* filter: blur(0.5px); */
     padding: 10px 10px;
   }
@@ -202,43 +202,62 @@ export default {
   .product-info .btn {
     background-color: #a17a35;
     color: white;
-    border: none;
+    /* border: none; */
     border-radius: 5px;
     margin-left: 13em;
     margin-top: -5rem;
-    padding-top: 0;
-    width: 5em;
+    padding: 0px;
+    width: 6em;
     height: 1.6em;
-    transition: all 0.3s ease;
-    /* letter-spacing: 0px; */
+    text-align: center;
+    /* transition: all 0.3s ease; */
+    letter-spacing: 0px;
   }
 
+@media screen and (max-width: 1490px) {
+  .carousel{
+    width: 150em;
+  }
+}
 
   @media screen and (max-width: 990px) {
     .product-card {
       width: 13em;
+      margin-right: 8em;
     }
     .heading {
       margin-left: 1em;
       margin-top: 3em;
     }
     .carousel {
-      width: 100%;
-      margin-left: 0.5em;
+      width: 100em;
+      margin-left: 1em;
     }
   }
-  
+  @media screen and (max-width: 890px) {
+    .carousel{
+      width: 100em;
+    }
+  }
   @media screen and (max-width: 790px) {
     .carousel {
-      width: 100%;
+      width: 60em;
     }
   }
   @media screen and (max-width: 690px) {
     .carousel {
-      width: 100%;
+      width: 70em;
     }
   }
-  
+  @media screen and (max-width: 590px){
+    .heading{
+      margin-left: 6em;
+    }
+    .carousel{
+      width: 80em;
+      margin-left: 8em;
+    }
+  }
   /* @media screen and (max-width: 590px) {
     .heading {
       width: 100%;

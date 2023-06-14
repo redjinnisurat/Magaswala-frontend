@@ -49,7 +49,7 @@
                 <p>- Rahul Vishnani</p>
                 <p>Surat</p>
             </div>
-            <div class="col review6" id="review">
+            <!-- <div class="col review6" id="review">
                 <img id="profile" src="@/assets/profilecopy.png"><br>
                 <br>
                 <p>"Those sweets were beautifully handcrafted with, so much detail, and the taste was simple heavenly"</p>
@@ -62,7 +62,7 @@
                 <p>"Those sweets were beautifully handcrafted with, so much detail, and the taste was simple heavenly"</p>
                 <p>- Rahul Vishnani</p>
                 <p>Surat</p>
-            </div>
+            </div> -->
         </div>
         <br>
     </div>
@@ -166,8 +166,9 @@ export default {
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin-top: 1em;
-  margin-left: 4em;
-  height: 600px;
+  margin-left: 1em;
+  width: 100em;
+  height: 700px;
 }
 
 .carousel::-webkit-scrollbar {
@@ -193,7 +194,7 @@ export default {
   font-size: 1.5em;
 }
 #boxes{
-  width: 150em;
+  width: 160em;
   margin-left: 1em;
 }
 #profile{
@@ -202,8 +203,8 @@ export default {
     border-radius: 50%;
 } 
 #review{
-  height: 28em;
-  width: 155em;
+  height: 34em;
+  width: 175em;
   position: relative;
   border-left: 2px solid #BF9742;
   border-top: 2px solid #BF9742;
@@ -245,7 +246,19 @@ export default {
     margin-left: 1em;
   }
   .carousel{
+    max-width: 100em;
     margin-left: -0.5em;
+    height: 70em;
+  }
+  .row{
+    width: 190em;
+  }
+  #review{
+    width: 190em;
+    height: 60em;
+  }
+  #review p{
+    font-size: 30px;
   }
 }
 @media screen and (max-width: 790px) {
@@ -255,19 +268,32 @@ export default {
   #boxes{
     margin-left: 1.5em;
   }
-
+  .row{
+    width: 190em;
+  }
+  #review{
+    width: 190em;
+    height: 50em;
+  }
 }
 
 @media screen and (max-width: 690px) {
   #boxes{
-    width: 150em;
+    width: 190em;
     margin-left: 1em;
+  }
+  .row{
+    width: 190em;
   }
 }
 
 @media screen and (max-width: 590px) {
   .user{
     margin-left: 6em;
+  }
+  .carousel{
+    height: 60em;
+    width: 190em;
   }
   #boxes{
     width: 160em;
@@ -276,6 +302,7 @@ export default {
   #review {
     font-size: 20px;
     width: 150em;
+    height: 40em;
   }
 }
 

@@ -65,7 +65,9 @@
   <input class="form-check1-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
     </div> -->
         <!-- <input v-model="newproduct"> -->
-        <a href="/checkoutpage"  class="btn" @click="addToBag">Add to Bag</a>
+        <router-link to="/checkoutpage">
+        <a href="#"  class="btn" @click="addToBag">Add to Bag</a>
+      </router-link>
       </div>
     </div>
 

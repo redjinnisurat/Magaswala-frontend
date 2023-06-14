@@ -483,6 +483,21 @@ export default {
     width: 100%;
   }
 }
+@media screen and (max-width: 1290px) {
+  .container {
+    margin-left: 5em;
+    max-width: 95em;
+    height: 30em;
+  }
+  /* .vertical-line{
+    margin-left: 40em;
+  }
+  
+  .box2 .order{
+    margin-left: 9em;
+    font-size: 30px;
+  } */
+} 
 @media screen and (max-width: 1920px) {
   .container {
     margin-right: auto;
