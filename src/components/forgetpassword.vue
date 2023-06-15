@@ -134,7 +134,7 @@ p {
     letter-spacing: 0px;
     color: #838282;
     opacity: 1;
-    text-transform: capitalize;
+
 }
 
 .submit-btn {
@@ -174,7 +174,7 @@ p {
     position: absolute;
     text-align: center;
     top: 50%;
-     left: 65%; 
+    left: 65%;
     color: white;
     font-size: 2.4rem;
     font-family: 'Courgette', 'cursive';
@@ -193,7 +193,7 @@ p {
     }
 
     .heading-magaswala {
-      font-size: 2.4rem;
+        font-size: 2.4rem;
     }
 }
 
