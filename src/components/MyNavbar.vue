@@ -185,12 +185,13 @@ import { ref } from "vue";
 .log{
   text-decoration: none;
 }
+
+
 @media screen and (max-width: 2340px) {
   .navbar{
     margin-top: 2em;
     width: 100%;
     margin-left: 5em;
-    /* font-size: 40px; */
   }
   .navbar-nav{
     font-size: 40px;
@@ -203,10 +204,7 @@ import { ref } from "vue";
     
   }
   .search-bar{
-    margin-left: 17em;
-    /* width: 30em; */
-    /* height: 3em; */
-    
+    margin-left: 17em; 
   }
   .search-bar input[type="text"]{
     font-size: 25px;
@@ -248,11 +246,11 @@ import { ref } from "vue";
 @media screen and (max-width: 990px){
 
   .navbar-logo{
-    margin-left: -2em;
+    margin-left: -3em;
   }
   .navbar{
     margin-top: 2em;
-    margin-left: 3em;
+    margin-left: 15em;
   }
   .search-bar{
     margin-top: -3.3em;
@@ -267,13 +265,13 @@ import { ref } from "vue";
   } */
   .navbar-toggler{
     float: right;
-    margin-left: 15em;
-    /* display: none; */
+    margin-right: -25em;
+    font-size: 3em;
   }
-  .navbar-toggler-icon{
-    margin:0px;
-    width: 1.5em;
-  }
+  /* .navbar-toggler-icon{
+    margin: 0px;
+    width: 3em;
+  } */
   .hamburger{
     display: block;
   }
@@ -314,12 +312,15 @@ import { ref } from "vue";
     margin-left: 4em;
   }
 }
-/* @media screen and (max-width: 790px) {
+@media screen and (max-width: 790px) {
+
   .navbar-toggler{
+    /* float: right; */
+    margin-top: -1em;
+    margin-left: 27em;
     font-size: 3em;
-    margin-left: -9em;
   }
-} */
+}
 @media screen and (max-width: 690px) {
 
   .navbar {
@@ -332,7 +333,7 @@ import { ref } from "vue";
   .navbar-toggler{
     font-size: 3em;
     margin-left: 17em;
-    margin-top: -4.5em;
+    margin-top: -1em;
   }
   .search-bar{
     margin-top: -7em;
@@ -366,7 +367,7 @@ import { ref } from "vue";
   .navbar-toggler{
     font-size: 6em;
     margin-top: -2em;
-    margin-left: 11em;
+    margin-right: -11em;
   }
   /* .navbar-toggler-icon{
     margin-left: -80rem;
@@ -379,7 +380,7 @@ import { ref } from "vue";
   .navbar-toggler{
     font-size: 5em;
     margin-left: 13em;
-    margin-top: -3.5em;
+    margin-top: -3em;
   }
   .collapse .ham{
     font-size: 50px;
@@ -399,14 +400,14 @@ import { ref } from "vue";
   .navbar-toggler{
     /* float:right; */
     margin-left: 15em;
-    margin-top: -4em;
+    margin-top: -3em;
     width: 2em;
   }
   /* .navbar-toggler-icon{
     margin-left: -40rem;
   } */
   .navbar-logo{
-    font-size: 3rem;
+    font-size: 2rem;
     margin-left: -5rem;
   }
   .search-bar{

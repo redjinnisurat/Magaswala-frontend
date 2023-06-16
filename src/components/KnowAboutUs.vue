@@ -1,5 +1,5 @@
 <template>
-  <h5 class="know">Know about us</h5>
+  <h5 class="heading">Know about us</h5>
     <div class="container">
       
     
@@ -32,10 +32,10 @@ body{
   margin-left: 5em;
   margin-top: 1.5em;
 }
-.know{
+.heading{
   font-weight: bold;
-  font-size: 1.5em;
-  margin-left: 25em;
+  font-size: 2em;
+  margin-left: 30em;
   margin-top: 2em;
 }
 .row{
@@ -76,8 +76,8 @@ height: 916px; */
 }
 
 @media screen and (max-width: 2340px) {
-  .know{
-    margin-left: 17.5em;
+  .heading{
+    margin-left: 2em;
   }
   .container{
     width: 100%;
@@ -93,8 +93,9 @@ height: 916px; */
 }
 
 @media screen and (max-width: 990px) {
-  .know{
+  .heading{
     margin-left: 1em;
+    font-size: 50px;
   }
   .container{
     margin-left: 1em;
@@ -128,12 +129,12 @@ height: 916px; */
 
 @media screen and (max-width: 690px) {
   .row{
-    width: 80em;
+    width: 100em;
   }
 }
 
 @media screen and (max-width: 590px) {
-  .know{
+  .heading{
     margin-left: 6em;
   }
   .container{
@@ -146,7 +147,7 @@ height: 916px; */
   }
 }
 @media screen and (max-width: 490px) {
-  .know{
+  .haeding{
     width: 15em;
     font-size: 3em;
     margin-left: 3em;

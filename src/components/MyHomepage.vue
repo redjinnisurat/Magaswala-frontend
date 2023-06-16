@@ -2,11 +2,11 @@
     <MyNavbar />
     <br>
     <div class="container">
-    <div id="carouselExampleDark"  class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions"  class="carousel slide" data-bs-ride="carousel">
       <br><br>
       <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     
     </div>
         <div class="carousel-inner">
@@ -39,6 +39,8 @@
         </div>
     </div>
   </div>
+  <br>
+  <br>
     <OurProducts />
    <br>
    
@@ -63,12 +65,12 @@ export default{
 </script>
 
 <style scoped>
-.body{
+/* .body{
   max-width:100%;
-}
+} */
 .container{
   width: 160em;
-  height: 35em;
+  height: 730px;
 }
 .first-heading{
   font-size: 40px;
@@ -79,10 +81,15 @@ export default{
   font-size: 30px;
   color: #B1622A;
 }
+/* .carousel-inner{
+  height: 700px;
+} */
 .ladu{
-    max-width: 30em;
+    width: 30em;
+    height: 30em;
     margin-left: 35em;
-    margin-top: -27em;
+    margin-top: -25em;
+   
 }
 .third-heading{
   font-size: 40px;
@@ -104,11 +111,12 @@ export default{
   height: 2.3em;
   color: white;
 }
-/* .carousel-indicators button{
+.carousel-indicators button{
   background-color: #A17A35;
-  margin-top: 10em;
-  padding: 5px;
-} */
+  padding-top: 25px;
+  border-radius: 50%;
+  
+}
 /* .content{
   margin-top: -0.5em;
   font: normal normal medium 55px/83px Poppins;
@@ -132,14 +140,11 @@ content::after {
 } */
 @media screen and (max-width: 2340px){
   .container{
-    max-width: 100%;
-    height: 28em;
+    max-width: 180em;
+    height: 630px;
     margin-left: 15em;
   }
-  
-  /* .heading{
-    margin-left: 10em;
-  } */
+
   .first-heading{
     font-size: 60px;
   }
@@ -148,13 +153,15 @@ content::after {
   }
   .ladu{
     width: 50em;
-    margin-top: -20em;
-    margin-left: 70em;
+    margin-top: -25em;
+    float: right;
+    margin-right: 20em;
   }
   .ladu2{
     width: 40em;
-    margin-top: -20em;
-    margin-left: 70em;
+    margin-top: -26em;
+    float: right;
+    margin-right: 20em;
   }
   .third-heading{
     font-size: 60px;
@@ -168,42 +175,67 @@ content::after {
 }
 @media screen and (max-width: 1390px){
   .container{
-    max-width: 120%;
+    width: 160em;
+  }
+}
+@media screen and (max-width: 1190px) {
+  .container{
+    width: 160em;
   }
 }
 @media screen and (max-width: 990px) {
   .container{
     margin-left: 1em;
-    width: 130em;
+    width: 160em;
     margin-top: 5em;
   }
+  .heading{
+    margin-left: 10em;
+  }
   .ladu{
-    width: 30em;
-    margin-left: 50em;
-    margin-top: -17em;
+    width: 50em;
+    margin-left: 55em;
+    margin-top: -25em;
+  }
+
+  .ladu2{
+    width: 50em;
+    margin-left: 55em;
+    margin-top: -25em;
   }
 }
 @media screen and (max-width: 890px) {
   .container{
     margin-left: 1em;
-    width: 150em;
+    width: 180em;
     height: 30em;
     margin-top: 5em;
   }
-  .carousel-inner{
-    width: 60em;
-  }
+  
 }
 @media screen and (max-width: 790px) {
-  .user{
-    margin-left: 2em;
+  .container{
+    max-width: 180em;
+  }
+  .ladu{
+    width: 33em;
+    float: left;
+    margin-left: 55em;
+    margin-top: -25em;
+  }
+
+  .ladu2{
+    width: 30em;
+    float: left;
+    margin-left: 55em;
+    margin-top: -25em;
   }
 }
 
 @media screen and (max-width: 690px) {
   .container{
     margin-top: 4em;
-    width: 100em;
+    width: 160em;
  }
  .first-heading{
   font-size: 3em;
@@ -212,8 +244,16 @@ content::after {
   font-size: 2em;
  }
  .ladu{
-  margin-left: 39em;
-  width: 25em;
+  float: left;
+  margin-left: 50em;
+  margin-top: -19em;
+  width: 30em;
+ }
+ .ladu2{
+  float: left;
+  margin-left: 50em;
+  margin-top: -19em;
+  width: 30em;
  }
  .third-heading{
   font-size: 3em;
@@ -227,22 +267,31 @@ content::after {
 @media screen and (max-width: 590px) {
   .container{
     margin-top: 5em;
-    width: 100em;
+    max-width: 170em;
   }
+  .first-heading{
+  font-size: 4em;
+ }
+ .second-heading{
+  font-size: 3em;
+ }
   .ladu{
-    width: 27em;
-    margin-top: -18em;
+    width: 35em;
+    margin-top: -20em;
   }
   .ladu2{
-    width: 25em;
+    width: 35em;
     margin-top: -20em;
-    margin-left: 45em;
+    /* margin-left: 45em; */
   }
 }
 @media screen and (max-width: 490px) {
   .container{
     height: 400px;
     width: 100em;
+  }
+  .heading{
+    margin-left: 1em;
   }
   .second-heading{
     font-size: 3em;

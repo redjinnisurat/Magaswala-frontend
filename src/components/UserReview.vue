@@ -1,5 +1,5 @@
 <template>
-    <h5 class="user">User Reviews</h5>
+    <h5 class="heading">User Reviews</h5>
     <br>
     <div
     ref="carousel"
@@ -49,14 +49,14 @@
                 <p>- Rahul Vishnani</p>
                 <p>Surat</p>
             </div>
-            <!-- <div class="col review6" id="review">
+             <div class="col review6" id="review">
                 <img id="profile" src="@/assets/profilecopy.png"><br>
                 <br>
                 <p>"Those sweets were beautifully handcrafted with, so much detail, and the taste was simple heavenly"</p>
                 <p>- Rahul Vishnani</p>
                 <p>Surat</p>
-            </div>
-            <div class="col review7" id="review">
+            </div> 
+          <!--  <div class="col review7" id="review">
                 <img id="profile" src="@/assets/profilecopy.png"><br>
                 <br>
                 <p>"Those sweets were beautifully handcrafted with, so much detail, and the taste was simple heavenly"</p>
@@ -188,10 +188,10 @@ export default {
 .review1{
   width: 60em;
 }
-.user{
-  margin-left: 3.5em;
+.heading{
+  margin-left: 1.5em;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 #boxes{
   width: 160em;
@@ -242,7 +242,7 @@ export default {
   border-right: 2px solid #BF9742;
 }
 @media screen and (max-width: 990px) {
-  .user{
+  .heading{
     margin-left: 1em;
   }
   .carousel{
@@ -262,7 +262,7 @@ export default {
   }
 }
 @media screen and (max-width: 790px) {
-  .user{
+  .heading{
     margin-left: 2em;
   }
   #boxes{
@@ -288,8 +288,9 @@ export default {
 }
 
 @media screen and (max-width: 590px) {
-  .user{
+  .heading{
     margin-left: 6em;
+    font-size: 50px;
   }
   .carousel{
     height: 60em;
@@ -307,7 +308,7 @@ export default {
 }
 
 @media screen and (max-width: 490px) {
-  .user{
+  .heading{
     width: 10em;
     font-size: 3em;
     margin-left: 3em;

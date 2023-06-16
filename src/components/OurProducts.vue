@@ -134,7 +134,7 @@ export default {
   <style scoped>
   .heading {
     font-weight: bold;
-    margin-top: 3em;
+    /* margin-top: 3em; */
     margin-left: 3em;
   }
   .carousel {
@@ -222,15 +222,16 @@ export default {
 
   @media screen and (max-width: 990px) {
     .product-card {
-      width: 13em;
+      width: 14em;
       margin-right: 8em;
     }
     .heading {
+      font-size: 50px;
       margin-left: 1em;
       margin-top: 3em;
     }
     .carousel {
-      width: 100em;
+      width: 140em;
       margin-left: 1em;
     }
   }
