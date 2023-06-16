@@ -24,41 +24,79 @@
             >
            
      
-            <div class="col-md-6 border-right">
-                <div class="p-0 py-0">
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3 mt-4"
-                  >
-                    <h4 class="text-right profile">Help & Support</h4>
-                  </div>
-
-                  <form class="search-bar">
-                    <input type="text" placeholder="Search..." />
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                  </form>
-                  <div class="smenu">
-                    <ul id="nav" class="list">
-                   
-                     
-                    
-
-                      <li>
-                        <button onclick="location.href='./test'" type="button" class="item">
-                          <span>Shipping FAQs</span>
-                          <img src="../assets/for.svg" 
-                        />
-                          
+            <div class="row">
+                  <div class="col-md-5 border-right" style="margin-top: auto">
+                    <div class="p-3 py-5">
+                      <div
+                        class=""
+                        style="text-align: left; margin-top: -45px; margin-bottom: 30px"
+                      >
+                        <i class="mdi mdi-settings-outline"></i>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-md-12">
+                          <p
+                            style="
+                              text-align: left;
+                              font: normal normal 600 35px/45px Poppins;
+                              letter-spacing: 0px;
+                              color: #b1622a;
+                              opacity: 1;
+                            "
+                          >
+                            Term And<br />Conditions
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-md-12">
+                          <p
+                            style="
+                              text-align: left;
+                              font: normal normal normal 22px/24px Poppins;
+                              letter-spacing: 0px;
+                              color: #262626;
+                              opacity: 1;
+                            "
+                          >
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                            diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                            aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                            justo
+                          </p>
+                        </div>
+                      </div>
+                      <div class="" style="text-align: left">
+                        <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
+                        <button
+                          class="btn btn-primary"
+                          style="background-color: #bf9742; border: 0px"
+                          type="submit"
+                        >
+                          Learn More
                         </button>
-                      </li>
-                      <button type="button" class="item">
-                        <span>Payment FAQs</span>
-                        <img src="../assets/for.svg" />
-                      </button>
-                    </ul>
-                   
+                        <i class="mdi mdi-settings-outline"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 py-5">
+                      <div class="flex-shrink-0">
+                        <img
+                          src="../assets/term.png"
+                          alt="Generic placeholder image"
+                          class="img-fluid"
+                          style="
+                  width: 400px;
+  
+                  height: 400px;
+                  <!-- margin-top: 70px; -->
+                "
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
