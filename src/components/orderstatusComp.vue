@@ -23,7 +23,7 @@
               "
             >
            
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
             <div class="p-3 py-0">
                       <img
                         src="../assets/track.png"
@@ -39,11 +39,11 @@
                     </div>
              
      </div>
-     <div class="col-md-6 content">
+     <div class="col-md-6  content">
                   
                   <div class="container mt-5 mb-5">
                     <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-12 ">
                         <div class="col" style="text-align: initial">
                           <p class="text">
                             <b>Order details</b> <span class="order"></span>
@@ -53,7 +53,7 @@
                           </p>
                         </div>
                       </div>
-                      <div class="col-md-10">
+                      <div class="col-md-10 col-sm-7">
                         <div class="col">
                           <img
                             align="right"
