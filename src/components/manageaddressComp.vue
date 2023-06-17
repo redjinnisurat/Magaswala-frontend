@@ -64,7 +64,7 @@
         <div class="row " style="       margin-top: initial;">
             <div class="col-md-6">
                 <div class="" style="text-align: left">
-                    <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small>Add Address</small></a>
+                    <a href="./addaddress" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small>Add Address</small></a>
 
                     <i class="mdi mdi-settings-outline"></i>
                 </div>

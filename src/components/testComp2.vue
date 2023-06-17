@@ -23,80 +23,10 @@
               "
             >
            
+           
+
      
-            <div class="row">
-                  <div class="col-md-5 border-right" style="margin-top: auto">
-                    <div class="p-3 py-5">
-                      <div
-                        class=""
-                        style="text-align: left; margin-top: -45px; margin-bottom: 30px"
-                      >
-                        <i class="mdi mdi-settings-outline"></i>
-                      </div>
-                      <div class="row mt-2">
-                        <div class="col-md-12">
-                          <p
-                            style="
-                              text-align: left;
-                              font: normal normal 600 35px/45px Poppins;
-                              letter-spacing: 0px;
-                              color: #b1622a;
-                              opacity: 1;
-                            "
-                          >
-                            Term And<br />Conditions
-                          </p>
-                        </div>
-                      </div>
-                      <div class="row mt-2">
-                        <div class="col-md-12">
-                          <p
-                            style="
-                              text-align: left;
-                              font: normal normal normal 22px/24px Poppins;
-                              letter-spacing: 0px;
-                              color: #262626;
-                              opacity: 1;
-                            "
-                          >
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                            diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                            aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                            justo
-                          </p>
-                        </div>
-                      </div>
-                      <div class="" style="text-align: left">
-                        <!-- <a href="#" class="btn btn-outlined btn-black   address" data-wow-delay="0.7s"><img src="../assets/plus.svg"> <small></small></a> -->
-                        <button
-                          class="btn btn-primary"
-                          style="background-color: #bf9742; border: 0px"
-                          type="submit"
-                        >
-                          Learn More
-                        </button>
-                        <i class="mdi mdi-settings-outline"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="p-3 py-5">
-                      <div class="flex-shrink-0">
-                        <img
-                          src="../assets/term.png"
-                          alt="Generic placeholder image"
-                          class="img-fluid"
-                          style="
-                  width: 400px;
-  
-                  height: 400px;
-                  <!-- margin-top: 70px; -->
-                "
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            
             </div>
           </div>
         </div>
@@ -256,4 +186,101 @@ button img {
   opacity: 1;
   font-family: Poppins;
 }
+
+.bg {
+  background-color: #f8fdff;
+  padding: 2rem;
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+/* .container {
+  width: 670px;
+  margin-right: 100px;
+} */
+body {
+  background: rgb(231, 228, 235);
+}
+
+.fake-input {
+  position: relative;
+  width: 240px;
+}
+
+.fake-input input {
+  border: none;
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fake-input img {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #bf9742;
+}
+
+.back:hover {
+  color: #73272b;
+  cursor: pointer;
+}
+
+.labels {
+  font-size: 17px;
+}
+
+.add-experience:hover {
+  background: #bf9742;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px#BF9742;
+}
+
+.address {
+  text-align: initial;
+  font: normal normal bold 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: #262626;
+}
+
+.profile {
+  text-align: initial;
+  font: normal normal bold 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: #b1622a;
+}
+.form-control {
+  height: 40px;
+}
+.pen {
+  margin-top: -33px;
+  margin-right: 15px;
+  opacity: 0;
+  z-index: 1;
+
+  transition: opacity 0.5s ease;
+  position: relative;
+
+  cursor: pointer;
+}
+.map-container iframe {
+    left: 0;
+    top: 0;
+    width: 481px;
+    margin-top: 17px;
+    height: 244px;
+    position: absolute;
+}
+.pen {
+  opacity: 1;
+}
+
 </style>

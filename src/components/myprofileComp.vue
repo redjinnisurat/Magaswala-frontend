@@ -32,7 +32,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link side-nav-ele t" href="./payment" id="payment-method">
+                <a class="nav-link side-nav-ele t" href="#" id="payment-method">
                   <img class="img" src="../assets/side_changepassword.png" alt="" />
                   <p>Payment methods</p>
                 </a>
