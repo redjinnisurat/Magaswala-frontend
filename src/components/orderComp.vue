@@ -73,6 +73,7 @@
                                                 <span class="right"> 1 kg suger </span>
                                             </th>
                                             <th>
+                                                <a href="./orderstatus">
                                                 <button class="btn btn-primary" style="
                               background-color: #bf9742;
                               border: 0px;
@@ -80,7 +81,7 @@
                               float: none;
                             " type="submit">
                                                     track Order
-                                                </button>
+                                                </button></a>
                                             </th>
                                         </tr>
                                     </tbody>
