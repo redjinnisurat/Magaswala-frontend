@@ -19,7 +19,7 @@
         <a ><span class="nav-icon" id="bag-icon"></span>Bag</a>
       </li>
       <li :class="{active: activeLink === 'favorites'}" >
-        <a href="/orderstatus"><span class="nav-icon" id="fav-icon"></span>Favourites</a>
+        <a href="/payment"><span class="nav-icon" id="fav-icon"></span>Favourites</a>
       </li>
       <li :class="{active: activeLink === 'profile'}">
         <a href="./"><span class="nav-icon" id="profile-icon"></span>Profile</a>

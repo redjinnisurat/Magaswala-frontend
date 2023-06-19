@@ -21,7 +21,10 @@
                 src="../assets/card.png"
                 alt="paymrnt card"
                 class="img-fluid"
-                style="width: 259px; margin-left: -62px; margin-top: -70px; height: 259px"
+                style="    width: 309px;
+    margin-left: -62px;
+    margin-top: -45px;
+    height: 198px;"
               />
             </div>
           </div>
@@ -31,7 +34,7 @@
             <div class="row mt-2">
               <div class="col-md-1">
                 <label class="labels"></label>
-                <h4 style="color: red">I</h4>
+                <h4 style="color: rgb(149, 184, 52)">I</h4>
               </div>
               <div class="col-md-11">
                 <label class="labels"></label>
