@@ -1,10 +1,28 @@
 <template>
+    
   <NavComp />
+ 
   <div class="container">
+    
     <div class="row">
       <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
         <div id="mySidenav" class="sidenav" style="position: absolute">
-          <myprofileComp />
+      
+
+
+          <input type="checkbox" class="openSideMenu" id="openSideMenu">
+
+<label for="openSideMenu" class="sideIconToggle">
+  <div class="spinner diagonal part-1"></div>
+  <div class="spinner horizontal"></div>
+  <div class="spinner diagonal part-2"></div>
+</label>
+
+  <div id="sideMenu">
+  
+    <myprofileComp/>
+  </div>
+
         </div>
       </div>
 
@@ -24,7 +42,8 @@
                 <div class="p-0 py-0">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3 mt-4"
-                  >
+                  ><input type="checkbox" class="" id="openSideMenu" />
+ 
                     <h4 class="text-right profile">Reset Password</h4>
                   </div>
                   <div class="row mt-2">
@@ -93,22 +112,25 @@
                   Change Password
                 </button>
               </div>
+         
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+ 
 </template>
 
 <script>
-import myprofileComp from "./myprofileComp.vue";
+ import myprofileComp from './myprofileComp.vue';
 import NavComp from "./NavComp.vue";
 export default {
   name: "resetpassComp",
   components: {
     NavComp,
-    myprofileComp,
+    myprofileComp
+   
   },
 };
 </script>
@@ -206,5 +228,181 @@ body {
   color: #b1622a;
   opacity: 1;
   font-family: Poppins;
+}
+
+
+
+
+
+/* test style */
+
+
+
+
+
+.header {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: none;
+  background-color: black;
+  position: fixed;
+  height: 60px!important;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.main {
+  margin: 0 auto;
+  display: block;
+  height: 100%;
+  margin-top: 60px;
+}
+
+.mainInner {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.mainInner div {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 1.25px;
+}
+
+#sideMenu {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  margin-top: 60px;
+  transform: translateX(-250px);
+  transition: transform 250ms ease-in-out;
+
+  z-index: 1;
+  top:40px
+}
+
+.sideMenuInner {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid black;
+}
+
+.sideMenuInner li {
+  list-style: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.sideMenuInner li span {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.sideMenuInner li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input[type="checkbox"]:checked~#sideMenu {
+  transform: translateX(0);
+}
+
+input[type=checkbox] {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  display: none;
+}
+
+.sideIconToggle {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  top: 22px;
+  left: 15px;
+  height: 22px;
+  width: 22px;
+  background-color: #bf9742;
+}
+
+.spinner {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-top: 3px;
+}
+
+.diagonal.part-1 {
+  position: relative;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  float: left;
+}
+
+.diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-top: 3px;
+}
+
+input[type=checkbox]:checked~.sideIconToggle>.horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+input[type=checkbox]:checked~.sideIconToggle>.diagonal.part-1 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(135deg);
+  margin-top: 8px;
+}
+
+input[type=checkbox]:checked~.sideIconToggle>.diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(-135deg);
+  margin-top: -9px;
+}
+
+#sidenav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, .1);
+  cursor: pointer;
+  z-index: 1;
 }
 </style>

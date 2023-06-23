@@ -4,8 +4,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light sidebar-nav">
           <div class="smenu navbar-collapse" id="navbarNav">
             <ul class="navbar-nav flex-column" style="    height: 0px;">
-              <li class="nav-item">
-                <div class="user-details">
+              <li class="nav-item ">
+                <div class="user-details ">
                   <img src="../assets/useprofile.jpg" alt="" />
                   <h2>Zack Gonsalves</h2>
                   <p>ZackGonsalves@gmail.com</p>
