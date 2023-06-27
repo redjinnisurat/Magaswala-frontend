@@ -3,7 +3,7 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-4 col-sm-4 col-md-4" style=" height: 100%">
-              <div id="mySidenav" class="sidenav" style="  position: absolute;
+              <div id="mySidenav" class="sidenav  col-lg-4 col-sm-4 col-md-4" style="  position: absolute;
 ">
                   <myprofileComp />
               </div>

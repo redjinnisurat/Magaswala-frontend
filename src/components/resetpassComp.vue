@@ -5,7 +5,7 @@
   <div class="container">
     
     <div class="row">
-      <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
+      <!-- <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
         <div id="mySidenav" class="sidenav" style="position: absolute">
       
 
@@ -24,8 +24,13 @@
   </div>
 
         </div>
-      </div>
-
+      </div> -->
+      <div class="col-lg-4 col-sm-4 col-md-4" style=" height: 100%">
+              <div id="mySidenav" class="sidenav" style="  position: absolute;
+">
+                  <myprofileComp />
+              </div>
+          </div>
       <div class="col-lg-8 col-sm-8 col-md-8" style="height: 100%">
         <div class="col-md-6">
           <div id="item" class="container rounded bg-white mt-0 mb-0">
