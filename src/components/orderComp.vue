@@ -3,7 +3,7 @@
 <div class="container">
       <div class="row">
           <div class="col-lg-4 col-sm-4 col-md-4" style=" height: 100%">
-              <div id="mySidenav" class="sidenav" style="  position: absolute;
+              <div id="test" class="sidenav" style="  position: absolute;
 ">
                   <myprofileComp />
               </div>
@@ -221,6 +221,14 @@ export default {
 }
 .card {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+@media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
+#item {
+  width: 746px;
 }
 .card .card-header {
   font-weight: 500;

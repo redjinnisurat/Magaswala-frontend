@@ -5,33 +5,14 @@
   <div class="container">
     
     <div class="row">
-      <!-- <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
-        <div id="mySidenav" class="sidenav" style="position: absolute">
       
-
-
-          <input type="checkbox" class="openSideMenu" id="openSideMenu">
-
-<label for="openSideMenu" class="sideIconToggle">
-  <div class="spinner diagonal part-1"></div>
-  <div class="spinner horizontal"></div>
-  <div class="spinner diagonal part-2"></div>
-</label>
-
-  <div id="sideMenu">
-  
-    <myprofileComp/>
-  </div>
-
-        </div>
-      </div> -->
       <div class="col-lg-4 col-sm-4 col-md-4" style=" height: 100%">
-              <div id="mySidenav" class="sidenav" style="  position: absolute;
+              <div id="test" class="sidenav" style="  position: absolute;
 ">
                   <myprofileComp />
               </div>
           </div>
-      <div class="col-lg-8 col-sm-8 col-md-8" style="height: 100%">
+      <div class="col-lg-8 col-sm-4 col-md-4" style="height: 100%">
         <div class="col-md-6">
           <div id="item" class="container rounded bg-white mt-0 mb-0">
             <div
@@ -43,7 +24,7 @@
                 border-radius: 15px;
               "
             >
-              <div class="col-md-6 border-right">
+              <div class="col-md-6  border-right">
                 <div class="p-0 py-0">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3 mt-4"
@@ -142,6 +123,11 @@ export default {
 
 
 <style scoped>
+ @media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
 #item {
   width: 746px;
 }

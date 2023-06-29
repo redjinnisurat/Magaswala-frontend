@@ -1,11 +1,32 @@
 <template>
-   <NavComp/>
-   <div class="mainContainer">
-      <div class="sidebar">
-        <myprofileComp/>
-      </div>
-    <div class="container rounded bg-white mt-0 mb-0">
-      <div class="row bord">
+  
+  <NavComp />
+ 
+  <div class="container">
+    
+    <div class="row">
+      
+      <div class="col-lg-4 col-sm-4 col-md-4" style=" height: 100%">
+              <div id="test" class="sidenav" style="  position: absolute;
+">
+                  <myprofileComp />
+              </div>
+          </div>
+      <div class="col-lg-8 col-sm-8 col-md-8" style="height: 100%">
+        <div class="col-md-6">
+          <div id="item" class="container rounded bg-white mt-0 mb-0">
+            <div
+              class="row"
+              style="
+                border: #bf9742;
+                border-style: solid;
+                border-width: 2px;
+                border-radius: 15px;
+              "
+            >
+
+            <div class="container rounded bg-white mt-0 mb-0">
+      <div class="row ">
         <div class="d-flex justify-content-between align-items-center mb-0 mt-0">
           <h4 class="text-right profile">Payments Methods</h4>
         </div>
@@ -253,64 +274,49 @@
           <i class="mdi mdi-settings-outline"></i>
         </div>
       </div>
-    </div></div>
-  
-  
-  </template>
-  <script>
-  import myprofileComp from './myprofileComp.vue';
-import NavComp from './NavComp.vue';
-  export default {
-    name: "paymentComp",
-    components:{ NavComp, myprofileComp} 
-  };
-  </script>
-  <style scoped>
-  .bg {
-    background-color: #f8fdff;
-    padding: 2rem;
+    </div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</template>
+
+<script>
+ import myprofileComp from './myprofileComp.vue';
+import NavComp from "./NavComp.vue";
+export default {
+  name: "paymentComp",
+  components: {
+    NavComp,
+    myprofileComp
+   
+  },
+};
+</script>
+<style scoped>
+ @media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
+#item {
+  width: 746px;
+}
+#item {
+  width: 746px;
+}
+.profile1 {
+  text-align: initial;
+  font: normal normal bold 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: black;
+  margin-bottom: -104px;
+  margin-left: 60px;
 }
 
-.mainContainer {
-    display: grid;
-    grid-template-columns: 15% 85%;
-}
-.container{
-  width: 840px;
-  margin-right: 100px;
-  height: 658px;
-}
-  .ccontaine {
-    width: 100%;
-    height: 100%;
-  }
-  .card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-  }
-  .card-body {
-    margin-top: 80px;
-    /* margin-right: 70%; */
-  }
-  .card-title {
-    text-align: initial;
-  }
-  .profile1 {
-    text-align: initial;
-    font: normal normal bold 20px/30px Poppins;
-    letter-spacing: 0px;
-    color: black;
-    margin-bottom: -104px;
-    margin-left: 60px;
-  }
-  .bord{
-        border: solid 2px #BF9742;
-    border-radius: 15px;
-    }
-    .container{
-  width: 800px;
-  margin-right: 100px;
-  height: 580px;
-}
-  </style>
-  
+ 
+</style>

@@ -78,7 +78,15 @@
     };
     </script>
     
-    <style>
+    <style scoped>
+    @media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
+#item {
+  width: 746px;
+}
     body {
         background: rgb(99, 39, 120);
     }

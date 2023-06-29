@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
-        <div id="mySidenav" class="sidenav" style="position: absolute">
+        <div id="test" class="sidenav" style="position: absolute">
           <myprofileComp />
         </div>
       </div>
@@ -345,6 +345,14 @@ export default {
 </script>
 
 <style scoped>
+ @media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
+#item {
+  width: 746px;
+}
 #item {
   width: 746px;
 }

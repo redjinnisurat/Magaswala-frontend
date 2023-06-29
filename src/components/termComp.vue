@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
-        <div id="mySidenav" class="sidenav" style="position: absolute">
+        <div id="test" class="sidenav" style="position: absolute">
           <myprofileComp />
         </div>
       </div>
@@ -234,7 +234,14 @@ button img {
   border-radius: 0.35rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
+@media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
+#item {
+  width: 746px;
+}
 .form-control {
   background-color: #f9f9f9;
   background-clip: padding-box;

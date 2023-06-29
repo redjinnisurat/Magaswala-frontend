@@ -3,7 +3,7 @@
      <div class="container">
     <div class="row">
       <div class="col-lg-4 col-sm-4 col-md-4" style="height: 100%">
-        <div id="mySidenav" class="sidenav" style="position: absolute">
+        <div id="test" class="sidenav" style="position: absolute">
           <myprofileComp />
         </div>
       </div>
@@ -193,6 +193,14 @@ body {
 .form-control:focus {
     box-shadow: none;
     border-color: #ba68c8;
+}
+@media (max-width: 1026px) {
+        #test {
+            display: none;
+        }
+    }
+#item {
+  width: 746px;
 }
 .bord{
     border: solid 2px #BF9742;
