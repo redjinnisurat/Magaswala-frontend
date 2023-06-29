@@ -1,6 +1,5 @@
 <template>
 <div class="main-container">
-    <img class="main-img" src="../assets/backgoundimg.png" alt="">
     <div class="row1">
         <div class="text">
             <div class="row ">
@@ -8,11 +7,11 @@
                     <h2 class="welcome-heading">create an account</h2>
                     <p class="p-1">please enter credentials for sign in</p>
                     <form @submit.prevent="signup()">
-                        <input class="email" type="text" placeholder="enter your full name" id="email1" v-model="name">
+                        <input class="email form-control" type="text" placeholder="enter your full name" id="email1" v-model="name">
                         <br>
-                        <input class="password1" type="text" placeholder="email" v-model="email">
+                        <input class="password1 form-control" type="text" placeholder="email" v-model="email">
                         <br>
-                        <input class="password1" type="password" placeholder="password" v-model="password">
+                        <input class="password1 form-control" type="password" placeholder="password" v-model="password">
                         <br>
                         <!-- <input class="password1" type="number" placeholder="phoneno" v-model="phoneno"> -->
                         <br>
@@ -30,7 +29,10 @@
     </div>
 
     <div class="col-lg-6" id="rigth-side">
-        <h2 class="heading-magaswala">magaswala</h2>
+        <figure class="image-container">
+            <img src="../assets/backgoundimg.png" alt="Background Image" class="background-image">
+            <figcaption class="heading-magaswala">magaswala</figcaption>
+        </figure>
     </div>
 </div>
 </template>
@@ -55,20 +57,20 @@ export default {
                 name: this.name,
                 email: this.email,
                 password: this.password,
-                user_type:'0'
+                user_type: '0'
                 // phoneno: this.phoneno
             };
 
             axios.post(endpoint, payload)
                 .then(response => {
-                    console.log(response.data) 
-                   
+                    console.log(response.data)
+
                 })
                 .catch(error => {
                     console.log(error.message);
-                    
+
                 });
-            
+
         },
     }
 
@@ -77,7 +79,7 @@ export default {
 
 <style>
 .password1 {
-    margin-top: 5%;
+    /* margin-top: 5%; */
     width: 100%;
     height: 40px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -94,12 +96,12 @@ export default {
 }
 
 #email1 {
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 #submit-btn1 {
     width: 100%;
-    margin-top: 10%;
+    /* margin-top: 10%; */
 }
 
 @media screen and (min-width: 320px) and (max-width: 999.98px) {

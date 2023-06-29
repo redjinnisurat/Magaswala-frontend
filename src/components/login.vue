@@ -1,6 +1,5 @@
 <template>
 <div class="main-container">
-    <img class="main-img" src="../assets/backgoundimg.png" alt="">
     <div class="row1">
         <div class="text">
             <div class="row">
@@ -9,7 +8,7 @@
                     <p class="p-1">please enter credentials for sign in</p>
                     <form @submit.prevent="login()">
                         <input class="email form-control" type="text" placeholder="email" v-model="email">
-                        <input class="password" :type="showPassword ? 'text' : 'password'" placeholder="password" v-model="password" autocomplete="current-password">
+                        <input class="password  form-control" :type="showPassword ? 'text' : 'password'" placeholder="password" v-model="password" autocomplete="current-password">
                         <img id="eye" v-show="!showPassword" src="../assets/Icon-eye.svg" v-on:click="togglePassword1()">
                         <img id="eye" v-show="showPassword" src="../assets/eye-open.svg" v-on:click="togglePassword1()" style="width:10%">
                         <div class="col-lg-6" id="p-3">
@@ -28,21 +27,25 @@
                         </p>
                     </form>
                     <!-- <button class="btn btn-primary submit-btn" type="button" id="submit-btn">Sign In</button>
-                                    <br>
-                                    <button class="btn btn-light login-btn1" type="button">
-                                        <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png" alt=""> Login with Google
-                                    </button>
-                                    <br>
-                                    <p class="p-2">Don't have an account? <router-link to="/signup" custom v-slot="{navigate}"><span @click="navigate" role="link">Sign up now</span></router-link>
-                                    </p> -->
+                                        <br>
+                                        <button class="btn btn-light login-btn1" type="button">
+                                            <img class="btn-img" src="../assets/icons8-google-48-removebg-preview@2x.png" alt=""> Login with Google
+                                        </button>
+                                        <br>
+                                        <p class="p-2">Don't have an account? <router-link to="/signup" custom v-slot="{navigate}"><span @click="navigate" role="link">Sign up now</span></router-link>
+                                        </p> -->
                 </div>
             </div>
         </div>
-        <div class="col-lg-6" id="rigth-side">
-            <h2 class="heading-magaswala">magaswala</h2>
-        </div>
-
     </div>
+
+    <div class="col-lg-6" id="rigth-side1">
+        <figure class="image-container">
+            <img src="../assets/backgoundimg.png" alt="Background Image" class="background-image">
+            <figcaption class="heading-magaswala">magaswala</figcaption>
+        </figure>
+    </div>
+
 </div>
 </template>
 
@@ -56,7 +59,8 @@ export default {
         return {
             showPassword: false,
             email: "",
-            password: ""
+            password: "",
+            wrongPassword: false,
         }
     },
     methods: {
@@ -69,11 +73,13 @@ export default {
 
             axios.post(endpoint, payload)
                 .then(response => {
-                    console.log(response.data) // Display the API response in the console
+                    console.log(response.data)
+                    // Display the API response in the console
                     // Handle the response data here
                 })
                 .catch(error => {
                     console.log(error.message);
+
                     // Handle the error here
                 });
         },
@@ -82,7 +88,7 @@ export default {
         }
 
     }
-    
+
 }
 </script>
 
@@ -123,12 +129,12 @@ export default {
 }
 
 /* #togglePassword {
-            margin-left: 83%;
-            transform: translateY(-50%);
-            margin-top: -6%;
-            cursor: pointer;
-            color: #BF9742;
-        } */
+                margin-left: 83%;
+                transform: translateY(-50%);
+                margin-top: -6%;
+                cursor: pointer;
+                color: #BF9742;
+            } */
 
 #eye {
     width: 10%;
@@ -183,23 +189,19 @@ export default {
 }
 
 /* .heading-magaswala {
-            position: absolute;
-            text-align: center;
-            top: 50%;
-            left: 65%;
-            color: white;
-            font-size: 4rem;
-            font-family: 'Courgette', 'cursive';
-            font-weight: normal;
-            letter-spacing: 0px;
-            color: #FFFFFF;
-            opacity: 1;
-            text-transform: capitalize;
-        }  */
-
-#right-side {
-    position: relative;
-}
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                left: 65%;
+                color: white;
+                font-size: 4rem;
+                font-family: 'Courgette', 'cursive';
+                font-weight: normal;
+                letter-spacing: 0px;
+                color: #FFFFFF;
+                opacity: 1;
+                text-transform: capitalize;
+            }  */
 
 @media screen and (min-width: 1200px) and (max-width: 1399.98px) {}
 

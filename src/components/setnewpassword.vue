@@ -1,18 +1,19 @@
 <template>
 <div class="main-container">
-    <img class="main-img" src="../assets/backgoundimg.png" alt="">
     <div class="row1">
         <div class="text">
             <div class="row">
                 <div class="col-lg-12" id="second-col">
                     <h2>Set New Password</h2>
                     <p class="p-1">Please enter new password</p>
-                    <input class="email" type="text" placeholder="password">
+                    <input class="email form-control" type="password" placeholder="old password">
                     <br>
-                    <input class="email" type="text" placeholder=" confirm password">
+                    <input class="email form-control" type="password" placeholder=" new password">
                     <br>
-                    <router-link to="/login" custom v-slot="{navigate}">
-                        <button class="submit-btn" @click="navigate" role="link" type="btn">submit</button>
+                    <input class="email form-control" type="password" placeholder=" confirm password">
+                    <br>
+                    <router-link :to="{path: '/login'}" custom v-slot="{navigate}">
+                        <button class="submit-btn" @click="navigate, changepassword()" role="link" type="btn">submit</button>
                     </router-link>
 
                 </div>
@@ -20,14 +21,49 @@
         </div>
     </div>
     <div class="col-lg-6 " id="right-side">
-        <h2 class="heading-magaswala" id="heading-magaswala">Magaswala</h2>
+        <figure class="image-container">
+            <img src="../assets/backgoundimg.png" alt="Background Image" class="background-image">
+            <figcaption class="heading-magaswala">magaswala</figcaption>
+        </figure>
     </div>
 </div>
 </template>
 
 <script>
+import axios from "../axios"
 export default {
-    name: "setnewpassword"
+    name: "setnewpassword",
+    data() {
+        return {
+            oldpassword: "",
+            newpassword: "",
+            confirmpassword: ""
+        }
+    },
+    methods: {
+        changepassword() {
+            const endpoint = '/changepassword'; // Replace with your login API endpoint
+            const payload = {
+                oldpassword: this.oldpassword,
+                newpassword: this.newpassword,
+                confirmpassword: this.confirmpassword,
+
+            };
+
+            axios.post(endpoint, payload)
+                .then(response => {
+                    console.log(response.data),
+                        this.$router.push('/login');
+
+                })
+                .catch(error => {
+                    console.log(error.message);
+                    // Handle the error here
+                });
+
+        }
+
+    }
 }
 </script>
 

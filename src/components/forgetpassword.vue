@@ -1,38 +1,75 @@
 <template>
 <div class="main-container">
-    <img class="main-img" src="../assets/backgoundimg.png" alt="">
     <div class="row1">
         <div class="text">
             <div class="row">
                 <div class="col-lg-12" id="second-col">
-                    <h2>forgot password no problem !!</h2>
-                    <p>please enter email id for verification</p>
-                    <input class="email form-control" type="text" placeholder="email">
-                    <br>
-                    <router-link to="/verification" custom v-slot="{navigate}">
-                        <button class="submit-btn " type="button" @click="navigate" role="link">submit</button>
-                    </router-link>
-                    <br>
-                    <router-link to="/login" custom v-slot="{navigate}">
-                        <button class="btn" type="button" @click="navigate" role="link">back to sign in</button>
-                    </router-link>
-
+                    <form>
+                        <h2>forgot password no problem !!</h2>
+                        <p>please enter email id for verification</p>
+                        <input class="email form-control" type="text" placeholder="email" v-model="email">
+                        <br>
+                        <!-- <router-link to="/verification" custom v-slot="{navigate}">
+                            <button class="submit-btn " type="button" @click="navigate, forgetpassword()" role="link">submit</button>
+                        </router-link> -->
+                        <router-link :to="{ path: '/verification', query: { email: email } }" custom v-slot="{ navigate }">
+                            <button class="submit-btn" type="button" @click="navigate, forgetpassword()" role="link">submit</button>
+                        </router-link>
+                        <br>
+                        <router-link to="/login" custom v-slot="{navigate}">
+                            <button class="btn" type="button" @click="navigate" role="link">back to sign in</button>
+                        </router-link>
+                    </form>
                 </div>
             </div>
 
         </div>
     </div>
     <div class="col-lg-6" id="rigth-side">
-        <h2 class="heading-magaswala">magaswala</h2>
+        <figure class="image-container">
+            <img src="../assets/backgoundimg.png" alt="Background Image" class="background-image">
+            <figcaption class="heading-magaswala">magaswala</figcaption>
+
+        </figure>
     </div>
 
 </div>
 </template>
 
 <script>
+import axios from '../axios';
+
 export default {
-    name: 'forgetpassword'
-}
+    name: 'forgetpassword',
+    data() {
+        return {
+            email: '',
+        };
+    },
+    methods: {
+        forgetpassword() {
+            const email = this.email;
+
+            const endpoint = '/ForgetPassword';
+            const payload = {
+                email: email,
+            };
+
+            axios
+                .post(endpoint, payload)
+                .then(response => {
+                    console.log('Email:', email);
+                    console.log('API Response:', response.data);
+                    this.$router.push({ path: '/verification', query: { email: email } });
+
+                })
+                .catch(error => {
+                    console.log('Error:', error.message);
+                    // Handle the error here
+                });
+        },
+    },
+};
 </script>
 
 <style>
@@ -51,7 +88,7 @@ export default {
 }
 
 .main-container {
-    width: 90%;
+    width: 100%;
     height: 100vh;
     display: flex;
     background: #F9F9F9;
@@ -63,17 +100,17 @@ export default {
 
 }
 
-.main-img {
-    background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
-    opacity: 1;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-}
+/* .main-img {
+        background: transparent linear-gradient(180deg, #000000 0%, #0000001F 55%, #000000D1 100%) 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        opacity: 1;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+    } */
 
 .text {
     width: 100%;
@@ -158,7 +195,7 @@ p {
 }
 
 .btn {
-    margin-top: -2%;
+    margin-top: 5%;
     border-radius: 10px;
     text-align: center;
     text-transform: capitalize;
@@ -174,15 +211,31 @@ p {
     position: absolute;
     text-align: center;
     top: 50%;
-    left: 65%;
+    left: 30%;
     color: white;
-    font-size: 2.4rem;
+    font-size: 3rem;
     font-family: 'Courgette', 'cursive';
     font-weight: normal;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
     text-transform: capitalize;
+}
+
+.image-container {
+    margin: 15px;
+    position: relative;
+    width: 98.5%;
+    height: 99%;
+
+}
+
+.background-image {
+    object-fit: cover;
+    margin-top: -1%;
+    margin-left: 2%;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width: 1400px) and (max-width: 1699.98px) {
@@ -193,15 +246,17 @@ p {
     }
 
     .heading-magaswala {
-        font-size: 2.4rem;
+        font-size: 3rem;
+        left: 40%;
+        text-align: center;
     }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
     /* .heading-magaswala {
-        left: 0;
-        margin-left: 10%;
-    } */
+            left: 0;
+            margin-left: 10%;
+        } */
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {}
@@ -211,7 +266,7 @@ p {
         width: 95%;
     }
 
-    .main-img {
+    .background-image {
         display: none;
     }
 
@@ -219,18 +274,22 @@ p {
         display: none;
     }
 
+    .text {
+        margin-left: 5%;
+        margin-top: 4%;
+    }
 }
 
 /* @media screen and (min-width: 576px) and (max-width: 767.98px) {}
 
-@media screen and (min-width: 425px) and (max-width: 575.98px) {} */
+    @media screen and (min-width: 425px) and (max-width: 575.98px) {} */
 
 @media screen and (min-width: 320px) and (max-width: 999.98px) {
     .row1 {
         width: 95%;
     }
 
-    .main-img {
+    .background-image {
         display: none;
     }
 
@@ -242,6 +301,10 @@ p {
         font-size: 1rem;
     }
 
+    .text {
+        margin-left: 5%;
+        margin-top: 4%;
+    }
 }
 
 @media screen and (max-width: 280px) {
@@ -249,7 +312,7 @@ p {
         width: 95%;
     }
 
-    .main-img {
+    .background-image {
         display: none;
     }
 

@@ -3,6 +3,8 @@ import forgetpassword from './components/forgetpassword.vue'
 import login from './components/login.vue'
 import signup from './components/signup.vue'
 import verification from './components/verification.vue'
+import Home from './components/home.vue';
+import navbar from './components/navbar.vue'
 
 
 
@@ -41,6 +43,17 @@ const routes = [
         component: verification,
         path: '/verification'
     },
+    {
+        name: 'navbar',
+        path: '/navba',
+        component: navbar
+    },
+    {
+        name: 'Home',
+        path: '/home',
+        component: Home
+    },
+
 
 ]
 
