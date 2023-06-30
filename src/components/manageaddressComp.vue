@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="p-3 py-0">
+            <div class="p-3" style="    padding-top: 102px;">
 
                 <!--Google map-->
                 <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 370px">
