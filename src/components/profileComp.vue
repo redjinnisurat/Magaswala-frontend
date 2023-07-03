@@ -1,7 +1,7 @@
 <template>
   <NavComp />
   <div class="container">
-      <div class="row">
+      <div class="row   ">
           <div class="col-lg-4 col-sm-4 col-md-4" style=" height: 100%">
               <div id="test" class="sidenav  col-lg-4 col-sm-4 col-md-4" style="  position: absolute;
 ">
@@ -31,13 +31,13 @@
                                   </div>
   
                                   <div class="row">
-                                      <div class="col-md-6">
+                                      <div class="col-md-6 col-sm-6">
                                           <div class="" style="text-align: left">
                                               <label class="labels">Name</label>
                                           </div>
                                           <input type="text" class="form-control" placeholder="first name" value="" />
                                       </div>
-                                      <div class="col-md-6">
+                                      <div class="col-md-6 col-sm-">
                                           <label class="labels"></label><input type="text" class="form-control" style="" value="" placeholder="surname" />
                                       </div>
                                   </div>

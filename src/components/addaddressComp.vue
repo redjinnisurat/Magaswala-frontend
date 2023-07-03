@@ -450,9 +450,9 @@ body {
   cursor: pointer;
 }
 .map-container iframe {
-    left: 0;
-    top: 0;
-    width: 481px;
+  left: 845px;
+    top: 235px;
+    width: 358px;
     margin-top: 17px;
     height: 244px;
     position: absolute;
