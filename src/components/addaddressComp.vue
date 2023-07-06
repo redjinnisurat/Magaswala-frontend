@@ -447,7 +447,7 @@ body {
   transition: opacity 0.5s ease;
   position: relative;
 
-  cursor: pointer;
+  cursor:pointer;
 }
 .map-container iframe {
   left: 845px;
