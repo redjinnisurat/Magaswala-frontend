@@ -1,8 +1,6 @@
 <template>
-  <div style="font-size: 4rem;">
-    <b-icon icon="bar-chart-fill"></b-icon>
-    <b-icon icon="bar-chart-fill" flip-h></b-icon>
-    <b-icon icon="bar-chart-fill" flip-v></b-icon>
-    <b-icon icon="bar-chart-fill" flip-h flip-v></b-icon>
-  </div>
+
+div.row>div.col-md-6*2
+
 </template>
+
