@@ -26,31 +26,32 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-  padding: 5rem 2.6rem;
+  padding: 5rem 4.6rem;
 }
 
 .heroContent h1 {
-  font-size: 4.2rem;
+  font-size: 5.2rem;
   margin: 2rem 0;
   font-weight: 600;
   color: var(--heading-color);
 }
 
 .heroSec h3 {
-  font-size: 3.2rem;
+  font-size: 4.2rem;
   font-weight: 400;
   margin: 2rem 0;
   color: var(--heading-color);
 }
 
 .heroSec h4 {
-  font-size: 2.8rem;
+  font-size: 3.8rem;
   font-weight: 300;
   margin: 2rem 0;
   color: var(--heading-color);
 }
 
 .heroSec button {
+  font-size: 2.2rem;
   border: none;
   border-radius: 0.6rem;
   background-color: var(--primary-color);
@@ -62,7 +63,7 @@ export default {
 }
 
 .heroImage img {
-  max-width: 48rem;
+  max-width: 54rem;
 }
 
 @media only screen and (max-width: 576px) {
