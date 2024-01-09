@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700;800;900&display=swap" rel="stylesheet">
+  <title>Magaswala - Find your desire</title>
+  <style>
+    :root {
+      --background-color: #f9f9f9;
+      --primary-color: #a17a35;
+      --btn-font-color: #ffffff;
+      --nav-color: #f9f9f9;
+      --price-font-color: #ecc456;
+      --border-color: #b47e3b;
+      --heading-color: #be7c4e;
+      --trash-icon-color: #cfbb98;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      margin: 0 auto;
+      background-color: var(--background-color);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    @media only screen and (max-width: 576px) {
+      html {
+        font-size: 50%;
+      }
+    }
+
+
+    @media only screen and (min-width: 577px) and (max-width: 768px) {
+      html {
+        font-size: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 993px) and (max-width: 1200px) {
+      html {
+        font-size: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 1201px) and (max-width: 1400px) {
+      html {
+        font-size: 60%;
+      }
+    }
+
+    /* @media only screen and (min-width: 1401px) {
+      html {
+        font-size: 80%;
+      }
+    } */
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script src="https://kit.fontawesome.com/7492a389e9.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
