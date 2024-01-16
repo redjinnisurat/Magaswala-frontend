@@ -2,36 +2,38 @@
   <div>
     <h3 class="fs-1 fw-semibold mt-3 ms-3 mb-0 heading">Track Order</h3>
   </div>
-  <div class="w-100 d-flex align-items-center">
+  <div class="w-100 d-flex align-items-center track-content">
     <div class="w-50 d-flex align-items-center justify-content-center">
       <img class="w-100 ms-5" src="./assets/track_img.jpg" alt="Image" />
     </div>
-    <div class="ms-5 ps-5 h-100" style="width: 40%">
-      <h3 class="fs-3 mb-0">Order Details</h3>
-      <hr class="mb-1 mt-1" style="width: 75%" />
-      <h3 class="fs-3 mb-0">Order No.: #124578</h3>
-      <div class="w-100 mt-0 d-flex align-items-center">
-        <div class="w-25">
-          <h3 class="fw-bold mb-0">Magas</h3>
-          <h4 class="text-muted mb-0">1Kg</h4>
+    <div class="ms-5 ps-5 h-100 track-data" style="width: 40%">
+      <div class="item-div">
+        <h3 class="fs-3 mb-0">Order Details</h3>
+        <hr class="mb-1 mt-1" style="width: 75%" />
+        <h3 class="fs-3 mb-0">Order No.: #124578</h3>
+        <div class="w-100 mt-0 d-flex align-items-center">
+          <div class="w-25">
+            <h3 class="fw-bold mb-0">Magas</h3>
+            <h4 class="text-muted mb-0">1Kg</h4>
+          </div>
+          <div class="w-50 ms-5">
+            <img class="w-75" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+          </div>
         </div>
-        <div class="w-50 ms-5">
-          <img class="w-75" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+        <div class="w-100 d-flex align-items-center mt-2">
+          <div class="w-25">
+            <h4 class="text-muted mb-0">Rating</h4>
+          </div>
+          <div class="w-50 ms-5 ps-5">
+            <i class="fa-regular fa-star me-1 fs-5 icon"></i>
+            <i class="fa-regular fa-star me-1 fs-5 icon"></i>
+            <i class="fa-regular fa-star me-1 fs-5 icon"></i>
+            <i class="fa-regular fa-star me-1 fs-5 icon"></i>
+            <i class="fa-regular fa-star me-1 fs-5 icon"></i>
+          </div>
         </div>
       </div>
-      <div class="w-100 d-flex align-items-center mt-2">
-        <div class="w-25">
-          <h4 class="text-muted mb-0">Rating</h4>
-        </div>
-        <div class="w-50 ms-5 ps-5">
-          <i class="fa-regular fa-star me-1 fs-5 icon"></i>
-          <i class="fa-regular fa-star me-1 fs-5 icon"></i>
-          <i class="fa-regular fa-star me-1 fs-5 icon"></i>
-          <i class="fa-regular fa-star me-1 fs-5 icon"></i>
-          <i class="fa-regular fa-star me-1 fs-5 icon"></i>
-        </div>
-      </div>
-      <div class="mt-3">
+      <div class="mt-3 trackitem-line">
         <h3 class="fs-1 mb-4">Track Order</h3>
         <div class="w-100 d-flex align-items-center track-container">
           <div class="tracking-container" style="width: 10%">
@@ -144,5 +146,74 @@ export default {
 
 .color-grey {
   background-color: grey;
+}
+
+@media only screen and (max-width: 576px) {
+  .track-content {
+    flex-direction: column;
+  }
+
+  .track-data {
+    width: 90% !important;
+    display: flex;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .item-div {
+    margin-top: 5rem;
+  }
+
+  .trackitem-line {
+    width: 80% !important;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .track-content {
+    flex-direction: column;
+  }
+
+  .track-data {
+    width: 90% !important;
+    display: flex;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .item-div {
+    margin-top: 5rem;
+  }
+
+  .trackitem-line {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .track-content {
+    flex-direction: column;
+  }
+
+  .track-data {
+    width: 90% !important;
+    display: flex;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .item-div {
+    margin-top: 5rem;
+  }
+
+  .trackitem-line {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
 }
 </style>

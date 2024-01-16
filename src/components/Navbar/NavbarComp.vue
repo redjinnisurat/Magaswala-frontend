@@ -2,7 +2,7 @@
   <section class="navbar_comp">
     <div class="logo">Magaswala</div>
     <div class="inputContainer">
-      <input type="text" placeholder="Search for food products.." />
+      <input type="text" placeholder="Search for food products" />
       <button type="button">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
@@ -69,7 +69,7 @@
         <p>Favorites</p>
       </div>
     </router-link>
-    <router-link to="/profilePage">
+    <router-link to="/profilePage/userData">
       <div class="iconItem-panel" id="profileIcon-panel">
         <i class="fa-solid fa-user"></i>
         <p>Profile</p>
@@ -136,6 +136,7 @@ export default {
 
 <style scoped>
 .navbar_comp {
+  z-index: 1000;
   background-color: var(--nav-color);
   padding: 1.8rem 2.6rem;
   display: flex;
@@ -144,7 +145,7 @@ export default {
 }
 
 .logo {
-  font-size: 3.8rem;
+  font-size: 4.8rem;
   margin-left: 0rem;
   font-weight: 900;
   color: var(--primary-color);
@@ -281,6 +282,7 @@ export default {
 .iconItem-panel p {
   font-size: 1.7rem;
   margin-top: 0.2rem;
+  margin-bottom: 0.3rem;
   color: var(--primary-color);
   opacity: 0.9;
 }
@@ -320,10 +322,6 @@ export default {
     margin-left: 0.2rem;
   }
 
-  .inputContainer {
-    display: none;
-  }
-
   #homeIcon,
   #blogIcon,
   #favoriteIcon,
@@ -337,6 +335,7 @@ export default {
   }
 
   .inputContainer {
+    width: 40%;
     display: inline-flex;
   }
 }
@@ -346,10 +345,6 @@ export default {
     margin-left: 0.2rem;
   }
 
-  .inputContainer {
-    display: none;
-  }
-
   #homeIcon,
   #blogIcon,
   #favoriteIcon,
@@ -363,6 +358,7 @@ export default {
   }
 
   .inputContainer {
+    width: 40%;
     display: inline-flex;
   }
 }

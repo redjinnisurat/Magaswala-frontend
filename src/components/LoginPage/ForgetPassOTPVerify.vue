@@ -15,7 +15,7 @@
         </form>
         <div class="resend_sec">
           <p>Didn't receive code ?</p>
-          <router-link to="#">Resend</router-link>
+          <router-link to="#" v-on:click="resend()">Resend</router-link>
         </div>
       </div>
     </div>
@@ -28,24 +28,23 @@
 </template>
 
 <script>
-import axios from "@/axios";
 import { useRoute } from "vue-router";
 
 export default {
-  name: "VerifyEmailPage",
+  name: "ForgetPassOTPVerify",
   data() {
     return {
       otp: "",
       error_otp: "",
+      id: "",
       email: "",
+      old_otp: null,
+      resend_flag: false,
+      timer: "",
     };
   },
-  mounted() {
-    const route = useRoute();
-    this.email = route.params.email;
-    // console.log("After Mounted: " + route.params.email);
-  },
   methods: {
+    resend() {},
     async submit() {
       if (this.otp === "") {
         this.error_otp = "Required field !!";
@@ -55,34 +54,33 @@ export default {
 
       if (this.otp !== "") {
         this.error_otp = "";
-
-        const response = await axios
-          .post(`emailverify?otp=${this.otp}&email=${this.email}`)
-          .catch((e) => e.response);
-        const result = response.data;
-        // console.log("Response: " + JSON.stringify(result));
-        // console.log("Response: " + result.data.id);
-
-        if (result.status === true) {
-          alert(result.message);
-          localStorage.setItem("token", result.data.token);
-          this.$router
-            .push({
-              name: "HomePage",
-            })
-            .then(() => {
-              this.$router.go();
-            });
+        if (this.old_otp == this.otp) {
+          this.$router.push({
+            name: "SetNewPassPage",
+            params: {
+              id: this.id,
+            },
+          });
         } else {
-          this.error_otp = result.message;
+          this.error_otp = "Invalid OTP!!";
         }
       }
     },
   },
+  mounted() {
+    const route = useRoute();
+    this.id = route.params.id;
+    this.email = route.params.email;
+    this.old_otp = route.params.otp;
+    // console.log("Before Mount: ");
+    // console.log(this.id);
+    // console.log(this.email);
+    // console.log(this.old_otp);
+  },
 };
 </script>
 
-<style>
+<style scoped>
 .verify-container {
   width: 100%;
   height: 100vh;

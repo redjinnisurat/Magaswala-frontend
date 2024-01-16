@@ -8,10 +8,10 @@
         ></i>
         <h3 class="fs-1 fw-semibold mt-3 ms-4 heading">Office Address</h3>
       </div>
-      <div class="w-100 mt-5 ms-3">
+      <div class="w-100 mt-5 ms-3 content-div">
         <h3 class="fs-2 fw-semibold">Address</h3>
-        <div class="w-100 d-flex mt-3">
-          <div class="w-50">
+        <div class="w-100 d-flex align-items-center mt-3 data-div">
+          <div class="w-50 input-div">
             <input
               class="fs-4 input"
               type="text"
@@ -59,13 +59,15 @@
               style="width: 90%"
             />
           </div>
-          <div class="w-50 pe-4">
+          <div
+            class="w-50 pe-4 d-flex align-items-center justify-content-center img-div"
+          >
             <img class="w-100" src="./assets/address_img1.jpg" alt="Image" />
           </div>
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end h-50 pb-5 me-5">
+    <div class="d-flex justify-content-end h-50 pb-5 me-5 btn-div">
       <button class="fs-3 address-btn mt-auto" type="button">
         Save Changes
       </button>
@@ -114,5 +116,70 @@ export default {
   color: var(--btn-font-color);
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .content-div {
+    margin-left: 3rem !important;
+  }
+
+  .data-div {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+
+  .input-div {
+    width: 80% !important;
+  }
+
+  .img-div {
+    width: 80% !important;
+  }
+
+  .btn-div {
+    justify-content: center !important;
+    margin-top: 2.8rem;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .content-div {
+    margin-left: 3rem !important;
+  }
+
+  .data-div {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+
+  .input-div {
+    width: 80% !important;
+  }
+
+  .img-div {
+    width: 80% !important;
+  }
+
+  .btn-div {
+    justify-content: center !important;
+    margin-top: 2.8rem;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .img-div {
+    width: 50% !important;
+  }
+
+  .btn-div {
+    height: 22rem !important;
+    margin-top: 2.8rem;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
 }
 </style>

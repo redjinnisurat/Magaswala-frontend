@@ -15,7 +15,7 @@
           <h3 class="border-3 border-start ps-1 border-color fw-bold mb-4">
             Cards
           </h3>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center card-item-div">
             <img
               class="img shadow"
               src="./assets/master_card_img.png"
@@ -41,7 +41,7 @@
           <h3 class="border-3 border-start ps-1 border-color fw-bold mb-4">
             UPI
           </h3>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center upi-item-div">
             <img
               class="img shadow"
               src="./assets/paytm_img.jpg"
@@ -50,7 +50,7 @@
             <h3 class="w-25 ms-2 mb-0 fs-4 fw-semibold">Paytm UPI</h3>
             <i class="fa-regular fa-circle-right fs-2 icon ms-4"></i>
           </div>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center upi-item-div">
             <img
               class="img shadow"
               src="./assets/gpay_img.jpeg"
@@ -59,7 +59,7 @@
             <h3 class="w-25 ms-2 mb-0 fs-4 fw-semibold">Google UPI</h3>
             <i class="fa-regular fa-circle-right fs-2 icon ms-4"></i>
           </div>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center upi-item-div">
             <img
               class="img shadow"
               src="./assets/phonepay_img.jpg"
@@ -68,7 +68,7 @@
             <h3 class="w-25 ms-2 mb-0 fs-4 fw-semibold">Phone Pay</h3>
             <i class="fa-regular fa-circle-right fs-2 icon ms-4"></i>
           </div>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center upi-item-div">
             <img
               class="img shadow"
               src="./assets/bhim_upi_img.jpeg"
@@ -95,7 +95,7 @@
           <h3 class="border-3 border-start ps-1 border-color fw-bold mb-4">
             Net Banking
           </h3>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center bank-item-div">
             <img
               class="img shadow"
               src="./assets/sbi_img.png"
@@ -104,7 +104,7 @@
             <h3 class="w-25 ms-2 mb-0 fs-4 fw-semibold">State Bank Of India</h3>
             <i class="fa-regular fa-circle-right fs-2 icon ms-4"></i>
           </div>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center bank-item-div">
             <img
               class="img shadow"
               src="./assets/bob_img.png"
@@ -113,7 +113,7 @@
             <h3 class="w-25 ms-2 mb-0 fs-4 fw-semibold">Bank of Baroda</h3>
             <i class="fa-regular fa-circle-right fs-2 icon ms-4"></i>
           </div>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center bank-item-div">
             <img
               class="img shadow"
               src="./assets/kotak_img.png"
@@ -122,7 +122,7 @@
             <h3 class="w-25 ms-2 mb-0 fs-4 fw-semibold">Kotak Bank</h3>
             <i class="fa-regular fa-circle-right fs-2 icon ms-4"></i>
           </div>
-          <div class="d-flex mt-4 align-items-center">
+          <div class="d-flex mt-4 align-items-center bank-item-div">
             <img
               class="img shadow"
               src="./assets/axis_img.png"
@@ -172,5 +172,76 @@ export default {
 
 .p-size {
   font-size: 1rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .card-item-div h3 {
+  }
+
+  .upi-item-div h3 {
+    width: 40% !important;
+  }
+
+  .p-size {
+    width: 60% !important;
+  }
+
+  .bank-item-div h3 {
+    width: 40% !important;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .card-item-div h3 {
+  }
+
+  .upi-item-div h3 {
+    width: 30% !important;
+  }
+
+  .p-size {
+    width: 50% !important;
+  }
+
+  .bank-item-div h3 {
+    width: 30% !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .card-item-div h3 {
+  }
+
+  .upi-item-div h3 {
+    width: 30% !important;
+  }
+
+  .p-size {
+    width: 50% !important;
+  }
+
+  .bank-item-div h3 {
+    width: 30% !important;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .card-item-div h3 {
+  }
+
+  .upi-item-div h3 {
+    width: 30% !important;
+  }
+
+  .p-size {
+    width: 50% !important;
+  }
+
+  .bank-item-div h3 {
+    width: 30% !important;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
 }
 </style>

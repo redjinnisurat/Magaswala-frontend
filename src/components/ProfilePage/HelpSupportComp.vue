@@ -247,4 +247,40 @@ export default {
   height: 2rem;
   background-size: 2rem;
 }
+
+@media only screen and (max-width: 576px) {
+  .input-div {
+    width: 80% !important;
+  }
+
+  .accordion {
+    width: 80% !important;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .input-div {
+    width: 70% !important;
+  }
+
+  .accordion {
+    width: 70% !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .input-div {
+    width: 70% !important;
+  }
+
+  .accordion {
+    width: 70% !important;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+}
 </style>

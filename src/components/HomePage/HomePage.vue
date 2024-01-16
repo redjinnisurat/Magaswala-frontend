@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <HeroSection />
-  </div>
+  <HeroSection />
   <div>
     <section class="productSec">
       <h3>Our Products</h3>
