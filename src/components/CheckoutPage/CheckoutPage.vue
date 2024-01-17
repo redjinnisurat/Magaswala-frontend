@@ -6,37 +6,63 @@
       <div class="checkoutMethods">
         <div class="addressDiv">
           <h3>Shipping To</h3>
-          <div class="addressOption active">
-            <i class="fa-solid fa-pen-to-square"></i>
-            <label for="homeAddress"
-              >Home Address <br />
-              <span id="address">(269) 444-6893</span> <br />
-              <span>Road Number 5689 Akali</span>
-            </label>
-            <input
-              type="radio"
-              value="home"
-              id="homeAddress"
-              name="addressOption"
-            />
-          </div>
-          <div class="addressOption">
-            <label for="officeAddress"
-              >Office Address <br />
-              <span id="office">(269) 444-2568</span> <br />
-              <span>Road Number 2409 Blogshow</span>
-            </label>
-            <input
-              type="radio"
-              value="office"
-              id="officeAddress"
-              name="addressOption"
-            />
+          <div class="adddress-container">
+            <div
+              class="addressOption"
+              :class="{ active: active_add }"
+              v-for="address in addressArray"
+              :key="address.id"
+            >
+              <i
+                class="fa-solid fa-pen-to-square"
+                v-on:click="homeAdd(address)"
+              ></i>
+              <div class="d-flex align-items-center flex-row-reverse">
+                <label :for="address.id" v-if="address.address_type == 0"
+                  >Home Address <br />
+                  <span id="address">{{ address.phoneno }}</span> <br />
+                  <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                  ><br />
+                  <span
+                    >{{ address.city }}, {{ address.state }} -
+                    {{ address.pincode }}</span
+                  >
+                </label>
+                <label :for="address.id" v-if="address.address_type == 1"
+                  >Office Address <br />
+                  <span id="address">{{ address.phoneno }}</span> <br />
+                  <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                  ><br />
+                  <span
+                    >{{ address.city }}, {{ address.state }} -
+                    {{ address.pincode }}</span
+                  >
+                </label>
+                <label :for="address.id" v-if="address.address_type == 2"
+                  >Other Address <br />
+                  <span id="address">{{ address.phoneno }}</span> <br />
+                  <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                  ><br />
+                  <span
+                    >{{ address.city }}, {{ address.state }} -
+                    {{ address.pincode }}</span
+                  >
+                </label>
+                <input
+                  class="me-4"
+                  type="radio"
+                  :value="address.id"
+                  :id="address.id"
+                  name="addressOption"
+                  v-model="selected_add"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div class="paymentDiv">
           <h3 class="paymentHeading">Payment Options</h3>
-          <div class="paymentOption active">
+          <div class="paymentOption" :class="{ active: card_pay }">
             <img src="./assets/master_card_img.png" alt="img" />
             <label for="creditCard">Credit Card/Debit card</label>
             <input
@@ -44,9 +70,11 @@
               name="paymentOption"
               id="creditCard"
               value="creditCard"
+              v-model="payment_option"
+              v-on:change="changeOptions()"
             />
           </div>
-          <div class="paymentOption">
+          <div class="paymentOption" :class="{ active: apple_pay }">
             <img src="./assets/apple_pay_img.png" alt="img" />
             <label for="applePay">Apple Pay</label>
             <input
@@ -54,9 +82,11 @@
               name="paymentOption"
               id="applePay"
               value="applePay"
+              v-model="payment_option"
+              v-on:change="changeOptions()"
             />
           </div>
-          <div class="paymentOption">
+          <div class="paymentOption" :class="{ active: upi_pay }">
             <img src="./assets/bhim_upi_img.jpeg" alt="img" />
             <label for="bhimUpi">Bhim UPI</label>
             <input
@@ -64,9 +94,11 @@
               name="paymentOption"
               id="bhimUpi"
               value="bhimUpi"
+              v-model="payment_option"
+              v-on:change="changeOptions()"
             />
           </div>
-          <div class="paymentOption">
+          <div class="paymentOption" :class="{ active: cash_pay }">
             <img src="./assets/cash_delivery_img.png" alt="img" />
             <label for="cashOnDelivery">Payment On Delivery</label>
             <input
@@ -74,6 +106,8 @@
               name="paymentOption"
               id="cashOnDelivery"
               value="cashOnDelivery"
+              v-model="payment_option"
+              v-on:change="changeOptions()"
             />
           </div>
         </div>
@@ -81,14 +115,14 @@
       <div class="checkOutContent1">
         <h3>Promo Code</h3>
         <div class="chekOut_input">
-          <input type="text" placeholder="Promo code.." />
+          <input type="text" placeholder="Promo code" v-model="promo_code" />
           <button>Apply</button>
         </div>
         <div class="chekOutDetails">
           <h3>Order Summary</h3>
           <div class="itemDetails">
             <p>Items:</p>
-            <p>Rs.875</p>
+            <p>Rs.{{ total_amount }}</p>
           </div>
           <div class="itemDetails">
             <p>CGST:</p>
@@ -101,7 +135,7 @@
           <hr />
           <div class="itemDetails">
             <p>Total:</p>
-            <p>Rs.915</p>
+            <p>Rs.{{ total_amount + 20 + 20 }}</p>
           </div>
           <div class="itemDetails">
             <p>Delivery:</p>
@@ -110,7 +144,7 @@
           <hr />
           <div class="itemDetails">
             <p>Total:</p>
-            <p>Rs.960</p>
+            <p>Rs.{{ total_amount + 20 + 20 + 45 }}</p>
           </div>
           <hr />
           <button type="button" v-on:click="done()">Proceed to checkout</button>
@@ -126,19 +160,87 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import { useRoute } from "vue-router";
 import ProductsComp from "../HomePage/ProductsComp.vue";
 
 export default {
   name: "CheckoutPage",
+  data() {
+    return {
+      active_add: true,
+      selected_add: null,
+      card_pay: false,
+      apple_pay: false,
+      upi_pay: false,
+      cash_pay: false,
+      payment_option: null,
+      promo_code: null,
+      total_amount: null,
+    };
+  },
   components: {
     ProductsComp,
   },
+  computed: {
+    addressArray() {
+      return this.$store.getters.allAddress;
+    },
+  },
   methods: {
+    homeAdd(data) {
+      const addData = JSON.stringify(data);
+      this.$router.push({
+        name: "HomeAddressComp",
+        params: {
+          address: addData,
+        },
+      });
+    },
+    ...mapActions(["getAllAddress"]),
+    changeOptions() {
+      if (this.payment_option == "creditCard") {
+        this.card_pay = true;
+        this.apple_pay = false;
+        this.upi_pay = false;
+        this.cash_pay = false;
+      } else if (this.payment_option == "applePay") {
+        this.card_pay = false;
+        this.apple_pay = true;
+        this.upi_pay = false;
+        this.cash_pay = false;
+      } else if (this.payment_option == "bhimUpi") {
+        this.card_pay = false;
+        this.apple_pay = false;
+        this.upi_pay = true;
+        this.cash_pay = false;
+      } else if (this.payment_option == "cashOnDelivery") {
+        this.card_pay = false;
+        this.apple_pay = false;
+        this.upi_pay = false;
+        this.cash_pay = true;
+      } else {
+        this.card_pay = false;
+        this.apple_pay = false;
+        this.upi_pay = false;
+        this.cash_pay = false;
+      }
+    },
     done() {
       this.$router.push({
         name: "CompletePage",
       });
     },
+  },
+  beforeMount() {
+    this.getAllAddress();
+
+    const route = useRoute();
+    if (route.params.total != undefined) {
+      this.total_amount = Number(route.params.total);
+    } else {
+      this.total_amount = 0;
+    }
   },
 };
 </script>
@@ -153,7 +255,7 @@ export default {
 }
 
 .chekoutSec h2 {
-  font-size: 2.3rem;
+  font-size: 2.6rem;
   font-weight: 600;
   margin-left: 1.8rem;
   margin-bottom: 0.6rem;
@@ -161,7 +263,7 @@ export default {
 }
 
 .chekoutSec h3 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 400;
   margin-bottom: 2.6rem;
 }
@@ -190,13 +292,26 @@ export default {
   background-color: var(--border-color);
 }
 
+.addressDiv {
+  width: 75%;
+}
+
+.adddress-container {
+  height: 25.5rem;
+  overflow-y: auto;
+}
+
+.adddress-container::-webkit-scrollbar {
+  display: none;
+}
+
 .addressOption {
-  max-width: 28rem;
+  width: 70%;
   display: flex;
   gap: 0.8rem;
   align-items: center;
   flex-direction: row-reverse;
-  justify-content: flex-end;
+  justify-content: space-between;
   border: 0.1rem solid transparent;
   border-radius: 0.4rem;
   padding: 0.8rem 2rem;
@@ -204,23 +319,31 @@ export default {
 }
 
 .addressOption i {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 400;
-  margin-left: 4rem;
   color: var(--border-color);
 }
 
 .addressOption label {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
+  font-weight: 600;
 }
 
 .addressOption span {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 100;
 }
 
+.addressOption #address {
+  font-size: 1.6rem;
+}
+
+.paymentDiv {
+  width: 75%;
+}
+
 .paymentOption {
-  max-width: 30rem;
+  width: 65%;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -235,7 +358,7 @@ export default {
 }
 
 .paymentOption label {
-  width: 80%;
+  width: 90%;
   font-size: 1.5rem;
   font-weight: 400;
 }
@@ -297,7 +420,7 @@ export default {
 }
 
 .chekOutDetails h3 {
-  font-size: 1.9rem;
+  font-size: 2.4rem;
   font-weight: 400;
   text-align: center;
   padding-bottom: 0.8rem;
@@ -313,7 +436,7 @@ export default {
 }
 
 .itemDetails p {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
 }

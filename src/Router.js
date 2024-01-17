@@ -7,6 +7,7 @@ import CompletePage from "./components/Completepage/CompletePage.vue";
 import ProfilePage from "./components/ProfilePage/ProfilePage.vue";
 import LoginPage from "./components/LoginPage/LoginPage.vue";
 import ForgetPassPage from "./components/LoginPage/ForgetPassPage.vue";
+import ForgetPassOTPVerify from "./components/LoginPage/ForgetPassOTPVerify.vue";
 import SetNewPassPage from "./components/LoginPage/SetNewPassPage.vue";
 import VerifyEmailPage from "./components/LoginPage/VerifyEmailPage.vue";
 import SignUpPage from "./components/SignUpPage/SignUpPage.vue";
@@ -18,7 +19,7 @@ import ResetPasswordComp from "./components/ProfilePage/ResetPasswordComp.vue";
 import PaymentMethodsComp from "./components/ProfilePage/PaymentMethodsComp.vue";
 import AddressComp from "./components/ProfilePage/AddressComp.vue";
 import HomeAddressComp from "./components/ProfilePage/HomeAddressComp.vue";
-import OfficeAddressComp from "./components/ProfilePage/OfficeAddressComp.vue";
+// import OfficeAddressComp from "./components/ProfilePage/OfficeAddressComp.vue";
 import AddAddressComp from "./components/ProfilePage/AddAddressComp.vue";
 import HelpSupportComp from "./components/ProfilePage/HelpSupportComp.vue";
 import TermsCondComp from "./components/ProfilePage/TermsCondComp.vue";
@@ -64,7 +65,7 @@ const routes = [
       },
       {
         name: "TrackOrderComp",
-        path: "/profilePage/trackOrder",
+        path: "/profilePage/orders/trackOrder",
         component: TrackOrderComp,
       },
       {
@@ -82,17 +83,12 @@ const routes = [
       },
       {
         name: "HomeAddressComp",
-        path: "/profilePage/homeAddress",
+        path: "/profilePage/manageAddress/homeAddress",
         component: HomeAddressComp,
       },
       {
-        name: "OfficeAddressComp",
-        path: "/profilePage/officeAddress",
-        component: OfficeAddressComp,
-      },
-      {
         name: "AddAddressComp",
-        path: "/profilePage/addAddress",
+        path: "/profilePage/manageAddress/addAddress",
         component: AddAddressComp,
       },
       {
@@ -114,6 +110,11 @@ const routes = [
     name: "ForgetPassPage",
     path: "/forgetPassword",
     component: ForgetPassPage,
+  },
+  {
+    name: "ForgetPassOTPVerify",
+    path: "/forgetPassOtpVerify",
+    component: ForgetPassOTPVerify,
   },
   {
     name: "SetNewPassPage",

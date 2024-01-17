@@ -3,7 +3,11 @@
     <div v-for="(product, index) in allProducts" :key="index">
       <div class="productItem">
         <div class="productImg">
-          <img src="./assets/ladoo_img_1.jpeg" alt="ladoo" />
+          <img
+            :src="product.image ? product.image : defaulImage"
+            class="rounded-4"
+            alt="ladoo"
+          />
         </div>
         <div class="productContent">
           <p>{{ product.name }}</p>
@@ -24,7 +28,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ProductsComp",
   data() {
-    return {};
+    return { defaulImage: require("./assets/ladoo_img_1.jpeg") };
   },
   computed: {
     ...mapGetters(["allProducts"]),
@@ -69,12 +73,16 @@ export default {
 
 .productImg {
   width: 100%;
-  height: fit-content;
+  height: 24rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 1rem;
   background-color: var(--border-color);
+}
+
+.productImg img {
+  width: 26rem;
 }
 
 .productContent {

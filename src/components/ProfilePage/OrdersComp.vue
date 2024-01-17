@@ -27,7 +27,7 @@
           class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
           style="width: 20%"
         >
-          <img style="width: 80%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
         </div>
         <div class="" style="width: 45%">
           <h3 class="fs-4 fw-semibold item-color mb-3">
@@ -42,8 +42,8 @@
             <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
           </div>
         </div>
-        <div class="ms-5" style="width: 20%">
-          <button class="fs-3 order-btn" type="button">Order again</button>
+        <div class="ms-5 btn-div" style="width: 20%">
+          <button class="fs-4 order-btn" type="button">Order again</button>
         </div>
       </div>
       <div class="w-100 mt-3 mb-3 d-flex align-items-center">
@@ -51,7 +51,7 @@
           class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
           style="width: 20%"
         >
-          <img style="width: 80%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
         </div>
         <div class="" style="width: 45%">
           <h3 class="fs-4 fw-semibold item-color mb-3">
@@ -66,8 +66,8 @@
             <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
           </div>
         </div>
-        <div class="ms-5" style="width: 20%">
-          <button class="fs-3 order-btn" type="button">Order again</button>
+        <div class="ms-5 btn-div" style="width: 20%">
+          <button class="fs-4 order-btn" type="button">Order again</button>
         </div>
       </div>
       <div class="w-25 mt-5 mb-2 d-flex justify-content-center order-date">
@@ -78,7 +78,7 @@
           class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
           style="width: 20%"
         >
-          <img style="width: 80%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
         </div>
         <div class="" style="width: 45%">
           <h3 class="fs-4 fw-semibold item-color mb-3">
@@ -93,8 +93,8 @@
             <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
           </div>
         </div>
-        <div class="ms-5" style="width: 20%">
-          <button class="fs-3 order-btn" type="button">Order again</button>
+        <div class="ms-5 btn-div" style="width: 20%">
+          <button class="fs-4 order-btn" type="button">Order again</button>
         </div>
       </div>
       <div class="w-100 mt-3 mb-3 d-flex align-items-center">
@@ -102,7 +102,7 @@
           class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
           style="width: 20%"
         >
-          <img style="width: 80%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
         </div>
         <div class="" style="width: 45%">
           <h3 class="fs-4 fw-semibold item-color mb-3">
@@ -117,8 +117,8 @@
             <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
           </div>
         </div>
-        <div class="ms-5" style="width: 20%">
-          <button class="fs-3 order-btn" type="button">Order again</button>
+        <div class="ms-5 btn-div" style="width: 20%">
+          <button class="fs-4 order-btn" type="button">Order again</button>
         </div>
       </div>
       <div class="w-100 mt-3 mb-3 d-flex align-items-center">
@@ -126,7 +126,7 @@
           class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
           style="width: 20%"
         >
-          <img style="width: 80%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
         </div>
         <div class="" style="width: 45%">
           <h3 class="fs-4 fw-semibold item-color mb-3">
@@ -141,8 +141,8 @@
             <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
           </div>
         </div>
-        <div class="ms-5" style="width: 20%">
-          <button class="fs-3 order-btn" type="button">Order again</button>
+        <div class="ms-5 btn-div" style="width: 20%">
+          <button class="fs-4 order-btn" type="button">Order again</button>
         </div>
       </div>
     </div>
@@ -234,5 +234,74 @@ export default {
   color: var(--btn-font-color);
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .select-days {
+    width: 30% !important;
+    padding: 0.6rem 1.6rem !important;
+    font-size: 1.2rem !important;
+    margin-right: 0rem !important;
+  }
+
+  .order-date {
+    width: 40% !important;
+  }
+
+  .order-date p {
+    font-size: 1.3rem !important;
+  }
+
+  .btn-div {
+    width: 40% !important;
+  }
+
+  .order-btn {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .select-days {
+    width: 30% !important;
+    padding: 0.6rem 1.6rem !important;
+    font-size: 1.6rem !important;
+    margin-right: 0rem !important;
+  }
+
+  .order-date p {
+    font-size: 1.3rem !important;
+  }
+
+  .order-btn {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .select-days {
+    width: 30% !important;
+    padding: 0.6rem 1.6rem !important;
+    font-size: 1.3rem !important;
+    margin-right: 0rem !important;
+  }
+
+  .order-date {
+    width: 40% !important;
+  }
+
+  .order-date p {
+    font-size: 1.3rem !important;
+  }
+
+  .order-btn {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
 }
 </style>

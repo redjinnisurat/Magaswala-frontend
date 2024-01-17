@@ -10,41 +10,44 @@
         <div class="nameDiv_item">
           <input
             type="text"
-            placeholder="Zack"
+            placeholder="First Name"
             id="name"
             :readonly="edit_flag"
+            v-model="form_data.f_name"
           />
           <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
         </div>
         <div class="nameDiv_item" id="nameDiv_1">
           <input
             type="text"
-            placeholder="Gonsalves"
+            placeholder="Last Name"
             id="name"
             :readonly="edit_flag"
+            v-model="form_data.l_name"
           />
           <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
         </div>
       </div>
     </div>
     <div class="secondDiv">
-      <div>
+      <div class="mobile-input">
         <label for="mobile">Mobile Number</label>
         <div class="mobileDiv">
           <div class="numDiv">
             <input
               type="text"
-              placeholder="+91"
               id="mobile"
               :readonly="edit_flag"
+              v-model="phone_code"
             />
           </div>
           <div class="numDiv2">
             <input
               type="text"
-              placeholder="9955442266"
+              placeholder="Phone No"
               id="mobile"
               :readonly="edit_flag"
+              v-model="form_data.phoneno"
             />
             <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
           </div>
@@ -53,8 +56,13 @@
       <div>
         <label for="gender">Gender</label>
         <div class="selectDiv">
-          <select name="gender" id="gender" :disabled="edit_flag">
-            <option value="not selected">Select Gender</option>
+          <select
+            name="gender"
+            id="gender"
+            v-model="form_data.gender"
+            :disabled="edit_flag"
+          >
+            <option disabled value="null">Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
@@ -67,20 +75,42 @@
           <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
         </div>
         <div class="datetDiv">
-          <input type="date" :readonly="edit_flag" />
+          <input
+            type="date"
+            :readonly="edit_flag"
+            v-model="form_data.birth_date"
+          />
         </div>
       </div>
     </div>
     <div class="thirdDiv">
-      <label for="email">Email-Id</label>
-      <div class="emailDiv">
-        <input
-          type="email"
-          placeholder="zack@test.com"
-          id="email"
-          :readonly="edit_flag"
-        />
-        <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+      <div class="w-50 mb-3 thirdDiv-1">
+        <label for="email">Email-Id</label>
+        <div class="emailDiv">
+          <input
+            type="email"
+            placeholder="Email-Id"
+            id="email"
+            :readonly="edit_flag"
+            v-model="form_data.email_id"
+          />
+          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+        </div>
+      </div>
+      <div class="w-50 ms-5 thirdDiv-2">
+        <div class="w-50 d-flex align-items-center justify-content-between">
+          <label for="profile">Profile Image</label>
+          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+        </div>
+        <div class="profileDiv">
+          <input
+            type="file"
+            id="profile"
+            accept="image/*"
+            :disabled="edit_flag"
+            v-on:change="imgUpload"
+          />
+        </div>
       </div>
     </div>
     <div class="fourthDiv">
@@ -92,6 +122,7 @@
               type="text"
               placeholder="Flat No."
               id="address"
+              v-model="flat_no"
               :readonly="edit_flag"
             />
             <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
@@ -102,6 +133,7 @@
               placeholder="Bulding Name"
               id="address"
               :readonly="edit_flag"
+              v-model="bulding_name"
             />
             <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
           </div>
@@ -113,7 +145,58 @@
               placeholder="Nr. By Landmark"
               id="address"
               :readonly="edit_flag"
+              v-model="landmark"
             />
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+          <div class="add_7">
+            <select
+              name="country"
+              id="country"
+              v-model="form_data.country"
+              :disabled="edit_flag"
+              v-on:change="loadStates()"
+            >
+              <option disabled value="">Country</option>
+              <option
+                v-for="country in countries"
+                :key="country.id"
+                :value="country.id"
+              >
+                {{ country.name }}
+              </option>
+            </select>
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+        </div>
+        <div class="flexClass">
+          <div class="add_5">
+            <select
+              name="state"
+              id="state"
+              v-model="form_data.state"
+              v-on:change="loadCities()"
+              :disabled="edit_flag"
+            >
+              <option disabled value="null">State</option>
+              <option v-for="state in states" :key="state.id" :value="state.id">
+                {{ state.name }}
+              </option>
+            </select>
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+          <div class="add_6">
+            <select
+              name="city"
+              id="city"
+              v-model="form_data.city"
+              :disabled="edit_flag"
+            >
+              <option disabled value="null">City</option>
+              <option v-for="city in cities" :key="city.id" :value="city.id">
+                {{ city.name }}
+              </option>
+            </select>
             <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
           </div>
           <div class="add_4">
@@ -122,26 +205,7 @@
               placeholder="Pincode"
               id="address"
               :readonly="edit_flag"
-            />
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
-        </div>
-        <div class="flexClass">
-          <div class="add_5">
-            <input
-              type="text"
-              placeholder="State"
-              id="address"
-              :readonly="edit_flag"
-            />
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
-          <div class="add_6">
-            <input
-              type="text"
-              placeholder="Country"
-              id="address"
-              :readonly="edit_flag"
+              v-model="form_data.pin_code"
             />
             <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
           </div>
@@ -150,33 +214,240 @@
     </div>
     <div class="fifthDiv">
       <div class="addAddress">
-        <i class="fa-solid fa-plus" id="addAdd"></i>
-        <label for="addAdd">Add Address</label>
+        <i class="fa-solid fa-plus" id="addAdd" v-on:click="addAddress()"></i>
+        <label for="addAdd" v-on:click="addAddress()">Add Address</label>
       </div>
     </div>
     <div class="sixthDiv">
       <div class="saveBtn" :class="{ show_btn: edit_flag }">
-        <button>Save Chnages</button>
+        <button v-on:click="updateData()">Save Chnages</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "@/axios";
+import { mapActions } from "vuex";
+
 export default {
   name: "ProfileDataComp.vue",
   data() {
     return {
       edit_flag: true,
+      countries: [],
+      states: [],
+      cities: [],
+      flat_no: "",
+      bulding_name: "",
+      landmark: "",
+      phone_code: "+",
+      form_data: {
+        f_name: "",
+        l_name: "",
+        phoneno: "",
+        gender: null,
+        birth_date: "",
+        email_id: "",
+        address: "",
+        pin_code: "",
+        city: null,
+        state: null,
+        country: "101",
+        profile_img: null,
+      },
     };
   },
   methods: {
-    editData() {
-      this.edit_flag = !this.edit_flag;
-      if (this.edit_flag == true) {
-        // this.$refs.input.outline = "none";
+    ...mapActions(["getUser"]),
+    imgUpload(event) {
+      if (!this.edit_flag) {
+        this.form_data.profile_img = event.target.files[0];
+        // console.log("Image: ", this.form_data.profile_img);
       }
     },
+    async loadCountries() {
+      try {
+        let allCountries = [];
+        let shouldContinue = true;
+        let page = 1;
+
+        while (shouldContinue) {
+          const response = await axios.get(
+            `https://api.garbajockey.com/api/countries?page=${page}`
+          );
+          // console.log("Response:", response.data); // Log the response
+
+          const countries = response.data && response.data.data;
+
+          if (!countries || countries.length === 0) {
+            // No more countries to fetch, break the loop
+            shouldContinue = false;
+          } else {
+            allCountries = [...allCountries, ...countries];
+            page++;
+          }
+        }
+
+        this.countries = allCountries;
+        // console.log("All Countries:", this.countries); // Log the final list of countries
+      } catch (error) {
+        console.error("Error loading countries:", error);
+      }
+    },
+    async loadStates() {
+      try {
+        const response = await axios.get(
+          `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
+        );
+        this.states = response.data.data || []; // Update states array
+        // console.log("States = ", this.states);
+        // this.form_data.state = ""; // Reset state value
+        // this.gcData.gcCity = ""; // Reset city value
+        this.getPhoneCode();
+      } catch (error) {
+        console.error("Error loading states:", error);
+      }
+    },
+    async loadCities() {
+      try {
+        const response = await axios.get(
+          `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
+        );
+        this.cities = response.data.data || []; // Update cities array
+        // console.log("Cities = ", this.cities);
+        // this.gcData.gcCity = ""; // Reset city value
+      } catch (error) {
+        console.error("Error loading cities:", error);
+      }
+    },
+    async updateUser(data) {
+      try {
+        await axios.post(`updateprofile`, data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        // console.log("Response: ", response);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    setUserData(data) {
+      // console.log("Data: ", data);
+
+      let firstName = null;
+      let lastName = null;
+      let Number = null;
+      let phoneNo = null;
+      let date = null;
+      let newDate = null;
+      let flatNo = null;
+      let bulidingName = null;
+      let landMark = null;
+
+      if (data.name != null) {
+        const FullName = data.name.split(" ");
+        firstName = FullName[0].trim();
+        lastName = FullName[1].trim();
+      }
+
+      if (data.address != null) {
+        const fullAddress = data.address.split(",");
+        flatNo = fullAddress[0].trim();
+        bulidingName = fullAddress[1].trim();
+        landMark = fullAddress[2].trim();
+      }
+
+      if (data.phoneno != null) {
+        Number = data.phoneno.split(" ");
+        phoneNo = Number[1].trim();
+      }
+
+      if (data.birthdate != null) {
+        date = new Date(data.birthdate);
+        newDate = date.toISOString().split("T")[0];
+      }
+
+      this.form_data = {
+        f_name: firstName,
+        l_name: lastName,
+        phoneno: phoneNo,
+        gender: data.gender,
+        birth_date: newDate,
+        email_id: data.email,
+        pin_code: data.pincode,
+        city: data.city_id,
+        state: data.state_id,
+        country: data.country_id == null ? "101" : data.country_id,
+      };
+
+      this.flat_no = flatNo;
+      this.bulding_name = bulidingName;
+      this.landmark = landMark;
+    },
+    getPhoneCode() {
+      this.countries.forEach((item) => {
+        if (this.form_data.country == item.id) {
+          this.phone_code = "+" + item.phonecode;
+          return;
+        }
+      });
+    },
+    updateData() {
+      const name = this.form_data.f_name + " " + this.form_data.l_name;
+
+      this.form_data.address =
+        this.flat_no + ", " + this.bulding_name + ", " + this.landmark;
+
+      this.form_data.phoneno = this.phone_code + " " + this.form_data.phoneno;
+
+      const data = {
+        name: name,
+        email: this.form_data.email_id,
+        phoneno: this.form_data.phoneno,
+        address: this.form_data.address,
+        country_id: this.form_data.country,
+        state_id: this.form_data.state,
+        city_id: this.form_data.city,
+        pincode: this.form_data.pin_code,
+        birthdate: this.form_data.birth_date,
+        gender: this.form_data.gender,
+        profileimage: this.form_data.profile_img,
+      };
+
+      // console.log("Data: ", data);
+
+      this.updateUser(data);
+    },
+    addAddress() {
+      this.$router.push({
+        name: "AddAddressComp",
+      });
+    },
+    editData() {
+      this.edit_flag = !this.edit_flag;
+    },
+  },
+  computed: {
+    userData() {
+      return this.$store.getters.newUser;
+    },
+  },
+  watch: {
+    "form_data.country": "loadStates",
+    "form_data.state": "loadCities",
+  },
+  mounted() {
+    this.loadCountries().then(() => {
+      this.getPhoneCode();
+    });
+    this.loadStates();
+  },
+  beforeMount() {
+    this.getUser().then(() => {
+      this.setUserData(this.userData);
+    });
   },
 };
 </script>
@@ -194,13 +465,13 @@ export default {
 }
 
 .titleDiv h3 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 600;
   color: var(--heading-color);
 }
 
 .titleDiv i {
-  font-size: 1.7rem;
+  font-size: 2.3rem;
   font-weight: 400;
   cursor: pointer;
   color: var(--border-color);
@@ -242,7 +513,7 @@ select {
 }
 
 .nameDiv_item {
-  width: 50%;
+  width: 47%;
   padding: 0.6rem 1.4rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
@@ -269,6 +540,10 @@ select {
   margin-bottom: 1rem;
 }
 
+.mobile-input {
+  width: 47%;
+}
+
 .mobileDiv {
   width: 100%;
   display: flex;
@@ -277,18 +552,18 @@ select {
 }
 
 .numDiv {
-  width: 16%;
+  width: 18%;
 }
 
 .numDiv input {
   width: 100%;
-  padding: 0.6rem 0.8rem;
+  padding: 0.6rem 0.9rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
 }
 
 .numDiv2 {
-  width: 75%;
+  width: 100%;
   padding: 0.6rem 1.4rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
@@ -304,9 +579,15 @@ select {
 }
 
 .selectDiv select {
+  width: 12rem;
   padding: 0.6rem 0.8rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 
 .date_title {
@@ -332,18 +613,30 @@ select {
 }
 
 .thirdDiv {
+  width: 100%;
   margin-bottom: 1rem;
-}
-
-.emailDiv {
-  width: 48%;
-  padding: 0.6rem 1.4rem;
-  border-radius: 0.6rem;
-  border: 0.1rem solid var(--border-color);
-  margin-right: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.emailDiv {
+  width: 98%;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--border-color);
+  display: flex;
+  align-items: center;
+  margin-top: 0.6rem;
+  background-color: var(--background-color);
+}
+
+.profileDiv {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  border: 0.1rem solid transparent;
+  border-radius: 0.6rem;
   margin-top: 0.6rem;
   background-color: var(--background-color);
 }
@@ -405,7 +698,7 @@ select {
 }
 
 .add_3 {
-  width: 55%;
+  width: 50%;
   padding: 0.6rem 1.4rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
@@ -421,8 +714,30 @@ select {
   border: none;
 }
 
+.add_7 {
+  width: 40%;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--border-color);
+  margin-right: 1.8rem;
+  margin-bottom: 0.6rem;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+}
+
+.add_7 select {
+  width: 100%;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
 .add_4 {
-  width: 35%;
+  width: 26%;
   padding: 0.6rem 1.4rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
@@ -439,7 +754,7 @@ select {
 }
 
 .add_5 {
-  width: 40%;
+  width: 30%;
   padding: 0.6rem 1.4rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
@@ -450,13 +765,18 @@ select {
   align-items: center;
 }
 
-.add_5 input {
+.add_5 select {
   width: 100%;
   border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 
 .add_6 {
-  width: 50%;
+  width: 30%;
   padding: 0.6rem 1.4rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--border-color);
@@ -467,9 +787,14 @@ select {
   align-items: center;
 }
 
-.add_6 input {
+.add_6 select {
   width: 100%;
   border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 
 .fifthDiv {
@@ -484,12 +809,12 @@ select {
 }
 
 .addAddress i {
-  font-size: 1.8rem;
+  font-size: 2.6rem;
   cursor: pointer;
 }
 
 .addAddress label {
-  font-size: 1.7rem;
+  font-size: 2.1rem;
 }
 
 .sixthDiv {
@@ -504,12 +829,13 @@ select {
 }
 
 .saveBtn button {
+  font-size: 1.6rem;
   border: none;
   border-radius: 0.6rem;
   padding: 0.8rem 2.8rem;
   color: var(--btn-font-color);
   background-color: var(--primary-color);
-  margin-top: 2rem;
+  margin-top: 1rem;
   cursor: pointer;
 }
 
@@ -537,9 +863,35 @@ select {
     gap: 1rem;
   }
 
+  .mobile-input {
+    width: 100%;
+  }
+
+  .numDiv {
+    width: 20%;
+  }
+
   .numDiv2 {
     width: 100%;
     min-width: 0rem;
+  }
+
+  .thirdDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thirdDiv-1 {
+    width: 100% !important;
+  }
+
+  .thirdDiv-2 {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .profileDiv {
+    width: 100%;
   }
 
   .emailDiv {
@@ -564,13 +916,39 @@ select {
     gap: 1rem;
   }
 
+  .mobile-input {
+    width: 60%;
+  }
+
+  .numDiv {
+    width: 20%;
+  }
+
   .numDiv2 {
     width: 80%;
     min-width: 0rem;
   }
 
+  .thirdDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thirdDiv-1 {
+    width: 60% !important;
+  }
+
+  .thirdDiv-2 {
+    width: 60% !important;
+    margin-left: 0 !important;
+  }
+
+  .profileDiv {
+    width: 100%;
+  }
+
   .emailDiv {
-    width: 60%;
+    width: 100%;
   }
 
   .flexClass {
@@ -591,13 +969,39 @@ select {
     gap: 1rem;
   }
 
+  .mobile-input {
+    width: 60%;
+  }
+
+  .numDiv {
+    width: 20%;
+  }
+
   .numDiv2 {
     width: 80%;
     min-width: 0rem;
   }
 
+  .thirdDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thirdDiv-1 {
+    width: 60% !important;
+  }
+
+  .thirdDiv-2 {
+    width: 60% !important;
+    margin-left: 0 !important;
+  }
+
+  .profileDiv {
+    width: 100%;
+  }
+
   .emailDiv {
-    width: 60%;
+    width: 100%;
   }
 
   .flexClass {

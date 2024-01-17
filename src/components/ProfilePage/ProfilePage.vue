@@ -1,130 +1,89 @@
 <template>
   <section class="profileSec">
-    <div class="panelDiv">
-      <img src="./assets/user_img.png" alt="Image" />
-      <h3>Zack Gonsalves</h3>
-      <span>zack@test.com</span>
-      <div class="menuList">
-        <router-link to="/profilePage/userData">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/userData') }"
-          >
-            <i class="fa-solid fa-user"></i>
-            <p>Profile</p>
+    <div class="panel-bcg-div">
+      <div class="panel-bcg-img">
+        <img src="./assets/panel_bcg_img.png" alt="Image" />
+      </div>
+      <div class="panelDiv">
+        <div class="img-div ms-3">
+          <img
+            :src="user_profile ? user_profile : defaulImage"
+            class=""
+            alt="Image"
+          />
+        </div>
+        <h3>{{ user_name }}</h3>
+        <span>{{ user_email }}</span>
+        <div class="menuList">
+          <router-link to="/profilePage/userData">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/userData') }"
+            >
+              <i class="fa-solid fa-user"></i>
+              <p>Profile</p>
+            </div>
+          </router-link>
+          <router-link to="/profilePage/orders">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/orders') }"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <p>Orders</p>
+            </div>
+          </router-link>
+          <router-link to="/profilePage/resetPassword">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/resetPassword') }"
+            >
+              <i class="fa-solid fa-key"></i>
+              <p>Reset Password</p>
+            </div>
+          </router-link>
+          <router-link to="/profilePage/paymentMethods">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/paymentMethods') }"
+            >
+              <i class="fa-solid fa-wallet"></i>
+              <p>Payment Methods</p>
+            </div>
+          </router-link>
+          <router-link to="/profilePage/manageAddress">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/manageAddress') }"
+            >
+              <i class="fa-solid fa-address-card"></i>
+              <p>Manage Address</p>
+            </div>
+          </router-link>
+          <router-link to="/profilePage/helpSupport">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/helpSupport') }"
+            >
+              <i class="fa-solid fa-handshake-angle"></i>
+              <p>Help and Support</p>
+            </div>
+          </router-link>
+          <router-link to="/profilePage/termsCondition">
+            <div
+              class="menuItem"
+              :class="{ active: isActive('/profilePage/termsCondition') }"
+            >
+              <i class="fa-solid fa-file-lines"></i>
+              <p>Terms and Conditions</p>
+            </div>
+          </router-link>
+          <div class="menuItem">
+            <i class="fa-solid fa-right-from-bracket" v-on:click="logout()"></i>
+            <p v-on:click="logout()">Logout</p>
           </div>
-        </router-link>
-        <router-link to="/profilePage/orders">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/orders') }"
-          >
-            <i class="fa-solid fa-bag-shopping"></i>
-            <p>Orders</p>
-          </div>
-        </router-link>
-        <router-link to="/profilePage/resetPassword">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/resetPassword') }"
-          >
-            <i class="fa-solid fa-key"></i>
-            <p>Reset Password</p>
-          </div>
-        </router-link>
-        <router-link to="/profilePage/paymentMethods">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/paymentMethods') }"
-          >
-            <i class="fa-solid fa-wallet"></i>
-            <p>Payment Methods</p>
-          </div>
-        </router-link>
-        <router-link to="/profilePage/manageAddress">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/manageAddress') }"
-          >
-            <i class="fa-solid fa-address-card"></i>
-            <p>Manage Address</p>
-          </div>
-        </router-link>
-        <router-link to="/profilePage/helpSupport">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/helpSupport') }"
-          >
-            <i class="fa-solid fa-handshake-angle"></i>
-            <p>Help and Support</p>
-          </div>
-        </router-link>
-        <router-link to="/profilePage/termsCondition">
-          <div
-            class="menuItem"
-            :class="{ active: isActive('/profilePage/termsCondition') }"
-          >
-            <i class="fa-solid fa-file-lines"></i>
-            <p>Terms and Conditions</p>
-          </div>
-        </router-link>
-        <div class="menuItem">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          <p>Logout</p>
         </div>
       </div>
-      <!-- <div class="menuList_dropDwon">
-            <select>
-                <option>
-                    <div class="menuItem active">
-                        <i class="fa-solid fa-user"></i>
-                        <p>Profile</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <p>Orders</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-key"></i>
-                        <p>Reset Password</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-wallet"></i>
-                        <p>Payment Methods</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-address-card"></i>
-                        <p>Manage Address</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <p>Help and Support</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-file-lines"></i>
-                        <p>Terms and Conditions</p>
-                    </div>
-                </option>
-                <option>
-                    <div class="menuItem">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        <p>Logout</p>
-                    </div>
-                </option>
-            </select>
-        </div> -->
     </div>
     <div class="profileData">
       <router-view></router-view>
@@ -133,23 +92,57 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "ProfilePage",
   data() {
     return {
-      profile_flag: false,
-      order_flag: false,
-      reset_flag: false,
-      payment_flag: false,
-      add_flag: false,
-      help_flag: false,
-      terms_falg: false,
+      user_name: "",
+      user_email: "",
+      user_profile: "",
+      defaulImage: require("./assets/user_img.png"),
     };
   },
-  methods: {
-    isActive(route) {
-      return this.$route.path === route;
+  computed: {
+    userData() {
+      return this.$store.getters.newUser;
     },
+  },
+  watch: {
+    user_profile: "getUser",
+  },
+  methods: {
+    ...mapActions(["getUser"]),
+    isActive(route) {
+      const currentRoute = this.$route.path;
+      return currentRoute === route || currentRoute.startsWith(route + "/");
+    },
+    setUserData(data) {
+      this.user_name = data.name;
+      this.user_email = data.email;
+      this.user_profile = data.profileimage;
+      // console.log(this.user_profile);
+    },
+    logout() {
+      if (confirm("Are you sure ?\nYou want to Logout ?") === true) {
+        localStorage.removeItem("token");
+        this.$router
+          .push({
+            name: "LoginPage",
+          })
+          .then(() => {
+            this.$router.go();
+          });
+      }
+    },
+  },
+  beforeMount() {
+    this.getUser().then(() => {
+      this.setUserData(this.userData);
+    });
+    const path = this.$route.path;
+    this.isActive(path);
   },
 };
 </script>
@@ -161,29 +154,58 @@ export default {
   margin: 3rem 2rem;
 }
 
-.panelDiv {
-  width: 22%;
-  min-height: 62rem;
-  border: 0.1rem solid var(--border-color);
-  padding: 1.4rem 1.8rem;
-  border-radius: 0.6rem;
-  background-color: var(--btn-font-color);
+.panel-bcg-div {
+  width: 30%;
+  position: relative;
 }
 
-.panelDiv img {
-  width: 14rem;
-  margin: 1.8rem 3.6rem;
+.panel-bcg-img {
+  width: 100%;
+  z-index: 1;
+}
+
+.panel-bcg-img img {
+  width: 100%;
+  height: 66rem;
+}
+
+.panelDiv {
+  width: 100%;
+  min-height: 60rem;
+  padding: 1.4rem 1.8rem;
+  border-radius: 0.6rem;
+  background-color: transparent;
+  position: absolute; /* Set position to absolute */
+  top: 0px; /* Adjust the top position */
+  z-index: 2;
+  margin-left: 0.6rem;
+}
+
+.img-div {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 2.6rem auto;
+  overflow: hidden;
+}
+
+.img-div img {
+  width: 20rem;
+  height: 100%;
+  border-radius: 20%;
 }
 
 .panelDiv h3 {
-  font-size: 2.2rem;
-  font-weight: 500;
+  font-size: 2.6rem;
+  font-weight: 600;
   margin-bottom: 0.2rem;
 }
 
 .panelDiv span {
-  font-size: 1.4rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .menuList {
@@ -205,11 +227,11 @@ export default {
 }
 
 .menuItem i {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }
 
 .menuItem p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-left: 0.4rem;
   font-weight: 400;
   margin-bottom: 0;
@@ -220,9 +242,9 @@ export default {
 }
 
 .profileData {
-  width: 66%;
+  width: 73%;
   min-height: 62rem;
-  border: 0.1rem solid var(--border-color);
+  border: 0.2rem solid var(--border-color);
   padding: 1.4rem 1.8rem;
   border-radius: 0.6rem;
   margin-left: 3.1rem;
@@ -234,13 +256,31 @@ export default {
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
+    gap: 2rem;
+  }
+
+  .panel-bcg-div {
+    width: 90%;
+    min-height: 30rem;
+    background: none;
+    margin: 0 auto;
+    background-color: var(--btn-font-color);
+    border: 0.2rem solid var(--border-color);
+  }
+
+  .panel-bcg-img {
+    display: none;
   }
 
   .panelDiv {
-    width: 80%;
-    min-height: 32rem;
+    min-height: 30rem;
     margin: 2rem auto;
     text-align: center;
+    position: relative;
+  }
+
+  .img-div {
+    justify-content: center;
   }
 
   .panelDiv img {
@@ -277,17 +317,35 @@ export default {
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
+    gap: 2rem;
+  }
+
+  .panel-bcg-div {
+    width: 90%;
+    min-height: 30rem;
+    background: none;
+    margin: 0 auto;
+    background-color: var(--btn-font-color);
+    border: 0.2rem solid var(--border-color);
+  }
+
+  .panel-bcg-img {
+    display: none;
   }
 
   .panelDiv {
-    width: 80%;
-    min-height: 32rem;
+    min-height: 30rem;
     margin: 2rem auto;
     text-align: center;
+    position: relative;
+  }
+
+  .img-div {
+    justify-content: center;
   }
 
   .panelDiv img {
-    width: 14rem;
+    width: 18rem;
     margin: 1.8rem 1.6rem;
   }
 
@@ -320,17 +378,35 @@ export default {
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
+    gap: 2rem;
+  }
+
+  .panel-bcg-div {
+    width: 90%;
+    min-height: 30rem;
+    background: none;
+    margin: 0 auto;
+    background-color: var(--btn-font-color);
+    border: 0.2rem solid var(--border-color);
+  }
+
+  .panel-bcg-img {
+    display: none;
   }
 
   .panelDiv {
-    width: 80%;
-    min-height: 32rem;
+    min-height: 30rem;
     margin: 2rem auto;
     text-align: center;
+    position: relative;
+  }
+
+  .img-div {
+    justify-content: center;
   }
 
   .panelDiv img {
-    width: 14rem;
+    width: 18rem;
     margin: 1.8rem 1.6rem;
   }
 
