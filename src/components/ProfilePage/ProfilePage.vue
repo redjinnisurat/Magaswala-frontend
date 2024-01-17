@@ -188,10 +188,11 @@ export default {
   align-items: center;
   justify-content: flex-start;
   margin: 2.6rem auto;
+  overflow: hidden;
 }
 
 .img-div img {
-  width: 60%;
+  width: 20rem;
   height: 100%;
   border-radius: 20%;
 }
