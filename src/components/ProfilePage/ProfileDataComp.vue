@@ -33,14 +33,14 @@
       <div class="mobile-input">
         <label for="mobile">Mobile Number</label>
         <div class="mobileDiv">
-          <div class="numDiv">
+          <!-- <div class="numDiv">
             <input
               type="text"
               id="mobile"
               :readonly="edit_flag"
               v-model="phone_code"
             />
-          </div>
+          </div> -->
           <div class="numDiv2">
             <input
               type="text"
@@ -304,7 +304,7 @@ export default {
         // console.log("States = ", this.states);
         // this.form_data.state = ""; // Reset state value
         // this.gcData.gcCity = ""; // Reset city value
-        this.getPhoneCode();
+        // this.getPhoneCode();
       } catch (error) {
         console.error("Error loading states:", error);
       }
@@ -338,8 +338,8 @@ export default {
 
       let firstName = null;
       let lastName = null;
-      let Number = null;
-      let phoneNo = null;
+      // let Number = null;
+      // let phoneNo = null;
       let date = null;
       let newDate = null;
       let flatNo = null;
@@ -359,10 +359,10 @@ export default {
         landMark = fullAddress[2].trim();
       }
 
-      if (data.phoneno != null) {
-        Number = data.phoneno.split(" ");
-        phoneNo = Number[1].trim();
-      }
+      // if (data.phoneno != null) {
+      //   Number = data.phoneno.split(" ");
+      //   phoneNo = Number[1].trim();
+      // }
 
       if (data.birthdate != null) {
         date = new Date(data.birthdate);
@@ -372,7 +372,7 @@ export default {
       this.form_data = {
         f_name: firstName,
         l_name: lastName,
-        phoneno: phoneNo,
+        phoneno: data.phoneno,
         gender: data.gender,
         birth_date: newDate,
         email_id: data.email,
@@ -386,21 +386,21 @@ export default {
       this.bulding_name = bulidingName;
       this.landmark = landMark;
     },
-    getPhoneCode() {
-      this.countries.forEach((item) => {
-        if (this.form_data.country == item.id) {
-          this.phone_code = "+" + item.phonecode;
-          return;
-        }
-      });
-    },
+    // getPhoneCode() {
+    //   this.countries.forEach((item) => {
+    //     if (this.form_data.country == item.id) {
+    //       this.phone_code = "+" + item.phonecode;
+    //       return;
+    //     }
+    //   });
+    // },
     updateData() {
       const name = this.form_data.f_name + " " + this.form_data.l_name;
 
       this.form_data.address =
         this.flat_no + ", " + this.bulding_name + ", " + this.landmark;
 
-      this.form_data.phoneno = this.phone_code + " " + this.form_data.phoneno;
+      // this.form_data.phoneno = this.phone_code + " " + this.form_data.phoneno;
 
       const data = {
         name: name,
@@ -418,7 +418,9 @@ export default {
 
       // console.log("Data: ", data);
 
-      this.updateUser(data);
+      this.updateUser(data).then(() => {
+        this.edit_flag = true;
+      });
     },
     addAddress() {
       this.$router.push({
@@ -440,7 +442,7 @@ export default {
   },
   mounted() {
     this.loadCountries().then(() => {
-      this.getPhoneCode();
+      // this.getPhoneCode();
     });
     this.loadStates();
   },
@@ -925,7 +927,7 @@ select {
   }
 
   .numDiv2 {
-    width: 80%;
+    width: 100%;
     min-width: 0rem;
   }
 
@@ -978,7 +980,7 @@ select {
   }
 
   .numDiv2 {
-    width: 80%;
+    width: 100%;
     min-width: 0rem;
   }
 

@@ -27,7 +27,7 @@ import TermsCondComp from "./components/ProfilePage/TermsCondComp.vue";
 const routes = [
   {
     name: "HomePage",
-    path: "/homePage",
+    path: "/",
     component: HomePage,
   },
   {

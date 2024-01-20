@@ -1,40 +1,61 @@
 <template>
-  <div class="add-container ms-2">
+  <div class="add-container ms-2" v-if="addressArray.length > 0">
     <div
       class="ms-2 d-flex align-items-center justify-content-between border border-color p-4 mb-4"
       v-for="address in addressArray"
-      :key="address.id"
+      :key="address.address.id"
     >
       <div class="">
-        <h3 class="h3-size fw-semibold" v-if="address.address_type == 0">
+        <h3
+          class="h3-size fw-semibold"
+          v-if="address.address.address_type == 0"
+        >
           Home Address
         </h3>
-        <h3 class="h3-size fw-semibold" v-if="address.address_type == 1">
+        <h3
+          class="h3-size fw-semibold"
+          v-if="address.address.address_type == 1"
+        >
           Office Address
         </h3>
-        <h3 class="h3-size fw-semibold" v-if="address.address_type == 2">
+        <h3
+          class="h3-size fw-semibold"
+          v-if="address.address.address_type == 2"
+        >
           Other Address
         </h3>
-        <p class="mb-0 p-phone-size text-muted">{{ address.phoneno }}</p>
-        <p class="mb-0 p-size text-muted">
-          {{ address.Flat_no }}, {{ address.addressline1 }},
+        <p class="mb-0 p-phone-size text-muted">
+          {{ address.address.phoneno }}
         </p>
         <p class="mb-0 p-size text-muted">
-          {{ address.city }}, {{ address.state }}, {{ address.countries }} -
-          {{ address.pincode }}
+          {{ address.address.Flat_no }}, {{ address.address.addressline1 }},
+        </p>
+        <p class="mb-0 p-size text-muted">
+          {{ address.details.city.city_detail.city_name }},
+          {{ address.details.state.state_detail.state_name }},
+        </p>
+        <p class="mb-0 p-size text-muted">
+          {{ address.details.countries.countries_detail.countries_name }} -
+          {{ address.address.pincode }}
         </p>
       </div>
       <div class="me-3 d-flex flex-column">
         <i
           class="fa-regular fa-trash-can fs-2 trash-icon"
-          v-on:click="deleteAdd(address.id)"
+          v-on:click="deleteAdd(address.address.id)"
         ></i>
         <i
           class="fa-solid fa-pen-to-square icon fs-2"
-          v-on:click="homeAdd(address)"
+          v-on:click="homeAdd(address.address)"
         ></i>
       </div>
     </div>
+  </div>
+  <div
+    class="add-container d-flex align-items-center justify-content-center"
+    v-else
+  >
+    <h3 class="text-muted">No Address Added!!</h3>
   </div>
 </template>
 
@@ -170,7 +191,9 @@ export default {
     },
   },
   beforeMount() {
-    this.getAllAddress();
+    this.getAllAddress().then(() => {
+      // console.log(this.addressArray);
+    });
   },
 };
 </script>

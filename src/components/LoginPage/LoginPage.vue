@@ -126,7 +126,7 @@ export default {
         // console.log("Response: " + result.message);
 
         if (result.status === true) {
-          alert(result.message);
+          // alert(result.message);
           localStorage.setItem("token", result.data.token);
           this.$router
             .push({
@@ -361,12 +361,11 @@ input[type="password"]::-ms-clear {
 }
 
 @media only screen and (max-width: 576px) {
-  .container {
+  .login-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -374,11 +373,21 @@ input[type="password"]::-ms-clear {
   .login {
     width: 95%;
     height: 60%;
+    z-index: 5;
   }
 
   .loginImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
@@ -412,12 +421,11 @@ input[type="password"]::-ms-clear {
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-  .container {
+  .login-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -425,11 +433,21 @@ input[type="password"]::-ms-clear {
   .login {
     width: 50%;
     height: 60%;
+    z-index: 5;
   }
 
   .loginImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
@@ -463,24 +481,33 @@ input[type="password"]::-ms-clear {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-  .container {
+  .login-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
 
   .login {
     width: 50%;
-    height: 65%;
+    height: 70%;
+    z-index: 5;
   }
 
   .loginImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 

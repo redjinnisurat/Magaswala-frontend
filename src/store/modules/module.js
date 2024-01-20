@@ -6,6 +6,9 @@ const state = {
   cart: [],
   favourite: [],
   address: [],
+  orders: [],
+  homeAdd_id: null,
+  feedbacks: [],
 };
 
 const getters = {
@@ -14,13 +17,16 @@ const getters = {
   allCartItems: (state) => state.cart,
   allFavItems: (state) => state.favourite,
   allAddress: (state) => state.address,
+  allOrders: (state) => state.orders,
+  homeAddId: (state) => state.homeAdd_id,
+  allFeedbacks: (state) => state.feedbacks,
 };
 
 const actions = {
   async getAllProducts({ commit }) {
     try {
       const response = await axios.get(`showall`);
-      commit("setProducts", response.data.data);
+      commit("setProducts", response.data.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -28,7 +34,7 @@ const actions = {
   async getAllCartItems({ commit }) {
     try {
       const response = await axios.get(`showcard`);
-      commit("setCart", response.data.data);
+      commit("setCart", response.data.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -58,7 +64,7 @@ const actions = {
   async getAllFavourite({ commit }) {
     try {
       const response = await axios.get(`showfavourites`);
-      commit("setFavourite", response.data.data);
+      commit("setFavourite", response.data.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -66,15 +72,41 @@ const actions = {
   async getAllAddress({ commit }) {
     try {
       const response = await axios.get(`address`);
-      commit("setAddress", response.data.data);
+      commit("setAddress", response.data.data || []);
     } catch (error) {
       console.error(error);
     }
+  },
+  getAddressId({ commit, getters }) {
+    let add_id = null;
+    getters.allAddress.forEach((item) => {
+      if (item.address.address_type == 0) {
+        add_id = item.address.id;
+      }
+    });
+
+    commit("setAddId", add_id);
   },
   async getUser({ commit }) {
     try {
       const response = await axios.post(`user-detail`);
       commit("setUser", response.data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  async getOrder({ commit }) {
+    try {
+      const response = await axios.get(`orderhistory`);
+      commit("setOrders", response.data.data || []);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  async getAllFeedback({ commit }) {
+    try {
+      const response = await axios.get(`showfeedbackall`);
+      commit("setFeedbacks", response.data.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -90,6 +122,9 @@ const mutations = {
     state.cart.filter((item) => item.id !== response.id),
   setFavourite: (state, response) => (state.favourite = response),
   setAddress: (state, response) => (state.address = response),
+  setOrders: (state, response) => (state.orders = response),
+  setAddId: (state, response) => (state.homeAdd_id = response),
+  setFeedbacks: (state, response) => (state.feedbacks = response),
 };
 
 export default {

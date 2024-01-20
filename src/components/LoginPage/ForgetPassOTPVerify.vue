@@ -13,9 +13,13 @@
             <button type="button" v-on:click="submit()">Verify</button>
           </div>
         </form>
-        <div class="resend_sec">
+        <div class="resend_sec" v-if="!resend_flag">
           <p>Didn't receive code ?</p>
           <router-link to="#" v-on:click="resend()">Resend</router-link>
+        </div>
+        <div class="resend_sec" v-else>
+          <p>Code has been sent again!</p>
+          <router-link to="#">Send again {{ countdown }}</router-link>
         </div>
       </div>
     </div>
@@ -28,6 +32,7 @@
 </template>
 
 <script>
+import axios from "@/axios";
 import { useRoute } from "vue-router";
 
 export default {
@@ -39,12 +44,54 @@ export default {
       id: "",
       email: "",
       old_otp: null,
+      new_otp: null,
       resend_flag: false,
       timer: "",
+      countdown: "1:25",
+      verify_status: null,
     };
   },
   methods: {
-    resend() {},
+    async verifyEmail(otp, email) {
+      await axios.post(`emailverify?otp=${otp}&email=${email}`);
+      // const result = response.data;
+      // console.log("Response: ", result);
+      // console.log("Response: " + result.data.id);
+    },
+    async resendOTP() {
+      try {
+        const response = await axios.post(`ForgetPassword?email=${this.email}`);
+        // console.log("Response: ", response);
+        this.new_otp = response.data.data.email_otp;
+        // console.log("New Otp: ", this.new_otp);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async resend() {
+      this.resend_flag = true;
+
+      this.resendOTP();
+
+      let totalTime = 86;
+
+      this.timer = setInterval(() => {
+        const minutes = Math.floor(totalTime / 60);
+        const seconds = totalTime % 60;
+
+        this.countdown = `${String(minutes).padStart(2, "")}:${String(
+          seconds
+        ).padStart(2, "0")}`;
+
+        totalTime--;
+
+        if (totalTime < 0) {
+          clearInterval(this.timer);
+          this.resend_flag = false;
+          this.countdown = "1:25";
+        }
+      }, 1000);
+    },
     async submit() {
       if (this.otp === "") {
         this.error_otp = "Required field !!";
@@ -54,15 +101,34 @@ export default {
 
       if (this.otp !== "") {
         this.error_otp = "";
-        if (this.old_otp == this.otp) {
-          this.$router.push({
-            name: "SetNewPassPage",
-            params: {
-              id: this.id,
-            },
-          });
+        if (this.resend_flag == true) {
+          if (this.new_otp == this.otp) {
+            if (this.verify_status == 0) {
+              this.verifyEmail(this.otp, this.email);
+            }
+            this.$router.push({
+              name: "SetNewPassPage",
+              params: {
+                id: this.id,
+              },
+            });
+          } else {
+            this.error_otp = "Invalid OTP!!";
+          }
         } else {
-          this.error_otp = "Invalid OTP!!";
+          if (this.old_otp == this.otp) {
+            if (this.verify_status == 0) {
+              this.verifyEmail(this.otp, this.email);
+            }
+            this.$router.push({
+              name: "SetNewPassPage",
+              params: {
+                id: this.id,
+              },
+            });
+          } else {
+            this.error_otp = "Invalid OTP!!";
+          }
         }
       }
     },
@@ -72,10 +138,12 @@ export default {
     this.id = route.params.id;
     this.email = route.params.email;
     this.old_otp = route.params.otp;
+    this.verify_status = route.params.verify_status;
     // console.log("Before Mount: ");
     // console.log(this.id);
     // console.log(this.email);
     // console.log(this.old_otp);
+    // console.log(this.verify_status);
   },
 };
 </script>
@@ -174,7 +242,7 @@ export default {
   font-size: 1.4rem;
   margin-left: 0.4rem;
   text-decoration: none;
-  font-weight: light;
+  font-weight: bold;
   color: var(--primary-color);
 }
 
@@ -207,12 +275,11 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
-  .container {
+  .verify-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -220,17 +287,28 @@ export default {
   .verification {
     width: 95%;
     height: 60%;
+    z-index: 5;
   }
 
   .sideImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .verify_content {
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .verify_content input {
@@ -239,12 +317,11 @@ export default {
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-  .container {
+  .verify-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -252,17 +329,28 @@ export default {
   .verification {
     width: 60%;
     height: 60%;
+    z-index: 5;
   }
 
   .sideImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .verify_content {
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .verify_content input {
@@ -271,30 +359,40 @@ export default {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-  .container {
+  .verify-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
 
   .verification {
     width: 60%;
-    height: 65%;
+    height: 70%;
+    z-index: 5;
   }
 
   .sideImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .verify_content {
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .verify_content input {

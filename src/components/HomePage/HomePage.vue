@@ -14,23 +14,7 @@
     <section class="userReview">
       <h3>User Review</h3>
       <hr />
-      <div class="reviewContainer">
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-        <UserReviewComp />
-      </div>
+      <UserReviewComp />
     </section>
   </div>
 </template>
@@ -92,18 +76,6 @@ export default {
 
 .userReview hr {
   margin-bottom: 2rem;
-}
-
-.reviewContainer {
-  display: flex;
-  gap: 3rem;
-  overflow: auto;
-  padding: 2rem 0rem;
-  margin-left: 1rem;
-}
-
-.reviewContainer::-webkit-scrollbar {
-  display: none;
 }
 
 @media only screen and (max-width: 576px) {

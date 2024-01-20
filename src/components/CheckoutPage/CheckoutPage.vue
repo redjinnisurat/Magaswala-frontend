@@ -6,58 +6,95 @@
       <div class="checkoutMethods">
         <div class="addressDiv">
           <h3>Shipping To</h3>
-          <div class="adddress-container">
+          <div class="adddress-container" v-if="addressArray.length > 0">
             <div
               class="addressOption"
               :class="{ active: active_add }"
               v-for="address in addressArray"
-              :key="address.id"
+              :key="address.address.id"
             >
               <i
                 class="fa-solid fa-pen-to-square"
-                v-on:click="homeAdd(address)"
+                v-on:click="homeAdd(address.address)"
               ></i>
               <div class="d-flex align-items-center flex-row-reverse">
-                <label :for="address.id" v-if="address.address_type == 0"
+                <label
+                  :for="address.address.id"
+                  v-if="address.address.address_type == 0"
                   >Home Address <br />
-                  <span id="address">{{ address.phoneno }}</span> <br />
-                  <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                  <span id="address">{{ address.address.phoneno }}</span> <br />
+                  <span
+                    >{{ address.address.Flat_no }},
+                    {{ address.address.addressline1 }}</span
                   ><br />
                   <span
-                    >{{ address.city }}, {{ address.state }} -
-                    {{ address.pincode }}</span
+                    >{{ address.details.city.city_detail.city_name }},
+                    {{ address.details.state.state_detail.state_name }}, </span
+                  ><br />
+                  <span>
+                    {{
+                      address.details.countries.countries_detail.countries_name
+                    }}
+                    - {{ address.address.pincode }}</span
                   >
                 </label>
-                <label :for="address.id" v-if="address.address_type == 1"
+                <label
+                  :for="address.address.id"
+                  v-if="address.address.address_type == 1"
                   >Office Address <br />
-                  <span id="address">{{ address.phoneno }}</span> <br />
-                  <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                  <span id="address">{{ address.address.phoneno }}</span> <br />
+                  <span
+                    >{{ address.address.Flat_no }},
+                    {{ address.address.addressline1 }}</span
                   ><br />
                   <span
-                    >{{ address.city }}, {{ address.state }} -
-                    {{ address.pincode }}</span
+                    >{{ address.details.city.city_detail.city_name }},
+                    {{ address.details.state.state_detail.state_name }}, </span
+                  ><br />
+                  <span>
+                    {{
+                      address.details.countries.countries_detail.countries_name
+                    }}
+                    - {{ address.address.pincode }}</span
                   >
                 </label>
-                <label :for="address.id" v-if="address.address_type == 2"
+                <label
+                  :for="address.address.id"
+                  v-if="address.address.address_type == 2"
                   >Other Address <br />
-                  <span id="address">{{ address.phoneno }}</span> <br />
-                  <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                  <span id="address">{{ address.address.phoneno }}</span> <br />
+                  <span
+                    >{{ address.address.Flat_no }},
+                    {{ address.address.addressline1 }}</span
                   ><br />
                   <span
-                    >{{ address.city }}, {{ address.state }} -
-                    {{ address.pincode }}</span
+                    >{{ address.details.city.city_detail.city_name }},
+                    {{ address.details.state.state_detail.state_name }}, </span
+                  ><br />
+                  <span>
+                    {{
+                      address.details.countries.countries_detail.countries_name
+                    }}
+                    - {{ address.address.pincode }}</span
                   >
                 </label>
                 <input
                   class="me-4"
                   type="radio"
-                  :value="address.id"
-                  :id="address.id"
+                  :value="address.address.id"
+                  :id="address.address.id"
                   name="addressOption"
                   v-model="selected_add"
+                  @change="changeOnSelect()"
                 />
               </div>
             </div>
+          </div>
+          <div
+            class="adddress-container d-flex align-items-center justify-content-center"
+            v-else
+          >
+            <h3 class="text-muted">No Address Added!!</h3>
           </div>
         </div>
         <div class="paymentDiv">
@@ -122,32 +159,34 @@
           <h3>Order Summary</h3>
           <div class="itemDetails">
             <p>Items:</p>
-            <p>Rs.{{ total_amount }}</p>
+            <p>Rs.{{ order__item_price }}</p>
           </div>
           <div class="itemDetails">
             <p>CGST:</p>
-            <p>Rs.20</p>
+            <p>Rs.{{ order_cgst }}</p>
           </div>
           <div class="itemDetails">
             <p>SGST:</p>
-            <p>Rs.20</p>
+            <p>Rs.{{ order_sgst }}</p>
           </div>
           <hr />
           <div class="itemDetails">
             <p>Total:</p>
-            <p>Rs.{{ total_amount + 20 + 20 }}</p>
+            <p>Rs.{{ order_total }}</p>
           </div>
           <div class="itemDetails">
             <p>Delivery:</p>
-            <p>Rs.45</p>
+            <p>Rs.{{ order_delivery }}</p>
           </div>
           <hr />
           <div class="itemDetails">
             <p>Total:</p>
-            <p>Rs.{{ total_amount + 20 + 20 + 45 }}</p>
+            <p>Rs.{{ order_total_amount }}</p>
           </div>
           <hr />
-          <button type="button" v-on:click="done()">Proceed to checkout</button>
+          <button type="button" v-on:click="payNow()">
+            Proceed to checkout
+          </button>
         </div>
       </div>
     </div>
@@ -157,12 +196,48 @@
     <hr />
     <ProductsComp />
   </section>
+
+  <!-- PayU form -->
+  <!-- <form method="POST" class="pl-5 pr-5" id="paymentForm" :action="payuUrl"> -->
+  <form
+    method="POST"
+    class="pl-5 pr-5"
+    id="paymentForm"
+    :action="payuUrl"
+    @submit.prevent="generateHashAndSubmitForm"
+  >
+    <input type="hidden" name="key" v-model="mkey" size="64" />
+    <input type="hidden" name="txnid" v-model="txnid" size="64" />
+
+    <!-- <input type="hidden" name="amount" v-model="amount_pay" size="64" /> -->
+    <input type="hidden" name="amount" v-model="order_total_amount" size="64" />
+
+    <input type="hidden" name="productinfo" v-model="product_info" size="64" />
+
+    <input
+      type="hidden"
+      name="firstname"
+      v-model="userDetails.name"
+      size="64"
+    />
+    <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
+    <input type="hidden" name="email" v-model="userDetails.email" size="64" />
+
+    <input type="hidden" name="phone" v-model="userDetails.phoneno" size="64" />
+
+    <input type="hidden" name="surl" v-model="surl" />
+    <input type="hidden" name="furl" v-model="furl" />
+    <input type="hidden" name="hash" id="hash" v-model="hash" size="64" />
+  </form>
 </template>
 
 <script>
+import axios from "@/axios";
 import { mapActions } from "vuex";
-import { useRoute } from "vue-router";
 import ProductsComp from "../HomePage/ProductsComp.vue";
+import { useRoute } from "vue-router";
+
+import sha512 from "js-sha512";
 
 export default {
   name: "CheckoutPage",
@@ -176,18 +251,186 @@ export default {
       cash_pay: false,
       payment_option: null,
       promo_code: null,
-      total_amount: null,
+      // total_amount: null,
+      order_data: {},
+      new_order_data: {},
+      order__item_price: "",
+      order_cgst: "",
+      order_sgst: "",
+      order_total: "",
+      order_delivery: "",
+      order_total_amount: "",
+
+      // amount_pay: '678.64',
+      hash: "",
+      txnid: "",
+      product_info: "Whole Cart",
+      payuUrl: "https://secure.payu.in/_payment",
+      mkey: "nxpvv9VZ",
+      saltKey: "3oFxUMtWG2",
+      // surl: 'https://restroworld.com/blueticksuccess',
+      surl: `${window.location.origin}/completePage`,
+      // furl: 'https://restroworld.com/home/User/Fail',
+      furl: `${window.location.origin}/`,
+      userDetails: [],
+      split_id: "",
+      order_split_result: "",
     };
   },
   components: {
     ProductsComp,
   },
   computed: {
+    cartArray() {
+      return this.$store.getters.allCartItems;
+    },
     addressArray() {
       return this.$store.getters.allAddress;
     },
   },
   methods: {
+    async makeOrders(data) {
+      try {
+        const response = await axios.post(`order`, data);
+        // console.log("Order Placed Successfully !!");
+        // console.log("Response: ", response);
+        this.order_data = response.data.data || [];
+        this.setData(this.order_data);
+        // console.log("New Order Data: ", this.order_data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    changeOnSelect() {
+      const productList = [];
+      this.cartArray.forEach((item) => {
+        const productObj = { product_id: null, value: null };
+        productObj.product_id = item.product_id.id;
+        productObj.value = item.qty;
+        productList.unshift(productObj);
+      });
+
+      this.new_order_data = {
+        product_id: productList,
+        address_id: this.selected_add,
+      };
+
+      // console.log("New Order Data: ", this.new_order_data);
+
+      this.makeOrders(this.new_order_data);
+    },
+    setData(data) {
+      // console.log("Order Data: ", data);
+      this.order__item_price = data.pricetotal || 0;
+      this.order_cgst = data.cgst || 0;
+      this.order_sgst = data.sgst || 0;
+      this.order_total =
+        this.order__item_price + this.order_cgst + this.order_sgst;
+      this.order_delivery = data.total_delivery_charges || 0;
+      this.order_total_amount = data.order.price || 0;
+
+      // console.log("Total Amount: ", this.order_total_amount);
+
+      // console.log("Order Id: ", data.order.order_id);
+
+      this.split_id = data.order.order_id.toString().split("-")[1];
+
+      // console.log(this.split_id);
+
+      this.order_split_result = this.removeLeadingZeros(this.split_id);
+      // console.log(this.order_split_result);
+    },
+    removeLeadingZeros(inputString) {
+      // Use regular expression to remove leading zeros
+      const match = inputString.match(/^0*(\d+)/);
+      return match ? match[1] : "0";
+    },
+    payNow() {
+      this.generateHashAndSubmitForm();
+      localStorage.removeItem("order");
+    },
+
+    generateHashAndSubmitForm() {
+      const data =
+        this.mkey +
+        "|" +
+        this.txnid +
+        "|" +
+        // this.amount_pay +
+        this.order_total_amount +
+        "|" +
+        this.product_info +
+        "|" +
+        this.userDetails.name +
+        "|" +
+        this.userDetails.email +
+        "|||||||||||";
+
+      this.hash = sha512(data + this.saltKey);
+
+      if (this.hash) {
+        localStorage.setItem("hash", this.hash);
+        localStorage.setItem("expireSession", "sesion12dgtdb");
+      }
+
+      // console.log(this.hash);
+      // console.log(data);
+
+      document.getElementById("hash").value = this.hash;
+
+      // const paymentSuccessful = true; // Replace this with your actual check
+
+      // if (paymentSuccessful) {
+      //   // Call the method to update the payment status
+      //   this.updatePaymentStatus();
+      // }
+
+      // if (this.surl) {
+      //   this.$router.push({
+      //     name: "CompletePage",
+      //     params: {
+      //       order_id: this.order_split_result,
+      //     },
+      //   });
+      // }
+
+      document.getElementById("paymentForm").submit();
+    },
+
+    // async updatePaymentStatus() {
+    //   try {
+    //     const response = await axios.post(
+    //       `https://uat2-api.magaswala.com/public/api/updatepaymentstatus/${this.order_split_result}`,
+    //       {
+    //         payment_status: "1",
+    //       }
+    //     );
+
+    //     if (response.data.status === true) {
+    //       // Payment status successfully updated
+    //       console.log("Payment status updated successfully.");
+    //     } else {
+    //       // Payment status update failed, show an error message
+    //       console.error(
+    //         "Error updating payment status:",
+    //         response.data.message
+    //       );
+    //     }
+    //   } catch (error) {
+    //     // Handle API request error
+    //     console.error("API request error:", error);
+    //   }
+    // },
+
+    makeid() {
+      var text = "";
+      var possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (var i = 0; i < 20; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+      this.txnid = text;
+    },
     homeAdd(data) {
       const addData = JSON.stringify(data);
       this.$router.push({
@@ -197,7 +440,7 @@ export default {
         },
       });
     },
-    ...mapActions(["getAllAddress"]),
+    ...mapActions(["getAllAddress", "getAllCartItems", "getUser"]),
     changeOptions() {
       if (this.payment_option == "creditCard") {
         this.card_pay = true;
@@ -226,21 +469,53 @@ export default {
         this.cash_pay = false;
       }
     },
-    done() {
-      this.$router.push({
-        name: "CompletePage",
-      });
-    },
+    done() {},
   },
   beforeMount() {
-    this.getAllAddress();
+    this.getAllAddress().then(() => {
+      this.$store.dispatch("getAddressId").then(() => {
+        // console.log("Address Id: ", this.$store.getters.homeAddId);
+        this.selected_add = this.$store.getters.homeAddId;
+        // const data = {
+        //   product_id: [{ product_id: this.i_id, value: this.i_qty }],
+        //   address_id: this.address_id == null ? this.add_id : this.address_id,
+        // };
+        // // console.log("Order Data: ", data);
+        // this.makeOrders(data);
+      });
+    });
+    this.getAllCartItems().then(() => {
+      // console.log("Cart Array: ", this.cartArray);
+      if (this.cartArray && this.cartArray.length > 0) {
+        this.total_amount = this.cartArray[0].Total_price || 0;
+      } else {
+        this.total_amount = 0;
+      }
+    });
+
+    this.getUser()
+      .then(() => {
+        this.userDetails = this.$store.getters.newUser;
+        // console.log("User Name", this.userDetails.name);
+        // console.log("User Phone Number", this.userDetails.phoneno);
+        // console.log("User Email", this.userDetails.email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     const route = useRoute();
-    if (route.params.total != undefined) {
-      this.total_amount = Number(route.params.total);
+    if (route.params.order != undefined) {
+      this.order_data = JSON.parse(route.params.order);
+      localStorage.setItem("order", route.params.order);
+      this.setData(this.order_data);
     } else {
-      this.total_amount = 0;
+      this.order_data = JSON.parse(localStorage.getItem("order"));
+      this.setData(this.order_data);
     }
+  },
+  mounted() {
+    this.makeid();
   },
 };
 </script>

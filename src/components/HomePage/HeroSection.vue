@@ -127,7 +127,7 @@ export default {
         product_id: id,
         qty: 1,
       });
-      alert("Product added to your Bag!!");
+      // alert("Product added to your Bag!!");
       this.$router.push({ name: "BagPage" });
     },
   },
@@ -154,6 +154,12 @@ export default {
   margin-bottom: 2rem;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  width: 4%;
+  color: var(--border-color);
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   width: 4rem !important;
@@ -173,21 +179,21 @@ export default {
 }
 
 .heroContent h1 {
-  font-size: 4.9rem;
+  font-size: 4.6rem;
   margin: 2rem 0;
   font-weight: 600;
   color: var(--heading-color);
 }
 
 .heroSec h3 {
-  font-size: 4rem;
+  font-size: 3.8rem;
   font-weight: 400;
   margin: 2rem 0;
   color: var(--heading-color);
 }
 
 .heroSec h4 {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   font-weight: 300;
   margin: 2rem 0;
   color: var(--heading-color);

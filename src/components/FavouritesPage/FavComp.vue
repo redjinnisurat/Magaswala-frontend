@@ -1,5 +1,5 @@
 <template>
-  <div class="fav_container">
+  <div class="fav_container" v-if="allFavItems.length > 0">
     <div v-for="(favItem, index) in allFavItems" :key="index">
       <div class="favItem">
         <div class="favItem_content">
@@ -31,7 +31,9 @@
             <button type="button" v-on:click="addToBag(favItem.product.id)">
               Add to bag
             </button>
-            <button type="button">Buy Now</button>
+            <button type="button" v-on:click="buyNow(favItem.product.id)">
+              Buy Now
+            </button>
           </div>
           <div class="btns1">
             <i
@@ -43,6 +45,12 @@
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="fav_container d-flex align-items-center justify-content-center"
+    v-else
+  >
+    <h3 class="text-muted">No Items Found in Favourites !!</h3>
   </div>
 </template>
 
@@ -64,6 +72,14 @@ export default {
     // },
   },
   methods: {
+    buyNow(id) {
+      this.$router.push({
+        name: "BagItemPage",
+        params: {
+          id: id,
+        },
+      });
+    },
     ...mapActions(["getAllFavourite"]),
     async deleteFromFav(id) {
       try {
@@ -77,7 +93,7 @@ export default {
         product_id: id,
         qty: 1,
       });
-      alert("Product added to your Bag!!");
+      // alert("Product added to your Bag!!");
       this.$router.push({
         name: "BagPage",
       });

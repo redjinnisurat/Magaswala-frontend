@@ -90,6 +90,7 @@
 
 <script>
 import axios from "@/axios";
+import { mapActions } from "vuex";
 
 export default {
   name: "BagItemPageComp",
@@ -101,6 +102,7 @@ export default {
       gm2_show: false,
       fav_show: false,
       defaulImage: require("./assets/ladoo_img_1.jpeg"),
+      add_id: null,
     };
   },
   props: {
@@ -113,6 +115,8 @@ export default {
     i_image: String,
     getQty: Function,
     fav_flag: Boolean,
+    getOrderData: Function,
+    address_id: Number,
   },
   watch: {
     i_quantity(newVal) {
@@ -122,7 +126,27 @@ export default {
       this.changeFavShow(newVal);
     },
   },
+  computed: {},
   methods: {
+    ...mapActions(["getAllAddress"]),
+    async makeOrders(data) {
+      try {
+        const response = await axios.post(`order`, data);
+        // console.log("Order Placed Successfully !!");
+        // console.log("Response: ", response.data.data);
+        const orderData = {
+          pricetotal: response.data.data.pricetotal,
+          sgst: response.data.data.sgst,
+          cgst: response.data.data.cgst,
+          total_delivery_charges: response.data.data.total_delivery_charges,
+          order_id: response.data.data.order.order_id,
+          price: response.data.data.order.price,
+        };
+        this.getOrderData(orderData);
+      } catch (error) {
+        console.error(error);
+      }
+    },
     changeFavShow(val) {
       this.fav_show = val;
     },
@@ -137,10 +161,10 @@ export default {
       this.fav_show = !this.fav_show;
       if (this.fav_show === true) {
         this.addToFav(id);
-        alert("Item added to your favourites!!");
+        // alert("Item added to your favourites!!");
       } else {
         this.addToFav(id);
-        alert("Item removed from your favourites!!");
+        // alert("Item removed from your favourites!!");
       }
     },
     addToBag(id, qty) {
@@ -148,17 +172,29 @@ export default {
         product_id: id,
         qty: qty,
       });
-      alert("Product added to your Bag!!");
+      // alert("Product added to your Bag!!");
       this.$router.push({ name: "BagPage" });
     },
     add() {
       this.i_qty += 1;
       this.getQty(this.i_qty);
+      const data = {
+        product_id: [{ product_id: this.i_id, value: this.i_qty }],
+        address_id: this.address_id || null,
+      };
+      // console.log("Data in plus: ", data);
+      this.makeOrders(data);
     },
     remove() {
       if (this.i_qty > 1) {
         this.i_qty -= 1;
         this.getQty(this.i_qty);
+        const data = {
+          product_id: [{ product_id: this.i_id, value: this.i_qty }],
+          address_id: this.address_id || null,
+        };
+        // console.log("Data in minus: ", data);
+        this.makeOrders(data);
       }
     },
     handleQuntityChanges(newQuntity) {
@@ -183,6 +219,20 @@ export default {
   mounted() {
     this.handleQuntityChanges(this.i_quantity);
     // console.log("Fav: " + this.fav_flag);
+  },
+  beforeMount() {
+    this.getAllAddress().then(() => {
+      this.$store.dispatch("getAddressId").then(() => {
+        // console.log("Address Id: ", this.$store.getters.homeAddId);
+        this.add_id = this.$store.getters.homeAddId;
+        const data = {
+          product_id: [{ product_id: this.i_id, value: this.i_qty }],
+          address_id: this.address_id == null ? this.add_id : this.address_id,
+        };
+        // console.log("Order Data: ", data);
+        this.makeOrders(data);
+      });
+    });
   },
 };
 </script>

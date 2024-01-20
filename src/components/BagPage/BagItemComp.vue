@@ -1,5 +1,5 @@
 <template>
-  <div class="bagContent">
+  <div class="bagContent" v-if="cartArray.length > 0">
     <div class="bagItem" v-for="(item, index) in cartArray" :key="index">
       <div class="d-flex align-items-center justify-content-between">
         <div
@@ -42,6 +42,12 @@
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="bagContent d-flex align-items-center justify-content-center"
+    v-else
+  >
+    <h3 class="text-muted">No Items Found in Cart !!</h3>
   </div>
 </template>
 

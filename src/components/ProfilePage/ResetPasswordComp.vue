@@ -80,12 +80,12 @@ export default {
         const response = await axios.post(`changePassword`, data);
 
         if (response.data.status === true) {
-          alert("Your password changed successfully!!");
+          // alert("Your password changed successfully!!");
           this.old_pass = "";
           this.new_pass = "";
           this.conf_pass = "";
         } else {
-          alert("Something went wrong!!");
+          // alert("Something went wrong!!");
         }
       } catch (error) {
         console.error(error);
