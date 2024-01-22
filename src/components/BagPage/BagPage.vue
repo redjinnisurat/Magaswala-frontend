@@ -86,7 +86,7 @@ export default {
           this.makeOrders(data).then(() => {
             // alert("Your Order Placed Successfully !!");
             localStorage.setItem("order", JSON.stringify(this.order_data));
-            console.log("Order Data: ", JSON.stringify(this.order_data));
+            // console.log("Order Data: ", JSON.stringify(this.order_data));
             this.$router.push({
               name: "CheckoutPage",
               params: {

@@ -204,9 +204,9 @@ export default {
   methods: {
     async addAddress(data) {
       try {
-        console.log("Data: ", data);
-        const response = await axios.post(`Addaddress`, data);
-        console.log("Response: ", response);
+        // console.log("Data: ", data);
+        await axios.post(`Addaddress`, data);
+        // console.log("Response: ", response);
       } catch (error) {
         console.error(error);
       }
