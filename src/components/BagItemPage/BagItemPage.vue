@@ -291,6 +291,15 @@ export default {
     },
   },
   methods: {
+    homeAdd(data) {
+      const addData = JSON.stringify(data);
+      this.$router.push({
+        name: "HomeAddressComp",
+        params: {
+          address: addData,
+        },
+      });
+    },
     async makeOrders(data) {
       try {
         await axios.post(`order`, data);
@@ -357,7 +366,15 @@ export default {
       }
     },
     payNow() {
-      this.generateHashAndSubmitForm();
+      if (this.orderData != null && this.selected_add != null) {
+        this.generateHashAndSubmitForm();
+      } else {
+        alert(
+          "Please Add Address First !!" +
+            "\n" +
+            "Without Address you are not able to make order !!"
+        );
+      }
     },
 
     generateHashAndSubmitForm() {

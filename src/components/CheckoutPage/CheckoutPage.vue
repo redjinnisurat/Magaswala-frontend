@@ -320,7 +320,7 @@ export default {
       this.makeOrders(this.new_order_data);
     },
     setData(data) {
-      // console.log("Order Data: ", data);
+      console.log("Order Data: ", data);
       this.order__item_price = data.pricetotal || 0;
       this.order_cgst = data.cgst || 0;
       this.order_sgst = data.sgst || 0;
@@ -346,8 +346,16 @@ export default {
       return match ? match[1] : "0";
     },
     payNow() {
-      this.generateHashAndSubmitForm();
-      localStorage.removeItem("order");
+      if (this.order_data != null && this.selected_add != null) {
+        this.generateHashAndSubmitForm();
+        localStorage.removeItem("order");
+      } else {
+        alert(
+          "Please Add Address First !!" +
+            "\n" +
+            "Without Address you are not able to make order !!"
+        );
+      }
     },
 
     generateHashAndSubmitForm() {

@@ -392,6 +392,7 @@ input[type="password"]::-ms-clear {
   }
 
   .loginContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
     border-radius: 0.6rem;
@@ -452,6 +453,7 @@ input[type="password"]::-ms-clear {
   }
 
   .loginContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
     border-radius: 0.6rem;
@@ -512,6 +514,7 @@ input[type="password"]::-ms-clear {
   }
 
   .loginContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
     border-radius: 0.6rem;

@@ -72,6 +72,7 @@ const actions = {
   async getAllAddress({ commit }) {
     try {
       const response = await axios.get(`address`);
+      // console.log("Response: ", response.data);
       commit("setAddress", response.data.data || []);
     } catch (error) {
       console.error(error);

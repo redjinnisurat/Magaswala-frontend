@@ -189,7 +189,7 @@ export default {
       form_data: {
         name: "",
         phoneno: "",
-        add_type: 0,
+        add_type: "0",
         // default: "",
         addressline1: "",
         flat_no: "",
@@ -204,8 +204,9 @@ export default {
   methods: {
     async addAddress(data) {
       try {
-        await axios.post(`Addaddress`, data);
-        // console.log("Response: ", response);
+        console.log("Data: ", data);
+        const response = await axios.post(`Addaddress`, data);
+        console.log("Response: ", response);
       } catch (error) {
         console.error(error);
       }

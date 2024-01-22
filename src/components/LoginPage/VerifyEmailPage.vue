@@ -294,6 +294,7 @@ export default {
   }
 
   .verify_content {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
     background: transparent;
@@ -337,6 +338,7 @@ export default {
   }
 
   .verify_content {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
     background: transparent;
@@ -380,6 +382,7 @@ export default {
   }
 
   .verify_content {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
     background: transparent;

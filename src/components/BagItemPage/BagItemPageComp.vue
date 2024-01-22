@@ -230,7 +230,15 @@ export default {
           address_id: this.address_id == null ? this.add_id : this.address_id,
         };
         // console.log("Order Data: ", data);
-        this.makeOrders(data);
+        if (this.add_id != null || this.add_id != undefined) {
+          this.makeOrders(data);
+        } else {
+          alert(
+            "Please Add Address First !!" +
+              "\n" +
+              "Without Address you are not able to make order !!"
+          );
+        }
       });
     });
   },

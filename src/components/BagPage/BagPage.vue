@@ -82,17 +82,27 @@ export default {
 
         // console.log("Data for order: ", data);
 
-        this.makeOrders(data).then(() => {
-          // alert("Your Order Placed Successfully !!");
-          this.$router.push({
-            name: "CheckoutPage",
-            params: {
-              order: JSON.stringify(this.order_data),
-            },
+        if (this.add_id != null || this.add_id != undefined) {
+          this.makeOrders(data).then(() => {
+            // alert("Your Order Placed Successfully !!");
+            localStorage.setItem("order", JSON.stringify(this.order_data));
+            console.log("Order Data: ", JSON.stringify(this.order_data));
+            this.$router.push({
+              name: "CheckoutPage",
+              params: {
+                order: JSON.stringify(this.order_data),
+              },
+            });
           });
-        });
+        } else {
+          alert(
+            "Please Add Address First !!" +
+              "\n" +
+              "Without Address you are not able to make order !!"
+          );
+        }
       } else {
-        alert("Cart Array is Empty!!");
+        alert("Please Add Something into your cart!!");
       }
     },
   },
