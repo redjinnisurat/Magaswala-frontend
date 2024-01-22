@@ -21,17 +21,72 @@
 </template>
 
 <script>
+import axios from "@/axios";
 import ProductsComp from "../HomePage/ProductsComp.vue";
+import { useRoute } from "vue-router";
 
 export default {
   name: "CompletePage",
+  data() {
+    return {
+      order_id: null,
+      surl: `${window.location.origin}/completePage`,
+    };
+  },
   components: {
     ProductsComp,
   },
   methods: {
     done() {
       this.$router.push({ name: "HomePage" });
+
+      if (this.surl && localStorage.getItem("has")) {
+        this.$router.push({
+          name: "CompletePage",
+          params: {
+            order_id: this.order_split_result,
+          },
+        });
+      }
     },
+
+    async updatePaymentStatus(id) {
+      try {
+        const response = await axios.post(
+          `https://uat2-api.magaswala.com/public/api/updatepaymentstatus/${id}`,
+          {
+            payment_status: "1",
+          }
+        );
+
+        if (response.data.status === true) {
+          // Payment status successfully updated
+          console.log("Payment status updated successfully.");
+        } else {
+          // Payment status update failed, show an error message
+          console.error(
+            "Error updating payment status:",
+            response.data.message
+          );
+        }
+      } catch (error) {
+        // Handle API request error
+        console.error("API request error:", error);
+      }
+    },
+  },
+  beforeMount() {
+    const route = useRoute();
+    this.order_id = route.params.order_id;
+    this.updatePaymentStatus(this.order_id);
+    // console.log("Order Id: ", this.order_id);
+    // if (
+    //   localStorage.getItem("hash") &&
+    //   `${window.location.origin}/completePage`
+    // ) {
+    //   // Call the method to update the payment status
+    //   this.updatePaymentStatus();
+    // }
   },
 };
 </script>

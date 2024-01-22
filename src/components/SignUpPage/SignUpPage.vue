@@ -123,15 +123,23 @@ export default {
           )
           .catch((e) => e.response);
         const result = response.data;
-        // console.log("Response: " + JSON.stringify(result));
+        // console.log("Response: ", result);
         // console.log("Response: " + result.message);
 
         if (result.status === true) {
-          alert(result.message);
+          // alert(result.message);
           this.$router.push({
             name: "VerifyEmailPage",
-            params: { email: result.data.email },
+            params: { email: result.data.email, otp: result.data.email_otp },
           });
+        } else {
+          if (result.message.includes("email")) {
+            this.error_email = result.message;
+          } else if (result.message.includes("password")) {
+            this.error_password = result.message;
+          } else {
+            console.error(result.message);
+          }
         }
       }
     },
@@ -284,12 +292,11 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
-  .container {
+  .signup-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -297,17 +304,29 @@ export default {
   .signUp {
     width: 95%;
     height: 60%;
+    z-index: 5;
   }
 
   .signUpImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .signUpContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .signUpContent input {
@@ -321,12 +340,11 @@ export default {
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-  .container {
+  .signup-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -334,17 +352,29 @@ export default {
   .signUp {
     width: 50%;
     height: 60%;
+    z-index: 5;
   }
 
   .signUpImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .signUpContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .signUpContent input {
@@ -358,12 +388,11 @@ export default {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-  .container {
+  .signup-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -371,17 +400,29 @@ export default {
   .signUp {
     width: 50%;
     height: 75%;
+    z-index: 5;
   }
 
   .signUpImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .signUpContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .signUpContent input {

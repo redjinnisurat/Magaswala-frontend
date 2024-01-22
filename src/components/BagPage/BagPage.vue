@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import axios from "@/axios";
 import BagItemComp from "./BagItemComp.vue";
 import ProductsComp from "../HomePage/ProductsComp.vue";
 
@@ -37,6 +38,8 @@ export default {
   data() {
     return {
       total_price: 0,
+      order_data: {},
+      add_id: null,
     };
   },
   components: {
@@ -50,18 +53,73 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["getAllCartItems"]),
+    async makeOrders(data) {
+      try {
+        const response = await axios.post(`order`, data);
+        // console.log("Order Placed Successfully !!");
+        // console.log("Response: ", response);
+        this.order_data = response.data.data || [];
+        // console.log("Response: ", this.order_data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    ...mapActions(["getAllCartItems", "getAllAddress"]),
     done() {
-      this.$router.push({
-        name: "CheckoutPage",
-        params: {
-          total: this.total_price,
-        },
-      });
+      if (this.cartArray.length > 0) {
+        const productList = [];
+        this.cartArray.forEach((item) => {
+          const productObj = { product_id: null, value: null };
+          productObj.product_id = item.product_id.id;
+          productObj.value = item.qty;
+          productList.unshift(productObj);
+        });
+
+        const data = {
+          product_id: productList,
+          address_id: this.add_id || null,
+        };
+
+        // console.log("Data for order: ", data);
+
+        if (this.add_id != null || this.add_id != undefined) {
+          this.makeOrders(data).then(() => {
+            // alert("Your Order Placed Successfully !!");
+            localStorage.setItem("order", JSON.stringify(this.order_data));
+            console.log("Order Data: ", JSON.stringify(this.order_data));
+            this.$router.push({
+              name: "CheckoutPage",
+              params: {
+                order: JSON.stringify(this.order_data),
+              },
+            });
+          });
+        } else {
+          alert(
+            "Please Add Address First !!" +
+              "\n" +
+              "Without Address you are not able to make order !!"
+          );
+        }
+      } else {
+        alert("Please Add Something into your cart!!");
+      }
     },
   },
   mounted() {},
   beforeMount() {
+    this.getAllAddress().then(() => {
+      this.$store.dispatch("getAddressId").then(() => {
+        // console.log("Address Id: ", this.$store.getters.homeAddId);
+        this.add_id = this.$store.getters.homeAddId;
+        // const data = {
+        //   product_id: [{ product_id: this.i_id, value: this.i_qty }],
+        //   address_id: this.address_id == null ? this.add_id : this.address_id,
+        // };
+        // // console.log("Order Data: ", data);
+        // this.makeOrders(data);
+      });
+    });
     this.getAllCartItems().then(() => {
       if (this.cartArray && this.cartArray.length > 0) {
         this.total_price = this.cartArray[0].Total_price || 0;

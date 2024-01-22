@@ -53,7 +53,7 @@ export default {
           .post(`ForgetPassword?email=${this.email}`)
           .catch((e) => e.response);
         const result = response.data;
-        // console.log("Response: " + JSON.stringify(result));
+        // console.log("Response: ", result);
         // console.log("Response: " + result.data.id);
 
         if (result.status === true) {
@@ -63,6 +63,7 @@ export default {
               id: result.data.id,
               email: result.data.email,
               otp: result.data.email_otp,
+              verify_status: result.data.status,
             },
           });
         } else {
@@ -196,12 +197,11 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
-  .container {
+  .forget-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -209,6 +209,7 @@ export default {
   .forget_pass {
     width: 95%;
     height: 60%;
+    z-index: 5;
   }
 
   .forget_passContent h2 {
@@ -218,12 +219,23 @@ export default {
   .sideImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .forget_passContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .forget_passContent input {
@@ -232,12 +244,11 @@ export default {
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-  .container {
+  .forget-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -245,17 +256,29 @@ export default {
   .forget_pass {
     width: 60%;
     height: 60%;
+    z-index: 5;
   }
 
   .sideImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .forget_passContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .forget_passContent input {
@@ -264,12 +287,11 @@ export default {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-  .container {
+  .forget-container {
     width: 100%;
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: url(./assets/laddo_img_2.jpeg) center/cover no-repeat;
     margin: 0;
     overflow: hidden;
   }
@@ -277,17 +299,29 @@ export default {
   .forget_pass {
     width: 60%;
     height: 65%;
+    z-index: 5;
   }
 
   .sideImg {
     width: 90%;
     height: 20vh;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    z-index: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(4px);
+  }
+
+  .logo_title {
     display: none;
   }
 
   .forget_passContent {
+    height: auto;
     color: var(--btn-font-color);
     border: 0.3rem solid var(--border-color);
+    background: transparent;
   }
 
   .forget_passContent input {

@@ -12,151 +12,261 @@
       <select
         class="w-25 fw-semibold text-center fs-4 me-5 select-days"
         id="sort_days"
+        v-model="select_option"
+        v-on:change="sortByDay"
       >
-        <option value="last_10">Last 10 days</option>
-        <option value="last_25">Last 20 days</option>
-        <option value="last_20">Last 30 days</option>
+        <option value="10">Last 10 days</option>
+        <option value="20">Last 20 days</option>
+        <option value="30">Last 30 days</option>
       </select>
     </div>
-    <div class="ms-3 me-3 mt-3">
-      <div class="w-25 mt-3 mb-2 d-flex justify-content-center order-date">
-        <p class="fs-4 fw-semibold mb-0 ms-2">10/12/2022, Saturday</p>
-      </div>
-      <div class="w-100 mt-3 mb-3 d-flex align-items-center">
-        <div
-          class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
-          style="width: 20%"
-        >
-          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
+    <div class="ms-3 me-3 mt-3" v-if="sortedProductsByDate.length > 0">
+      <div v-for="(group, date) in sortedProductsByDate" :key="date">
+        <div class="w-25 mt-3 mb-2 d-flex justify-content-center order-date">
+          <p class="fs-5 fw-semibold mb-0">{{ date }}</p>
         </div>
-        <div class="" style="width: 45%">
-          <h3 class="fs-4 fw-semibold item-color mb-3">
-            Kesar Magas <span class="price-color ms-4">1Kg</span>
-          </h3>
-          <div class="d-flex align-items-center">
-            <h3
-              class="fs-4 fw-semibold item-color pb-1 color-green border-class"
-            >
-              Delivered
+        <div
+          class="w-100 mt-3 mb-3 d-flex align-items-center"
+          v-for="order in group"
+          :key="order.id"
+        >
+          <div
+            class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
+          >
+            <img
+              style="width: 70%"
+              :src="
+                order.product.product.image
+                  ? order.product.product.image
+                  : defaulImage
+              "
+              alt="Image"
+            />
+          </div>
+          <div class="" style="width: 45%">
+            <h3 class="fs-4 fw-semibold item-color mb-3">
+              {{ order.product.product.name }}
+              <span class="price-color ms-4">{{
+                order.product.product.quantity
+              }}</span>
             </h3>
-            <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
+            <div class="d-flex align-items-center">
+              <h3
+                class="fs-4 fw-semibold item-color pb-1 color-green border-class"
+              >
+                Delivered
+              </h3>
+              <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
+            </div>
+          </div>
+          <div class="ms-5 btn-div" style="width: 20%">
+            <button
+              class="fs-4 order-btn"
+              type="button"
+              v-on:click="orderAgain(order.product.product.id)"
+            >
+              Order again
+            </button>
           </div>
         </div>
-        <div class="ms-5 btn-div" style="width: 20%">
-          <button class="fs-4 order-btn" type="button">Order again</button>
-        </div>
       </div>
-      <div class="w-100 mt-3 mb-3 d-flex align-items-center">
-        <div
-          class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
-          style="width: 20%"
-        >
-          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
-        </div>
-        <div class="" style="width: 45%">
-          <h3 class="fs-4 fw-semibold item-color mb-3">
-            Kesar Magas <span class="price-color ms-4">1Kg</span>
-          </h3>
-          <div class="d-flex align-items-center">
-            <h3
-              class="fs-4 fw-semibold item-color pb-1 color-green border-class"
-            >
-              Delivered
-            </h3>
-            <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
-          </div>
-        </div>
-        <div class="ms-5 btn-div" style="width: 20%">
-          <button class="fs-4 order-btn" type="button">Order again</button>
-        </div>
-      </div>
-      <div class="w-25 mt-5 mb-2 d-flex justify-content-center order-date">
-        <p class="fs-4 fw-semibold mb-0 ms-2">01/12/2022, Thursday</p>
-      </div>
-      <div class="w-100 mt-3 mb-3 d-flex align-items-center">
-        <div
-          class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
-          style="width: 20%"
-        >
-          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
-        </div>
-        <div class="" style="width: 45%">
-          <h3 class="fs-4 fw-semibold item-color mb-3">
-            Kesar Magas <span class="price-color ms-4">1Kg</span>
-          </h3>
-          <div class="d-flex align-items-center">
-            <h3
-              class="fs-4 fw-semibold item-color pb-1 color-green border-class"
-            >
-              Delivered
-            </h3>
-            <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
-          </div>
-        </div>
-        <div class="ms-5 btn-div" style="width: 20%">
-          <button class="fs-4 order-btn" type="button">Order again</button>
-        </div>
-      </div>
-      <div class="w-100 mt-3 mb-3 d-flex align-items-center">
-        <div
-          class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
-          style="width: 20%"
-        >
-          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
-        </div>
-        <div class="" style="width: 45%">
-          <h3 class="fs-4 fw-semibold item-color mb-3">
-            Kesar Magas <span class="price-color ms-4">1Kg</span>
-          </h3>
-          <div class="d-flex align-items-center">
-            <h3
-              class="fs-4 fw-semibold item-color pb-1 color-green border-class"
-            >
-              Delivered
-            </h3>
-            <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
-          </div>
-        </div>
-        <div class="ms-5 btn-div" style="width: 20%">
-          <button class="fs-4 order-btn" type="button">Order again</button>
-        </div>
-      </div>
-      <div class="w-100 mt-3 mb-3 d-flex align-items-center">
-        <div
-          class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
-          style="width: 20%"
-        >
-          <img style="width: 70%" src="./assets/ladoo_img_1.jpeg" alt="Image" />
-        </div>
-        <div class="" style="width: 45%">
-          <h3 class="fs-4 fw-semibold item-color mb-3">
-            Kesar Magas <span class="price-color ms-4">1Kg</span>
-          </h3>
-          <div class="d-flex align-items-center">
-            <h3
-              class="fs-4 fw-semibold item-color pb-1 color-green border-class"
-            >
-              Delivered
-            </h3>
-            <i class="fa-solid fa-check ms-2 fs-4 fw-semibold mb-1 icon"></i>
-          </div>
-        </div>
-        <div class="ms-5 btn-div" style="width: 20%">
-          <button class="fs-4 order-btn" type="button">Order again</button>
-        </div>
-      </div>
+    </div>
+    <div
+      class="ms-3 me-3 mt-5 d-flex align-items-center justify-content-center"
+      v-else
+    >
+      <h3 class="text-muted">No Recently Orders Found!!</h3>
     </div>
   </div>
 </template>
 
 <script>
 import OrderItemComp from "./OrderItemComp.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "OrdersComp",
   components: {
     OrderItemComp,
   },
+  data() {
+    return {
+      orderd_products: [],
+      delivered_products: [],
+      defaulImage: require("./assets/ladoo_img_1.jpeg"),
+      productsByDate: {},
+      select_option: "10",
+    };
+  },
+  computed: {
+    orderArray() {
+      return this.$store.getters.allOrders;
+    },
+    sortedProductsByDate() {
+      return this.sortProductsByDay();
+    },
+  },
+  methods: {
+    sortProductsByDay() {
+      const sortedProducts = { ...this.productsByDate };
+      // console.log("Current Date: ", new Date());
+
+      const sortedKeys = Object.keys(sortedProducts).filter((date) => {
+        const currentDate = new Date();
+        const formattedDate = new Date(date.split(", ")[0]);
+
+        return (
+          formattedDate >=
+          new Date(
+            currentDate.getTime() -
+              Number(this.select_option) * 24 * 60 * 60 * 1000
+          )
+        );
+      });
+
+      // console.log("Sorted Keys: ", sortedKeys);
+      // const currentDate = new Date();
+
+      // console.log(
+      //   "Houurs: ",
+      //   new Date(
+      //     currentDate.getTime() -
+      //       Number(this.select_option) * 24 * 60 * 60 * 1000
+      //   )
+      // );
+
+      const result = {};
+      sortedKeys.forEach((key) => {
+        result[key] = sortedProducts[key];
+      });
+
+      // console.log("Result: ", result);
+      return result;
+    },
+    groupedProducts() {
+      // const productsByDate = {};
+      this.delivered_products.forEach((item) => {
+        // console.log(item.update_at);
+        const dateObject = new Date(item.update_at);
+
+        const day = dateObject.getDate();
+        const monthNames = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        const monthIndex = dateObject.getMonth();
+        const formattedMonth = monthNames[monthIndex];
+        const year = dateObject.getFullYear();
+
+        const dayIndex = dateObject.getDay();
+        const dayNames = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const formattedDay = dayNames[dayIndex];
+
+        const formattedDate = `${day}-${formattedMonth}-${year}, ${formattedDay}`;
+
+        if (!this.productsByDate[formattedDate]) {
+          this.productsByDate[formattedDate] = [];
+        }
+
+        // Add the current item to the array corresponding to the date
+        this.productsByDate[formattedDate].push(item);
+      });
+
+      // for (const date in this.products_by_dates) {
+      //   console.log(`Products for date ${date}:`, this.products_by_dates[date]);
+      // }
+
+      // console.log("Grouped Orders: ", this.productsByDate);
+    },
+    orderAgain(id) {
+      this.$router.push({
+        name: "BagItemPage",
+        params: {
+          id: id,
+        },
+      });
+    },
+    ...mapActions(["getOrder"]),
+    async getDeliveredOrders() {
+      // console.log("Ordered Products Array fetching...");
+      if (this.orderd_products) {
+        // console.log("Ordered Products Array: ", this.orderd_products);
+        this.orderd_products.forEach((item) => {
+          if (item.order_status == 5) {
+            this.delivered_products.push(item);
+            // this.orderd_products.pop(item);
+          }
+        });
+        // console.log("delivered Products: ", this.delivered_products);
+      } else {
+        console.log("Ordered Products not found!!", this.orderd_products);
+      }
+    },
+    async processOrderData() {
+      // console.log("fetching Orders......");
+      this.orderd_products = [];
+      await this.getOrder();
+      // console.log("OrderArray after fetching:", this.orderArray);
+      if (this.orderArray) {
+        this.orderArray.forEach((order) => {
+          if (order.product.length == 1) {
+            // console.log("Single Product Orders: ", order.product);
+            this.orderd_products.push({
+              product: order.product[0],
+              id: order.id,
+              order_num: order.order_id,
+              order_status: order.status,
+              order_status_text: order.status_order_text,
+              update_at: order.updated_at,
+            });
+          } else {
+            // console.log("More than one Product Orders: ", order.product);
+            order.product.forEach((item) => {
+              this.orderd_products.push({
+                product: item,
+                id: order.id,
+                order_num: order.order_id,
+                order_status: order.status,
+                order_status_text: order.status_order_text,
+                update_at: order.updated_at,
+              });
+            });
+          }
+        });
+      } else {
+        console.log("Order Array not found !!");
+      }
+
+      // console.log("Ordered Product List: ", this.orderd_products);
+    },
+  },
+  async created() {
+    await this.processOrderData();
+    await this.getDeliveredOrders();
+    this.groupedProducts();
+  },
+  watch: {
+    selectedSortOption: "sortProductsByDay",
+  },
+  beforeMount() {},
 };
 </script>
 
@@ -206,11 +316,18 @@ export default {
   color: grey;
 }
 
+.order-date p {
+  font-size: 1.5rem !important;
+}
+
 .price-color {
   color: var(--price-font-color);
 }
 
 .img-background {
+  width: 20%;
+  height: 9rem;
+  overflow: hidden;
   background-color: var(--primary-color);
 }
 

@@ -10,6 +10,8 @@
       :i_image="product.image"
       :getQty="getQty"
       :fav_flag="fav_show"
+      :getOrderData="getOrderData"
+      :address_id="selected_add"
     />
     <div class="checkout_content">
       <div class="checkout_content1">
@@ -66,87 +68,123 @@
           <h3>Order Summary</h3>
           <div class="itemDetails">
             <p>Items:</p>
-            <p>Rs.{{ p_price }}</p>
+            <p>Rs.{{ orderData.pricetotal || 0 }}</p>
           </div>
           <div class="itemDetails">
             <p>CGST:</p>
-            <p>Rs.20</p>
+            <p>Rs.{{ orderData.cgst || 0 }}</p>
           </div>
           <div class="itemDetails">
             <p>SGST:</p>
-            <p>Rs.20</p>
+            <p>Rs.{{ orderData.sgst || 0 }}</p>
           </div>
           <hr />
           <div class="itemDetails">
             <p>Total:</p>
-            <p>Rs.{{ Number(p_price) + 20 + 20 }}</p>
+            <p>Rs.{{ totalPrice }}</p>
           </div>
           <div class="itemDetails">
             <p>Delivery:</p>
-            <p>Rs.45</p>
+            <p>Rs.{{ orderData.total_delivery_charges || 0 }}</p>
           </div>
           <hr />
           <div class="itemDetails">
             <p>Total:</p>
-            <p>Rs.{{ Number(p_price) + 40 + 45 }}</p>
+            <p>Rs.{{ orderData.price || 0 }}</p>
           </div>
         </div>
       </div>
       <div class="addressDiv">
         <h3>Shipping To</h3>
-        <div class="adddress-container">
+        <div class="adddress-container" v-if="addressArray.length > 0">
           <div
             class="addressOption active_add"
             v-for="address in addressArray"
-            :key="address.id"
+            :key="address.address.id"
           >
             <i
               class="fa-solid fa-pen-to-square"
-              v-on:click="homeAdd(address)"
+              v-on:click="homeAdd(address.address)"
             ></i>
             <div class="d-flex align-items-center flex-row-reverse">
-              <label :for="address.id" v-if="address.address_type == 0"
+              <label
+                :for="address.address.id"
+                v-if="address.address.address_type == 0"
                 >Home Address <br />
-                <span id="address">{{ address.phoneno }}</span> <br />
-                <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                <span id="address">{{ address.address.phoneno }}</span> <br />
+                <span
+                  >{{ address.address.Flat_no }},
+                  {{ address.address.addressline1 }}</span
                 ><br />
                 <span
-                  >{{ address.city }}, {{ address.state }} -
-                  {{ address.pincode }}</span
+                  >{{ address.details.city.city_detail.city_name }},
+                  {{ address.details.state.state_detail.state_name }}, </span
+                ><br />
+                <span>
+                  {{
+                    address.details.countries.countries_detail.countries_name
+                  }}
+                  - {{ address.address.pincode }}</span
                 >
               </label>
-              <label :for="address.id" v-if="address.address_type == 1"
+              <label
+                :for="address.address.id"
+                v-if="address.address.address_type == 1"
                 >Office Address <br />
-                <span id="address">{{ address.phoneno }}</span> <br />
-                <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                <span id="address">{{ address.address.phoneno }}</span> <br />
+                <span
+                  >{{ address.address.Flat_no }},
+                  {{ address.address.addressline1 }}</span
                 ><br />
                 <span
-                  >{{ address.city }}, {{ address.state }} -
-                  {{ address.pincode }}</span
+                  >{{ address.details.city.city_detail.city_name }},
+                  {{ address.details.state.state_detail.state_name }}, </span
+                ><br />
+                <span>
+                  {{
+                    address.details.countries.countries_detail.countries_name
+                  }}
+                  - {{ address.address.pincode }}</span
                 >
               </label>
-              <label :for="address.id" v-if="address.address_type == 2"
+              <label
+                :for="address.address.id"
+                v-if="address.address.address_type == 2"
                 >Other Address <br />
-                <span id="address">{{ address.phoneno }}</span> <br />
-                <span>{{ address.Flat_no }}, {{ address.addressline1 }}</span
+                <span id="address">{{ address.address.phoneno }}</span> <br />
+                <span
+                  >{{ address.address.Flat_no }},
+                  {{ address.address.addressline1 }}</span
                 ><br />
                 <span
-                  >{{ address.city }}, {{ address.state }} -
-                  {{ address.pincode }}</span
+                  >{{ address.details.city.city_detail.city_name }},
+                  {{ address.details.state.state_detail.state_name }}, </span
+                ><br />
+                <span>
+                  {{
+                    address.details.countries.countries_detail.countries_name
+                  }}
+                  - {{ address.address.pincode }}</span
                 >
               </label>
               <input
                 class="me-4"
                 type="radio"
-                :value="address.id"
-                :id="address.id"
+                :value="address.address.id"
+                :id="address.address.id"
                 name="addressOption"
                 v-model="selected_add"
               />
             </div>
           </div>
         </div>
-        <button type="button">Make Payment</button>
+        <div
+          class="adddress-container d-flex align-items-center justify-content-center"
+          v-else
+        >
+          <h3 class="text-muted">No Address Added!!</h3>
+        </div>
+        <button type="button" @click="payNow">Make Payment</button>
       </div>
     </div>
   </section>
@@ -160,6 +198,39 @@
     <hr />
     <ProductsComp />
   </section>
+
+  <!-- PayU form -->
+  <!-- <form method="POST" class="pl-5 pr-5" id="paymentForm" :action="payuUrl"> -->
+  <form
+    method="POST"
+    class="pl-5 pr-5"
+    id="paymentForm"
+    :action="payuUrl"
+    @submit.prevent="generateHashAndSubmitForm"
+  >
+    <input type="hidden" name="key" v-model="mkey" size="64" />
+    <input type="hidden" name="txnid" v-model="txnid" size="64" />
+
+    <!-- <input type="hidden" name="amount" v-model="amount_pay" size="64" /> -->
+    <input type="hidden" name="amount" v-model="orderData.price" size="64" />
+
+    <input type="hidden" name="productinfo" v-model="product.name" size="64" />
+
+    <input
+      type="hidden"
+      name="firstname"
+      v-model="userDetails.name"
+      size="64"
+    />
+    <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
+    <input type="hidden" name="email" v-model="userDetails.email" size="64" />
+
+    <input type="hidden" name="phone" v-model="userDetails.phoneno" size="64" />
+
+    <input type="hidden" name="surl" v-model="surl" />
+    <input type="hidden" name="furl" v-model="furl" />
+    <input type="hidden" name="hash" id="hash" v-model="hash" size="64" />
+  </form>
 </template>
 
 <script>
@@ -171,6 +242,7 @@ import { useRoute } from "vue-router";
 import axios from "@/axios";
 
 import { mapActions } from "vuex";
+import sha512 from "js-sha512";
 
 export default {
   name: "BagItemPage",
@@ -179,10 +251,26 @@ export default {
       id: null,
       qty: 1,
       product: {},
-      p_price: 0,
+      totalPrice: 0,
       fav_show: false,
       payment_option: null,
       selected_add: null,
+      orderData: [],
+
+      // amount_pay: '678.64',
+      hash: "",
+      txnid: "",
+      // productInfo: "",
+      payuUrl: "https://secure.payu.in/_payment",
+      mkey: "nxpvv9VZ",
+      saltKey: "3oFxUMtWG2",
+      // surl: 'https://restroworld.com/blueticksuccess',
+      surl: `${window.location.origin}/completePage`,
+      // furl: 'https://restroworld.com/home/User/Fail',
+      furl: `${window.location.origin}/`,
+      userDetails: [],
+      split_id: "",
+      order_split_result: "",
     };
   },
   components: {
@@ -203,7 +291,52 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["getAllFavourite", "getAllAddress"]),
+    homeAdd(data) {
+      const addData = JSON.stringify(data);
+      this.$router.push({
+        name: "HomeAddressComp",
+        params: {
+          address: addData,
+        },
+      });
+    },
+    async makeOrders(data) {
+      try {
+        await axios.post(`order`, data);
+        // console.log("Order Placed Successfully !!");
+        // console.log("Response: ", response);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    getOrderData(data) {
+      this.orderData = data;
+      this.totalPrice =
+        this.orderData.pricetotal + this.orderData.cgst + this.orderData.sgst;
+      // console.log("Order Price:- ", this.orderData.price);
+      this.split_id = this.orderData.order_id.toString().split("-")[1];
+
+      // console.log(this.split_id);
+
+      this.order_split_result = this.removeLeadingZeros(this.split_id);
+      // console.log(this.order_split_result); // Output: '131'
+    },
+
+    removeLeadingZeros(inputString) {
+      // Use regular expression to remove leading zeros
+      const match = inputString.match(/^0*(\d+)/);
+      return match ? match[1] : "0";
+    },
+
+    makePayment() {
+      // console.log("Order Data: ", data);
+      // this.makeOrders(data).then(() => {
+      //   // alert("Your Order Placed Successfully !!");
+      //   this.$router.push({ name: "CompletePage" });
+      // });
+    },
+    ...mapActions(["getAllFavourite", "getAllAddress", "getUser"]),
+
     checkFav(id) {
       this.favArray.forEach((item) => {
         if (id == item.product.id) {
@@ -225,14 +358,84 @@ export default {
       try {
         const response = await axios.get(`showproduct/${id}`);
         this.product = response.data.data;
-        this.p_price = Number(this.product.price);
+        // this.p_price = Number(this.product.price);
+        // this.userDetails = response.data.data;
+        // console.log(this.product.name);
       } catch (error) {
         console.error(error);
       }
     },
+    payNow() {
+      if (this.orderData != null && this.selected_add != null) {
+        this.generateHashAndSubmitForm();
+      } else {
+        alert(
+          "Please Add Address First !!" +
+            "\n" +
+            "Without Address you are not able to make order !!"
+        );
+      }
+    },
+
+    generateHashAndSubmitForm() {
+      const data =
+        this.mkey +
+        "|" +
+        this.txnid +
+        "|" +
+        // this.amount_pay +
+        this.orderData.price +
+        "|" +
+        this.product.name +
+        "|" +
+        this.userDetails.name +
+        "|" +
+        this.userDetails.email +
+        "|||||||||||";
+
+      this.hash = sha512(data + this.saltKey);
+
+      if (this.hash) {
+        localStorage.setItem("hash", this.hash);
+        localStorage.setItem("expireSession", "sesion12dgtdb");
+      }
+
+      // console.log(this.hash);
+      // console.log(data);
+
+      document.getElementById("hash").value = this.hash;
+
+      document.getElementById("paymentForm").submit();
+    },
+
+    makeid() {
+      var text = "";
+      var possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (var i = 0; i < 20; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+      this.txnid = text;
+    },
   },
   beforeMount() {
-    this.getAllAddress();
+    this.getAllAddress().then(() => {
+      this.$store.dispatch("getAddressId").then(() => {
+        // console.log("Address Id: ", this.$store.getters.homeAddId);
+        this.selected_add = this.$store.getters.homeAddId;
+      });
+    });
+
+    this.getUser()
+      .then(() => {
+        this.userDetails = this.$store.getters.newUser;
+        // console.log("User Name", this.userDetails.name);
+        // console.log("User Phone Number", this.userDetails.phoneno);
+        // console.log("User Email", this.userDetails.email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     const route = useRoute();
     this.id = route.params.id;
@@ -240,6 +443,10 @@ export default {
     this.getAllFavourite().then(() => {
       this.checkFav(this.id);
     });
+  },
+
+  mounted() {
+    this.makeid();
   },
 };
 </script>
@@ -379,7 +586,7 @@ export default {
 }
 
 .addressOption span {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 100;
 }
 

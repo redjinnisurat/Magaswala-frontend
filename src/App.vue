@@ -2,7 +2,7 @@
   <div v-if="user" class="nav_bar">
     <NavbarComp />
   </div>
-  <div>
+  <div class="body-div">
     <router-view></router-view>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default {
   },
   beforeMount() {
     if (
-      localStorage.getItem("token") === null ||
-      localStorage.getItem("token") === undefined
+      localStorage.getItem("token") == null ||
+      localStorage.getItem("token") == undefined
     ) {
       this.user = false;
       this.$router.push({
@@ -36,25 +36,20 @@ export default {
       // });
     }
   },
-  // beforeRouteEnter(to, from, next) {
-  //     const isAuthenticated = localStorage.getItem('token') !== null;
+  beforeEnter: (to, from, next) => {
+    // Check if the <router-view> is empty
+    const isEmpty = to.matched.every(
+      (route) => route.instances.default === undefined
+    );
 
-  //     if (isAuthenticated) {
-  //         next(vm => {
-  //             vm.user = true;
-  //             vm.$router.push({
-  //                 name: 'HomePage'
-  //             });
-  //         })
-  //     } else {
-  //         next(vm => {
-  //             vm.user = false;
-  //             vm.$router.push({
-  //                 name: 'LoginPage'
-  //             });
-  //         })
-  //     }
-  // }
+    if (isEmpty) {
+      // The <router-view> is empty, you can redirect or load a default component
+      next({ path: "/" });
+    } else {
+      // The <router-view> is not empty, proceed with the route
+      next();
+    }
+  },
 };
 </script>
 
@@ -67,5 +62,10 @@ export default {
   position: sticky;
   z-index: 1000;
   top: 0;
+}
+
+.body-div {
+  width: 95%;
+  margin: 1rem auto;
 }
 </style>

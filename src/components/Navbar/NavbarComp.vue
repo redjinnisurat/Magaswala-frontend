@@ -8,7 +8,7 @@
       </button>
     </div>
     <div class="logoList">
-      <router-link to="/homePage">
+      <router-link to="/">
         <div class="iconItem" id="homeIcon">
           <i class="fa-solid fa-house"></i>
           <p>Home</p>
@@ -51,7 +51,7 @@
       <h2>Menu</h2>
       <i class="fa-solid fa-xmark" v-on:click="closePanel()"></i>
     </div>
-    <router-link to="/homePage">
+    <router-link to="/">
       <div class="iconItem-panel" id="homeIcon-panel">
         <i class="fa-solid fa-house"></i>
         <p>Home</p>

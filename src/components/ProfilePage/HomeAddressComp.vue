@@ -158,28 +158,28 @@ export default {
     },
     async loadCountries() {
       try {
-        let allCountries = [];
-        let shouldContinue = true;
-        let page = 1;
-
-        while (shouldContinue) {
-          const response = await axios.get(
-            `https://api.garbajockey.com/api/countries?page=${page}`
-          );
-          // console.log("Response:", response.data); // Log the response
-
-          const countries = response.data && response.data.data;
-
-          if (!countries || countries.length === 0) {
-            // No more countries to fetch, break the loop
-            shouldContinue = false;
-          } else {
-            allCountries = [...allCountries, ...countries];
-            page++;
-          }
-        }
-
-        this.countries = allCountries;
+        // let allCountries = [];
+        // let shouldContinue = true;
+        // let page = 1;
+        // while (shouldContinue) {
+        //   const response = await axios.get(
+        //     `https://api.garbajockey.com/api/countries?page=${page}`
+        //   );
+        //   // console.log("Response:", response.data); // Log the response
+        //   const countries = response.data && response.data.data;
+        //   if (!countries || countries.length === 0) {
+        //     // No more countries to fetch, break the loop
+        //     shouldContinue = false;
+        //   } else {
+        //     allCountries = [...allCountries, ...countries];
+        //     page++;
+        //   }
+        // }
+        // this.countries = allCountries;
+        const response = await axios.get(`country`);
+        // console.log("Response: ", response.data);
+        this.countries = response.data;
+        // console.log("countries: ", this.countries);
         // console.log("All Countries:", this.countries); // Log the final list of countries
       } catch (error) {
         console.error("Error loading countries:", error);
@@ -187,30 +187,44 @@ export default {
     },
     async loadStates() {
       try {
-        const response = await axios.get(
-          `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
-        );
-        this.states = response.data.data || []; // Update states array
+        // const response = await axios.get(
+        //   `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
+        // // );
+        // this.states = response.data || []; // Update states array
         // console.log("States = ", this.states);
         // this.form_data.state = ""; // Reset state value
-        // this.gcData.gcCity = ""; // Reset city value
+        // // this.gcData.gcCity = ""; // Reset city value
+        // // console.log("Response: ", response.data);
+        // this.states = response.data;
+        const response = await axios.get(
+          `states-of-country?country_id=${this.form_data.country}`
+        );
+        this.states = response.data.data; // Update states array
+        // console.log("reponse: ", response.data);
+        // console.log("States = ", this.states);
       } catch (error) {
         console.error("Error loading states:", error);
       }
     },
     async loadCities() {
       try {
-        const response = await axios.get(
-          `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
-        );
-        this.cities = response.data.data || []; // Update cities array
+        // // const response = await axios.get(
+        // //   `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
+        // // );
+        // this.cities = response.data.data || []; // Update cities array
         // console.log("Cities = ", this.cities);
         // this.gcData.gcCity = ""; // Reset city value
+        const response = await axios.get(
+          `city-of-states?state_id=${this.form_data.state}`
+        );
+        this.cities = response.data.data; // Update cities array
+        // console.log("Cities = ", this.cities);
       } catch (error) {
         console.error("Error loading cities:", error);
       }
     },
     setData(data) {
+      // console.log("Data: ", data);
       const landmark12 = data.addressline1.split(",")[1].trim();
       const flatNo =
         data.Flat_no + " " + data.addressline1.split(",")[0].trim();
@@ -238,6 +252,8 @@ export default {
         Flat_no: flat,
         addressline1: address,
       };
+
+      // console.log("Data 12: ", data);
 
       this.updateAddress(data);
       localStorage.removeItem("address");

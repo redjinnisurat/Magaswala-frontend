@@ -1,5 +1,5 @@
 <template>
-  <div class="productContainer">
+  <div class="productContainer" v-if="allProducts.length > 0">
     <div v-for="(product, index) in allProducts" :key="index">
       <div class="productItem">
         <div class="productImg">
@@ -19,6 +19,12 @@
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="productContainer d-flex align-items-center justify-content-center"
+    v-else
+  >
+    <h3 class="text-muted">No Products Found!!</h3>
   </div>
 </template>
 
