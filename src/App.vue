@@ -66,6 +66,12 @@ export default {
 
 .body-div {
   width: 95%;
-  margin: 1rem auto;
+  margin: 0rem auto;
+}
+
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
 }
 </style>

@@ -61,6 +61,7 @@
 
 <script>
 import axios from "@/axios";
+import Swal from "sweetalert2";
 
 export default {
   name: "ResetPasswordComp",
@@ -81,6 +82,14 @@ export default {
 
         if (response.data.status === true) {
           // alert("Your password changed successfully!!");
+          await Swal.fire({
+            title: "Password Changed",
+            text: "You password has been changed successfully.",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.old_pass = "";
           this.new_pass = "";
           this.conf_pass = "";
@@ -91,7 +100,7 @@ export default {
         console.error(error);
       }
     },
-    change() {
+    async change() {
       if (this.old_pass === "") {
         this.old_pass_error = "Required field !!";
       } else {
@@ -128,6 +137,14 @@ export default {
 
           this.changePass(data);
         } else {
+          await Swal.fire({
+            title: "Password not changed",
+            text: "Both password should be same.",
+            icon: "error",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.new_pass_error = "Both password should be same!!";
           this.conf_pass_error = "Both password should be same!!";
         }
@@ -136,6 +153,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .heading {

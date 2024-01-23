@@ -3,7 +3,7 @@
     <div class="verification">
       <div class="verify_content">
         <h2>Verification</h2>
-        <h4>6-digit code has been sent to your register email address</h4>
+        <h4>6-digit code has been sent to your registered email address</h4>
         <form>
           <input type="text" placeholder="OTP" v-model="otp" />
           <div v-if="error_otp" class="error">
@@ -34,6 +34,8 @@
 <script>
 import axios from "@/axios";
 import { useRoute } from "vue-router";
+import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "ForgetPassOTPVerify",
@@ -106,6 +108,14 @@ export default {
             if (this.verify_status == 0) {
               this.verifyEmail(this.otp, this.email);
             }
+            await Swal.fire({
+              title: "OTP Verification",
+              text: "OTP mathched.",
+              icon: "success",
+              customClass: {
+                popup: "my-swal-popup", // Make sure this matches your CSS class name
+              },
+            });
             this.$router.push({
               name: "SetNewPassPage",
               params: {
@@ -113,6 +123,14 @@ export default {
               },
             });
           } else {
+            await Swal.fire({
+              title: "OTP Verification",
+              text: "Invalid OTP.",
+              icon: "error",
+              customClass: {
+                popup: "my-swal-popup", // Make sure this matches your CSS class name
+              },
+            });
             this.error_otp = "Invalid OTP!!";
           }
         } else {
@@ -120,6 +138,14 @@ export default {
             if (this.verify_status == 0) {
               this.verifyEmail(this.otp, this.email);
             }
+            await Swal.fire({
+              title: "OTP Verification",
+              text: "OTP mathched.",
+              icon: "success",
+              customClass: {
+                popup: "my-swal-popup", // Make sure this matches your CSS class name
+              },
+            });
             this.$router.push({
               name: "SetNewPassPage",
               params: {
@@ -127,6 +153,14 @@ export default {
               },
             });
           } else {
+            await Swal.fire({
+              title: "OTP Verification",
+              text: "Invalid OTP.",
+              icon: "error",
+              customClass: {
+                popup: "my-swal-popup", // Make sure this matches your CSS class name
+              },
+            });
             this.error_otp = "Invalid OTP!!";
           }
         }
@@ -135,18 +169,31 @@ export default {
   },
   mounted() {
     const route = useRoute();
-    this.id = route.params.id;
-    this.email = route.params.email;
-    this.old_otp = route.params.otp;
-    this.verify_status = route.params.verify_status;
+    const encryptData = CryptoJS.AES.decrypt(
+      route.params.object,
+      "12345678"
+    ).toString(CryptoJS.enc.Utf8);
+    // console.log("Route: ", JSON.parse(encryptData));
+    this.id = JSON.parse(encryptData).id;
+    this.email = JSON.parse(encryptData).email;
+    this.old_otp = JSON.parse(encryptData).otp;
+    this.verify_status = JSON.parse(encryptData).verify_status;
     // console.log("Before Mount: ");
     // console.log(this.id);
     // console.log(this.email);
     // console.log(this.old_otp);
-    // console.log(this.verify_status);
+    // // console.log(this.verify_status);
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .verify-container {

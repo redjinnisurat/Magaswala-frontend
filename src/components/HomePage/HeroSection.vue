@@ -102,6 +102,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import Swal from "sweetalert2";
 
 export default {
   name: "HeroSection",
@@ -122,10 +123,18 @@ export default {
   },
   methods: {
     ...mapActions(["getAllProducts"]),
-    addToBag(id) {
+    async addToBag(id) {
       this.$store.dispatch("addToCart", {
         product_id: id,
         qty: 1,
+      });
+      await Swal.fire({
+        title: "Added Successfully",
+        text: "This item added in your cart.",
+        icon: "success",
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
       });
       // alert("Product added to your Bag!!");
       this.$router.push({ name: "BagPage" });
@@ -146,6 +155,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .carousel {

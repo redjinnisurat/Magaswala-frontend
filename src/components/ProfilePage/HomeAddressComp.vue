@@ -127,6 +127,7 @@
 <script>
 import axios from "@/axios";
 import { useRoute } from "vue-router";
+import Swal from "sweetalert2";
 
 export default {
   name: "HomeAddressComp",
@@ -238,7 +239,7 @@ export default {
         country: data.countries,
       };
     },
-    update() {
+    async update() {
       let result = this.form_data.flat_no.split(" ");
       const flat = result[0];
       const address =
@@ -257,9 +258,21 @@ export default {
 
       this.updateAddress(data);
       localStorage.removeItem("address");
-      this.$router.push({
-        name: "AddressComp",
+      await Swal.fire({
+        title: "Address Updated Successfully",
+        text: "This address has been updated.",
+        icon: "success",
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
       });
+      this.$router
+        .push({
+          name: "AddressComp",
+        })
+        .then(() => {
+          this.$router.go();
+        });
     },
     back() {
       this.$router.push({
@@ -288,6 +301,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .heading {

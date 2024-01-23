@@ -34,6 +34,7 @@
 <script>
 import axios from "@/axios";
 import { useRoute } from "vue-router";
+import Swal from "sweetalert2";
 
 export default {
   name: "SetNewPassPage",
@@ -81,13 +82,37 @@ export default {
 
         if (result.status === true) {
           // alert(result.message);
+          await Swal.fire({
+            title: "Password changed",
+            text: "Your password changed successfully.",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.$router.push({
             name: "LoginPage",
           });
         } else {
+          await Swal.fire({
+            title: "Password not changed",
+            text: "Something get wrong.",
+            icon: "error",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.error_newPass = result.message;
         }
       } else {
+        await Swal.fire({
+          title: "Password not changed",
+          text: "Both password should be same.",
+          icon: "error",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
         this.error_newPass = "Both password should be same !!";
         this.error_confirmPass = "Both password should be same !!";
       }
@@ -95,12 +120,21 @@ export default {
   },
   mounted() {
     const route = useRoute();
+    // console.log("route: ", route.params);
     this.id = route.params.id;
     // console.log("Before Mount: ");
     // console.log(this.id);
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .set-container {

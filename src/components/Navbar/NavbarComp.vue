@@ -10,30 +10,180 @@
     <div class="logoList">
       <router-link to="/">
         <div class="iconItem" id="homeIcon">
-          <i class="fa-solid fa-house"></i>
+          <div class="icon-img-div">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25.506"
+              height="25.632"
+              viewBox="0 0 30.506 30.632"
+            >
+              <g
+                id="Group_84"
+                data-name="Group 84"
+                transform="translate(-1436.646 -887.118)"
+              >
+                <path
+                  id="Vector"
+                  d="M8.439,29H20.562a5.928,5.928,0,0,0,6.061-5.784V16.142A3.785,3.785,0,0,1,27.812,13.4a3.76,3.76,0,0,0-.483-5.869L18.065,1.106a6.3,6.3,0,0,0-7.131,0L1.671,7.535A3.76,3.76,0,0,0,1.187,13.4a3.785,3.785,0,0,1,1.189,2.738v7.071A5.928,5.928,0,0,0,8.439,29Z"
+                  transform="translate(1437.4 888)"
+                  fill="none"
+                  stroke="#838282"
+                  stroke-width="1.7"
+                />
+                <path
+                  id="Vector-2"
+                  data-name="Vector"
+                  d="M6,14c6.2,2.632,9.655,2.583,15.646,0"
+                  transform="translate(1438.077 893.926)"
+                  fill="none"
+                  stroke="#838282"
+                  stroke-width="1.7"
+                />
+              </g>
+            </svg>
+          </div>
+          <!-- <i class="fa-solid fa-house"></i> -->
           <p>Home</p>
         </div>
       </router-link>
       <router-link to="/bagPage">
         <div class="iconItem" id="blogIcon">
-          <i class="fa-solid fa-bag-shopping"></i>
+          <div class="icon-img-div">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20.699"
+              height="25.7"
+              viewBox="0 0 25.699 30.7"
+            >
+              <g
+                id="Group_85"
+                data-name="Group 85"
+                transform="translate(-1524.65 -887.051)"
+              >
+                <path
+                  id="_290141_bag_case_handbag_purse_shopping_icon"
+                  data-name="290141_bag_case_handbag_purse_shopping_icon"
+                  d="M23.826,32H3.174A2.5,2.5,0,0,1,1,29.271L3.174,12.909a3.229,3.229,0,0,1,.85-2.09,2.016,2.016,0,0,1,1.8-.637H7.266C8.086,5.448,10.561,2,13.5,2s5.415,3.448,6.235,8.181h1.441a2.017,2.017,0,0,1,1.8.637,3.23,3.23,0,0,1,.85,2.09L26,29.271A2.5,2.5,0,0,1,23.826,32ZM13.5,3.364c-2.366,0-4.374,2.849-5.119,6.817H18.619C17.872,6.213,15.866,3.364,13.5,3.364Zm9.238,9.544a1.629,1.629,0,0,0-.414-1.023,1.025,1.025,0,0,0-.874-.341H19.915a20.421,20.421,0,0,1,.108,2.045.558.558,0,1,1-1.088,0,18.977,18.977,0,0,0-.109-2.045H8.171a19.116,19.116,0,0,0-.109,2.045.625.625,0,0,1-.544.682.625.625,0,0,1-.544-.682c0-.684.038-1.367.108-2.045H5.548a1.026,1.026,0,0,0-.873.341,1.629,1.629,0,0,0-.414,1.023L2.088,29.271a1.25,1.25,0,0,0,1.088,1.364H23.826a1.25,1.25,0,0,0,1.088-1.364Z"
+                  transform="translate(1524 885.401)"
+                  fill="#828a89"
+                  stroke="#828a89"
+                  stroke-width="0.7"
+                  fill-rule="evenodd"
+                />
+                <path
+                  id="Vector_1781"
+                  data-name="Vector 1781"
+                  d="M0,0C2.262,1.287,3.5,1.273,5.76,0"
+                  transform="translate(1534.621 906.359)"
+                  fill="none"
+                  stroke="#828a89"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </g>
+            </svg>
+          </div>
+          <!-- <i class="fa-solid fa-bag-shopping"></i> -->
           <p>Bag</p>
         </div>
       </router-link>
       <router-link to="/favPage">
         <div class="iconItem" id="favoriteIcon">
-          <i class="fa-solid fa-heart"></i>
+          <div class="icon-img-div">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25.5"
+              height="25.5"
+              viewBox="0 0 31.5 31.5"
+            >
+              <path
+                id="Vector"
+                d="M16.148,2.837,15,4.207,13.853,2.837A7.4,7.4,0,0,0,8.115,0,7.4,7.4,0,0,0,2.377,2.837a11.058,11.058,0,0,0,0,13.7L12.7,28.865a2.888,2.888,0,0,0,4.59,0L27.623,16.537a11.058,11.058,0,0,0,0-13.7,7.221,7.221,0,0,0-11.475,0Z"
+                transform="translate(0.75 0.75)"
+                fill="none"
+                stroke="#838282"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+          </div>
+          <!-- <i class="fa-solid fa-heart"></i> -->
           <p>Favorites</p>
         </div>
       </router-link>
       <router-link to="/profilePage/userData">
         <div class="iconItem" id="profileIcon">
-          <i class="fa-solid fa-user"></i>
+          <div class="icon-img-div">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16.50"
+              height="25.50"
+              viewBox="0 0 21 29"
+            >
+              <g
+                id="Group_374"
+                data-name="Group 374"
+                transform="translate(-1582 -114)"
+              >
+                <g
+                  id="Group_137"
+                  data-name="Group 137"
+                  transform="translate(1414.871 -412.116)"
+                >
+                  <ellipse
+                    id="Ellipse_255"
+                    data-name="Ellipse 255"
+                    cx="9.5"
+                    cy="5.5"
+                    rx="9.5"
+                    ry="5.5"
+                    transform="translate(168.129 543.116)"
+                    fill="none"
+                    stroke="#838282"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                  <ellipse
+                    id="Ellipse_257"
+                    data-name="Ellipse 257"
+                    cx="7.5"
+                    cy="6"
+                    rx="7.5"
+                    ry="6"
+                    transform="translate(170.129 527.116)"
+                    fill="none"
+                    stroke="#838282"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+          <!-- <i class="fa-solid fa-user"></i> -->
           <p>Profile</p>
         </div>
       </router-link>
       <div class="iconItem" id="logout">
-        <i class="fa-solid fa-right-from-bracket" v-on:click="logout()"></i>
+        <div class="icon-img-div">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="25"
+            viewBox="0 0 25 30"
+          >
+            <path
+              id="Icon_metro-switch"
+              data-name="Icon metro-switch"
+              d="M20.57,6.223v3.983a8.92,8.92,0,0,1,2.742,1.968,9.71,9.71,0,0,1,0,13.258,8.631,8.631,0,0,1-12.627,0,9.71,9.71,0,0,1,0-13.258,8.919,8.919,0,0,1,2.742-1.968V6.223A13.062,13.062,0,0,0,4.5,18.8c0,7.249,5.6,13.125,12.5,13.125S29.5,26.052,29.5,18.8A13.062,13.062,0,0,0,20.57,6.223ZM15.213,1.928h3.571v15H15.213Z"
+              transform="translate(-4.499 -1.928)"
+              fill="grey"
+              stroke-width=""
+            />
+          </svg>
+        </div>
+        <!-- <i class="fa-solid fa-right-from-bracket" v-on:click="logout()"></i> -->
         <p v-on:click="logout()">Logout</p>
       </div>
       <div class="iconItem" id="menuIcon">
@@ -84,6 +234,7 @@
 
 <script>
 // import axios from 'axios';
+import Swal from "sweetalert2";
 
 export default {
   name: "NavbarComp",
@@ -100,17 +251,50 @@ export default {
     closePanel() {
       this.show = false;
     },
-    logout() {
-      if (confirm("Are you sure ?\nYou want to Logout ?") === true) {
-        localStorage.removeItem("token");
-        this.$router
-          .push({
-            name: "LoginPage",
-          })
-          .then(() => {
-            this.$router.go();
+    async logout() {
+      // if (confirm("Are you sure ?\nYou want to Logout ?") === true) {
+      //   localStorage.removeItem("token");
+      //   this.$router
+      //     .push({
+      //       name: "LoginPage",
+      //     })
+      //     .then(() => {
+      //       this.$router.go();
+      //     });
+      // }
+      await Swal.fire({
+        title: "Are you sure ?",
+        text: "You want to logout ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        reverseButtons: true,
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("token");
+
+          Swal.fire({
+            title: "Logout Successfully.",
+            text: "You logout successfully.",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          }).then(() => {
+            this.$router
+              .push({
+                name: "LoginPage",
+              })
+              .then(() => {
+                this.$router.go();
+              });
           });
-      }
+        }
+      });
     },
     // async logout() {
 
@@ -134,7 +318,50 @@ export default {
 };
 </script>
 
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
+
 <style scoped>
+.icon-img-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: fill 0.3s ease; /* Add a smooth transition effect */
+}
+
+.iconItem:hover #Vector,
+#Vector-2 {
+  /*fill: var(--border-color) Your hover color here */
+  stroke: var(--border-color); /*   Your hover color here */
+}
+
+.iconItem:hover #_290141_bag_case_handbag_purse_shopping_icon,
+#Vector_1781 {
+  /*fill: var(--border-color) Your hover color here */
+  stroke: var(--border-color); /*   Your hover color here */
+}
+
+.iconItem:hover #Ellipse_257,
+#Ellipse_255 {
+  /*fill: var(--border-color) Your hover color here */
+  stroke: var(--border-color); /*   Your hover color here */
+}
+
+.iconItem:hover #Icon_metro-switch {
+  fill: var(--border-color); /* Your hover color here */
+  /*stroke: var(--border-color);    Your hover color here */
+}
+
+.iconItem:hover p {
+  color: var(--border-color) /* Your hover color here */;
+  /* stroke: var(--border-color)  Your hover color here */
+}
+
 .navbar_comp {
   z-index: 1000;
   background-color: var(--nav-color);
@@ -209,11 +436,11 @@ export default {
 }
 
 .iconItem p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-top: 0.4rem;
   margin-bottom: 0;
-  font-weight: 500;
-  color: var(--border-color);
+  font-weight: 600;
+  color: grey;
   opacity: 0.8;
 }
 

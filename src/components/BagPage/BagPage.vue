@@ -33,6 +33,8 @@ import ProductsComp from "../HomePage/ProductsComp.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
+import Swal from "sweetalert2";
+
 export default {
   name: "BagPage",
   data() {
@@ -95,14 +97,33 @@ export default {
             });
           });
         } else {
-          alert(
-            "Please Add Address First !!" +
+          // alert(
+          //   "Please Add Address First !!" +
+          //     "\n" +
+          //     "Without Address you are not able to make order !!"
+          // );
+          Swal.fire({
+            title: "Important Note",
+            text:
+              "Please Add Address First !!" +
               "\n" +
-              "Without Address you are not able to make order !!"
-          );
+              "Without Address you are not able to make order !!",
+            icon: "info",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
         }
       } else {
-        alert("Please Add Something into your cart!!");
+        // alert("Please Add Something into your cart!!");
+        Swal.fire({
+          title: "Important Note",
+          text: "Please add something into your cart first !!",
+          icon: "info",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
       }
     },
   },
@@ -130,6 +151,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .bagSec {

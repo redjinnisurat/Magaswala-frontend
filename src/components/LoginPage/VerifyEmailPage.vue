@@ -3,7 +3,7 @@
     <div class="verification">
       <div class="verify_content">
         <h2>Verification</h2>
-        <h4>6-digit code has been sent to your register email address</h4>
+        <h4>6-digit code has been sent to your registered email address</h4>
         <form>
           <input type="text" placeholder="OTP" v-model="otp" />
           <div v-if="error_otp" class="error">
@@ -34,6 +34,8 @@
 <script>
 import axios from "@/axios";
 import { useRoute } from "vue-router";
+import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "VerifyEmailPage",
@@ -60,10 +62,26 @@ export default {
 
       if (result.status === true) {
         // alert(result.message);
+        await Swal.fire({
+          title: "OTP Verification",
+          text: "Your Email has benn verified.",
+          icon: "success",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
         this.$router.push({
           name: "LoginPage",
         });
       } else {
+        await Swal.fire({
+          title: "OTP Verification",
+          text: "Invalid OTP.",
+          icon: "error",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
         this.error_otp = result.message;
       }
     },
@@ -128,13 +146,26 @@ export default {
   },
   mounted() {
     const route = useRoute();
-    this.email = route.params.email;
-    this.old_otp = route.params.otp;
+    const encryptData = CryptoJS.AES.decrypt(
+      route.params.object,
+      "12345678"
+    ).toString(CryptoJS.enc.Utf8);
+    // console.log("Route: ", JSON.parse(encryptData));
+    this.email = JSON.parse(encryptData).email;
+    this.old_otp = JSON.parse(encryptData).otp;
     // console.log(this.email);
-    console.log(this.old_otp);
+    // console.log(this.old_otp);
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style>
 .verify-container {

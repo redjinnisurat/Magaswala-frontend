@@ -113,7 +113,7 @@ const routes = [
   },
   {
     name: "ForgetPassOTPVerify",
-    path: "/forgetPassOtpVerify",
+    path: "/forgetPassOtpVerify/:object",
     component: ForgetPassOTPVerify,
   },
   {
@@ -123,7 +123,7 @@ const routes = [
   },
   {
     name: "VerifyEmailPage",
-    path: "/verifyEmail/:email",
+    path: "/verifyEmail/:object",
     component: VerifyEmailPage,
   },
   {

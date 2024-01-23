@@ -69,6 +69,7 @@
 
 <script>
 import axios from "@/axios";
+import Swal from "sweetalert2";
 
 export default {
   name: "LoginPage",
@@ -127,6 +128,14 @@ export default {
 
         if (result.status === true) {
           // alert(result.message);
+          await Swal.fire({
+            title: "Login Successful",
+            text: "You Loged in successfully.",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           localStorage.setItem("token", result.data.token);
           this.$router
             .push({
@@ -136,6 +145,14 @@ export default {
               this.$router.go();
             });
         } else {
+          await Swal.fire({
+            title: "Login Failed",
+            text: "Invalid Credentials.",
+            icon: "error",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           if (result.message.includes("Email")) {
             this.error_email = result.message;
           } else {
@@ -147,6 +164,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .visibility {

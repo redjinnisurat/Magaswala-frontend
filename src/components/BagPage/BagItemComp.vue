@@ -54,6 +54,7 @@
 <script>
 import axios from "@/axios";
 import { mapActions } from "vuex";
+import Swal from "sweetalert2";
 
 export default {
   name: "BagItemComp",
@@ -97,16 +98,42 @@ export default {
       });
     },
     ...mapActions(["deleteFromCart", "getAllCartItems"]),
-    deleteItem(id) {
-      if (
-        confirm(
-          "Are you sure ?\nYou want to remove this item from your cart ?"
-        ) == true
-      ) {
-        // console.log("Id: " + id);
-        this.deleteFromCart(id);
-      }
-      location.reload();
+    async deleteItem(id) {
+      // if (
+      //   confirm(
+      //     "Are you sure ?\nYou want to remove this item from your cart ?"
+      //   ) == true
+      // ) {
+      //   // console.log("Id: " + id);
+      //   this.deleteFromCart(id);
+      // }
+      await Swal.fire({
+        title: "Are you sure ?",
+        text: "You want to remove this item from your cart ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        reverseButtons: true,
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deleteFromCart(id);
+
+          Swal.fire({
+            title: "Deleted",
+            text: "Your item has been removed from your cart.",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          }).then(() => {
+            location.reload();
+          });
+        }
+      });
     },
   },
   beforeMount() {
@@ -114,6 +141,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .bagContent {

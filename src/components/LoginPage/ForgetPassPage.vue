@@ -28,6 +28,8 @@
 
 <script>
 import axios from "@/axios";
+import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "ForgetPassPage",
@@ -57,16 +59,38 @@ export default {
         // console.log("Response: " + result.data.id);
 
         if (result.status === true) {
+          const data = {
+            id: result.data.id,
+            email: result.data.email,
+            otp: result.data.email_otp,
+            verify_status: result.data.status,
+          };
+          await Swal.fire({
+            title: "OTP Sent Successfully",
+            text: "6-digit code has been sent to your registered email address",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.$router.push({
             name: "ForgetPassOTPVerify",
             params: {
-              id: result.data.id,
-              email: result.data.email,
-              otp: result.data.email_otp,
-              verify_status: result.data.status,
+              object: CryptoJS.AES.encrypt(
+                JSON.stringify(data),
+                "12345678"
+              ).toString(),
             },
           });
         } else {
+          await Swal.fire({
+            title: "Invalid Credentials",
+            text: "Your Email-Id not found..",
+            icon: "error",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.error_email = result.message;
         }
       }
@@ -74,6 +98,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .forget-container {

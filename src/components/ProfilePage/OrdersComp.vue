@@ -20,7 +20,10 @@
         <option value="30">Last 30 days</option>
       </select>
     </div>
-    <div class="ms-3 me-3 mt-3" v-if="sortedProductsByDate.length > 0">
+    <div
+      class="ms-3 me-3 mt-3"
+      v-if="Object.keys(sortedProductsByDate).length > 0"
+    >
       <div v-for="(group, date) in sortedProductsByDate" :key="date">
         <div class="w-25 mt-3 mb-2 d-flex justify-content-center order-date">
           <p class="fs-5 fw-semibold mb-0">{{ date }}</p>
@@ -75,7 +78,7 @@
       class="ms-3 me-3 mt-5 d-flex align-items-center justify-content-center"
       v-else
     >
-      <h3 class="text-muted">No Recently Orders Found!!</h3>
+      <h3 class="text-muted mt-5">No Recently Delivered Orders Found!!</h3>
     </div>
   </div>
 </template>
@@ -266,7 +269,9 @@ export default {
   watch: {
     selectedSortOption: "sortProductsByDay",
   },
-  beforeMount() {},
+  beforeMount() {
+    // console.log("Sorted Data: ", this.sortedProductsByDate);
+  },
 };
 </script>
 

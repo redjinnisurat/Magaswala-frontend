@@ -58,6 +58,8 @@
 import axios from "@/axios";
 import { mapActions, mapGetters } from "vuex";
 
+import Swal from "sweetalert2";
+
 export default {
   name: "FavComp",
   data() {
@@ -88,26 +90,52 @@ export default {
         console.error(error);
       }
     },
-    addToBag(id) {
+    async addToBag(id) {
       this.$store.dispatch("addToCart", {
         product_id: id,
         qty: 1,
+      });
+      await Swal.fire({
+        title: "Added Successfully",
+        text: "This item added in your cart.",
+        icon: "success",
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
       });
       // alert("Product added to your Bag!!");
       this.$router.push({
         name: "BagPage",
       });
     },
-    deleteItem(id) {
-      if (
-        confirm(
-          "Are you sure ?\nYou want to remove this item from your cart ?"
-        ) == true
-      ) {
-        // console.log("Id: " + id);
-        this.deleteFromFav(id);
-      }
-      location.reload();
+    async deleteItem(id) {
+      await Swal.fire({
+        title: "Are you sure ?",
+        text: "You want to remove this item from your favourites ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        reverseButtons: true,
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deleteFromFav(id);
+
+          Swal.fire({
+            title: "Deleted",
+            text: "Your item has been removed from your favourites.",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          }).then(() => {
+            location.reload();
+          });
+        }
+      });
     },
   },
   beforeMount() {
@@ -115,6 +143,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .fav_container {

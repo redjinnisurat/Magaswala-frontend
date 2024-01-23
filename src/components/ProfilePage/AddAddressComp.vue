@@ -178,6 +178,7 @@
 
 <script>
 import axios from "@/axios";
+import Swal from "sweetalert2";
 
 export default {
   name: "AddAddressComp",
@@ -280,7 +281,7 @@ export default {
         console.error("Error loading cities:", error);
       }
     },
-    add() {
+    async add() {
       let result = this.form_data.flat_no.split(" ");
       const flat = result[0];
       const address =
@@ -298,8 +299,15 @@ export default {
         addressline1: address,
         Locality: "not entered",
       };
-
-      this.addAddress(data).then(() => {
+      this.addAddress(data);
+      await Swal.fire({
+        title: "Address Added.",
+        text: "Your address resgistered successfully.",
+        icon: "success",
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
+      }).then(() => {
         this.$router.push({
           name: "AddressComp",
         });
@@ -321,6 +329,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .heading {

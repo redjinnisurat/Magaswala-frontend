@@ -55,6 +55,8 @@
 
 <script>
 import axios from "@/axios";
+import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "SignUpPage",
@@ -128,11 +130,33 @@ export default {
 
         if (result.status === true) {
           // alert(result.message);
+          const data = { email: result.data.email, otp: result.data.email_otp };
+          await Swal.fire({
+            title: "Registration Complete",
+            text: "Your data has benn resgistered successfully",
+            icon: "success",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           this.$router.push({
             name: "VerifyEmailPage",
-            params: { email: result.data.email, otp: result.data.email_otp },
+            params: {
+              object: CryptoJS.AES.encrypt(
+                JSON.stringify(data),
+                "12345678"
+              ).toString(),
+            },
           });
         } else {
+          await Swal.fire({
+            title: "Registration Failed",
+            text: "Invalid Credentials",
+            icon: "error",
+            customClass: {
+              popup: "my-swal-popup", // Make sure this matches your CSS class name
+            },
+          });
           if (result.message.includes("email")) {
             this.error_email = result.message;
           } else if (result.message.includes("password")) {
@@ -146,6 +170,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .signup-container {

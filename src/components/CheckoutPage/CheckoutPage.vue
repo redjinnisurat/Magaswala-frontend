@@ -239,6 +239,8 @@ import { useRoute } from "vue-router";
 
 import sha512 from "js-sha512";
 
+import Swal from "sweetalert2";
+
 export default {
   name: "CheckoutPage",
   data() {
@@ -350,11 +352,22 @@ export default {
         this.generateHashAndSubmitForm();
         localStorage.removeItem("order");
       } else {
-        alert(
-          "Please Add Address First !!" +
+        // alert(
+        //   "Please Add Address First !!" +
+        //     "\n" +
+        //     "Without Address you are not able to make order !!"
+        // );
+        Swal.fire({
+          title: "Important Note",
+          text:
+            "Please Add Address First !!" +
             "\n" +
-            "Without Address you are not able to make order !!"
-        );
+            "Without Address you are not able to make order !!",
+          icon: "info",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
       }
     },
 
@@ -527,6 +540,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-swal-popup {
+  width: 500px; /* Set the desired width */
+  max-width: 60%; /* Set the maximum width if needed */
+  font-size: 1.6rem; /* Adjust font size if needed */
+}
+</style>
 
 <style scoped>
 .chekoutSec {

@@ -70,11 +70,12 @@ export default {
 }
 
 .productItem {
-  min-width: 36rem;
-  border: 0.05rem solid var(--border-color);
+  width: 40rem;
+  border: 0.1rem solid var(--border-color);
   display: flex;
   flex-direction: column;
   background-color: var(--btn-font-color);
+  padding: 0.2rem 0.2rem;
 }
 
 .productImg {
@@ -83,12 +84,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem;
-  background-color: var(--border-color);
+  overflow: hidden;
 }
 
 .productImg img {
-  width: 26rem;
+  width: 100%;
+  height: 26rem;
 }
 
 .productContent {
