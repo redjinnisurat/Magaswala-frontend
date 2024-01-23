@@ -296,6 +296,7 @@ export default {
         }
       });
     },
+
     // async logout() {
 
     //     this.token = localStorage.getItem('token')
