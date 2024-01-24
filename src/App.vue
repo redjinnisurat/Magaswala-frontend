@@ -35,6 +35,12 @@ export default {
       //     name: 'HomePage'
       // });
     }
+
+    if (localStorage.getItem("token")) {
+      this.user = true;
+    } else {
+      this.user = false;
+    }
   },
   beforeEnter: (to, from, next) => {
     // Check if the <router-view> is empty
@@ -49,6 +55,16 @@ export default {
       // The <router-view> is not empty, proceed with the route
       next();
     }
+    // console.log("Path: ", to.path);
+
+    // if (to.path == "/login" && localStorage.getItem("token")) {
+    //   // If the user is already logged in, redirect to another route
+    //   next({
+    //     path: "/", // Change this to the desired route
+    //   });
+    // } else {
+    //   next();
+    // }
   },
 };
 </script>
