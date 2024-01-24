@@ -31,7 +31,7 @@ import axios from "@/axios";
 import BagItemComp from "./BagItemComp.vue";
 import ProductsComp from "../HomePage/ProductsComp.vue";
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 import Swal from "sweetalert2";
 
@@ -39,7 +39,7 @@ export default {
   name: "BagPage",
   data() {
     return {
-      total_price: 0,
+      // total_price: 0,
       order_data: {},
       add_id: null,
     };
@@ -49,12 +49,23 @@ export default {
     ProductsComp,
   },
   computed: {
-    ...mapGetters(["allProducts"]),
+    ...mapGetters(["allProducts", "total_price"]),
     cartArray() {
-      return this.$store.state.module.cart;
+      return this.$store.getters.allCartItems;
+    },
+    // total_price() {
+    //   if (this.cartArray && this.cartArray.length > 0) {
+    //     return this.cartArray[0].Total_price || 0;
+    //   } else {
+    //     return 0;
+    //   }
+    // },
+    total_price() {
+      return this.$store.getters.total_price;
     },
   },
   methods: {
+    ...mapMutations(["updateTotalPrice"]),
     async makeOrders(data) {
       try {
         const response = await axios.post(`order`, data);
@@ -127,6 +138,15 @@ export default {
       }
     },
   },
+  watch: {
+    // total_price() {
+    //   if (this.cartArray && this.cartArray.length > 0) {
+    //     return this.cartArray[0].Total_price || 0;
+    //   } else {
+    //     return 0;
+    //   }
+    // },
+  },
   mounted() {},
   beforeMount() {
     this.getAllAddress().then(() => {
@@ -142,11 +162,11 @@ export default {
       });
     });
     this.getAllCartItems().then(() => {
-      if (this.cartArray && this.cartArray.length > 0) {
-        this.total_price = this.cartArray[0].Total_price || 0;
-      } else {
-        this.total_price = 0;
-      }
+      // if (this.cartArray && this.cartArray.length > 0) {
+      //   this.total_price = this.cartArray[0].Total_price || 0;
+      // } else {
+      //   this.total_price = 0;
+      // }
     });
   },
 };
