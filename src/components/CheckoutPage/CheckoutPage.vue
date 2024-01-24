@@ -322,7 +322,7 @@ export default {
       this.makeOrders(this.new_order_data);
     },
     setData(data) {
-      console.log("Order Data: ", data);
+      // console.log("Order Data: ", data);
       this.order__item_price = data.pricetotal || 0;
       this.order_cgst = data.cgst || 0;
       this.order_sgst = data.sgst || 0;

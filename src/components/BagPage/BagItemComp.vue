@@ -53,7 +53,7 @@
 
 <script>
 import axios from "@/axios";
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 import Swal from "sweetalert2";
 
 export default {
@@ -70,9 +70,14 @@ export default {
   },
   props: {},
   methods: {
+    ...mapMutations(["updateTotalPrice"]),
     async updateCart(id, qty) {
       try {
-        await axios.post(`updatecart/${id}`, { quantity: qty });
+        const response = await axios.post(`updatecart/${id}`, {
+          quantity: qty,
+        });
+        // console.log("Response: ", response.data.data);
+        this.updateTotalPrice(response.data.data.Total_price);
       } catch (error) {
         console.error(error);
       }
@@ -137,7 +142,9 @@ export default {
     },
   },
   beforeMount() {
-    this.getAllCartItems();
+    this.getAllCartItems().then(() => {
+      this.updateTotalPrice(null);
+    });
   },
 };
 </script>

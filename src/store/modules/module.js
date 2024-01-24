@@ -9,6 +9,7 @@ const state = {
   orders: [],
   homeAdd_id: null,
   feedbacks: [],
+  total_price: 0,
 };
 
 const getters = {
@@ -20,6 +21,7 @@ const getters = {
   allOrders: (state) => state.orders,
   homeAddId: (state) => state.homeAdd_id,
   allFeedbacks: (state) => state.feedbacks,
+  total_price: (state) => state.total_price,
 };
 
 const actions = {
@@ -126,6 +128,14 @@ const mutations = {
   setOrders: (state, response) => (state.orders = response),
   setAddId: (state, response) => (state.homeAdd_id = response),
   setFeedbacks: (state, response) => (state.feedbacks = response),
+  updateTotalPrice(state, totalPrice) {
+    if (totalPrice != null) {
+      state.total_price = totalPrice;
+      // console.log("Total Price: ", state.total_price);
+    } else {
+      state.total_price = state.cart.length > 0 ? state.cart[0].Total_price : 0;
+    }
+  },
 };
 
 export default {
