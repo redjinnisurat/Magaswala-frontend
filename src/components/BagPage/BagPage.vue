@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     ...mapMutations(["updateTotalPrice"]),
+
     async makeOrders(data) {
       try {
         const response = await axios.post(`order`, data);
