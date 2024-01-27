@@ -1,102 +1,133 @@
 <template>
   <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-bs-ride="carousel"
+    v-if="
+      product1 != undefined || product2 != undefined || product3 != undefined
+    "
   >
-    <div class="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      ></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <section class="heroSec">
-          <div class="heroContent">
-            <h1>The Best Magas in the town</h1>
-            <h3>Made with pure ingredients</h3>
-            <h4>Price=Rs.{{ product1.price }} for {{ product1.quantity }}</h4>
-            <button v-on:click="addToBag(product1.id)">Add to basket</button>
-          </div>
-          <div class="d-flex align-items-center justify-content-end heroImage">
-            <img
-              :src="product1.image ? product1.image : defaulImage"
-              class="d-block w-100 rounded-5"
-              alt="Image"
-            />
-          </div>
-        </section>
-      </div>
-      <div class="carousel-item">
-        <section class="heroSec">
-          <div class="heroContent">
-            <h1>Now get 25% discount</h1>
-            <h3>On order of 1Kg of magas</h3>
-            <h4>Price=Rs.{{ product2.price }} for {{ product2.quantity }}</h4>
-            <button v-on:click="addToBag(product2.id)">Add to basket</button>
-          </div>
-          <div class="d-flex align-items-center justify-content-end heroImage">
-            <img
-              :src="product2.image ? product1.image : defaulImage"
-              class="d-block w-100 rounded-5"
-              alt="Image"
-            />
-          </div>
-        </section>
-      </div>
-      <div class="carousel-item">
-        <section class="heroSec">
-          <div class="heroContent">
-            <h1>The Best Magas in the town</h1>
-            <h3>Made with pure ingredients</h3>
-            <h4>Price=Rs.{{ product3.price }} for {{ product3.quantity }}</h4>
-            <button v-on:click="addToBag(product3.id)">Add to basket</button>
-          </div>
-          <div class="d-flex align-items-center justify-content-end heroImage">
-            <img
-              :src="product3.image ? product3.image : defaulImage"
-              class="d-block w-100 rounded-5"
-              alt="Image"
-            />
-          </div>
-        </section>
-      </div>
-    </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="prev"
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
     >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+          v-if="product1 != undefined"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+          v-if="product2 != undefined"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+          v-if="product3 != undefined"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" v-if="product1 != undefined">
+          <section class="heroSec">
+            <div class="heroContent">
+              <h1>The Best Magas in the town</h1>
+              <h3>Made with pure ingredients</h3>
+              <h4>
+                Price=Rs.{{ product1.price }} for
+                {{ product1.quantity }}
+              </h4>
+              <button v-on:click="addToBag(product1.id)">Add to basket</button>
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-end heroImage"
+            >
+              <img
+                :src="product1.image ? product1.image : defaulImage"
+                class="d-block w-100 rounded-5"
+                alt="Image"
+              />
+            </div>
+          </section>
+        </div>
+        <div class="carousel-item" v-if="product2 != undefined">
+          <section class="heroSec">
+            <div class="heroContent">
+              <h1>Now get 25% discount</h1>
+              <h3>On order of 1Kg of magas</h3>
+              <h4>
+                Price=Rs.{{ product2.price }} for
+                {{ product2.quantity }}
+              </h4>
+              <button v-on:click="addToBag(product2.id)">Add to basket</button>
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-end heroImage"
+            >
+              <img
+                :src="product2.image ? product1.image : defaulImage"
+                class="d-block w-100 rounded-5"
+                alt="Image"
+              />
+            </div>
+          </section>
+        </div>
+        <div class="carousel-item" v-if="product3 != undefined">
+          <section class="heroSec">
+            <div class="heroContent">
+              <h1>The Best Magas in the town</h1>
+              <h3>Made with pure ingredients</h3>
+              <h4>
+                Price=Rs.{{ product3.price }} for
+                {{ product3.quantity }}
+              </h4>
+              <button v-on:click="addToBag(product3.id)">Add to basket</button>
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-end heroImage"
+            >
+              <img
+                :src="product3.image ? product3.image : defaulImage"
+                class="d-block w-100 rounded-5"
+                alt="Image"
+              />
+            </div>
+          </section>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="d-flex align-items-center justify-content-center"
+    style="height: 40rem"
+    v-else
+  >
+    <h3 class="text-muted">No Items Found !!</h3>
   </div>
 </template>
 
@@ -110,9 +141,9 @@ export default {
     return {
       products: [],
       last_index: 0,
-      product1: {},
-      product2: {},
-      product3: {},
+      product1: undefined,
+      product2: undefined,
+      product3: undefined,
       defaulImage: require("./assets/laddo_img_2.jpeg"),
     };
   },
@@ -145,9 +176,18 @@ export default {
     this.getAllProducts().then(() => {
       this.products = this.productArray;
       this.last_index = this.products.length;
-      this.product1 = this.products[this.last_index - 1];
-      this.product2 = this.products[this.last_index - 2];
-      this.product3 = this.products[this.last_index - 3];
+      this.product1 =
+        this.products[this.last_index - 1] != undefined
+          ? this.products[this.last_index - 1]
+          : undefined;
+      this.product2 =
+        this.products[this.last_index - 2] != undefined
+          ? this.products[this.last_index - 2]
+          : undefined;
+      this.product3 =
+        this.products[this.last_index - 3] != undefined
+          ? this.products[this.last_index - 3]
+          : undefined;
       // console.log("Product 1: ", this.product1);
       // console.log("Product 2: ", this.product2);
       // console.log("Product 3: ", this.product3);
@@ -235,6 +275,7 @@ export default {
 
 .heroImage img {
   max-width: 44rem;
+  height: 36rem;
 }
 
 @media only screen and (max-width: 576px) {

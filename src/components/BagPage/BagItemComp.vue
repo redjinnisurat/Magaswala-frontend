@@ -191,6 +191,7 @@ export default {
 
 .bagItem img {
   width: 80%;
+  height: 8rem;
 }
 
 .bagDetails {

@@ -128,10 +128,11 @@ export default {
   .productItem {
     min-width: 40rem;
     margin-left: 0.8rem;
+    padding: 0.2rem 0.2rem;
   }
 
   .productImg img {
-    width: 80%;
+    width: 100%;
   }
 
   .productContent p {
@@ -149,10 +150,11 @@ export default {
   .productItem {
     min-width: 40rem;
     margin-left: 0.8rem;
+    padding: 0.2rem 0.2rem;
   }
 
   .productImg img {
-    width: 80%;
+    width: 100%;
   }
 
   .productContent p {
@@ -170,10 +172,11 @@ export default {
   .productItem {
     min-width: 40rem;
     margin-left: 0.8rem;
+    padding: 0.2rem 0.2rem;
   }
 
   .productImg img {
-    width: 80%;
+    width: 100%;
   }
 
   .productContent p {

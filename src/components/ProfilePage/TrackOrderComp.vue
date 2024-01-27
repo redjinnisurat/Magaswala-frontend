@@ -73,6 +73,7 @@
 <script>
 import axios from "@/axios";
 import { useRoute } from "vue-router";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "TrackOrderComp",
@@ -153,11 +154,15 @@ export default {
   },
   beforeMount() {
     const route = useRoute();
-    if (route.params.order == undefined) {
+    const encryptData = CryptoJS.AES.decrypt(
+      route.params.order,
+      "12345678"
+    ).toString(CryptoJS.enc.Utf8);
+    if (encryptData == undefined) {
       this.order_data = JSON.parse(localStorage.getItem("order-item"));
       // console.log("Order Data: ", this.order_data);
     } else {
-      this.order_data = JSON.parse(route.params.order);
+      this.order_data = JSON.parse(encryptData);
     }
     // console.log("Order Data: ", this.order_data);
 
@@ -191,7 +196,7 @@ export default {
   height: 60px;
   position: absolute;
   left: 50%;
-  top: -0.8rem;
+  top: 0;
   z-index: 0;
   transform: translateX(-50%);
 }

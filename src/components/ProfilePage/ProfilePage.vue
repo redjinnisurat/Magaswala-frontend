@@ -5,15 +5,19 @@
         <img src="./assets/panel_bcg_img.png" alt="Image" />
       </div>
       <div class="panelDiv">
-        <div class="img-div ms-3">
-          <img
-            :src="user_profile ? user_profile : defaulImage"
-            class=""
-            alt="Image"
-          />
+        <div class="user-data">
+          <div class="img-div ms-3">
+            <img
+              :src="user_profile ? user_profile : defaulImage"
+              class="rounded-circle"
+              alt="Image"
+            />
+          </div>
+          <div class="user-details">
+            <h3>{{ user_name }}</h3>
+            <h2>{{ user_email }}</h2>
+          </div>
         </div>
-        <h3>{{ user_name }}</h3>
-        <span>{{ user_email }}</span>
         <div class="menuList">
           <router-link to="/profilePage/userData">
             <div
@@ -233,24 +237,32 @@ export default {
   overflow: hidden;
 }
 
-.img-div img {
-  width: 20rem;
-  height: 100%;
-  border-radius: 20%;
+.user-data {
+  width: 70%;
 }
 
-.panelDiv h3 {
-  font-size: 2.6rem;
+.img-div img {
+  width: 70%;
+  height: 100%;
+}
+
+.user-details {
+  width: 80%;
+}
+
+.user-details h3 {
+  font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 0.2rem;
 }
 
-.panelDiv span {
-  font-size: 1.5rem;
+.user-details h2 {
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
 .menuList {
+  width: 70%;
   margin-top: 1.8rem;
   padding: 0 0.2rem;
 }
@@ -270,6 +282,7 @@ export default {
 
 .menuItem i {
   font-size: 1.8rem;
+  cursor: pointer;
 }
 
 .menuItem p {
@@ -277,6 +290,7 @@ export default {
   margin-left: 0.4rem;
   font-weight: 400;
   margin-bottom: 0;
+  cursor: pointer;
 }
 
 .active {
@@ -330,17 +344,26 @@ export default {
     margin: 1.8rem 1.6rem;
   }
 
-  .panelDiv h3 {
+  .user-data {
+    margin: 0rem auto;
+  }
+
+  .user-details {
+    margin: 0rem auto;
+  }
+
+  .user-details h3 {
     font-size: 2.6rem;
   }
 
-  .panelDiv span {
+  .user-details h2 {
     font-size: 1.6rem;
   }
 
   .menuList {
     display: flex;
     flex-wrap: wrap;
+    margin: 1.6rem auto;
   }
 
   .menuItem {
@@ -391,17 +414,26 @@ export default {
     margin: 1.8rem 1.6rem;
   }
 
-  .panelDiv h3 {
+  .user-data {
+    margin: 0rem auto;
+  }
+
+  .user-details {
+    margin: 0rem auto;
+  }
+
+  .user-details h3 {
     font-size: 2.6rem;
   }
 
-  .panelDiv span {
+  .user-details h2 {
     font-size: 1.6rem;
   }
 
   .menuList {
     display: flex;
     flex-wrap: wrap;
+    margin: 1.8rem auto;
   }
 
   .menuItem {
@@ -452,17 +484,26 @@ export default {
     margin: 1.8rem 1.6rem;
   }
 
-  .panelDiv h3 {
+  .user-data {
+    margin: 0rem auto;
+  }
+
+  .user-details {
+    margin: 0rem auto;
+  }
+
+  .user-details h3 {
     font-size: 2.6rem;
   }
 
-  .panelDiv span {
+  .user-details h2 {
     font-size: 1.6rem;
   }
 
   .menuList {
     display: flex;
     flex-wrap: wrap;
+    margin: 1.8rem auto;
   }
 
   .menuItem {

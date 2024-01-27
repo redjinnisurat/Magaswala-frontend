@@ -5,20 +5,20 @@
       v-for="feedback in feedbackArray"
       :key="feedback.id"
     >
-      <div class="d-flex align-items-center justify-content-center img-div">
+      <!-- <div class="d-flex align-items-center justify-content-center img-div">
         <img
           :src="
             feedback.user.profileimage
               ? feedback.user.profileimage
               : defaulImage
           "
-          class="rounded-4"
+          class="rounded-circle"
           alt="Image"
         />
-      </div>
+      </div> -->
       <div>
         <p>"{{ feedback.feedback }}."</p>
-        <p>- {{ feedback.user.name }}</p>
+        <!-- <p>- {{ feedback.user.name }}</p> -->
         <!-- <p>Surat</p> -->
       </div>
     </div>
@@ -112,6 +112,7 @@ export default {
 
 .img-div img {
   width: 100%;
+  height: 100%;
 }
 
 .reviewItem p {

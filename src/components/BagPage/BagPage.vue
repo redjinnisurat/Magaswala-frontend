@@ -34,6 +34,7 @@ import ProductsComp from "../HomePage/ProductsComp.vue";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "BagPage",
@@ -104,7 +105,10 @@ export default {
             this.$router.push({
               name: "CheckoutPage",
               params: {
-                order: JSON.stringify(this.order_data),
+                order: CryptoJS.AES.encrypt(
+                  JSON.stringify(this.order_data),
+                  "12345678"
+                ).toString(),
               },
             });
           });

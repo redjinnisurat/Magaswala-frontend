@@ -214,32 +214,32 @@ export default {
     },
     async loadCountries() {
       try {
-        // let allCountries = [];
-        // let shouldContinue = true;
-        // let page = 1;
+        let allCountries = [];
+        let shouldContinue = true;
+        let page = 1;
 
-        // while (shouldContinue) {
-        //   const response = await axios.get(
-        //     `https://api.garbajockey.com/api/countries?page=${page}`
-        //   );
-        //   // console.log("Response:", response.data); // Log the response
+        while (shouldContinue) {
+          const response = await axios.get(
+            `https://api.garbajockey.com/api/countries?page=${page}`
+          );
+          // console.log("Response:", response.data); // Log the response
 
-        //   const countries = response.data && response.data.data;
+          const countries = response.data && response.data.data;
 
-        //   if (!countries || countries.length === 0) {
-        //     // No more countries to fetch, break the loop
-        //     shouldContinue = false;
-        //   } else {
-        //     allCountries = [...allCountries, ...countries];
-        //     page++;
-        //   }
-        // }
+          if (!countries || countries.length === 0) {
+            // No more countries to fetch, break the loop
+            shouldContinue = false;
+          } else {
+            allCountries = [...allCountries, ...countries];
+            page++;
+          }
+        }
 
-        // this.countries = allCountries;
+        this.countries = allCountries;
         // console.log("All Countries:", this.countries); // Log the final list of countries
-        const response = await axios.get(`country`);
-        // console.log("Response: ", response.data);
-        this.countries = response.data;
+        // const response = await axios.get(`country`);
+        // // console.log("Response: ", response.data);
+        // this.countries = response.data;
         // console.log("countries: ", this.countries);
       } catch (error) {
         console.error("Error loading countries:", error);
@@ -247,17 +247,17 @@ export default {
     },
     async loadStates() {
       try {
-        // const response = await axios.get(
-        //   `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
-        // );
-        // this.states = response.data.data || []; // Update states array
+        const response = await axios.get(
+          `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
+        );
+        this.states = response.data.data || []; // Update states array
         // console.log("States = ", this.states);
         // this.form_data.state = ""; // Reset state value
         // this.gcData.gcCity = ""; // Reset city value
-        const response = await axios.get(
-          `states-of-country?country_id=${this.form_data.country}`
-        );
-        this.states = response.data.data; // Update states array
+        // const response = await axios.get(
+        //   `states-of-country?country_id=${this.form_data.country}`
+        // );
+        // this.states = response.data.data; // Update states array
         // console.log("reponse: ", response.data.data[0].name);
         // console.log("States = ", this.states);
       } catch (error) {
@@ -266,16 +266,16 @@ export default {
     },
     async loadCities() {
       try {
-        // const response = await axios.get(
-        //   `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
-        // );
-        // this.cities = response.data.data || []; // Update cities array
+        const response = await axios.get(
+          `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
+        );
+        this.cities = response.data.data || []; // Update cities array
         // console.log("Cities = ", this.cities);
         // this.gcData.gcCity = ""; // Reset city value
-        const response = await axios.get(
-          `city-of-states?state_id=${this.form_data.state}`
-        );
-        this.cities = response.data.data; // Update cities array
+        // const response = await axios.get(
+        //   `city-of-states?state_id=${this.form_data.state}`
+        // );
+        // this.cities = response.data.data; // Update cities array
         // console.log("Cities = ", this.cities);
       } catch (error) {
         console.error("Error loading cities:", error);
@@ -293,7 +293,7 @@ export default {
         pincode: this.form_data.pincode,
         city: this.form_data.city,
         state: this.form_data.state,
-        countries: this.form_data.country,
+        // countries: this.form_data.country,
         address_type: this.form_data.add_type,
         Flat_no: flat,
         addressline1: address,

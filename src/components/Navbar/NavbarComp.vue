@@ -1,11 +1,76 @@
 <template>
   <section class="navbar_comp">
     <div class="logo">Magaswala</div>
-    <div class="inputContainer">
-      <input type="text" placeholder="Search for food products" />
-      <button type="button">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
+    <div class="input-grp d-flex flex-column justify-content-center">
+      <div class="inputContainer input-group ps-5">
+        <div class="input-div" data-mdb-input-init>
+          <input
+            v-model="search_product"
+            type="search"
+            id=""
+            class=""
+            placeholder="Search for food products"
+            @input="handleInput"
+          />
+          <div v-show="showAutocompleteResults" class="autocomplete-results">
+            <ul>
+              <li
+                class="d-flex align-items-center justify-content-center"
+                style="height: 20rem"
+                v-if="searchProductFound"
+              >
+                <h3>No result found!!</h3>
+              </li>
+              <li v-for="result in navbarData" :key="result" v-else>
+                <div class="favItem bg-light border rounded">
+                  <div class="favItem_content d-flex align-items-center">
+                    <div
+                      class="fav-img d-flex align-items-center justify-content-center ps-2"
+                    >
+                      <img
+                        :src="result.image ? result.image : defaulImage"
+                        class="rounded-4"
+                        alt="Image"
+                      />
+                    </div>
+                    <div class="favText">
+                      <h3 class="mb-1">
+                        {{ result.name }}
+                        <span class="text-muted">{{ result.quantity }}</span>
+                      </h3>
+                      <h3 class="mb-1">{{ result.desc }}</h3>
+                      <h4 class="text-muted">Rs.{{ result.price }}</h4>
+                    </div>
+                  </div>
+                  <div
+                    class="favItem_btn d-flex justify-content-center align-items-center py-3"
+                  >
+                    <div class="btns2 d-flex flex-column gap-2">
+                      <button
+                        type="button"
+                        class="btn"
+                        v-on:click="addToBag(result.id)"
+                      >
+                        Add to bag
+                      </button>
+                      <button
+                        type="button"
+                        class="btn"
+                        v-on:click="buyNow(result.id)"
+                      >
+                        Buy Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button type="button" v-on:click="search()" data-mdb-ripple-init>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
     </div>
     <div class="logoList">
       <router-link to="/">
@@ -235,6 +300,7 @@
 <script>
 // import axios from 'axios';
 import Swal from "sweetalert2";
+import { mapActions } from "vuex";
 
 export default {
   name: "NavbarComp",
@@ -242,9 +308,76 @@ export default {
     return {
       show: false,
       token: "",
+      search_product: "",
+      searchQuery: "",
+      navbarData: [],
+      showAutocompleteResults: false,
+      defaulImage: require("./assets/ladoo_img_1.jpeg"),
     };
   },
+  computed: {
+    searchedProducts() {
+      return this.$store.getters.allSearchedProducts;
+    },
+    searchProductFound() {
+      return this.$store.getters.searchProductFound;
+    },
+  },
   methods: {
+    async addToBag(id) {
+      this.$store.dispatch("addToCart", {
+        product_id: id,
+        qty: 1,
+      });
+      await Swal.fire({
+        title: "Added Successfully",
+        text: "This item added in your cart.",
+        icon: "success",
+        customClass: {
+          popup: "my-swal-popup", // Make sure this matches your CSS class name
+        },
+      });
+      // alert("Product added to your Bag!!");
+      this.$router.push({
+        name: "BagPage",
+      });
+    },
+    buyNow(id) {
+      this.$router.push({
+        name: "BagItemPage",
+        params: {
+          id: id,
+        },
+      });
+    },
+    handleInput() {
+      if (this.search_product != "") {
+        this.showAutocompleteResults = true;
+        this.getAllSearchedProducts(this.search_product)
+          .then(() => {
+            // console.log("Searched Products: ", this.searchedProducts);
+            this.navbarData = this.searchedProducts;
+          })
+          .catch(() => {
+            // console.log("No result found!!");
+          });
+      } else {
+        this.hideAutocomplete();
+        this.navbarData = [];
+      }
+    },
+    hideAutocomplete() {
+      this.showAutocompleteResults = false;
+    },
+    ...mapActions(["getAllSearchedProducts"]),
+    handleSearch() {
+      this.getAllSearchedProducts(this.search_product).then(() => {
+        // console.log("Searched Products: ", this.searchedProducts);
+      });
+    },
+    search() {
+      // console.log("Search This Item: ", this.search_product);
+    },
     openPanel() {
       this.show = true;
     },
@@ -328,6 +461,123 @@ export default {
 </style>
 
 <style scoped>
+.favItem {
+  background-color: var(--background-color);
+  border: 0.2rem solid var(--border-color) !important;
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favItem_content {
+  width: 60%;
+  display: flex;
+  gap: 2rem;
+}
+
+.fav-img {
+  width: 45%;
+  max-width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+}
+
+.fav-img img {
+  width: 7.5rem;
+  height: 7rem;
+}
+
+.favText {
+  width: 55%;
+}
+
+.favText h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0.6rem 0;
+}
+
+.favText h4,
+span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--price-font-color) !important;
+}
+
+.favItem_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  gap: 4.2rem;
+}
+
+.btns2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.btns2 button {
+  font-size: 1rem !important;
+  border: none !important;
+  border-radius: 6px;
+  background-color: var(--primary-color) !important;
+  color: var(--btn-font-color);
+  padding: 0.6rem 1.2rem !important;
+  cursor: pointer !important;
+  margin-bottom: 1rem;
+}
+
+.autocomplete-results {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  height: 45rem;
+  margin: 1rem auto;
+  overflow-y: auto;
+  box-shadow: 0.2rem 0.2rem 0.9rem black;
+}
+
+.autocomplete-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.autocomplete-results li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.autocomplete-results li:hover {
+  background-color: #f0f0f0;
+}
+
+.input-group {
+  width: 100% !important;
+}
+
+.input-group .btn {
+  z-index: 0;
+}
+
+.input-div {
+  width: 80%;
+}
+.input-group input {
+  width: 100%;
+  height: 50%;
+  font-size: 1.5rem;
+  /*padding: 0.8rem 1.8rem;*/
+  border: none;
+  background: transparent;
+  outline: none;
+}
 .icon-img-div {
   display: flex;
   align-items: center;
@@ -380,8 +630,12 @@ export default {
   font-family: "Merienda", cursive;
 }
 
-.inputContainer {
+.input-grp {
   width: 30%;
+}
+
+.inputContainer {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -390,15 +644,15 @@ export default {
   background-color: var(--btn-font-color);
 }
 
-.inputContainer input {
-  width: 80%;
+/*.inputContainer input {
+  width: 100%;
   height: 50%;
   font-size: 1.5rem;
   padding: 0.8rem 1.8rem;
   border: none;
   background: transparent;
   outline: none;
-}
+}*/
 
 .inputContainer button {
   padding: 0.8rem 1.8rem;
@@ -563,8 +817,41 @@ export default {
   }
 
   .inputContainer {
-    width: 40%;
     display: inline-flex;
+  }
+
+  .input-group {
+    padding-left: 1.6rem !important;
+  }
+
+  .input-div {
+    width: 70%;
+  }
+
+  .favItem_content {
+    width: 65%;
+    gap: 0.6rem;
+  }
+
+  .fav-img {
+    width: 50%;
+  }
+
+  .fav-img img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .favText {
+    width: 65%;
+  }
+  .favItem_btn[data-v-66049fbe] {
+    padding: 1rem 1rem;
+  }
+
+  .btns2 button {
+    font-size: 0.7rem !important;
+    padding: 0.6rem 0.7rem !important;
   }
 }
 
@@ -586,8 +873,41 @@ export default {
   }
 
   .inputContainer {
-    width: 40%;
     display: inline-flex;
+  }
+
+  .input-group {
+    padding-left: 1.6rem !important;
+  }
+
+  .input-div {
+    width: 70%;
+  }
+
+  .favItem_content {
+    width: 65%;
+    gap: 0.6rem;
+  }
+
+  .fav-img {
+    width: 50%;
+  }
+
+  .fav-img img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .favText {
+    width: 65%;
+  }
+  .favItem_btn[data-v-66049fbe] {
+    padding: 1rem 1rem;
+  }
+
+  .btns2 button {
+    font-size: 0.7rem !important;
+    padding: 0.6rem 0.7rem !important;
   }
 }
 

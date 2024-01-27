@@ -117,13 +117,11 @@
                   {{ address.address.addressline1 }}</span
                 ><br />
                 <span
-                  >{{ address.details.city.city_detail.city_name }},
-                  {{ address.details.state.state_detail.state_name }}, </span
+                  >{{ address.address.city }},
+                  {{ address.address.state }}, </span
                 ><br />
                 <span>
-                  {{
-                    address.details.countries.countries_detail.countries_name
-                  }}
+                  {{ address.address.countries }}
                   - {{ address.address.pincode }}</span
                 >
               </label>
@@ -137,13 +135,11 @@
                   {{ address.address.addressline1 }}</span
                 ><br />
                 <span
-                  >{{ address.details.city.city_detail.city_name }},
-                  {{ address.details.state.state_detail.state_name }}, </span
+                  >{{ address.address.city }},
+                  {{ address.address.state }}, </span
                 ><br />
                 <span>
-                  {{
-                    address.details.countries.countries_detail.countries_name
-                  }}
+                  {{ address.address.countries }}
                   - {{ address.address.pincode }}</span
                 >
               </label>
@@ -157,13 +153,11 @@
                   {{ address.address.addressline1 }}</span
                 ><br />
                 <span
-                  >{{ address.details.city.city_detail.city_name }},
-                  {{ address.details.state.state_detail.state_name }}, </span
+                  >{{ address.address.city }},
+                  {{ address.address.state }}, </span
                 ><br />
                 <span>
-                  {{
-                    address.details.countries.countries_detail.countries_name
-                  }}
+                  {{ address.address.countries }}
                   - {{ address.address.pincode }}</span
                 >
               </label>
@@ -214,7 +208,7 @@
     <!-- <input type="hidden" name="amount" v-model="amount_pay" size="64" /> -->
     <input type="hidden" name="amount" v-model="orderData.price" size="64" />
 
-    <input type="hidden" name="productinfo" v-model="product.name" size="64" />
+    <input type="hidden" name="productinfo" v-model="productInfo" size="64" />
 
     <input
       type="hidden"
@@ -245,6 +239,7 @@ import { mapActions } from "vuex";
 import sha512 from "js-sha512";
 
 import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "BagItemPage",
@@ -262,12 +257,12 @@ export default {
       // amount_pay: '678.64',
       hash: "",
       txnid: "",
-      // productInfo: "",
+      productInfo: "Magaswala",
       payuUrl: "https://secure.payu.in/_payment",
       mkey: "nxpvv9VZ",
       saltKey: "3oFxUMtWG2",
       // surl: 'https://restroworld.com/blueticksuccess',
-      surl: `${window.location.origin}/completePage`,
+      surl: `${window.location.origin}/completePage/${this.order_split_result}`,
       // furl: 'https://restroworld.com/home/User/Fail',
       furl: `${window.location.origin}/`,
       userDetails: [],
@@ -298,7 +293,7 @@ export default {
       this.$router.push({
         name: "HomeAddressComp",
         params: {
-          address: addData,
+          address: CryptoJS.AES.encrypt(addData, "12345678").toString(),
         },
       });
     },
@@ -362,7 +357,8 @@ export default {
         this.product = response.data.data;
         // this.p_price = Number(this.product.price);
         // this.userDetails = response.data.data;
-        // console.log(this.product.name);
+        // console.log(this.product.quantity);
+        // console.log(typeof this.product.quantity);
       } catch (error) {
         console.error(error);
       }

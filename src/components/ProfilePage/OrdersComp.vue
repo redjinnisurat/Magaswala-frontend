@@ -37,6 +37,7 @@
             class="d-flex align-items-center pt-1 pb-1 ms-2 justify-content-center me-3 img-background"
           >
             <img
+              class="rounded-4"
               style="width: 70%"
               :src="
                 order.product.product.image
@@ -220,7 +221,7 @@ export default {
         });
         // console.log("delivered Products: ", this.delivered_products);
       } else {
-        console.log("Ordered Products not found!!", this.orderd_products);
+        // console.log("Ordered Products not found!!", this.orderd_products);
       }
     },
     async processOrderData() {
@@ -255,7 +256,7 @@ export default {
           }
         });
       } else {
-        console.log("Order Array not found !!");
+        // console.log("Order Array not found !!");
       }
 
       // console.log("Ordered Product List: ", this.orderd_products);
@@ -333,7 +334,9 @@ export default {
   width: 20%;
   height: 9rem;
   overflow: hidden;
-  background-color: var(--primary-color);
+  border-radius: 0.6rem;
+  padding: 0.4rem 0rem;
+  border: 0.1rem solid var(--border-color);
 }
 
 .color-green {

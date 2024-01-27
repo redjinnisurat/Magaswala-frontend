@@ -243,6 +243,12 @@ export default {
       bulding_name: "",
       landmark: "",
       phone_code: "+",
+      // country: "",
+      // country_extra: [],
+      // state: "",
+      // state_extra: [],
+      // city: "",
+      // city_extra: [],
       form_data: {
         f_name: "",
         l_name: "",
@@ -269,74 +275,124 @@ export default {
     },
     async loadCountries() {
       try {
-        // let allCountries = [];
-        // let shouldContinue = true;
-        // let page = 1;
+        let allCountries = [];
+        let shouldContinue = true;
+        let page = 1;
 
-        // while (shouldContinue) {
-        //   const response = await axios.get(
-        //     `https://api.garbajockey.com/api/countries?page=${page}`
-        //   );
-        //   // console.log("Response:", response.data); // Log the response
+        while (shouldContinue) {
+          const response = await axios.get(
+            `https://api.garbajockey.com/api/countries?page=${page}`
+          );
+          // console.log("Response:", response.data); // Log the response
 
-        //   const countries = response.data && response.data.data;
+          const countries = response.data && response.data.data;
 
-        //   if (!countries || countries.length === 0) {
-        //     // No more countries to fetch, break the loop
-        //     shouldContinue = false;
-        //   } else {
-        //     allCountries = [...allCountries, ...countries];
-        //     page++;
+          if (!countries || countries.length === 0) {
+            // No more countries to fetch, break the loop
+            shouldContinue = false;
+          } else {
+            allCountries = [...allCountries, ...countries];
+            page++;
+          }
+        }
+
+        this.countries = allCountries;
+        // this.countries.forEach((country) => {
+        //   if (this.form_data.country == country.id) {
+        //     this.country = country.name;
+        //     return;
         //   }
-        // }
-
-        // this.countries = allCountries;
+        // });
+        // console.log("Selected Country: ", this.country);
         // console.log("All Countries:", this.countries); // Log the final list of countries
-        const response = await axios.get(`country`);
-        // console.log("Response: ", response.data);
-        this.countries = response.data;
+        // const response = await axios.get(`country`);
+        // // console.log("Response: ", response.data);
+        // this.countries = response.data;
         // console.log("countries: ", this.countries);
       } catch (error) {
         console.error("Error loading countries:", error);
       }
     },
+    // getCountryName(id) {
+    //   this.countries.forEach((country) => {
+    //     if (id == country.id) {
+    //       this.country = country.name;
+    //       return;
+    //     }
+    //   });
+    // console.log("Selected Country: ", this.country);
+    // },
     async loadStates() {
       try {
-        // const response = await axios.get(
-        //   `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
-        // );
-        // this.states = response.data.data || []; // Update states array
-        // // console.log("States = ", this.states);
-        // // this.form_data.state = ""; // Reset state value
-        // // this.gcData.gcCity = ""; // Reset city value
-        // // this.getPhoneCode();
         const response = await axios.get(
-          `states-of-country?country_id=${this.form_data.country}`
+          `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
         );
-        this.states = response.data.data; // Update states array
+        this.states = response.data.data || []; // Update states array
+        // console.log("States = ", this.states);
+        // this.form_data.state = ""; // Reset state value
+        // this.gcData.gcCity = ""; // Reset city value
+        // this.getPhoneCode();
+        // const response = await axios.get(
+        //   `states-of-country?country_id=${this.form_data.country}`
+        // );
+        // this.states = response.data.data; // Update states array
         // console.log("reponse: ", response.data.data[0].name);
         // console.log("States = ", this.states);
+
+        // this.states.forEach((state) => {
+        //   if (this.form_data.state == state.id) {
+        //     this.state = state.name;
+        //     // console.log("Selected State Name: ", this.state);
+        //   }
+        // });
+        // this.getCountryName(this.form_data.country);
       } catch (error) {
         console.error("Error loading states:", error);
       }
     },
+    // getStateName(id) {
+    //   this.states.forEach((state) => {
+    //     if (id == state.id) {
+    //       this.state = state.name;
+    //       // console.log("Selected State Name: ", this.state);
+    //     }
+    //   });
+    // },
     async loadCities() {
       try {
-        // const response = await axios.get(
-        //   `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
-        // );
-        // this.cities = response.data.data || []; // Update cities array
-        // // console.log("Cities = ", this.cities);
-        // // this.gcData.gcCity = ""; // Reset city value
         const response = await axios.get(
-          `city-of-states?state_id=${this.form_data.state}`
+          `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
         );
-        this.cities = response.data.data; // Update cities array
+        this.cities = response.data.data || []; // Update cities array
         // console.log("Cities = ", this.cities);
+        // this.gcData.gcCity = ""; // Reset city value
+        // const response = await axios.get(
+        //   `city-of-states?state_id=${this.form_data.state}`
+        // );
+        // this.cities = response.data.data; // Update cities array
+        // console.log("Cities = ", this.cities);
+        // this.cities.forEach((city) => {
+        //   // console.log("City Id: ", this.form_data.city);
+        //   if (this.form_data.city == city.id) {
+        //     this.city = city.name;
+        //     // console.log("Selected CIty Name: ", this.city);
+        //   }
+        // });
+        // this.getStateName(this.form_data.state);
+        // this.getCityName(this.form_data.city);
       } catch (error) {
         console.error("Error loading cities:", error);
       }
     },
+    // getCityName(id) {
+    //   // console.log("City Id: ", id);
+    //   this.cities.forEach((city) => {
+    //     if (id == city.id) {
+    //       this.city = city.name;
+    //       // console.log("Selected City Name: ", this.city);
+    //     }
+    //   });
+    // },
     async updateUser(data) {
       try {
         await axios.post(`updateprofile`, data, {
@@ -344,6 +400,7 @@ export default {
             "Content-Type": "multipart/form-data",
           },
         });
+        // console.log("User Data: ", data);
         // console.log("Response: ", response);
       } catch (error) {
         console.error(error);
@@ -398,6 +455,8 @@ export default {
         country: data.country_id == null ? "101" : data.country_id,
       };
 
+      // console.log("Form Data: ", this.form_data);
+
       this.flat_no = flatNo;
       this.bulding_name = bulidingName;
       this.landmark = landMark;
@@ -423,9 +482,9 @@ export default {
         email: this.form_data.email_id,
         phoneno: this.form_data.phoneno,
         address: this.form_data.address,
-        country_id: this.form_data.country,
-        state_id: this.form_data.state,
-        city_id: this.form_data.city,
+        country_id: Number(this.form_data.country),
+        state_id: Number(this.form_data.state),
+        city_id: Number(this.form_data.city),
         pincode: this.form_data.pin_code,
         birthdate: this.form_data.birth_date,
         gender: this.form_data.gender,
@@ -445,6 +504,7 @@ export default {
         },
       }).then(() => {
         this.edit_flag = true;
+        // location.reload();
       });
     },
     addAddress() {
@@ -474,6 +534,7 @@ export default {
   beforeMount() {
     this.getUser().then(() => {
       this.setUserData(this.userData);
+      // console.log("User Data: ", this.userData);
     });
   },
 };

@@ -9,7 +9,8 @@
         class="d-flex align-items-center pt-1 pb-1 justify-content-center me-3 img-background"
       >
         <img
-          style="width: 70%"
+          class="rounded-4"
+          style="width: 75%"
           :src="
             order.product.product.image
               ? order.product.product.image
@@ -47,6 +48,8 @@
 
 <script>
 import { mapActions } from "vuex";
+import CryptoJS from "crypto-js";
+
 export default {
   name: "OrderItemComp",
 
@@ -70,7 +73,10 @@ export default {
       this.$router.push({
         name: "TrackOrderComp",
         params: {
-          order: JSON.stringify(order),
+          order: CryptoJS.AES.encrypt(
+            JSON.stringify(order),
+            "12345678"
+          ).toString(),
         },
       });
     },
@@ -106,7 +112,7 @@ export default {
           }
         });
       } else {
-        console.log("Order Array not found !!");
+        // console.log("Order Array not found !!");
       }
 
       // console.log("Ordered Product List: ", this.orderd_products);
@@ -134,10 +140,12 @@ export default {
 }
 
 .img-background {
-  width: 26%;
+  width: 28%;
   height: 13rem;
   overflow: hidden;
-  background-color: var(--primary-color);
+  border-radius: 0.6rem;
+  padding: 0.4rem 0rem;
+  border: 0.1rem solid var(--border-color);
 }
 
 .item-color {

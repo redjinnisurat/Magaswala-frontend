@@ -42,12 +42,12 @@ const routes = [
   },
   {
     name: "CheckoutPage",
-    path: "/checkoutPage",
+    path: "/checkoutPage/:order",
     component: CheckoutPage,
   },
   {
     name: "CompletePage",
-    path: "/completePage",
+    path: "/completePage/:order_id",
     component: CompletePage,
   },
   {
@@ -65,7 +65,7 @@ const routes = [
       },
       {
         name: "TrackOrderComp",
-        path: "/profilePage/orders/trackOrder",
+        path: "/profilePage/orders/trackOrder/:order",
         component: TrackOrderComp,
       },
       {
@@ -83,7 +83,7 @@ const routes = [
       },
       {
         name: "HomeAddressComp",
-        path: "/profilePage/manageAddress/homeAddress",
+        path: "/profilePage/manageAddress/homeAddress/:address",
         component: HomeAddressComp,
       },
       {
