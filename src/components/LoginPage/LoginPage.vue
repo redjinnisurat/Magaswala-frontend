@@ -55,6 +55,7 @@
         </form>
         <div class="signup">
           <p>Don't have an account?</p>
+
           <router-link to="/signup">Sign up now</router-link>
         </div>
       </div>
