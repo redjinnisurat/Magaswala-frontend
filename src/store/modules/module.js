@@ -10,6 +10,8 @@ const state = {
   homeAdd_id: null,
   feedbacks: [],
   total_price: 0,
+  searchProducts: [],
+  notFound: false,
 };
 
 const getters = {
@@ -22,6 +24,8 @@ const getters = {
   homeAddId: (state) => state.homeAdd_id,
   allFeedbacks: (state) => state.feedbacks,
   total_price: (state) => state.total_price,
+  allSearchedProducts: (state) => state.searchProducts,
+  searchProductFound: (state) => state.notFound,
 };
 
 const actions = {
@@ -114,6 +118,19 @@ const actions = {
       console.error(error);
     }
   },
+  async getAllSearchedProducts({ commit }, name) {
+    try {
+      // console.log("type of Name: ", typeof name);
+      // console.log("Product Name: ", name);
+      const response = await axios.get(`showall?search=${name}`);
+      // console.log("Response: ", response.data);
+      commit("setNotFound", false);
+      commit("setSearchedProducts", response.data.data);
+    } catch (error) {
+      // console.error(error);
+      commit("setNotFound", true);
+    }
+  },
 };
 
 const mutations = {
@@ -136,6 +153,8 @@ const mutations = {
       state.total_price = state.cart.length > 0 ? state.cart[0].Total_price : 0;
     }
   },
+  setSearchedProducts: (state, response) => (state.searchProducts = response),
+  setNotFound: (state, response) => (state.notFound = response),
 };
 
 export default {

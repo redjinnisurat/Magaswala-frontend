@@ -207,21 +207,26 @@ export default {
       }
     },
     handleQuntityChanges(newQuntity) {
-      if (newQuntity == "1kg") {
-        this.kg_show = true;
-        this.gm1_show = false;
-        this.gm2_show = false;
-        this.$refs.kg_input.checked = true;
-      } else if (newQuntity == "500gm") {
-        this.kg_show = false;
-        this.gm1_show = true;
-        this.gm2_show = false;
-        this.$refs.gm1_input.checked = true;
-      } else if (newQuntity == "250gm") {
-        this.kg_show = false;
-        this.gm1_show = false;
-        this.gm2_show = true;
-        this.$refs.gm2_input.checked = true;
+      if (newQuntity != undefined) {
+        const quantity = newQuntity.replace(/"/g, "").split(" ").join("");
+        // console.log("Quntity: ", quantity, " Type: ", typeof quantity);
+        // console.log("Type: ", quantity === "1kg");
+        if (quantity == "1kg" || quantity == "1") {
+          this.kg_show = true;
+          this.gm1_show = false;
+          this.gm2_show = false;
+          this.$refs.kg_input.checked = true;
+        } else if (quantity == "500gm" || quantity == "500") {
+          this.kg_show = false;
+          this.gm1_show = true;
+          this.gm2_show = false;
+          this.$refs.gm1_input.checked = true;
+        } else if (quantity == "250gm" || quantity == "250") {
+          this.kg_show = false;
+          this.gm1_show = false;
+          this.gm2_show = true;
+          this.$refs.gm2_input.checked = true;
+        }
       }
     },
   },
@@ -234,12 +239,14 @@ export default {
       this.$store.dispatch("getAddressId").then(() => {
         // console.log("Address Id: ", this.$store.getters.homeAddId);
         this.add_id = this.$store.getters.homeAddId;
+        // console.log("Product Id: ", this.i_id);
         const data = {
           product_id: [{ product_id: this.i_id, value: this.i_qty }],
           address_id: this.address_id == null ? this.add_id : this.address_id,
         };
         // console.log("Order Data: ", data);
         if (this.add_id != null || this.add_id != undefined) {
+          // console.log("Order Data: ", data);
           this.makeOrders(data);
         } else {
           // alert(

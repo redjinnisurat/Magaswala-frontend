@@ -128,6 +128,7 @@
 import axios from "@/axios";
 import { useRoute } from "vue-router";
 import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "HomeAddressComp",
@@ -290,9 +291,13 @@ export default {
   },
   beforeMount() {
     const route = useRoute();
-    if (route.params.address != undefined) {
-      this.address = JSON.parse(route.params.address);
-      localStorage.setItem("address", route.params.address);
+    const encryptData = CryptoJS.AES.decrypt(
+      route.params.address,
+      "12345678"
+    ).toString(CryptoJS.enc.Utf8);
+    if (encryptData != undefined) {
+      this.address = JSON.parse(encryptData);
+      localStorage.setItem("address", JSON.parse(encryptData));
       this.setData(this.address);
     } else {
       this.address = JSON.parse(localStorage.getItem("address"));

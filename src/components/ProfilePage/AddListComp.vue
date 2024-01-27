@@ -31,11 +31,10 @@
           {{ address.address.Flat_no }}, {{ address.address.addressline1 }},
         </p>
         <p class="mb-0 p-size text-muted">
-          {{ address.details.city.city_detail.city_name }},
-          {{ address.details.state.state_detail.state_name }},
+          {{ address.address.city }}, {{ address.address.state }},
         </p>
         <p class="mb-0 p-size text-muted">
-          {{ address.details.countries.countries_detail.countries_name }} -
+          {{ address.address.countries }} -
           {{ address.address.pincode }}
         </p>
       </div>
@@ -63,6 +62,7 @@
 import axios from "@/axios";
 import { mapActions } from "vuex";
 import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "AddListComp",
@@ -213,7 +213,7 @@ export default {
       this.$router.push({
         name: "HomeAddressComp",
         params: {
-          address: addData,
+          address: CryptoJS.AES.encrypt(addData, "12345678").toString(),
         },
       });
     },

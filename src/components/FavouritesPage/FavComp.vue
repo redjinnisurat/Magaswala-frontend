@@ -190,6 +190,7 @@ export default {
 
 .fav-img img {
   width: 16rem;
+  height: 12rem;
 }
 
 .favText h3 {
