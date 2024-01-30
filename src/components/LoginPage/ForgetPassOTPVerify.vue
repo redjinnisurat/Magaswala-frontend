@@ -4,7 +4,7 @@
       <div class="verify_content">
         <h2>Verification</h2>
         <h4>6-digit code has been sent to your registered email address</h4>
-        <form>
+        <form @keyup.enter="submit()">
           <input type="text" placeholder="OTP" v-model="otp" />
           <div v-if="error_otp" class="error">
             <span>{{ error_otp }}</span>

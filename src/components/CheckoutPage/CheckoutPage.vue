@@ -17,7 +17,9 @@
                 class="fa-solid fa-pen-to-square"
                 v-on:click="homeAdd(address.address)"
               ></i>
-              <div class="d-flex align-items-center flex-row-reverse">
+              <div
+                class="d-flex align-items-center flex-row-reverse justify-content-end"
+              >
                 <label
                   :for="address.address.id"
                   v-if="address.address.address_type == 0"
@@ -73,7 +75,7 @@
                   >
                 </label>
                 <input
-                  class="me-4"
+                  class="me-5"
                   type="radio"
                   :value="address.address.id"
                   :id="address.address.id"
@@ -91,7 +93,7 @@
             <h3 class="text-muted">No Address Added!!</h3>
           </div>
         </div>
-        <div class="paymentDiv">
+        <!-- <div class="paymentDiv">
           <h3 class="paymentHeading">Payment Options</h3>
           <div class="paymentOption" :class="{ active: card_pay }">
             <img src="./assets/master_card_img.png" alt="img" />
@@ -141,7 +143,7 @@
               v-on:change="changeOptions()"
             />
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="checkOutContent1">
         <h3>Promo Code</h3>
@@ -265,6 +267,9 @@ export default {
       payuUrl: "https://secure.payu.in/_payment",
       mkey: "nxpvv9VZ",
       saltKey: "3oFxUMtWG2",
+      // payuUrl: "https://test.payu.in/_payment",
+      // mkey: "gtKFFx",
+      // saltKey: "eCwWELxi",
       // surl: 'https://restroworld.com/blueticksuccess',
       surl: `${window.location.origin}/completePage/${this.order_split_result}`,
       // furl: 'https://restroworld.com/home/User/Fail',
@@ -393,6 +398,8 @@ export default {
       // console.log(data);
 
       document.getElementById("hash").value = this.hash;
+      // document.getElementById("hash").value =
+      //   "863b2603239e029f99a4a97db5586e0d612d02839ffecb493f260124329c9a976c25f16b03a634448b480ca43df6a7433e806839b3fb864723383ead45663ab9";
 
       // const paymentSuccessful = true; // Replace this with your actual check
 
@@ -596,11 +603,11 @@ export default {
 }
 
 .addressDiv {
-  width: 75%;
+  width: 90%;
 }
 
 .adddress-container {
-  height: 25.5rem;
+  height: 45rem;
   overflow-y: auto;
 }
 
@@ -609,7 +616,7 @@ export default {
 }
 
 .addressOption {
-  width: 70%;
+  width: 90%;
   display: flex;
   gap: 0.8rem;
   align-items: center;
@@ -716,7 +723,7 @@ export default {
 }
 
 .chekOutDetails {
-  max-width: 32rem;
+  width: 75%;
   border-radius: 1.4rem;
   padding: 1rem 1.6rem;
   margin-bottom: 2.2rem;
@@ -779,21 +786,35 @@ export default {
   }
 
   .checkoutMethods {
-    width: 70%;
+    width: 90%;
     border-right: none;
     align-items: flex-start;
     margin-top: 2rem;
-    margin-left: 6rem;
+  }
+
+  .addressDiv {
+    width: 100%;
+  }
+
+  .addressOption {
+    width: 90%;
   }
 
   .checkOutContent1 {
-    width: 70%;
+    width: 90%;
     align-items: flex-start;
-    margin-left: 6rem;
+  }
+  .chekOutDetails {
+    width: 90%;
+  }
+
+  .chekOut_input {
+    width: 90%;
+    margin: 0.2rem auto;
   }
 
   .chekOut_input input {
-    margin-left: 0.4rem;
+    margin-left: 0rem;
   }
 
   .productSec h3 {
@@ -816,14 +837,31 @@ export default {
     margin-left: 12rem;
   }
 
+  .addressDiv {
+    width: 100%;
+  }
+
+  .addressOption {
+    width: 90%;
+  }
+
   .checkOutContent1 {
     width: 70%;
     align-items: flex-start;
     margin-left: 12rem;
   }
 
+  .chekOutDetails {
+    width: 90%;
+  }
+
+  .chekOut_input {
+    width: 90%;
+    margin: 0.2rem auto;
+  }
+
   .chekOut_input input {
-    margin-left: 0.4rem;
+    margin-left: 0rem;
   }
 
   .productSec h3 {
@@ -846,14 +884,26 @@ export default {
     padding-right: 2rem;
   }
 
+  .addressDiv {
+    width: 100%;
+  }
+
+  .addressOption {
+    width: 90%;
+  }
+
   .checkOutContent1 {
     width: 70%;
     align-items: flex-start;
     margin-left: 4rem;
   }
 
+  .chekOutDetails {
+    width: 100%;
+  }
+
   .chekOut_input input {
-    margin-left: 0.4rem;
+    margin-left: 2rem;
   }
 
   .productSec h3 {

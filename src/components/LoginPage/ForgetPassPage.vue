@@ -4,7 +4,7 @@
       <div class="forget_passContent">
         <h2>Forget password No problem!!</h2>
         <h4>Please enter email-id for verification</h4>
-        <form>
+        <form @keyup.enter="submit()">
           <input type="email" placeholder="Email-Id" v-model="email" />
           <div v-if="error_email" class="error">
             <span>{{ error_email }}</span>

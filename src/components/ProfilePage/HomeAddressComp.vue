@@ -1,127 +1,133 @@
 <template>
-  <div class="h-100">
-    <div class="h-50">
-      <div class="d-flex align-items-center">
-        <i
-          class="fa-solid fa-arrow-left icon fs-1 pt-2"
-          v-on:click="back()"
-        ></i>
-        <h3
-          class="fs-1 fw-semibold mt-3 ms-4 heading"
-          v-if="address.address_type == 0"
-        >
-          Home Address
-        </h3>
-        <h3
-          class="fs-1 fw-semibold mt-3 ms-4 heading"
-          v-if="address.address_type == 1"
-        >
-          Offfice Address
-        </h3>
-        <h3
-          class="fs-1 fw-semibold mt-3 ms-4 heading"
-          v-if="address.address_type == 2"
-        >
-          Other Address
-        </h3>
-      </div>
-      <div class="w-100 mt-5 ms-3 content-div">
-        <h3 class="fs-2 fw-semibold">Address</h3>
-        <div class="w-100 d-flex align-items-center mt-3 data-div">
-          <div class="w-50 input-div">
-            <input
-              class="fs-4 input"
-              type="text"
-              name="flat_build_input"
-              placeholder="Flat No./Bulding name"
-              style="width: 90%"
-              v-model="form_data.flat_no"
-            />
-            <div class="w-100">
-              <input
-                class="fs-4 input me-4"
-                type="text"
-                name="landmark_input"
-                placeholder="Nr. By Landmark"
-                style="width: 43%"
-                v-model="form_data.landmark"
-              />
+  <form @keyup.enter="update()" class="h-100">
+    <div class="h-100">
+      <div class="h-50">
+        <div class="d-flex align-items-center">
+          <i
+            class="fa-solid fa-arrow-left icon fs-1 pt-2"
+            v-on:click="back()"
+          ></i>
+          <h3
+            class="fs-1 fw-semibold mt-3 ms-4 heading"
+            v-if="address.address_type == 0"
+          >
+            Home Address
+          </h3>
+          <h3
+            class="fs-1 fw-semibold mt-3 ms-4 heading"
+            v-if="address.address_type == 1"
+          >
+            Offfice Address
+          </h3>
+          <h3
+            class="fs-1 fw-semibold mt-3 ms-4 heading"
+            v-if="address.address_type == 2"
+          >
+            Other Address
+          </h3>
+        </div>
+        <div class="w-100 mt-5 ms-3 content-div">
+          <h3 class="fs-2 fw-semibold">Address</h3>
+          <div class="w-100 d-flex align-items-center mt-3 data-div">
+            <div class="w-50 input-div">
               <input
                 class="fs-4 input"
                 type="text"
-                name="pincode_input"
-                placeholder="Pincode"
-                style="width: 43%"
-                v-model="form_data.pincode"
+                name="flat_build_input"
+                placeholder="Flat No./Bulding name"
+                style="width: 90%"
+                v-model="form_data.flat_no"
               />
-            </div>
-            <div class="w-100">
-              <select
-                class="fs-4 input me-4"
-                name="state"
-                id="state"
-                style="width: 43%"
-                v-model="form_data.state"
-                v-on:change="loadCities()"
-              >
-                <option disabled value="null">State</option>
-                <option
-                  v-for="state in states"
-                  :key="state.id"
-                  :value="state.id"
+              <div class="w-100">
+                <input
+                  class="fs-4 input me-4"
+                  type="text"
+                  name="landmark_input"
+                  placeholder="Nr. By Landmark"
+                  style="width: 43%"
+                  v-model="form_data.landmark"
+                />
+                <input
+                  class="fs-4 input"
+                  type="text"
+                  name="pincode_input"
+                  placeholder="Pincode"
+                  style="width: 43%"
+                  v-model="form_data.pincode"
+                />
+              </div>
+              <div class="w-100">
+                <select
+                  class="fs-4 input me-4"
+                  name="state"
+                  id="state"
+                  style="width: 43%"
+                  v-model="form_data.state"
+                  v-on:change="loadCities()"
                 >
-                  {{ state.name }}
-                </option>
-              </select>
+                  <option disabled value="null">State</option>
+                  <option
+                    v-for="state in states"
+                    :key="state.id"
+                    :value="state.id"
+                  >
+                    {{ state.name }}
+                  </option>
+                </select>
+                <select
+                  class="fs-4 input me-4"
+                  name="city"
+                  id="city"
+                  style="width: 43%"
+                  v-model="form_data.city"
+                >
+                  <option disabled value="null">City</option>
+                  <option
+                    v-for="city in cities"
+                    :key="city.id"
+                    :value="city.id"
+                  >
+                    {{ city.name }}
+                  </option>
+                </select>
+              </div>
               <select
                 class="fs-4 input me-4"
-                name="city"
-                id="city"
-                style="width: 43%"
-                v-model="form_data.city"
+                name="country"
+                id="country"
+                style="width: 90%"
+                v-model="form_data.country"
+                v-on:change="loadStates()"
               >
-                <option disabled value="null">City</option>
-                <option v-for="city in cities" :key="city.id" :value="city.id">
-                  {{ city.name }}
+                <option disabled value="">Country</option>
+                <option
+                  v-for="country in countries"
+                  :key="country.id"
+                  :value="country.id"
+                >
+                  {{ country.name }}
                 </option>
               </select>
             </div>
-            <select
-              class="fs-4 input me-4"
-              name="country"
-              id="country"
-              style="width: 90%"
-              v-model="form_data.country"
-              v-on:change="loadStates()"
+            <div
+              class="w-50 pe-4 d-flex align-items-center justify-content-center img-div"
             >
-              <option disabled value="">Country</option>
-              <option
-                v-for="country in countries"
-                :key="country.id"
-                :value="country.id"
-              >
-                {{ country.name }}
-              </option>
-            </select>
-          </div>
-          <div
-            class="w-50 pe-4 d-flex align-items-center justify-content-center img-div"
-          >
-            <img class="w-100" src="./assets/address_img1.jpg" alt="Image" />
+              <img class="w-100" src="./assets/address_img1.jpg" alt="Image" />
+            </div>
           </div>
         </div>
       </div>
+      <div class="d-flex justify-content-end h-50 pb-5 me-5 btn-div">
+        <button
+          class="fs-3 address-btn mt-auto"
+          type="button"
+          v-on:click="update()"
+        >
+          Save Changes
+        </button>
+      </div>
     </div>
-    <div class="d-flex justify-content-end h-50 pb-5 me-5 btn-div">
-      <button
-        class="fs-3 address-btn mt-auto"
-        type="button"
-        v-on:click="update()"
-      >
-        Save Changes
-      </button>
-    </div>
-  </div>
+  </form>
 </template>
 
 <script>

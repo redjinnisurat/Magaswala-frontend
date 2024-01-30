@@ -5,41 +5,21 @@
       v-for="feedback in feedbackArray"
       :key="feedback.id"
     >
-      <!-- <div class="d-flex align-items-center justify-content-center img-div">
+      <div class="d-flex align-items-center justify-content-center img-div">
         <img
           :src="
-            feedback.user.profileimage
-              ? feedback.user.profileimage
-              : defaulImage
+            feedback.user != null ? feedback.user.profileimage : defaulImage
           "
           class="rounded-circle"
           alt="Image"
         />
-      </div> -->
+      </div>
       <div>
         <p>"{{ feedback.feedback }}."</p>
-        <!-- <p>- {{ feedback.user.name }}</p> -->
-        <!-- <p>Surat</p> -->
+        <p>- {{ feedback.user != null ? feedback.user.name : "Darshna" }}</p>
+        <p>Surat</p>
       </div>
     </div>
-    <!-- <div class="reviewItem">
-      <img src="./assets/user_img.png" alt="Image" />
-      <p>
-        "Those sweets were beautiful handcrafted with so much detail, and the
-        test was simple heavenly."
-      </p>
-      <p>- Rahul Vaghani</p>
-      <p>Surat</p>
-    </div>
-    <div class="reviewItem">
-      <img src="./assets/user_img.png" alt="Image" />
-      <p>
-        "Those sweets were beautiful handcrafted with so much detail, and the
-        test was simple heavenly."
-      </p>
-      <p>- Rahul Vaghani</p>
-      <p>Surat</p>
-    </div> -->
   </div>
   <div
     class="reviewContainer d-flex align-items-center justify-content-center"

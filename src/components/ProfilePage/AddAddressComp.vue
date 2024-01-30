@@ -4,175 +4,177 @@
       <i class="fa-solid fa-arrow-left icon fs-1 pt-2" v-on:click="back()"></i>
       <h3 class="fs-1 fw-semibold mt-3 ms-4 heading">Add Address</h3>
     </div>
-    <div class="content-div">
-      <div class="w-100 d-flex align-items-center data-div">
-        <div class="w-50 mt-5 ms-3 input-div">
-          <h3 class="fs-2 fw-semibold mb-3">Contact Info</h3>
-          <input
-            class="fs-4 mt-1 input"
-            type="text"
-            name="flat_build_input"
-            placeholder="Enter Name"
-            style="width: 90%"
-            v-model="form_data.name"
-          />
-          <input
-            class="fs-4 input"
-            type="text"
-            name="flat_build_input"
-            placeholder="Enter Phone Number"
-            style="width: 90%"
-            v-model="form_data.phoneno"
-          />
-        </div>
-        <div class="w-50 input-div type-add-div">
-          <h3 class="fs-2 fw-semibold mb-3">Type Of Address</h3>
-          <div class="d-flex align-items-center add-input">
-            <input
-              class="mt-1 me-1"
-              type="radio"
-              name="add_type"
-              value="0"
-              id="home"
-              v-model="form_data.add_type"
-            />
-            <label class="me-5 fs-3" for="home">Home</label>
-            <input
-              class="mt-1 me-1"
-              type="radio"
-              name="add_type"
-              value="1"
-              id="office"
-              v-model="form_data.add_type"
-            />
-            <label class="me-5 fs-3" for="office">Office</label>
-            <input
-              class="mt-1 me-1"
-              type="radio"
-              name="add_type"
-              value="2"
-              id="other"
-              v-model="form_data.add_type"
-            />
-            <label class="me-5 fs-3" for="other">Other</label>
-          </div>
-          <div class="mt-3">
-            <input
-              class="mt-1 me-2"
-              type="checkbox"
-              name="default_add"
-              value="yes"
-              id="default_add"
-              v-model="form_data.default"
-            />
-            <label class="fs-3" for="default_add" style="color: grey"
-              >Make as default address.</label
-            >
-          </div>
-        </div>
-      </div>
-      <div class="w-100 ms-3">
+    <form @keyup.enter="add()">
+      <div class="content-div">
         <div class="w-100 d-flex align-items-center data-div">
-          <div class="w-50">
-            <h3 class="fs-2 mb-3 fw-semibold">Address</h3>
-            <div class="input-div">
+          <div class="w-50 mt-5 ms-3 input-div">
+            <h3 class="fs-2 fw-semibold mb-3">Contact Info</h3>
+            <input
+              class="fs-4 mt-1 input"
+              type="text"
+              name="flat_build_input"
+              placeholder="Enter Name"
+              style="width: 90%"
+              v-model="form_data.name"
+            />
+            <input
+              class="fs-4 input"
+              type="text"
+              name="flat_build_input"
+              placeholder="Enter Phone Number"
+              style="width: 90%"
+              v-model="form_data.phoneno"
+            />
+          </div>
+          <div class="w-50 input-div type-add-div">
+            <h3 class="fs-2 fw-semibold mb-3">Type Of Address</h3>
+            <div class="d-flex align-items-center add-input">
               <input
-                class="fs-4 input"
-                type="text"
-                name="flat_build_input"
-                placeholder="Flat No./Bulding name"
-                style="width: 90%"
-                v-model="form_data.flat_no"
+                class="mt-1 me-1"
+                type="radio"
+                name="add_type"
+                value="0"
+                id="home"
+                v-model="form_data.add_type"
               />
-              <div class="w-100">
-                <input
-                  class="fs-4 input me-4"
-                  type="text"
-                  name="landmark_input"
-                  placeholder="Nr. By Landmark"
-                  style="width: 43%"
-                  v-model="form_data.landmark"
-                />
+              <label class="me-5 fs-3" for="home">Home</label>
+              <input
+                class="mt-1 me-1"
+                type="radio"
+                name="add_type"
+                value="1"
+                id="office"
+                v-model="form_data.add_type"
+              />
+              <label class="me-5 fs-3" for="office">Office</label>
+              <input
+                class="mt-1 me-1"
+                type="radio"
+                name="add_type"
+                value="2"
+                id="other"
+                v-model="form_data.add_type"
+              />
+              <label class="me-5 fs-3" for="other">Other</label>
+            </div>
+            <div class="mt-3">
+              <input
+                class="mt-1 me-2"
+                type="checkbox"
+                name="default_add"
+                value="yes"
+                id="default_add"
+                v-model="form_data.default"
+              />
+              <label class="fs-3" for="default_add" style="color: grey"
+                >Make as default address.</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="w-100 ms-3">
+          <div class="w-100 d-flex align-items-center data-div">
+            <div class="w-50">
+              <h3 class="fs-2 mb-3 fw-semibold">Address</h3>
+              <div class="input-div">
                 <input
                   class="fs-4 input"
                   type="text"
-                  name="pincode_input"
-                  placeholder="Pincode"
-                  style="width: 43%"
-                  v-model="form_data.pincode"
+                  name="flat_build_input"
+                  placeholder="Flat No./Bulding name"
+                  style="width: 90%"
+                  v-model="form_data.flat_no"
                 />
-              </div>
-              <div class="w-100">
+                <div class="w-100">
+                  <input
+                    class="fs-4 input me-4"
+                    type="text"
+                    name="landmark_input"
+                    placeholder="Nr. By Landmark"
+                    style="width: 43%"
+                    v-model="form_data.landmark"
+                  />
+                  <input
+                    class="fs-4 input"
+                    type="text"
+                    name="pincode_input"
+                    placeholder="Pincode"
+                    style="width: 43%"
+                    v-model="form_data.pincode"
+                  />
+                </div>
+                <div class="w-100">
+                  <select
+                    class="fs-4 input me-4"
+                    name="state"
+                    id="state"
+                    style="width: 43%"
+                    v-model="form_data.state"
+                    v-on:change="loadCities()"
+                  >
+                    <option disabled value="null">State</option>
+                    <option
+                      v-for="state in states"
+                      :key="state.id"
+                      :value="state.id"
+                    >
+                      {{ state.name }}
+                    </option>
+                  </select>
+                  <select
+                    class="fs-4 input me-4"
+                    name="city"
+                    id="city"
+                    style="width: 43%"
+                    v-model="form_data.city"
+                  >
+                    <option disabled value="null">City</option>
+                    <option
+                      v-for="city in cities"
+                      :key="city.id"
+                      :value="city.id"
+                    >
+                      {{ city.name }}
+                    </option>
+                  </select>
+                </div>
                 <select
                   class="fs-4 input me-4"
-                  name="state"
-                  id="state"
-                  style="width: 43%"
-                  v-model="form_data.state"
-                  v-on:change="loadCities()"
+                  name="country"
+                  id="country"
+                  style="width: 90%"
+                  v-model="form_data.country"
+                  v-on:change="loadStates()"
                 >
-                  <option disabled value="null">State</option>
+                  <option disabled value="">Country</option>
                   <option
-                    v-for="state in states"
-                    :key="state.id"
-                    :value="state.id"
+                    v-for="country in countries"
+                    :key="country.id"
+                    :value="country.id"
                   >
-                    {{ state.name }}
-                  </option>
-                </select>
-                <select
-                  class="fs-4 input me-4"
-                  name="city"
-                  id="city"
-                  style="width: 43%"
-                  v-model="form_data.city"
-                >
-                  <option disabled value="null">City</option>
-                  <option
-                    v-for="city in cities"
-                    :key="city.id"
-                    :value="city.id"
-                  >
-                    {{ city.name }}
+                    {{ country.name }}
                   </option>
                 </select>
               </div>
-              <select
-                class="fs-4 input me-4"
-                name="country"
-                id="country"
-                style="width: 90%"
-                v-model="form_data.country"
-                v-on:change="loadStates()"
-              >
-                <option disabled value="">Country</option>
-                <option
-                  v-for="country in countries"
-                  :key="country.id"
-                  :value="country.id"
-                >
-                  {{ country.name }}
-                </option>
-              </select>
             </div>
-          </div>
-          <div
-            class="w-50 pe-4 d-flex align-items-center justify-content-center img-div"
-          >
-            <img class="w-100" src="./assets/address_img1.jpg" alt="Image" />
+            <div
+              class="w-50 pe-4 d-flex align-items-center justify-content-center img-div"
+            >
+              <img class="w-100" src="./assets/address_img1.jpg" alt="Image" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="d-flex justify-content-end mt-5 me-5 btn-div">
-      <button
-        class="fs-3 address-btn mt-5 mb-2"
-        type="button"
-        v-on:click="add()"
-      >
-        Add Address
-      </button>
-    </div>
+      <div class="d-flex justify-content-end mt-5 pt-5 me-5 btn-div">
+        <button
+          class="fs-3 address-btn mt-5 mb-2"
+          type="button"
+          v-on:click="add()"
+        >
+          Add Address
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
