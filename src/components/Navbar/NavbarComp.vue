@@ -586,19 +586,11 @@ span {
 }
 
 .iconItem:hover #Vector,
-#Vector-2 {
-  /*fill: var(--border-color) Your hover color here */
-  stroke: var(--border-color); /*   Your hover color here */
-}
-
+.iconItem:hover #Vector-2,
 .iconItem:hover #_290141_bag_case_handbag_purse_shopping_icon,
-#Vector_1781 {
-  /*fill: var(--border-color) Your hover color here */
-  stroke: var(--border-color); /*   Your hover color here */
-}
-
+.iconItem:hover #Vector_1781,
 .iconItem:hover #Ellipse_257,
-#Ellipse_255 {
+.iconItem:hover #Ellipse_255 {
   /*fill: var(--border-color) Your hover color here */
   stroke: var(--border-color); /*   Your hover color here */
 }
