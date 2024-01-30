@@ -3,227 +3,233 @@
     <h3>My Profile</h3>
     <i class="fa-solid fa-pen-to-square" v-on:click="editData()"></i>
   </div>
-  <div class="formDiv">
-    <div class="firstDiv">
-      <label for="name">Name</label>
-      <div class="nameDiv">
-        <div class="nameDiv_item">
-          <input
-            type="text"
-            placeholder="First Name"
-            id="name"
-            :readonly="edit_flag"
-            v-model="form_data.f_name"
-          />
-          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-        </div>
-        <div class="nameDiv_item" id="nameDiv_1">
-          <input
-            type="text"
-            placeholder="Last Name"
-            id="name"
-            :readonly="edit_flag"
-            v-model="form_data.l_name"
-          />
-          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-        </div>
-      </div>
-    </div>
-    <div class="secondDiv">
-      <div class="mobile-input">
-        <label for="mobile">Mobile Number</label>
-        <div class="mobileDiv">
-          <!-- <div class="numDiv">
+  <form @keyup.enter="updateData()">
+    <div class="formDiv">
+      <div class="firstDiv">
+        <label for="name">Name</label>
+        <div class="nameDiv">
+          <div class="nameDiv_item">
             <input
               type="text"
-              id="mobile"
+              placeholder="First Name"
+              id="name"
               :readonly="edit_flag"
-              v-model="phone_code"
+              v-model="form_data.f_name"
             />
-          </div> -->
-          <div class="numDiv2">
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+          <div class="nameDiv_item" id="nameDiv_1">
             <input
               type="text"
-              placeholder="Phone No"
-              id="mobile"
+              placeholder="Last Name"
+              id="name"
               :readonly="edit_flag"
-              v-model="form_data.phoneno"
+              v-model="form_data.l_name"
             />
             <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
           </div>
         </div>
       </div>
-      <div>
-        <label for="gender">Gender</label>
-        <div class="selectDiv">
-          <select
-            name="gender"
-            id="gender"
-            v-model="form_data.gender"
-            :disabled="edit_flag"
-          >
-            <option disabled value="null">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <div class="date_title">
-          <label for="birthDate">Birthday</label>
-          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-        </div>
-        <div class="datetDiv">
-          <input
-            type="date"
-            :readonly="edit_flag"
-            v-model="form_data.birth_date"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="thirdDiv">
-      <div class="w-50 mb-3 thirdDiv-1">
-        <label for="email">Email-Id</label>
-        <div class="emailDiv">
-          <input
-            type="email"
-            placeholder="Email-Id"
-            id="email"
-            :readonly="edit_flag"
-            v-model="form_data.email_id"
-          />
-          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-        </div>
-      </div>
-      <div class="w-50 ms-5 thirdDiv-2">
-        <div class="w-50 d-flex align-items-center justify-content-between">
-          <label for="profile">Profile Image</label>
-          <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-        </div>
-        <div class="profileDiv">
-          <input
-            type="file"
-            id="profile"
-            accept="image/*"
-            :disabled="edit_flag"
-            v-on:change="imgUpload"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="fourthDiv">
-      <label for="address">Address</label>
-      <div class="addressDiv">
-        <div class="flexClass">
-          <div class="add_1">
-            <input
-              type="text"
-              placeholder="Flat No."
-              id="address"
-              v-model="flat_no"
-              :readonly="edit_flag"
-            />
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
-          <div class="add_2">
-            <input
-              type="text"
-              placeholder="Bulding Name"
-              id="address"
-              :readonly="edit_flag"
-              v-model="bulding_name"
-            />
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+      <div class="secondDiv">
+        <div class="mobile-input">
+          <label for="mobile">Mobile Number</label>
+          <div class="mobileDiv">
+            <!-- <div class="numDiv">
+              <input
+                type="text"
+                id="mobile"
+                :readonly="edit_flag"
+                v-model="phone_code"
+              />
+            </div> -->
+            <div class="numDiv2">
+              <input
+                type="text"
+                placeholder="Phone No"
+                id="mobile"
+                :readonly="edit_flag"
+                v-model="form_data.phoneno"
+              />
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
           </div>
         </div>
-        <div class="flexClass">
-          <div class="add_3">
-            <input
-              type="text"
-              placeholder="Nr. By Landmark"
-              id="address"
-              :readonly="edit_flag"
-              v-model="landmark"
-            />
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
-          <div class="add_7">
+        <div>
+          <label for="gender">Gender</label>
+          <div class="selectDiv">
             <select
-              name="country"
-              id="country"
-              v-model="form_data.country"
+              name="gender"
+              id="gender"
+              v-model="form_data.gender"
               :disabled="edit_flag"
-              v-on:change="loadStates()"
             >
-              <option disabled value="">Country</option>
-              <option
-                v-for="country in countries"
-                :key="country.id"
-                :value="country.id"
+              <option disabled value="null">Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="date_title">
+            <label for="birthDate">Birthday</label>
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+          <div class="datetDiv">
+            <input
+              type="date"
+              :readonly="edit_flag"
+              v-model="form_data.birth_date"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="thirdDiv">
+        <div class="w-50 mb-3 thirdDiv-1">
+          <label for="email">Email-Id</label>
+          <div class="emailDiv">
+            <input
+              type="email"
+              placeholder="Email-Id"
+              id="email"
+              :readonly="edit_flag"
+              v-model="form_data.email_id"
+            />
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+        </div>
+        <div class="w-50 ms-5 thirdDiv-2">
+          <div class="w-50 d-flex align-items-center justify-content-between">
+            <label for="profile">Profile Image</label>
+            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+          </div>
+          <div class="profileDiv">
+            <input
+              type="file"
+              id="profile"
+              accept="image/*"
+              :disabled="edit_flag"
+              v-on:change="imgUpload"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="fourthDiv">
+        <label for="address">Address</label>
+        <div class="addressDiv">
+          <div class="flexClass">
+            <div class="add_1">
+              <input
+                type="text"
+                placeholder="Flat No."
+                id="address"
+                v-model="flat_no"
+                :readonly="edit_flag"
+              />
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
+            <div class="add_2">
+              <input
+                type="text"
+                placeholder="Bulding Name"
+                id="address"
+                :readonly="edit_flag"
+                v-model="bulding_name"
+              />
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
+          </div>
+          <div class="flexClass">
+            <div class="add_3">
+              <input
+                type="text"
+                placeholder="Nr. By Landmark"
+                id="address"
+                :readonly="edit_flag"
+                v-model="landmark"
+              />
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
+            <div class="add_7">
+              <select
+                name="country"
+                id="country"
+                v-model="form_data.country"
+                :disabled="edit_flag"
+                v-on:change="loadStates()"
               >
-                {{ country.name }}
-              </option>
-            </select>
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+                <option disabled value="">Country</option>
+                <option
+                  v-for="country in countries"
+                  :key="country.id"
+                  :value="country.id"
+                >
+                  {{ country.name }}
+                </option>
+              </select>
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
+          </div>
+          <div class="flexClass">
+            <div class="add_5">
+              <select
+                name="state"
+                id="state"
+                v-model="form_data.state"
+                v-on:change="loadCities()"
+                :disabled="edit_flag"
+              >
+                <option disabled value="null">State</option>
+                <option
+                  v-for="state in states"
+                  :key="state.id"
+                  :value="state.id"
+                >
+                  {{ state.name }}
+                </option>
+              </select>
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
+            <div class="add_6">
+              <select
+                name="city"
+                id="city"
+                v-model="form_data.city"
+                :disabled="edit_flag"
+              >
+                <option disabled value="null">City</option>
+                <option v-for="city in cities" :key="city.id" :value="city.id">
+                  {{ city.name }}
+                </option>
+              </select>
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
+            <div class="add_4">
+              <input
+                type="text"
+                placeholder="Pincode"
+                id="address"
+                :readonly="edit_flag"
+                v-model="form_data.pin_code"
+              />
+              <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
+            </div>
           </div>
         </div>
-        <div class="flexClass">
-          <div class="add_5">
-            <select
-              name="state"
-              id="state"
-              v-model="form_data.state"
-              v-on:change="loadCities()"
-              :disabled="edit_flag"
-            >
-              <option disabled value="null">State</option>
-              <option v-for="state in states" :key="state.id" :value="state.id">
-                {{ state.name }}
-              </option>
-            </select>
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
-          <div class="add_6">
-            <select
-              name="city"
-              id="city"
-              v-model="form_data.city"
-              :disabled="edit_flag"
-            >
-              <option disabled value="null">City</option>
-              <option v-for="city in cities" :key="city.id" :value="city.id">
-                {{ city.name }}
-              </option>
-            </select>
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
-          <div class="add_4">
-            <input
-              type="text"
-              placeholder="Pincode"
-              id="address"
-              :readonly="edit_flag"
-              v-model="form_data.pin_code"
-            />
-            <i class="fa-solid fa-pen" v-if="!edit_flag"></i>
-          </div>
+      </div>
+      <div class="fifthDiv">
+        <div class="addAddress">
+          <i class="fa-solid fa-plus" id="addAdd" v-on:click="addAddress()"></i>
+          <label for="addAdd" v-on:click="addAddress()">Add Address</label>
+        </div>
+      </div>
+      <div class="sixthDiv">
+        <div class="saveBtn" :class="{ show_btn: edit_flag }">
+          <button v-on:click="updateData()">Save Chnages</button>
         </div>
       </div>
     </div>
-    <div class="fifthDiv">
-      <div class="addAddress">
-        <i class="fa-solid fa-plus" id="addAdd" v-on:click="addAddress()"></i>
-        <label for="addAdd" v-on:click="addAddress()">Add Address</label>
-      </div>
-    </div>
-    <div class="sixthDiv">
-      <div class="saveBtn" :class="{ show_btn: edit_flag }">
-        <button v-on:click="updateData()">Save Chnages</button>
-      </div>
-    </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -504,7 +510,7 @@ export default {
         },
       }).then(() => {
         this.edit_flag = true;
-        // location.reload();
+        location.reload();
       });
     },
     addAddress() {

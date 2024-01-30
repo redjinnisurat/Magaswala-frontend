@@ -623,7 +623,7 @@ span {
 }
 
 .logo {
-  font-size: 4.8rem;
+  font-size: 4.2rem;
   margin-left: 0rem;
   font-weight: 900;
   color: var(--primary-color);

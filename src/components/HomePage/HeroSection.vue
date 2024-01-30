@@ -72,7 +72,7 @@
               class="d-flex align-items-center justify-content-end heroImage"
             >
               <img
-                :src="product2.image ? product1.image : defaulImage"
+                :src="product2.image ? product2.image : defaulImage"
                 class="d-block w-100 rounded-5"
                 alt="Image"
               />
@@ -236,21 +236,21 @@ export default {
 }
 
 .heroContent h1 {
-  font-size: 4.6rem;
+  font-size: 4.3rem;
   margin: 2rem 0;
   font-weight: 600;
   color: var(--heading-color);
 }
 
 .heroSec h3 {
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   font-weight: 400;
   margin: 2rem 0;
   color: var(--heading-color);
 }
 
 .heroSec h4 {
-  font-size: 3.2rem;
+  font-size: 2.9rem;
   font-weight: 300;
   margin: 2rem 0;
   color: var(--heading-color);

@@ -97,6 +97,7 @@ export default {
   name: "BagItemPageComp",
   data() {
     return {
+      product: {},
       i_qty: 1,
       kg_show: false,
       gm1_show: false,
@@ -188,7 +189,12 @@ export default {
       this.i_qty += 1;
       this.getQty(this.i_qty);
       const data = {
-        product_id: [{ product_id: this.i_id, value: this.i_qty }],
+        product_id: [
+          {
+            product_id: this.i_id != undefined ? this.i_id : this.product.id,
+            value: this.i_qty,
+          },
+        ],
         address_id: this.address_id || null,
       };
       // console.log("Data in plus: ", data);
@@ -199,7 +205,12 @@ export default {
         this.i_qty -= 1;
         this.getQty(this.i_qty);
         const data = {
-          product_id: [{ product_id: this.i_id, value: this.i_qty }],
+          product_id: [
+            {
+              product_id: this.i_id != undefined ? this.i_id : this.product.id,
+              value: this.i_qty,
+            },
+          ],
           address_id: this.address_id || null,
         };
         // console.log("Data in minus: ", data);
@@ -207,6 +218,7 @@ export default {
       }
     },
     handleQuntityChanges(newQuntity) {
+      // console.log("Quantity: ", newQuntity);
       if (newQuntity != undefined) {
         const quantity = newQuntity.replace(/"/g, "").split(" ").join("");
         // console.log("Quntity: ", quantity, " Type: ", typeof quantity);
@@ -231,17 +243,24 @@ export default {
     },
   },
   mounted() {
-    this.handleQuntityChanges(this.i_quantity);
-    // console.log("Fav: " + this.fav_flag);
-  },
-  beforeMount() {
+    // this.handleQuntityChanges(
+    //   this.i_quantity != undefined ? this.i_quantity : this.product.quantity
+    // );
+    this.product = JSON.parse(localStorage.getItem("orderItem"));
+    this.handleQuntityChanges(
+      this.i_quantity != undefined ? this.i_quantity : this.product.quantity
+    );
     this.getAllAddress().then(() => {
       this.$store.dispatch("getAddressId").then(() => {
         // console.log("Address Id: ", this.$store.getters.homeAddId);
         this.add_id = this.$store.getters.homeAddId;
-        // console.log("Product Id: ", this.i_id);
         const data = {
-          product_id: [{ product_id: this.i_id, value: this.i_qty }],
+          product_id: [
+            {
+              product_id: this.i_id != undefined ? this.i_id : this.product.id,
+              value: this.i_qty,
+            },
+          ],
           address_id: this.address_id == null ? this.add_id : this.address_id,
         };
         // console.log("Order Data: ", data);
@@ -268,6 +287,49 @@ export default {
         }
       });
     });
+  },
+  beforeMount() {
+    // this.product = JSON.parse(localStorage.getItem("orderItem"));
+    // this.handleQuntityChanges(
+    //   this.i_quantity != undefined ? this.i_quantity : this.product.quantity
+    // );
+    // this.getAllAddress().then(() => {
+    //   this.$store.dispatch("getAddressId").then(() => {
+    //     // console.log("Address Id: ", this.$store.getters.homeAddId);
+    //     this.add_id = this.$store.getters.homeAddId;
+    //     const data = {
+    //       product_id: [
+    //         {
+    //           product_id: this.i_id != undefined ? this.i_id : this.product.id,
+    //           value: this.i_qty,
+    //         },
+    //       ],
+    //       address_id: this.address_id == null ? this.add_id : this.address_id,
+    //     };
+    //     // console.log("Order Data: ", data);
+    //     if (this.add_id != null || this.add_id != undefined) {
+    //       // console.log("Order Data: ", data);
+    //       this.makeOrders(data);
+    //     } else {
+    //       // alert(
+    //       //   "Please Add Address First !!" +
+    //       //     "\n" +
+    //       //     "Without Address you are not able to make order !!"
+    //       // );
+    //       Swal.fire({
+    //         title: "Important Note",
+    //         text:
+    //           "Please Add Address First !!" +
+    //           "\n" +
+    //           "Without Address you are not able to make order !!",
+    //         icon: "info",
+    //         customClass: {
+    //           popup: "my-swal-popup", // Make sure this matches your CSS class name
+    //         },
+    //       });
+    //     }
+    //   });
+    // });
   },
 };
 </script>

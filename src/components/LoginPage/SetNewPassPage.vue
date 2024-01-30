@@ -4,7 +4,7 @@
       <div class="set_passContent">
         <h2>Set New Password</h2>
         <h4>Please enter new password</h4>
-        <form>
+        <form @keyup.enter="submit()">
           <input type="password" placeholder="Password" v-model="new_pass" />
           <div v-if="error_newPass" class="error">
             <span>{{ error_newPass }}</span>
