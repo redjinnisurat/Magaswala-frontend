@@ -4,7 +4,7 @@
       <div class="loginContent">
         <h2>Welcome back!</h2>
         <h4>Please enter credentials for sign in</h4>
-        <form>
+        <form @keyup.enter="login()">
           <input type="email" placeholder="Email" v-model="email" />
           <div v-if="error_email" class="error">
             <span>{{ error_email }}</span>
@@ -129,14 +129,14 @@ export default {
 
         if (result.status === true) {
           // alert(result.message);
-          await Swal.fire({
-            title: "Login Successful",
-            text: "You Loged in successfully.",
-            icon: "success",
-            customClass: {
-              popup: "my-swal-popup", // Make sure this matches your CSS class name
-            },
-          });
+          // await Swal.fire({
+          //   title: "Login Successful",
+          //   text: "You Loged in successfully.",
+          //   icon: "success",
+          //   customClass: {
+          //     popup: "my-swal-popup", // Make sure this matches your CSS class name
+          //   },
+          // });
           localStorage.setItem("token", result.data.token);
           this.$router
             .push({

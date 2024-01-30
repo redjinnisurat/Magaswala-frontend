@@ -14,9 +14,10 @@
       :address_id="selected_add"
     />
     <div class="checkout_content">
+      <h3>Checkout</h3>
+      <br />
       <div class="checkout_content1">
-        <div class="paymentDiv">
-          <h3>Checkout</h3>
+        <!-- <div class="paymentDiv">
           <br />
           <h4>Payment Options</h4>
           <div class="paymentOption">
@@ -63,6 +64,96 @@
               v-model="payment_option"
             />
           </div>
+        </div> -->
+        <div class="addressDiv">
+          <div class="addDivData">
+            <h3>Shipping To</h3>
+            <div class="adddress-container" v-if="addressArray.length > 0">
+              <div
+                class="addressOption active_add"
+                v-for="address in addressArray"
+                :key="address.address.id"
+              >
+                <i
+                  class="fa-solid fa-pen-to-square"
+                  v-on:click="homeAdd(address.address)"
+                ></i>
+                <div class="d-flex align-items-center flex-row-reverse">
+                  <label
+                    :for="address.address.id"
+                    v-if="address.address.address_type == 0"
+                    >Home Address <br />
+                    <span id="address">{{ address.address.phoneno }}</span>
+                    <br />
+                    <span
+                      >{{ address.address.Flat_no }},
+                      {{ address.address.addressline1 }}</span
+                    ><br />
+                    <span
+                      >{{ address.address.city }},
+                      {{ address.address.state }}, </span
+                    ><br />
+                    <span>
+                      {{ address.address.countries }}
+                      - {{ address.address.pincode }}</span
+                    >
+                  </label>
+                  <label
+                    :for="address.address.id"
+                    v-if="address.address.address_type == 1"
+                    >Office Address <br />
+                    <span id="address">{{ address.address.phoneno }}</span>
+                    <br />
+                    <span
+                      >{{ address.address.Flat_no }},
+                      {{ address.address.addressline1 }}</span
+                    ><br />
+                    <span
+                      >{{ address.address.city }},
+                      {{ address.address.state }}, </span
+                    ><br />
+                    <span>
+                      {{ address.address.countries }}
+                      - {{ address.address.pincode }}</span
+                    >
+                  </label>
+                  <label
+                    :for="address.address.id"
+                    v-if="address.address.address_type == 2"
+                    >Other Address <br />
+                    <span id="address">{{ address.address.phoneno }}</span>
+                    <br />
+                    <span
+                      >{{ address.address.Flat_no }},
+                      {{ address.address.addressline1 }}</span
+                    ><br />
+                    <span
+                      >{{ address.address.city }},
+                      {{ address.address.state }}, </span
+                    ><br />
+                    <span>
+                      {{ address.address.countries }}
+                      - {{ address.address.pincode }}</span
+                    >
+                  </label>
+                  <input
+                    class="me-4"
+                    type="radio"
+                    :value="address.address.id"
+                    :id="address.address.id"
+                    name="addressOption"
+                    v-model="selected_add"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="adddress-container d-flex align-items-center justify-content-center"
+              v-else
+            >
+              <h3 class="text-muted">No Address Added!!</h3>
+            </div>
+          </div>
         </div>
         <div class="chekOutDetails">
           <h3>Order Summary</h3>
@@ -94,7 +185,10 @@
           </div>
         </div>
       </div>
-      <div class="addressDiv">
+      <div class="addressBtn">
+        <button type="button" @click="payNow">Make Payment</button>
+      </div>
+      <!-- <div class="addressDiv">
         <h3>Shipping To</h3>
         <div class="adddress-container" v-if="addressArray.length > 0">
           <div
@@ -179,7 +273,7 @@
           <h3 class="text-muted">No Address Added!!</h3>
         </div>
         <button type="button" @click="payNow">Make Payment</button>
-      </div>
+      </div> -->
     </div>
   </section>
   <section class="productSec">
@@ -235,7 +329,7 @@ import { useRoute } from "vue-router";
 
 import axios from "@/axios";
 
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 import sha512 from "js-sha512";
 
 import Swal from "sweetalert2";
@@ -261,6 +355,9 @@ export default {
       payuUrl: "https://secure.payu.in/_payment",
       mkey: "nxpvv9VZ",
       saltKey: "3oFxUMtWG2",
+      // payuUrl: "https://test.payu.in/_payment",
+      // mkey: "gtKFFx",
+      // saltKey: "eCwWELxi",
       // surl: 'https://restroworld.com/blueticksuccess',
       surl: `${window.location.origin}/completePage/${this.order_split_result}`,
       // furl: 'https://restroworld.com/home/User/Fail',
@@ -283,11 +380,27 @@ export default {
     },
   },
   watch: {
+    $route(to, from) {
+      if (to.params.id !== from.params.id) {
+        this.id = to.params.id;
+        // console.log("New Id: ", this.id);
+        this.getProductById(this.id);
+      }
+    },
     qty(newVal, oldVal) {
       this.updateProductPrice(newVal, oldVal);
     },
   },
   methods: {
+    fetchData() {
+      const route = useRoute();
+      this.id = route.params.id;
+      this.getProductById(this.id);
+      this.getAllFavourite().then(() => {
+        this.checkFav(this.id);
+      });
+    },
+    ...mapMutations(["setProduct"]),
     homeAdd(data) {
       const addData = JSON.stringify(data);
       this.$router.push({
@@ -333,7 +446,6 @@ export default {
       // });
     },
     ...mapActions(["getAllFavourite", "getAllAddress", "getUser"]),
-
     checkFav(id) {
       this.favArray.forEach((item) => {
         if (id == item.product.id) {
@@ -355,9 +467,11 @@ export default {
       try {
         const response = await axios.get(`showproduct/${id}`);
         this.product = response.data.data;
+        // console.log("New Product: ", this.product);
+        localStorage.setItem("orderItem", JSON.stringify(response.data.data));
         // this.p_price = Number(this.product.price);
         // this.userDetails = response.data.data;
-        // console.log(this.product.quantity);
+        // console.log(this.product);
         // console.log(typeof this.product.quantity);
       } catch (error) {
         console.error(error);
@@ -395,7 +509,7 @@ export default {
         // this.amount_pay +
         this.orderData.price +
         "|" +
-        this.product.name +
+        this.productInfo +
         "|" +
         this.userDetails.name +
         "|" +
@@ -446,12 +560,7 @@ export default {
         console.log(err);
       });
 
-    const route = useRoute();
-    this.id = route.params.id;
-    this.getProductById(this.id);
-    this.getAllFavourite().then(() => {
-      this.checkFav(this.id);
-    });
+    this.fetchData();
   },
 
   mounted() {
@@ -489,6 +598,12 @@ export default {
   width: 100%;
   display: flex;
   margin-bottom: 1rem;
+}
+
+.checkout_content h3 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  padding-top: 1.4rem;
 }
 
 .paymentDiv {
@@ -531,11 +646,11 @@ export default {
 }
 
 .chekOutDetails {
-  width: 40%;
+  width: 45%;
   max-width: 32rem;
   border-radius: 1.4rem;
   padding: 0rem 1.6rem;
-  margin-top: auto;
+  margin-top: 1rem;
 }
 
 .chekOutDetails h3 {
@@ -561,11 +676,15 @@ export default {
 }
 
 .addressDiv {
-  width: 60%;
+  width: 55%;
+}
+
+.addDivData {
+  border-right: 0.2rem solid var(--border-color);
 }
 
 .adddress-container {
-  height: 25.5rem;
+  height: 43rem;
   overflow-y: auto;
 }
 
@@ -579,7 +698,7 @@ export default {
 }
 
 .addressOption {
-  width: 80%;
+  width: 90%;
   display: flex;
   gap: 0.8rem;
   align-items: center;
@@ -588,7 +707,7 @@ export default {
   border: 0.1rem solid transparent;
   border-radius: 0.4rem;
   padding: 0.8rem 2rem;
-  margin: 1.1rem 1.8rem;
+  margin: 1.1rem 1rem;
 }
 
 .addressOption i {
@@ -611,9 +730,13 @@ export default {
   font-size: 1.8rem;
 }
 
-.addressDiv button {
-  font-size: 2rem;
+.addressBtn {
   width: 100%;
+}
+
+.addressBtn button {
+  font-size: 2rem;
+  width: 60%;
   border: none;
   border-radius: 0.6rem;
   background-color: var(--primary-color);
@@ -621,8 +744,7 @@ export default {
   padding: 0.8rem 1.8rem;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 1.6rem;
-  margin-bottom: 1.2rem;
+  margin-top: 4.6rem;
 }
 
 .active_add {
@@ -671,19 +793,28 @@ export default {
   }
 
   .chekOutDetails {
-    width: 90%;
+    width: 100%;
     max-width: 32rem;
     border-radius: 1.4rem;
     padding: 0rem 0rem;
-    margin-top: auto;
+    margin: 1rem auto;
+  }
+
+  .addDivData {
+    border-right: none;
   }
 
   .addressDiv {
-    width: 90%;
+    width: 100%;
   }
 
   .addressOption {
     margin: 1.6rem 2rem;
+  }
+
+  .addressBtn button {
+    width: 100%;
+    margin: 2rem auto;
   }
 
   .productSec h3 {
@@ -721,7 +852,6 @@ export default {
     max-width: 32rem;
     border-radius: 1.4rem;
     padding: 0rem 1.2rem;
-    margin-top: auto;
   }
 
   .addressDiv {
@@ -730,6 +860,11 @@ export default {
 
   .addressOption {
     margin: 1.6rem 2rem;
+  }
+
+  .addressBtn button {
+    width: 100%;
+    margin: 2rem auto;
   }
 
   .productSec h3 {
@@ -767,7 +902,6 @@ export default {
     max-width: 32rem;
     border-radius: 1.4rem;
     padding: 0rem 1.2rem;
-    margin-top: auto;
   }
 
   .addressDiv {
@@ -776,6 +910,11 @@ export default {
 
   .addressOption {
     margin: 1.6rem 2rem;
+  }
+
+  .addressBtn button {
+    width: 100%;
+    margin: 2rem auto;
   }
 
   .productSec h3 {

@@ -1,62 +1,64 @@
 <template>
-  <div class="h-100 content-data">
-    <div class="h-50">
-      <h3 class="fs-1 fw-semibold mt-3 ms-3 heading">Reset Password</h3>
-      <div class="d-flex mt-5 w-100 input-div">
-        <div class="w-50 d-flex flex-column input-control">
-          <h4 class="fs-3 fw-semibold mb-3">Password</h4>
-          <input
-            class="input"
-            type="password"
-            name="oldPass"
-            placeholder="Old Password"
-            v-model="old_pass"
-          />
-          <div v-if="old_pass_error" class="error">
-            <span>{{ old_pass_error }}</span>
+  <form @keyup.enter="change()" class="h-100">
+    <div class="h-100 content-data">
+      <div class="h-50">
+        <h3 class="fs-1 fw-semibold mt-3 ms-3 heading">Reset Password</h3>
+        <div class="d-flex mt-5 w-100 input-div">
+          <div class="w-50 d-flex flex-column input-control">
+            <h4 class="fs-3 fw-semibold mb-3">Password</h4>
+            <input
+              class="input"
+              type="password"
+              name="oldPass"
+              placeholder="Old Password"
+              v-model="old_pass"
+            />
+            <div v-if="old_pass_error" class="error">
+              <span>{{ old_pass_error }}</span>
+            </div>
+            <input
+              class="input"
+              type="password"
+              name="newPass"
+              placeholder="New Password"
+              v-model="new_pass"
+            />
+            <div v-if="new_pass_error" class="error">
+              <span>{{ new_pass_error }}</span>
+            </div>
+            <input
+              class="input"
+              type="password"
+              name="confPass"
+              placeholder="Confirm Password"
+              v-model="conf_pass"
+            />
+            <div v-if="conf_pass_error" class="error">
+              <span>{{ conf_pass_error }}</span>
+            </div>
           </div>
-          <input
-            class="input"
-            type="password"
-            name="newPass"
-            placeholder="New Password"
-            v-model="new_pass"
-          />
-          <div v-if="new_pass_error" class="error">
-            <span>{{ new_pass_error }}</span>
+          <div
+            class="w-50 d-flex align-items-center justify-content-center input-control"
+          >
+            <img
+              class="w-75"
+              src="./assets/password_img.jpg"
+              alt="Password Image"
+            />
           </div>
-          <input
-            class="input"
-            type="password"
-            name="confPass"
-            placeholder="Confirm Password"
-            v-model="conf_pass"
-          />
-          <div v-if="conf_pass_error" class="error">
-            <span>{{ conf_pass_error }}</span>
-          </div>
-        </div>
-        <div
-          class="w-50 d-flex align-items-center justify-content-center input-control"
-        >
-          <img
-            class="w-75"
-            src="./assets/password_img.jpg"
-            alt="Password Image"
-          />
         </div>
       </div>
+      <div class="d-flex justify-content-end h-50 pb-5 me-5 btn-div">
+        <button
+          class="fs-3 password-btn mt-auto"
+          type="button"
+          v-on:click="change()"
+        >
+          Change Password
+        </button>
+      </div>
     </div>
-    <div class="d-flex justify-content-end h-50 pb-5 me-5 btn-div">
-      <button
-        class="fs-3 password-btn mt-auto"
-        type="button"
-        v-on:click="change()"
-      >
-        Change Password
-      </button>
-    </div>
-  </div>
+  </form>
 </template>
 
 <script>

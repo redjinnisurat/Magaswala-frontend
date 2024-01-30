@@ -12,6 +12,7 @@ const state = {
   total_price: 0,
   searchProducts: [],
   notFound: false,
+  // productId: 0,
 };
 
 const getters = {
@@ -26,6 +27,7 @@ const getters = {
   total_price: (state) => state.total_price,
   allSearchedProducts: (state) => state.searchProducts,
   searchProductFound: (state) => state.notFound,
+  // productId: (state) => state.productId,
 };
 
 const actions = {
@@ -155,6 +157,11 @@ const mutations = {
   },
   setSearchedProducts: (state, response) => (state.searchProducts = response),
   setNotFound: (state, response) => (state.notFound = response),
+  // setProduct(state, data) {
+  //   // console.log("Data Id: ", data);
+  //   state.productId = data;
+  //   // console.log("Id: ", state.productId);
+  // },
 };
 
 export default {
