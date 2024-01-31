@@ -134,8 +134,6 @@ export default {
     async makeOrders(data) {
       try {
         const response = await axios.post(`order`, data);
-        // console.log("Order Placed Successfully !!");
-        // console.log("Response: ", response.data.data);
         const orderData = {
           pricetotal: response.data.data.pricetotal,
           sgst: response.data.data.sgst,
@@ -163,10 +161,8 @@ export default {
       this.fav_show = !this.fav_show;
       if (this.fav_show === true) {
         this.addToFav(id);
-        // alert("Item added to your favourites!!");
       } else {
         this.addToFav(id);
-        // alert("Item removed from your favourites!!");
       }
     },
     async addToBag(id, qty) {
@@ -182,7 +178,7 @@ export default {
           popup: "my-swal-popup", // Make sure this matches your CSS class name
         },
       });
-      // alert("Product added to your Bag!!");
+
       this.$router.push({ name: "BagPage" });
     },
     add() {
@@ -197,7 +193,7 @@ export default {
         ],
         address_id: this.address_id || null,
       };
-      // console.log("Data in plus: ", data);
+
       this.makeOrders(data);
     },
     remove() {
@@ -213,16 +209,14 @@ export default {
           ],
           address_id: this.address_id || null,
         };
-        // console.log("Data in minus: ", data);
+
         this.makeOrders(data);
       }
     },
     handleQuntityChanges(newQuntity) {
-      // console.log("Quantity: ", newQuntity);
       if (newQuntity != undefined) {
         const quantity = newQuntity.replace(/"/g, "").split(" ").join("");
-        // console.log("Quntity: ", quantity, " Type: ", typeof quantity);
-        // console.log("Type: ", quantity === "1kg");
+
         if (quantity == "1kg" || quantity == "1") {
           this.kg_show = true;
           this.gm1_show = false;
@@ -243,16 +237,12 @@ export default {
     },
   },
   mounted() {
-    // this.handleQuntityChanges(
-    //   this.i_quantity != undefined ? this.i_quantity : this.product.quantity
-    // );
     this.product = JSON.parse(localStorage.getItem("orderItem"));
     this.handleQuntityChanges(
       this.i_quantity != undefined ? this.i_quantity : this.product.quantity
     );
     this.getAllAddress().then(() => {
       this.$store.dispatch("getAddressId").then(() => {
-        // console.log("Address Id: ", this.$store.getters.homeAddId);
         this.add_id = this.$store.getters.homeAddId;
         const data = {
           product_id: [
@@ -263,16 +253,10 @@ export default {
           ],
           address_id: this.address_id == null ? this.add_id : this.address_id,
         };
-        // console.log("Order Data: ", data);
+
         if (this.add_id != null || this.add_id != undefined) {
-          // console.log("Order Data: ", data);
           this.makeOrders(data);
         } else {
-          // alert(
-          //   "Please Add Address First !!" +
-          //     "\n" +
-          //     "Without Address you are not able to make order !!"
-          // );
           Swal.fire({
             title: "Important Note",
             text:
@@ -288,49 +272,7 @@ export default {
       });
     });
   },
-  beforeMount() {
-    // this.product = JSON.parse(localStorage.getItem("orderItem"));
-    // this.handleQuntityChanges(
-    //   this.i_quantity != undefined ? this.i_quantity : this.product.quantity
-    // );
-    // this.getAllAddress().then(() => {
-    //   this.$store.dispatch("getAddressId").then(() => {
-    //     // console.log("Address Id: ", this.$store.getters.homeAddId);
-    //     this.add_id = this.$store.getters.homeAddId;
-    //     const data = {
-    //       product_id: [
-    //         {
-    //           product_id: this.i_id != undefined ? this.i_id : this.product.id,
-    //           value: this.i_qty,
-    //         },
-    //       ],
-    //       address_id: this.address_id == null ? this.add_id : this.address_id,
-    //     };
-    //     // console.log("Order Data: ", data);
-    //     if (this.add_id != null || this.add_id != undefined) {
-    //       // console.log("Order Data: ", data);
-    //       this.makeOrders(data);
-    //     } else {
-    //       // alert(
-    //       //   "Please Add Address First !!" +
-    //       //     "\n" +
-    //       //     "Without Address you are not able to make order !!"
-    //       // );
-    //       Swal.fire({
-    //         title: "Important Note",
-    //         text:
-    //           "Please Add Address First !!" +
-    //           "\n" +
-    //           "Without Address you are not able to make order !!",
-    //         icon: "info",
-    //         customClass: {
-    //           popup: "my-swal-popup", // Make sure this matches your CSS class name
-    //         },
-    //       });
-    //     }
-    //   });
-    // });
-  },
+  beforeMount() {},
 };
 </script>
 

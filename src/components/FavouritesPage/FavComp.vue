@@ -69,9 +69,6 @@ export default {
   },
   computed: {
     ...mapGetters(["allFavItems"]),
-    // favArray() {
-    //   return this.$store.state.module.cart;
-    // },
   },
   methods: {
     buyNow(id) {

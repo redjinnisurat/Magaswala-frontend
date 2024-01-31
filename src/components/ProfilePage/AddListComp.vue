@@ -83,103 +83,15 @@ export default {
     },
   },
   methods: {
-    // getCity(id) {
-    //   this.cities.forEach((city) => {
-    //     if (id == city.id) {
-    //       console.log("City Name: ", city.name);
-    //       // this.city_name = city.name;
-    //       return;
-    //     }
-    //   });
-    // },
-    // getState(id) {
-    //   this.states.forEach((state) => {
-    //     if (id == state.id) {
-    //       console.log("City Name: ", state.name);
-    //       // this.state_name = state.name;
-    //       return;
-    //     }
-    //   });
-    // },
-    // getCountry(id) {
-    //   this.countries.forEach((country) => {
-    //     if (id == country.id) {
-    //       console.log("City Name: ", country.name);
-    //       // this.city_name = country.name;
-    //       return;
-    //     }
-    //   });
-    // },
-    // async loadCountries() {
-    //   try {
-    //     let allCountries = [];
-    //     let shouldContinue = true;
-    //     let page = 1;
-
-    //     while (shouldContinue) {
-    //       const response = await axios.get(
-    //         `https://api.garbajockey.com/api/countries?page=${page}`
-    //       );
-    //       // console.log("Response:", response.data); // Log the response
-
-    //       const countries = response.data && response.data.data;
-
-    //       if (!countries || countries.length === 0) {
-    //         // No more countries to fetch, break the loop
-    //         shouldContinue = false;
-    //       } else {
-    //         allCountries = [...allCountries, ...countries];
-    //         page++;
-    //       }
-    //     }
-
-    //     this.countries = allCountries;
-    //     // console.log("All Countries:", this.countries); // Log the final list of countries
-    //   } catch (error) {
-    //     console.error("Error loading countries:", error);
-    //   }
-    // },
-    // async loadStates() {
-    //   try {
-    //     const response = await axios.get(
-    //       `https://api.garbajockey.com/api/states_of_country?country_id=${this.form_data.country}`
-    //     );
-    //     this.states = response.data.data || []; // Update states array
-    //     // console.log("States = ", this.states);
-    //     // this.form_data.state = ""; // Reset state value
-    //     // this.gcData.gcCity = ""; // Reset city value
-    //   } catch (error) {
-    //     console.error("Error loading states:", error);
-    //   }
-    // },
-    // async loadCities() {
-    //   try {
-    //     const response = await axios.get(
-    //       `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
-    //     );
-    //     this.cities = response.data.data || []; // Update cities array
-    //     // console.log("Cities = ", this.cities);
-    //     // this.gcData.gcCity = ""; // Reset city value
-    //   } catch (error) {
-    //     console.error("Error loading cities:", error);
-    //   }
-    // },
     async delete(id) {
       try {
         await axios.delete(`deleteaddress/${id}`);
-        // console.log("Response: ", response);
       } catch (error) {
         console.error(error);
       }
     },
     ...mapActions(["getAllAddress"]),
     async deleteAdd(id) {
-      // if (
-      //   confirm("Are you sure ?\nYou want to remove this address ?") == true
-      // ) {
-      //   this.delete(id);
-      // }
-      // location.reload();
       await Swal.fire({
         title: "Are you sure ?",
         text: "You want to remove this address ?",
@@ -219,9 +131,7 @@ export default {
     },
   },
   beforeMount() {
-    this.getAllAddress().then(() => {
-      // console.log(this.addressArray);
-    });
+    this.getAllAddress();
   },
 };
 </script>

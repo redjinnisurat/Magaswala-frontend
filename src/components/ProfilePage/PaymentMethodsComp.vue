@@ -175,9 +175,6 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
-  .card-item-div h3 {
-  }
-
   .upi-item-div h3 {
     width: 40% !important;
   }
@@ -192,9 +189,6 @@ export default {
 }
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-  .card-item-div h3 {
-  }
-
   .upi-item-div h3 {
     width: 30% !important;
   }
@@ -209,9 +203,6 @@ export default {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-  .card-item-div h3 {
-  }
-
   .upi-item-div h3 {
     width: 30% !important;
   }
@@ -226,9 +217,6 @@ export default {
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
-  .card-item-div h3 {
-  }
-
   .upi-item-div h3 {
     width: 30% !important;
   }

@@ -4,8 +4,8 @@
       <div class="verify_content">
         <h2>Verification</h2>
         <h4>6-digit code has been sent to your registered email address</h4>
-        <form @keyup.enter="submit()">
-          <input type="text" placeholder="OTP" v-model="otp" />
+        <form @submit.prevent="submit()">
+          <input type="text" placeholder="OTP" v-model="otp" ref="firstInput" />
           <div v-if="error_otp" class="error">
             <span>{{ error_otp }}</span>
           </div>
@@ -15,7 +15,7 @@
         </form>
         <div class="resend_sec" v-if="!resend_flag">
           <p>Didn't receive code ?</p>
-          <router-link to="#" v-on:click="resend()">Resend</router-link>
+          <router-link to="#" @click="resend()">Resend</router-link>
         </div>
         <div class="resend_sec" v-else>
           <p>Code has been sent again!</p>
@@ -57,11 +57,8 @@ export default {
         .post(`emailverify?otp=${otp}&email=${email}`)
         .catch((e) => e.response);
       const result = response.data;
-      // console.log("Response: ", result);
-      // console.log("Response: " + result.data.id);
 
       if (result.status === true) {
-        // alert(result.message);
         await Swal.fire({
           title: "OTP Verification",
           text: "Your Email has benn verified.",
@@ -88,9 +85,8 @@ export default {
     async resendOTP() {
       try {
         const response = await axios.post(`ForgetPassword?email=${this.email}`);
-        // console.log("Response: ", response);
+
         this.new_otp = response.data.data.email_otp;
-        // console.log("New Otp: ", this.new_otp);
       } catch (error) {
         console.error(error);
       }
@@ -122,6 +118,9 @@ export default {
     async submit() {
       if (this.otp === "") {
         this.error_otp = "Required field !!";
+        setTimeout(() => {
+          this.error_otp = "";
+        }, 3000);
       } else {
         this.error_otp = "";
       }
@@ -145,16 +144,15 @@ export default {
     },
   },
   mounted() {
+    this.$refs.firstInput.focus();
     const route = useRoute();
     const encryptData = CryptoJS.AES.decrypt(
       route.params.object,
       "12345678"
     ).toString(CryptoJS.enc.Utf8);
-    // console.log("Route: ", JSON.parse(encryptData));
+
     this.email = JSON.parse(encryptData).email;
     this.old_otp = JSON.parse(encryptData).otp;
-    // console.log(this.email);
-    // console.log(this.old_otp);
   },
 };
 </script>

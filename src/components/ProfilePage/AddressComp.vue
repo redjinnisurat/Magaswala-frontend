@@ -56,9 +56,6 @@ export default {
   cursor: pointer;
 }
 
-/*.add-div {
-}*/
-
 .icon {
   color: var(--border-color);
   cursor: pointer;

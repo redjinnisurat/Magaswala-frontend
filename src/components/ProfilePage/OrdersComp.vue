@@ -113,7 +113,6 @@ export default {
   methods: {
     sortProductsByDay() {
       const sortedProducts = { ...this.productsByDate };
-      // console.log("Current Date: ", new Date());
 
       const sortedKeys = Object.keys(sortedProducts).filter((date) => {
         const currentDate = new Date();
@@ -128,29 +127,15 @@ export default {
         );
       });
 
-      // console.log("Sorted Keys: ", sortedKeys);
-      // const currentDate = new Date();
-
-      // console.log(
-      //   "Houurs: ",
-      //   new Date(
-      //     currentDate.getTime() -
-      //       Number(this.select_option) * 24 * 60 * 60 * 1000
-      //   )
-      // );
-
       const result = {};
       sortedKeys.forEach((key) => {
         result[key] = sortedProducts[key];
       });
 
-      // console.log("Result: ", result);
       return result;
     },
     groupedProducts() {
-      // const productsByDate = {};
       this.delivered_products.forEach((item) => {
-        // console.log(item.update_at);
         const dateObject = new Date(item.update_at);
 
         const day = dateObject.getDate();
@@ -193,12 +178,6 @@ export default {
         // Add the current item to the array corresponding to the date
         this.productsByDate[formattedDate].push(item);
       });
-
-      // for (const date in this.products_by_dates) {
-      //   console.log(`Products for date ${date}:`, this.products_by_dates[date]);
-      // }
-
-      // console.log("Grouped Orders: ", this.productsByDate);
     },
     orderAgain(id) {
       this.$router.push({
@@ -210,29 +189,23 @@ export default {
     },
     ...mapActions(["getOrder"]),
     async getDeliveredOrders() {
-      // console.log("Ordered Products Array fetching...");
       if (this.orderd_products) {
-        // console.log("Ordered Products Array: ", this.orderd_products);
         this.orderd_products.forEach((item) => {
           if (item.order_status == 5) {
             this.delivered_products.push(item);
-            // this.orderd_products.pop(item);
           }
         });
-        // console.log("delivered Products: ", this.delivered_products);
       } else {
         // console.log("Ordered Products not found!!", this.orderd_products);
       }
     },
     async processOrderData() {
-      // console.log("fetching Orders......");
       this.orderd_products = [];
       await this.getOrder();
-      // console.log("OrderArray after fetching:", this.orderArray);
+
       if (this.orderArray) {
         this.orderArray.forEach((order) => {
           if (order.product.length == 1) {
-            // console.log("Single Product Orders: ", order.product);
             this.orderd_products.push({
               product: order.product[0],
               id: order.id,
@@ -242,7 +215,6 @@ export default {
               update_at: order.updated_at,
             });
           } else {
-            // console.log("More than one Product Orders: ", order.product);
             order.product.forEach((item) => {
               this.orderd_products.push({
                 product: item,
@@ -258,8 +230,6 @@ export default {
       } else {
         // console.log("Order Array not found !!");
       }
-
-      // console.log("Ordered Product List: ", this.orderd_products);
     },
   },
   async created() {
@@ -270,9 +240,7 @@ export default {
   watch: {
     selectedSortOption: "sortProductsByDay",
   },
-  beforeMount() {
-    // console.log("Sorted Data: ", this.sortedProductsByDate);
-  },
+  beforeMount() {},
 };
 </script>
 

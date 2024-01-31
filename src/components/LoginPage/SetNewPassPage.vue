@@ -4,8 +4,13 @@
       <div class="set_passContent">
         <h2>Set New Password</h2>
         <h4>Please enter new password</h4>
-        <form @keyup.enter="submit()">
-          <input type="password" placeholder="Password" v-model="new_pass" />
+        <form @submit.prevent="submit()">
+          <input
+            type="password"
+            placeholder="Password"
+            v-model="new_pass"
+            ref="firstInput"
+          />
           <div v-if="error_newPass" class="error">
             <span>{{ error_newPass }}</span>
           </div>
@@ -18,7 +23,7 @@
             <span>{{ error_confirmPass }}</span>
           </div>
           <div class="btns">
-            <button type="button" v-on:click="submit()">Submit</button>
+            <button type="button" @click="submit()">Submit</button>
           </div>
         </form>
       </div>
@@ -49,16 +54,20 @@ export default {
   },
   methods: {
     async submit() {
-      // console.log("Id: " + this.id);
-
       if (this.new_pass === "") {
         this.error_newPass = "Required field !!";
+        setTimeout(() => {
+          this.error_newPass = "";
+        }, 3000);
       } else {
         this.error_newPass = "";
       }
 
       if (this.confirm_pass === "") {
         this.error_confirmPass = "Required field !!";
+        setTimeout(() => {
+          this.error_confirmPass = "";
+        }, 3000);
       } else {
         this.error_confirmPass = "";
       }
@@ -77,11 +86,8 @@ export default {
           )
           .catch((e) => e.response);
         const result = response.data;
-        // console.log("Response: " + JSON.stringify(result));
-        // console.log("Response: " + result.data.id);
 
         if (result.status === true) {
-          // alert(result.message);
           await Swal.fire({
             title: "Password changed",
             text: "Your password changed successfully.",
@@ -119,11 +125,10 @@ export default {
     },
   },
   mounted() {
+    this.$refs.firstInput.focus();
     const route = useRoute();
-    // console.log("route: ", route.params);
+
     this.id = route.params.id;
-    // console.log("Before Mount: ");
-    // console.log(this.id);
   },
 };
 </script>

@@ -193,7 +193,6 @@ export default {
         name: "",
         phoneno: "",
         add_type: "0",
-        // default: "",
         addressline1: "",
         flat_no: "",
         landmark: "",
@@ -207,9 +206,7 @@ export default {
   methods: {
     async addAddress(data) {
       try {
-        // console.log("Data: ", data);
         await axios.post(`Addaddress`, data);
-        // console.log("Response: ", response);
       } catch (error) {
         console.error(error);
       }
@@ -239,10 +236,6 @@ export default {
 
         this.countries = allCountries;
         // console.log("All Countries:", this.countries); // Log the final list of countries
-        // const response = await axios.get(`country`);
-        // // console.log("Response: ", response.data);
-        // this.countries = response.data;
-        // console.log("countries: ", this.countries);
       } catch (error) {
         console.error("Error loading countries:", error);
       }
@@ -255,13 +248,6 @@ export default {
         this.states = response.data.data || []; // Update states array
         // console.log("States = ", this.states);
         // this.form_data.state = ""; // Reset state value
-        // this.gcData.gcCity = ""; // Reset city value
-        // const response = await axios.get(
-        //   `states-of-country?country_id=${this.form_data.country}`
-        // );
-        // this.states = response.data.data; // Update states array
-        // console.log("reponse: ", response.data.data[0].name);
-        // console.log("States = ", this.states);
       } catch (error) {
         console.error("Error loading states:", error);
       }
@@ -272,12 +258,6 @@ export default {
           `https://api.garbajockey.com/api/cities_of_state?state_id=${this.form_data.state}`
         );
         this.cities = response.data.data || []; // Update cities array
-        // console.log("Cities = ", this.cities);
-        // this.gcData.gcCity = ""; // Reset city value
-        // const response = await axios.get(
-        //   `city-of-states?state_id=${this.form_data.state}`
-        // );
-        // this.cities = response.data.data; // Update cities array
         // console.log("Cities = ", this.cities);
       } catch (error) {
         console.error("Error loading cities:", error);

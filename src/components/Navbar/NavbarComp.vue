@@ -107,7 +107,7 @@
               </g>
             </svg>
           </div>
-          <!-- <i class="fa-solid fa-house"></i> -->
+
           <p>Home</p>
         </div>
       </router-link>
@@ -149,7 +149,7 @@
               </g>
             </svg>
           </div>
-          <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+
           <p>Bag</p>
         </div>
       </router-link>
@@ -173,7 +173,7 @@
               />
             </svg>
           </div>
-          <!-- <i class="fa-solid fa-heart"></i> -->
+
           <p>Favorites</p>
         </div>
       </router-link>
@@ -226,7 +226,7 @@
               </g>
             </svg>
           </div>
-          <!-- <i class="fa-solid fa-user"></i> -->
+
           <p>Profile</p>
         </div>
       </router-link>
@@ -248,7 +248,7 @@
             />
           </svg>
         </div>
-        <!-- <i class="fa-solid fa-right-from-bracket" v-on:click="logout()"></i> -->
+
         <p v-on:click="logout()">Logout</p>
       </div>
       <div class="iconItem" id="menuIcon">
@@ -298,7 +298,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
 import Swal from "sweetalert2";
 import { mapActions } from "vuex";
 
@@ -337,7 +336,7 @@ export default {
           popup: "my-swal-popup", // Make sure this matches your CSS class name
         },
       });
-      // alert("Product added to your Bag!!");
+
       this.$router.push({
         name: "BagPage",
       });
@@ -355,7 +354,6 @@ export default {
         this.showAutocompleteResults = true;
         this.getAllSearchedProducts(this.search_product)
           .then(() => {
-            // console.log("Searched Products: ", this.searchedProducts);
             this.navbarData = this.searchedProducts;
           })
           .catch(() => {
@@ -371,9 +369,7 @@ export default {
     },
     ...mapActions(["getAllSearchedProducts"]),
     handleSearch() {
-      this.getAllSearchedProducts(this.search_product).then(() => {
-        // console.log("Searched Products: ", this.searchedProducts);
-      });
+      this.getAllSearchedProducts(this.search_product);
     },
     search() {
       // console.log("Search This Item: ", this.search_product);
@@ -385,16 +381,6 @@ export default {
       this.show = false;
     },
     async logout() {
-      // if (confirm("Are you sure ?\nYou want to Logout ?") === true) {
-      //   localStorage.removeItem("token");
-      //   this.$router
-      //     .push({
-      //       name: "LoginPage",
-      //     })
-      //     .then(() => {
-      //       this.$router.go();
-      //     });
-      // }
       await Swal.fire({
         title: "Are you sure ?",
         text: "You want to logout ?",
@@ -429,25 +415,6 @@ export default {
         }
       });
     },
-
-    // async logout() {
-
-    //     this.token = localStorage.getItem('token')
-
-    //     if (confirm("Are you sure ?\nYou want to Logout ?") === true) {
-    //         const response = await axios.post(`https://uatapi.magaswala.com/public/api/logout?toke=${this.token}`).catch((e) => e.response);
-    //         const result = response.data;
-    //         console.log("Response: " + JSON.stringify(result));
-    //         // console.log("Response: " + result.message);
-
-    //         if (result.status === true) {
-    //             alert(result.message);
-    //             localStorage.removeItem('token');
-    //         } else {
-    //             alert(result.message);
-    //         }
-    //     }
-    // },
   },
 };
 </script>
@@ -635,16 +602,6 @@ span {
   border-radius: 0.4rem;
   background-color: var(--btn-font-color);
 }
-
-/*.inputContainer input {
-  width: 100%;
-  height: 50%;
-  font-size: 1.5rem;
-  padding: 0.8rem 1.8rem;
-  border: none;
-  background: transparent;
-  outline: none;
-}*/
 
 .inputContainer button {
   padding: 0.8rem 1.8rem;

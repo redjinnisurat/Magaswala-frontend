@@ -4,10 +4,18 @@
       <div class="loginContent">
         <h2>Welcome back!</h2>
         <h4>Please enter credentials for sign in</h4>
-        <form @keyup.enter="login()">
-          <input type="email" placeholder="Email" v-model="email" />
+        <form @submit.prevent="login()" @keyup.enter="login()">
+          <input
+            type="email"
+            placeholder="Email"
+            v-model="email"
+            ref="firstInput"
+          />
           <div v-if="error_email" class="error">
             <span>{{ error_email }}</span>
+            <router-link class="ms-1" to="#" @click="verify" v-if="verify_flag"
+              >Please verify here</router-link
+            >
           </div>
           <div class="password_input">
             <input
@@ -44,7 +52,7 @@
             <router-link to="/forgetPassword">Forget Password ?</router-link>
           </div>
           <div class="btns">
-            <button type="button" v-on:click="login()">Sign In</button>
+            <button type="button" @click="login()">Sign In</button>
             <button type="button" id="google">
               <div class="googleContent">
                 <img src="./assets/google_logo.png" alt="Image" />Login with
@@ -71,6 +79,7 @@
 <script>
 import axios from "@/axios";
 import Swal from "sweetalert2";
+import CryptoJS from "crypto-js";
 
 export default {
   name: "LoginPage",
@@ -83,9 +92,50 @@ export default {
       remember_me: "No",
       show: true,
       visible: false,
+      verify_flag: false,
     };
   },
   methods: {
+    async verify() {
+      const response = await axios
+        .post(`ForgetPassword?email=${this.email}`)
+        .catch((e) => e.response);
+      const result = response.data;
+
+      if (result.status === true) {
+        const data = {
+          email: result.data.email,
+          otp: result.data.email_otp,
+        };
+        await Swal.fire({
+          title: "OTP Sent Successfully",
+          text: "6-digit code has been sent to your registered email address",
+          icon: "success",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
+        this.$router.push({
+          name: "VerifyEmailPage",
+          params: {
+            object: CryptoJS.AES.encrypt(
+              JSON.stringify(data),
+              "12345678"
+            ).toString(),
+          },
+        });
+      } else {
+        await Swal.fire({
+          title: "Invalid Credentials",
+          text: "Your Email-Id not found..",
+          icon: "error",
+          customClass: {
+            popup: "my-swal-popup", // Make sure this matches your CSS class name
+          },
+        });
+        this.error_email = result.message;
+      }
+    },
     rememberMe() {
       if (!this.show) {
         this.show = true;
@@ -106,12 +156,18 @@ export default {
     async login() {
       if (this.email === "") {
         this.error_email = "Invalid Email-Id !!";
+        setTimeout(() => {
+          this.error_email = "";
+        }, 3000);
       } else {
         this.error_email = "";
       }
 
       if (this.password === "") {
         this.error_password = "Invalid Password !!";
+        setTimeout(() => {
+          this.error_password = "";
+        }, 3000);
       } else {
         this.error_password = "";
       }
@@ -124,19 +180,8 @@ export default {
           .post(`login?email=${this.email}&password=${this.password}`)
           .catch((e) => e.response);
         const result = response.data;
-        // console.log("Response: " + JSON.stringify(result));
-        // console.log("Response: " + result.message);
 
         if (result.status === true) {
-          // alert(result.message);
-          // await Swal.fire({
-          //   title: "Login Successful",
-          //   text: "You Loged in successfully.",
-          //   icon: "success",
-          //   customClass: {
-          //     popup: "my-swal-popup", // Make sure this matches your CSS class name
-          //   },
-          // });
           localStorage.setItem("token", result.data.token);
           this.$router
             .push({
@@ -155,6 +200,9 @@ export default {
             },
           });
           if (result.message.includes("Email")) {
+            if (result.message.includes("do not verify")) {
+              this.verify_flag = true;
+            }
             this.error_email = result.message;
           } else {
             this.error_password = result.message;
@@ -162,6 +210,9 @@ export default {
         }
       }
     },
+  },
+  mounted() {
+    this.$refs.firstInput.focus();
   },
 };
 </script>
