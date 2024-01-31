@@ -4,13 +4,18 @@
       <div class="forget_passContent">
         <h2>Forget password No problem!!</h2>
         <h4>Please enter email-id for verification</h4>
-        <form @keyup.enter="submit()">
-          <input type="email" placeholder="Email-Id" v-model="email" />
+        <form @submit.prevent="submit()">
+          <input
+            type="email"
+            placeholder="Email-Id"
+            v-model="email"
+            ref="firstInput"
+          />
           <div v-if="error_email" class="error">
             <span>{{ error_email }}</span>
           </div>
           <div class="btns">
-            <button type="button" v-on:click="submit()">Submit</button>
+            <button type="button" @click="submit()">Submit</button>
           </div>
         </form>
         <div class="forget_passSignin">
@@ -44,6 +49,9 @@ export default {
     async submit() {
       if (this.email === "") {
         this.error_email = "Required field !!";
+        setTimeout(() => {
+          this.error_email = "";
+        }, 3000);
       } else {
         this.error_email = "";
       }
@@ -55,8 +63,6 @@ export default {
           .post(`ForgetPassword?email=${this.email}`)
           .catch((e) => e.response);
         const result = response.data;
-        // console.log("Response: ", result);
-        // console.log("Response: " + result.data.id);
 
         if (result.status === true) {
           const data = {
@@ -95,6 +101,9 @@ export default {
         }
       }
     },
+  },
+  mounted() {
+    this.$refs.firstInput.focus();
   },
 };
 </script>

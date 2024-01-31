@@ -76,7 +76,7 @@ export default {
         const response = await axios.post(`updatecart/${id}`, {
           quantity: qty,
         });
-        // console.log("Response: ", response.data.data);
+
         this.updateTotalPrice(response.data.data.Total_price);
       } catch (error) {
         console.error(error);
@@ -86,7 +86,7 @@ export default {
       this.cartArray.forEach((item) => {
         if (id == item.id) {
           item.qty++;
-          // console.log("Item Qty: " + item.qty);
+
           this.updateCart(id, item.qty);
         }
       });
@@ -97,21 +97,13 @@ export default {
           if (item.qty > 1) {
             item.qty--;
           }
-          // console.log("Item Qty: " + item.qty);
+
           this.updateCart(id, item.qty);
         }
       });
     },
     ...mapActions(["deleteFromCart", "getAllCartItems"]),
     async deleteItem(id) {
-      // if (
-      //   confirm(
-      //     "Are you sure ?\nYou want to remove this item from your cart ?"
-      //   ) == true
-      // ) {
-      //   // console.log("Id: " + id);
-      //   this.deleteFromCart(id);
-      // }
       await Swal.fire({
         title: "Are you sure ?",
         text: "You want to remove this item from your cart ?",

@@ -4,11 +4,12 @@
       <div class="signUpContent">
         <h2>Create an account</h2>
         <h4>Please enter credentials for sign up</h4>
-        <form>
+        <form @submit.prevent="signUp()" @keyup.enter="signUp()">
           <input
             type="name"
             placeholder="Enter Full name"
             v-model="full_name"
+            ref="firstInput"
           />
           <div v-if="error_name" class="error">
             <span>{{ error_name }}</span>
@@ -25,12 +26,8 @@
           <div v-if="error_password" class="error">
             <span>{{ error_password }}</span>
           </div>
-          <!-- <input type="number" placeholder="User Type.." v-model="user_type">
-                <div v-if="error_userType" class="error">
-                    <span>{{error_userType}}</span>
-                </div> -->
           <div class="btns">
-            <button type="button" v-on:click="signUp()">Sign Up</button>
+            <button type="button" @click="signUp()">Sign Up</button>
             <button type="button" id="google">
               <div class="googleContent">
                 <img src="./assets/google_logo.png" alt="Image" />Login with
@@ -78,33 +75,39 @@ export default {
     async signUp() {
       if (this.full_name === "") {
         this.error_name = "Invalid Name !!";
+        setTimeout(() => {
+          this.error_name = "";
+        }, 3000);
       } else {
         this.error_name = "";
       }
 
       if (this.email === "") {
         this.error_email = "Invalid Email-Id !!";
+        setTimeout(() => {
+          this.error_email = "";
+        }, 3000);
       } else {
         this.error_email = "";
       }
 
       if (this.phoneno === "") {
         this.error_phone = "Invalid Phone Number !!";
+        setTimeout(() => {
+          this.error_phone = "";
+        }, 3000);
       } else {
         this.error_phone = "";
       }
 
       if (this.password === "") {
         this.error_password = "Invalid Password !!";
+        setTimeout(() => {
+          this.error_password = "";
+        }, 3000);
       } else {
         this.error_password = "";
       }
-
-      // if (this.user_type === '') {
-      //     this.error_userType = 'Invalid User Type !!';
-      // } else {
-      //     this.error_userType = '';
-      // }
 
       if (
         this.full_name !== "" &&
@@ -125,11 +128,8 @@ export default {
           )
           .catch((e) => e.response);
         const result = response.data;
-        // console.log("Response: ", result);
-        // console.log("Response: " + result.message);
 
         if (result.status === true) {
-          // alert(result.message);
           const data = { email: result.data.email, otp: result.data.email_otp };
           await Swal.fire({
             title: "Registration Complete",
@@ -167,6 +167,9 @@ export default {
         }
       }
     },
+  },
+  mounted() {
+    this.$refs.firstInput.focus();
   },
 };
 </script>

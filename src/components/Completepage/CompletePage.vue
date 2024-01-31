@@ -40,7 +40,7 @@ export default {
     done() {
       this.$router.push({ name: "HomePage" });
 
-      if (this.surl && localStorage.getItem("has")) {
+      if (this.surl && localStorage.getItem("hash")) {
         this.$router.push({
           name: "CompletePage",
           params: {
@@ -79,14 +79,6 @@ export default {
     const route = useRoute();
     this.order_id = route.params.order_id;
     this.updatePaymentStatus(this.order_id);
-    // console.log("Order Id: ", this.order_id);
-    // if (
-    //   localStorage.getItem("hash") &&
-    //   `${window.location.origin}/completePage`
-    // ) {
-    //   // Call the method to update the payment status
-    //   this.updatePaymentStatus();
-    // }
   },
 };
 </script>

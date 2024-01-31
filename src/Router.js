@@ -19,7 +19,6 @@ import ResetPasswordComp from "./components/ProfilePage/ResetPasswordComp.vue";
 import PaymentMethodsComp from "./components/ProfilePage/PaymentMethodsComp.vue";
 import AddressComp from "./components/ProfilePage/AddressComp.vue";
 import HomeAddressComp from "./components/ProfilePage/HomeAddressComp.vue";
-// import OfficeAddressComp from "./components/ProfilePage/OfficeAddressComp.vue";
 import AddAddressComp from "./components/ProfilePage/AddAddressComp.vue";
 import HelpSupportComp from "./components/ProfilePage/HelpSupportComp.vue";
 import TermsCondComp from "./components/ProfilePage/TermsCondComp.vue";
