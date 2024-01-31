@@ -9,6 +9,7 @@
             alt="ladoo"
           />
         </div>
+
         <div class="productContent">
           <p>{{ product.name }}</p>
           <p id="price">Rs.{{ product.price }}/{{ product.quantity }}</p>
