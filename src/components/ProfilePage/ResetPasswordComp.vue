@@ -83,7 +83,6 @@ export default {
         const response = await axios.post(`changePassword`, data);
 
         if (response.data.status === true) {
-          // alert("Your password changed successfully!!");
           await Swal.fire({
             title: "Password Changed",
             text: "You password has been changed successfully.",

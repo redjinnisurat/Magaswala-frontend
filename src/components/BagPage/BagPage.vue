@@ -40,7 +40,6 @@ export default {
   name: "BagPage",
   data() {
     return {
-      // total_price: 0,
       order_data: {},
       add_id: null,
     };
@@ -54,13 +53,7 @@ export default {
     cartArray() {
       return this.$store.getters.allCartItems;
     },
-    // total_price() {
-    //   if (this.cartArray && this.cartArray.length > 0) {
-    //     return this.cartArray[0].Total_price || 0;
-    //   } else {
-    //     return 0;
-    //   }
-    // },
+
     total_price() {
       return this.$store.getters.total_price;
     },
@@ -71,10 +64,8 @@ export default {
     async makeOrders(data) {
       try {
         const response = await axios.post(`order`, data);
-        // console.log("Order Placed Successfully !!");
-        // console.log("Response: ", response);
+
         this.order_data = response.data.data || [];
-        // console.log("Response: ", this.order_data);
       } catch (error) {
         console.error(error);
       }
@@ -95,13 +86,10 @@ export default {
           address_id: this.add_id || null,
         };
 
-        // console.log("Data for order: ", data);
-
         if (this.add_id != null || this.add_id != undefined) {
           this.makeOrders(data).then(() => {
-            // alert("Your Order Placed Successfully !!");
             localStorage.setItem("order", JSON.stringify(this.order_data));
-            // console.log("Order Data: ", JSON.stringify(this.order_data));
+
             this.$router.push({
               name: "CheckoutPage",
               params: {
@@ -113,11 +101,6 @@ export default {
             });
           });
         } else {
-          // alert(
-          //   "Please Add Address First !!" +
-          //     "\n" +
-          //     "Without Address you are not able to make order !!"
-          // );
           Swal.fire({
             title: "Important Note",
             text:
@@ -131,7 +114,6 @@ export default {
           });
         }
       } else {
-        // alert("Please Add Something into your cart!!");
         Swal.fire({
           title: "Important Note",
           text: "Please add something into your cart first !!",
@@ -143,36 +125,15 @@ export default {
       }
     },
   },
-  watch: {
-    // total_price() {
-    //   if (this.cartArray && this.cartArray.length > 0) {
-    //     return this.cartArray[0].Total_price || 0;
-    //   } else {
-    //     return 0;
-    //   }
-    // },
-  },
+  watch: {},
   mounted() {},
   beforeMount() {
     this.getAllAddress().then(() => {
       this.$store.dispatch("getAddressId").then(() => {
-        // console.log("Address Id: ", this.$store.getters.homeAddId);
         this.add_id = this.$store.getters.homeAddId;
-        // const data = {
-        //   product_id: [{ product_id: this.i_id, value: this.i_qty }],
-        //   address_id: this.address_id == null ? this.add_id : this.address_id,
-        // };
-        // // console.log("Order Data: ", data);
-        // this.makeOrders(data);
       });
     });
-    this.getAllCartItems().then(() => {
-      // if (this.cartArray && this.cartArray.length > 0) {
-      //   this.total_price = this.cartArray[0].Total_price || 0;
-      // } else {
-      //   this.total_price = 0;
-      // }
-    });
+    this.getAllCartItems();
   },
 };
 </script>
@@ -218,20 +179,6 @@ export default {
   align-items: center;
   min-height: 46rem;
 }
-
-/*.bagContent {
-    width: 50%;
-    height: 42rem;
-    border-right: 2px solid black;
-    overflow: auto;
-    margin-top: 2rem;
-    max-height: 46rem;
-    align-items: center;
-}
-
-.bagContent::-webkit-scrollbar {
-    display: none;
-}*/
 
 .checkOutContent {
   width: 50%;
@@ -311,15 +258,6 @@ export default {
     justify-content: center;
   }
 
-  /*.bagContent {
-        width: 100%;
-        height: 42rem;
-        border-right: none;
-        margin-top: 2rem;
-        margin-left: -3.5rem;
-        max-height: 28rem;
-    }*/
-
   .checkOutContent {
     width: 100%;
     margin-top: 1.2rem;
@@ -359,15 +297,6 @@ export default {
     justify-content: center;
   }
 
-  /*.bagContent {
-        width: 100%;
-        height: 42rem;
-        border-right: none;
-        margin-top: 2rem;
-        margin-left: 0rem;
-        max-height: 28rem;
-    }*/
-
   .checkOutContent {
     width: 100%;
     margin-top: 1.2rem;
@@ -406,15 +335,6 @@ export default {
     flex-direction: column-reverse;
     justify-content: center;
   }
-
-  /*.bagContent {
-        width: 100%;
-        height: 42rem;
-        border-right: none;
-        margin-top: 2rem;
-        margin-left: -1rem;
-        max-height: 28rem;
-    }*/
 
   .checkOutContent {
     width: 100%;

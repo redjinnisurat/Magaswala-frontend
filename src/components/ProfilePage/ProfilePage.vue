@@ -127,19 +127,8 @@ export default {
       this.user_name = data.name;
       this.user_email = data.email;
       this.user_profile = data.profileimage;
-      // console.log(this.user_profile);
     },
     async logout() {
-      // if (confirm("Are you sure ?\nYou want to Logout ?") === true) {
-      //   localStorage.removeItem("token");
-      //   this.$router
-      //     .push({
-      //       name: "LoginPage",
-      //     })
-      //     .then(() => {
-      //       this.$router.go();
-      //     });
-      // }
       await Swal.fire({
         title: "Are you sure ?",
         text: "You want to logout ?",

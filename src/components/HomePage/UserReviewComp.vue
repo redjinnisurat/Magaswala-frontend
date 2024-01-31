@@ -48,9 +48,7 @@ export default {
     ...mapActions(["getAllFeedback"]),
   },
   beforeMount() {
-    this.getAllFeedback().then(() => {
-      // console.log("All Feedbacks: ", this.feedbackArray);
-    });
+    this.getAllFeedback();
   },
 };
 </script>

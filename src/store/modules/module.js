@@ -12,7 +12,6 @@ const state = {
   total_price: 0,
   searchProducts: [],
   notFound: false,
-  // productId: 0,
 };
 
 const getters = {
@@ -27,7 +26,6 @@ const getters = {
   total_price: (state) => state.total_price,
   allSearchedProducts: (state) => state.searchProducts,
   searchProductFound: (state) => state.notFound,
-  // productId: (state) => state.productId,
 };
 
 const actions = {
@@ -80,7 +78,7 @@ const actions = {
   async getAllAddress({ commit }) {
     try {
       const response = await axios.get(`address`);
-      // console.log("Response: ", response.data);
+
       commit("setAddress", response.data.data || []);
     } catch (error) {
       console.error(error);
@@ -122,10 +120,8 @@ const actions = {
   },
   async getAllSearchedProducts({ commit }, name) {
     try {
-      // console.log("type of Name: ", typeof name);
-      // console.log("Product Name: ", name);
       const response = await axios.get(`showall?search=${name}`);
-      // console.log("Response: ", response.data);
+
       commit("setNotFound", false);
       commit("setSearchedProducts", response.data.data);
     } catch (error) {
@@ -150,18 +146,12 @@ const mutations = {
   updateTotalPrice(state, totalPrice) {
     if (totalPrice != null) {
       state.total_price = totalPrice;
-      // console.log("Total Price: ", state.total_price);
     } else {
       state.total_price = state.cart.length > 0 ? state.cart[0].Total_price : 0;
     }
   },
   setSearchedProducts: (state, response) => (state.searchProducts = response),
   setNotFound: (state, response) => (state.notFound = response),
-  // setProduct(state, data) {
-  //   // console.log("Data Id: ", data);
-  //   state.productId = data;
-  //   // console.log("Id: ", state.productId);
-  // },
 };
 
 export default {

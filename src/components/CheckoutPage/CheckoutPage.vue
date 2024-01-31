@@ -93,57 +93,6 @@
             <h3 class="text-muted">No Address Added!!</h3>
           </div>
         </div>
-        <!-- <div class="paymentDiv">
-          <h3 class="paymentHeading">Payment Options</h3>
-          <div class="paymentOption" :class="{ active: card_pay }">
-            <img src="./assets/master_card_img.png" alt="img" />
-            <label for="creditCard">Credit Card/Debit card</label>
-            <input
-              type="radio"
-              name="paymentOption"
-              id="creditCard"
-              value="creditCard"
-              v-model="payment_option"
-              v-on:change="changeOptions()"
-            />
-          </div>
-          <div class="paymentOption" :class="{ active: apple_pay }">
-            <img src="./assets/apple_pay_img.png" alt="img" />
-            <label for="applePay">Apple Pay</label>
-            <input
-              type="radio"
-              name="paymentOption"
-              id="applePay"
-              value="applePay"
-              v-model="payment_option"
-              v-on:change="changeOptions()"
-            />
-          </div>
-          <div class="paymentOption" :class="{ active: upi_pay }">
-            <img src="./assets/bhim_upi_img.jpeg" alt="img" />
-            <label for="bhimUpi">Bhim UPI</label>
-            <input
-              type="radio"
-              name="paymentOption"
-              id="bhimUpi"
-              value="bhimUpi"
-              v-model="payment_option"
-              v-on:change="changeOptions()"
-            />
-          </div>
-          <div class="paymentOption" :class="{ active: cash_pay }">
-            <img src="./assets/cash_delivery_img.png" alt="img" />
-            <label for="cashOnDelivery">Payment On Delivery</label>
-            <input
-              type="radio"
-              name="paymentOption"
-              id="cashOnDelivery"
-              value="cashOnDelivery"
-              v-model="payment_option"
-              v-on:change="changeOptions()"
-            />
-          </div>
-        </div> -->
       </div>
       <div class="checkOutContent1">
         <h3>Promo Code</h3>
@@ -244,13 +193,7 @@ export default {
     return {
       active_add: true,
       selected_add: null,
-      card_pay: false,
-      apple_pay: false,
-      upi_pay: false,
-      cash_pay: false,
-      payment_option: null,
       promo_code: null,
-      // total_amount: null,
       order_data: {},
       new_order_data: {},
       order__item_price: "",
@@ -260,7 +203,6 @@ export default {
       order_delivery: "",
       order_total_amount: "",
 
-      // amount_pay: '678.64',
       hash: "",
       txnid: "",
       product_info: "Magaswala",
@@ -270,9 +212,9 @@ export default {
       // payuUrl: "https://test.payu.in/_payment",
       // mkey: "gtKFFx",
       // saltKey: "eCwWELxi",
-      // surl: 'https://restroworld.com/blueticksuccess',
+
       surl: `${window.location.origin}/completePage/${this.order_split_result}`,
-      // furl: 'https://restroworld.com/home/User/Fail',
+
       furl: `${window.location.origin}/`,
       userDetails: [],
       split_id: "",
@@ -294,11 +236,9 @@ export default {
     async makeOrders(data) {
       try {
         const response = await axios.post(`order`, data);
-        // console.log("Order Placed Successfully !!");
-        // console.log("Response: ", response);
+
         this.order_data = response.data.data || [];
         this.setData(this.order_data);
-        // console.log("New Order Data: ", this.order_data);
       } catch (error) {
         console.error(error);
       }
@@ -317,12 +257,9 @@ export default {
         address_id: this.selected_add,
       };
 
-      // console.log("New Order Data: ", this.new_order_data);
-
       this.makeOrders(this.new_order_data);
     },
     setData(data) {
-      // console.log("Order Data: ", data);
       this.order__item_price = data.pricetotal || 0;
       this.order_cgst = data.cgst || 0;
       this.order_sgst = data.sgst || 0;
@@ -331,16 +268,9 @@ export default {
       this.order_delivery = data.total_delivery_charges || 0;
       this.order_total_amount = data.order.price || 0;
 
-      // console.log("Total Amount: ", this.order_total_amount);
-
-      // console.log("Order Id: ", data.order.order_id);
-
       this.split_id = data.order.order_id.toString().split("-")[1];
 
-      // console.log(this.split_id);
-
       this.order_split_result = this.removeLeadingZeros(this.split_id);
-      // console.log(this.order_split_result);
     },
     removeLeadingZeros(inputString) {
       // Use regular expression to remove leading zeros
@@ -352,11 +282,6 @@ export default {
         this.generateHashAndSubmitForm();
         localStorage.removeItem("order");
       } else {
-        // alert(
-        //   "Please Add Address First !!" +
-        //     "\n" +
-        //     "Without Address you are not able to make order !!"
-        // );
         Swal.fire({
           title: "Important Note",
           text:
@@ -377,7 +302,6 @@ export default {
         "|" +
         this.txnid +
         "|" +
-        // this.amount_pay +
         this.order_total_amount +
         "|" +
         this.product_info +
@@ -398,8 +322,6 @@ export default {
       // console.log(data);
 
       document.getElementById("hash").value = this.hash;
-      // document.getElementById("hash").value =
-      //   "863b2603239e029f99a4a97db5586e0d612d02839ffecb493f260124329c9a976c25f16b03a634448b480ca43df6a7433e806839b3fb864723383ead45663ab9";
 
       // const paymentSuccessful = true; // Replace this with your actual check
 
@@ -408,42 +330,8 @@ export default {
       //   this.updatePaymentStatus();
       // }
 
-      // if (this.surl) {
-      //   this.$router.push({
-      //     name: "CompletePage",
-      //     params: {
-      //       order_id: this.order_split_result,
-      //     },
-      //   });
-      // }
-
       document.getElementById("paymentForm").submit();
     },
-
-    // async updatePaymentStatus() {
-    //   try {
-    //     const response = await axios.post(
-    //       `https://uat2-api.magaswala.com/public/api/updatepaymentstatus/${this.order_split_result}`,
-    //       {
-    //         payment_status: "1",
-    //       }
-    //     );
-
-    //     if (response.data.status === true) {
-    //       // Payment status successfully updated
-    //       console.log("Payment status updated successfully.");
-    //     } else {
-    //       // Payment status update failed, show an error message
-    //       console.error(
-    //         "Error updating payment status:",
-    //         response.data.message
-    //       );
-    //     }
-    //   } catch (error) {
-    //     // Handle API request error
-    //     console.error("API request error:", error);
-    //   }
-    // },
 
     makeid() {
       var text = "";
@@ -464,51 +352,16 @@ export default {
       });
     },
     ...mapActions(["getAllAddress", "getAllCartItems", "getUser"]),
-    changeOptions() {
-      if (this.payment_option == "creditCard") {
-        this.card_pay = true;
-        this.apple_pay = false;
-        this.upi_pay = false;
-        this.cash_pay = false;
-      } else if (this.payment_option == "applePay") {
-        this.card_pay = false;
-        this.apple_pay = true;
-        this.upi_pay = false;
-        this.cash_pay = false;
-      } else if (this.payment_option == "bhimUpi") {
-        this.card_pay = false;
-        this.apple_pay = false;
-        this.upi_pay = true;
-        this.cash_pay = false;
-      } else if (this.payment_option == "cashOnDelivery") {
-        this.card_pay = false;
-        this.apple_pay = false;
-        this.upi_pay = false;
-        this.cash_pay = true;
-      } else {
-        this.card_pay = false;
-        this.apple_pay = false;
-        this.upi_pay = false;
-        this.cash_pay = false;
-      }
-    },
+
     done() {},
   },
   beforeMount() {
     this.getAllAddress().then(() => {
       this.$store.dispatch("getAddressId").then(() => {
-        // console.log("Address Id: ", this.$store.getters.homeAddId);
         this.selected_add = this.$store.getters.homeAddId;
-        // const data = {
-        //   product_id: [{ product_id: this.i_id, value: this.i_qty }],
-        //   address_id: this.address_id == null ? this.add_id : this.address_id,
-        // };
-        // // console.log("Order Data: ", data);
-        // this.makeOrders(data);
       });
     });
     this.getAllCartItems().then(() => {
-      // console.log("Cart Array: ", this.cartArray);
       if (this.cartArray && this.cartArray.length > 0) {
         this.total_amount = this.cartArray[0].Total_price || 0;
       } else {
@@ -519,9 +372,6 @@ export default {
     this.getUser()
       .then(() => {
         this.userDetails = this.$store.getters.newUser;
-        // console.log("User Name", this.userDetails.name);
-        // console.log("User Phone Number", this.userDetails.phoneno);
-        // console.log("User Email", this.userDetails.email);
       })
       .catch((err) => {
         console.log(err);
@@ -626,26 +476,35 @@ export default {
   border-radius: 0.4rem;
   padding: 0.8rem 2rem;
   margin: 2rem 0.6rem;
+  cursor: pointer;
 }
 
 .addressOption i {
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--border-color);
+  cursor: pointer;
 }
 
 .addressOption label {
   font-size: 1.9rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .addressOption span {
   font-size: 1.4rem;
   font-weight: 100;
+  cursor: pointer;
 }
 
 .addressOption #address {
   font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.addressOption input {
+  cursor: pointer;
 }
 
 .paymentDiv {

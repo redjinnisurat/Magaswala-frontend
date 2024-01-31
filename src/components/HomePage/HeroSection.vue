@@ -167,7 +167,7 @@ export default {
           popup: "my-swal-popup", // Make sure this matches your CSS class name
         },
       });
-      // alert("Product added to your Bag!!");
+
       this.$router.push({ name: "BagPage" });
     },
   },
@@ -188,9 +188,6 @@ export default {
         this.products[this.last_index - 3] != undefined
           ? this.products[this.last_index - 3]
           : undefined;
-      // console.log("Product 1: ", this.product1);
-      // console.log("Product 2: ", this.product2);
-      // console.log("Product 3: ", this.product3);
     });
   },
 };

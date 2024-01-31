@@ -81,15 +81,13 @@ export default {
       });
     },
     async processOrderData() {
-      // console.log("fetching Orders......");
       this.orderd_products = [];
       await this.getOrder();
-      // console.log("OrderArray after fetching:", this.orderArray);
+
       if (this.orderArray) {
         this.orderArray.forEach((order) => {
           if (order.status != 5) {
             if (order.product.length == 1) {
-              // console.log("Single Product Orders: ", order.product);
               this.orderd_products.push({
                 product: order.product[0],
                 id: order.id,
@@ -98,7 +96,6 @@ export default {
                 order_status_text: order.status_order_text,
               });
             } else {
-              // console.log("More than one Product Orders: ", order.product);
               order.product.forEach((item) => {
                 this.orderd_products.push({
                   product: item,
@@ -114,23 +111,12 @@ export default {
       } else {
         // console.log("Order Array not found !!");
       }
-
-      // console.log("Ordered Product List: ", this.orderd_products);
     },
   },
-  watch: {
-    // orderArray: {
-    //   handler: "processOrderData",
-    // },
-  },
+  watch: {},
   async created() {
     await this.processOrderData();
   },
-  // beforeMount() {
-  //   this.getOrder().then(() => {
-  //     this.processOrderData();
-  //   });
-  // },
 };
 </script>
 

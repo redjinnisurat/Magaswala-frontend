@@ -118,9 +118,8 @@ export default {
   methods: {
     async getStatus() {
       const response = await axios.get(`showorderstatus/${this.order_data.id}`);
-      // console.log("Response: ", response.data);
+
       this.order_status = response.data.order_status;
-      // console.log("Status: ", this.order_status);
     },
     getTrackingClass(stepId) {
       const classes = ["tracking-container"];
@@ -160,11 +159,9 @@ export default {
     ).toString(CryptoJS.enc.Utf8);
     if (encryptData == undefined) {
       this.order_data = JSON.parse(localStorage.getItem("order-item"));
-      // console.log("Order Data: ", this.order_data);
     } else {
       this.order_data = JSON.parse(encryptData);
     }
-    // console.log("Order Data: ", this.order_data);
 
     this.getStatus();
   },
