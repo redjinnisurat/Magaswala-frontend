@@ -587,6 +587,7 @@ span {
   font-weight: 900;
   color: var(--primary-color);
   font-family: "Merienda", cursive;
+  cursor: pointer;
 }
 
 .input-grp {

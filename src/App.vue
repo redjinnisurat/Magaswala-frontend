@@ -80,4 +80,10 @@ export default {
   max-width: 60%; /* Set the maximum width if needed */
   font-size: 1.6rem; /* Adjust font size if needed */
 }
+
+@media only screen and (max-width: 576px) {
+  .body-div {
+    width: 100%;
+  }
+}
 </style>

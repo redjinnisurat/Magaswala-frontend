@@ -9,12 +9,13 @@
             alt="ladoo"
           />
         </div>
-
         <div class="productContent">
-          <p>{{ product.name }}</p>
-          <p id="price">Rs.{{ product.price }}/{{ product.quantity }}</p>
-          <div id="cartClass">
+          <div id="cartData">
+            <p>{{ product.name }}</p>
+            <p id="price">Rs.{{ product.price }}/{{ product.quantity }}</p>
             <p>{{ product.desc }}</p>
+          </div>
+          <div id="cartClass">
             <button v-on:click="nextPage(product.id)">Add to cart</button>
           </div>
         </div>
@@ -96,11 +97,19 @@ export default {
 .productContent {
   padding: 1rem 1.6rem;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.productContent #cartData {
+  width: 65%;
 }
 
 .productContent #cartClass {
+  width: 35%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 .productContent p {

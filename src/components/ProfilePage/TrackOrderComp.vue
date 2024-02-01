@@ -19,7 +19,7 @@
             </h4>
           </div>
           <div
-            class="w-50 ms-5 d-flex align-items-center justify-content-center"
+            class="w-50 ms-5 d-flex align-items-center justify-content-center img-div"
             style="height: 10rem"
           >
             <img
@@ -188,9 +188,13 @@ export default {
   position: relative;
 }
 
+.img-div {
+  overflow: hidden;
+}
+
 .tracking-line {
   width: 2.2px;
-  height: 60px;
+  height: 6rem;
   position: absolute;
   left: 50%;
   top: 0;
@@ -229,16 +233,24 @@ export default {
   .track-data {
     width: 90% !important;
     display: flex;
+    flex-direction: column;
     margin-left: 0 !important;
     padding-left: 0 !important;
   }
 
   .item-div {
     margin-top: 5rem;
+    margin-left: 1rem;
+  }
+
+  .img-div {
+    width: 50% !important;
+    overflow: hidden;
   }
 
   .trackitem-line {
-    width: 80% !important;
+    width: 90% !important;
+    margin: 2rem 1rem !important;
   }
 }
 
@@ -250,16 +262,23 @@ export default {
   .track-data {
     width: 90% !important;
     display: flex;
+    flex-direction: column;
     margin-left: 0 !important;
     padding-left: 0 !important;
   }
 
   .item-div {
     margin-top: 5rem;
+    margin-left: 2rem;
+  }
+  .img-div {
+    width: 50% !important;
+    overflow: hidden;
   }
 
   .trackitem-line {
     width: 50% !important;
+    margin: 2rem;
   }
 }
 
@@ -278,9 +297,13 @@ export default {
   .item-div {
     margin-top: 5rem;
   }
+  .img-div {
+    width: 50% !important;
+    overflow: hidden;
+  }
 
   .trackitem-line {
-    width: 50% !important;
+    width: 53% !important;
   }
 }
 

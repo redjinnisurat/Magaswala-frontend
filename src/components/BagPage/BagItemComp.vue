@@ -1,7 +1,7 @@
 <template>
   <div class="bagContent" v-if="cartArray.length > 0">
     <div class="bagItem" v-for="(item, index) in cartArray" :key="index">
-      <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gy-1">
         <div
           class="d-flex align-items-center justify-content-center bagItem-img"
         >
@@ -263,14 +263,24 @@ export default {
   }
 
   .bagItem {
-    width: 90%;
-    padding: 0.6rem 1.9rem;
+    width: 100%;
+    padding: 0.6rem 0.1rem;
     border-radius: 0.6rem;
     margin-bottom: 1rem;
   }
 
+  .bagItem-img {
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+  }
+
+  .bagDetails {
+    width: 50%;
+  }
+
   .bagItem_btns {
-    margin-left: 2.6rem;
+    margin-left: 1.2rem;
   }
 
   .bagItem_btns .trashIcon i {

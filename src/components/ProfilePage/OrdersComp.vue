@@ -47,7 +47,7 @@
               alt="Image"
             />
           </div>
-          <div class="" style="width: 45%">
+          <div class="data-div" style="width: 45%">
             <h3 class="fs-4 fw-semibold item-color mb-3">
               {{ order.product.product.name }}
               <span class="price-color ms-4">{{
@@ -330,10 +330,53 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
+  .heading-size {
+    font-size: 2rem;
+  }
+  .select-days {
+    width: 40% !important;
+    padding: 0.6rem 1.6rem !important;
+    font-size: 1.2rem !important;
+    margin-right: 0rem !important;
+  }
+
+  .order-date {
+    width: 43% !important;
+  }
+
+  .order-date p {
+    font-size: 1.2rem !important;
+  }
+
+  .img-background {
+    width: 30%;
+    height: 9rem;
+  }
+
+  .data-div {
+    width: 40%;
+    font-size: 1.2rem !important;
+  }
+
+  .btn-div {
+    width: 30% !important;
+    margin-left: 0rem !important;
+  }
+
+  .order-btn {
+    font-size: 1.2rem !important;
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .heading-size {
+    font-size: 2rem;
+  }
   .select-days {
     width: 30% !important;
     padding: 0.6rem 1.6rem !important;
-    font-size: 1.2rem !important;
+    font-size: 1.6rem !important;
     margin-right: 0rem !important;
   }
 
@@ -345,29 +388,24 @@ export default {
     font-size: 1.3rem !important;
   }
 
-  .btn-div {
-    width: 40% !important;
+  .img-background {
+    width: 30%;
+    height: 9rem;
   }
 
-  .order-btn {
+  .data-div {
+    width: 40%;
     font-size: 1.2rem !important;
   }
-}
 
-@media only screen and (min-width: 577px) and (max-width: 768px) {
-  .select-days {
+  .btn-div {
     width: 30% !important;
-    padding: 0.6rem 1.6rem !important;
-    font-size: 1.6rem !important;
-    margin-right: 0rem !important;
-  }
-
-  .order-date p {
-    font-size: 1.3rem !important;
+    margin-left: 0rem !important;
   }
 
   .order-btn {
     font-size: 1.5rem !important;
+    padding: 0.8rem 1rem;
   }
 }
 

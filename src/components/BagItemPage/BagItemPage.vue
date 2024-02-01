@@ -221,8 +221,8 @@ export default {
       mkey: "nxpvv9VZ",
       saltKey: "3oFxUMtWG2",
       // payuUrl: "https://test.payu.in/_payment",
-      // mkey: "gtKFFx",
-      // saltKey: "eCwWELxi",
+      // mkey: "39fVly",
+      // saltKey: "iBRkxnr1n2MTv8QOFiFgCAC3pkRoFo9t",
       surl: `${window.location.origin}/completePage/${this.order_split_result}`,
       furl: `${window.location.origin}/`,
       userDetails: [],
@@ -653,6 +653,10 @@ export default {
     width: 100%;
   }
 
+  .adddress-container {
+    height: 28rem;
+  }
+
   .addressOption {
     margin: 1.6rem 2rem;
   }
@@ -660,6 +664,10 @@ export default {
   .addressBtn button {
     width: 100%;
     margin: 2rem auto;
+  }
+
+  .productSec {
+    padding: 2rem 0.6rem;
   }
 
   .productSec h3 {

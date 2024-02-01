@@ -279,6 +279,8 @@ export default {
   .heroSec {
     flex-direction: column-reverse;
     margin-top: 0.5rem;
+    padding: 1.6rem 2.4rem;
+    margin-bottom: 2.5rem;
   }
 
   .heroImage {
@@ -295,7 +297,7 @@ export default {
   }
 
   .heroContent h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 
   .heroSec h3 {

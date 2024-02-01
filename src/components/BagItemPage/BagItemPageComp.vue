@@ -124,6 +124,21 @@ export default {
     i_quantity(newVal) {
       this.handleQuntityChanges(newVal);
     },
+    i_id(newVal) {
+      const data = {
+        product_id: [
+          {
+            product_id: newVal != undefined ? newVal : this.product.id,
+            value: this.i_qty,
+          },
+        ],
+        address_id: this.address_id == null ? this.add_id : this.address_id,
+      };
+
+      if (this.add_id != null || this.add_id != undefined) {
+        this.makeOrders(data);
+      }
+    },
     fav_flag(newVal) {
       this.changeFavShow(newVal);
     },
@@ -222,12 +237,20 @@ export default {
           this.gm1_show = false;
           this.gm2_show = false;
           this.$refs.kg_input.checked = true;
-        } else if (quantity == "500gm" || quantity == "500") {
+        } else if (
+          quantity == "500gm" ||
+          quantity == "500" ||
+          quantity == "50"
+        ) {
           this.kg_show = false;
           this.gm1_show = true;
           this.gm2_show = false;
           this.$refs.gm1_input.checked = true;
-        } else if (quantity == "250gm" || quantity == "250") {
+        } else if (
+          quantity == "250gm" ||
+          quantity == "250" ||
+          quantity == "25"
+        ) {
           this.kg_show = false;
           this.gm1_show = false;
           this.gm2_show = true;

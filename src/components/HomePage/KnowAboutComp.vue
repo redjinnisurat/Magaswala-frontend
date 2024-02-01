@@ -92,6 +92,9 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
+  .aboutSec {
+    padding: 2rem 0.6rem;
+  }
   .aboutSec h3 {
     font-size: 2.6rem;
   }
@@ -101,7 +104,7 @@ export default {
   }
 
   .aboutImg {
-    width: 86%;
+    width: 95%;
   }
 
   .aboutContent {

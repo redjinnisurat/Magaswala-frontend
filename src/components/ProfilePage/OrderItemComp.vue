@@ -153,6 +153,14 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
+  .img-background {
+    width: 30%;
+    height: 10rem;
+  }
+
+  .data-div {
+    width: 40%;
+  }
   .data-div h3 {
     font-size: 1.4rem !important;
   }
@@ -162,11 +170,13 @@ export default {
   }
 
   .btn-div {
-    width: 40% !important;
+    width: 30% !important;
+    margin-left: 0rem !important;
   }
 
   .order-btn {
-    font-size: 1.4rem !important;
+    font-size: 1.1rem !important;
+    padding: 0.8rem 1rem;
   }
 }
 
@@ -177,6 +187,10 @@ export default {
 
   #label-text {
     font-size: 1.4rem !important;
+  }
+
+  .btn-div {
+    width: 40% !important;
   }
 
   .order-btn {
@@ -191,6 +205,9 @@ export default {
 
   #label-text {
     font-size: 1.4rem !important;
+  }
+  .btn-div {
+    width: 40% !important;
   }
 
   .order-btn {

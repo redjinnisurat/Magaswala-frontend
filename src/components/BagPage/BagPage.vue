@@ -261,7 +261,6 @@ export default {
   .checkOutContent {
     width: 100%;
     margin-top: 1.2rem;
-    margin-left: 2.8em;
   }
 
   .checkOutContent img {
@@ -283,6 +282,10 @@ export default {
 
   .chekOut_details p span {
     margin-left: 16rem;
+  }
+
+  .productSec {
+    padding: 2rem 0.6rem;
   }
 
   .productSec h3 {

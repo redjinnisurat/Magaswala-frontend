@@ -363,6 +363,7 @@ export default {
   .profileData {
     width: 90%;
     margin: 0 auto;
+    padding: 1.4rem 0.8rem;
   }
 }
 

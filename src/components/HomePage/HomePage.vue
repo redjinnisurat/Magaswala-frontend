@@ -79,6 +79,14 @@ export default {
 }
 
 @media only screen and (max-width: 576px) {
+  .productSec {
+    padding: 2rem 0.6rem;
+  }
+
+  .userReview {
+    padding: 2rem 0.6rem;
+  }
+
   .userReview h3 {
     font-size: 2.6rem;
   }
