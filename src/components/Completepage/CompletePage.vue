@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       order_id: null,
-      surl: `${window.location.origin}/completePage`,
+      surl: `${window.location.origin}/completePage/${this.order_id}`,
     };
   },
   components: {
@@ -39,7 +39,6 @@ export default {
   methods: {
     done() {
       this.$router.push({ name: "HomePage" });
-
       if (this.surl && localStorage.getItem("hash")) {
         this.$router.push({
           name: "CompletePage",

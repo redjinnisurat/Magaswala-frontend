@@ -261,9 +261,7 @@ export default {
   },
   mounted() {
     this.product = JSON.parse(localStorage.getItem("orderItem"));
-    this.handleQuntityChanges(
-      this.i_quantity != undefined ? this.i_quantity : this.product.quantity
-    );
+    this.handleQuntityChanges(this.i_quantity);
     this.getAllAddress().then(() => {
       this.$store.dispatch("getAddressId").then(() => {
         this.add_id = this.$store.getters.homeAddId;
