@@ -23,15 +23,12 @@
 <script>
 import axios from "@/axios";
 import ProductsComp from "../HomePage/ProductsComp.vue";
-import { useRoute } from "vue-router";
+// import { useRoute } from "vue-router";
 
 export default {
   name: "CompletePage",
   data() {
-    return {
-      order_id: null,
-      surl: `${window.location.origin}/completePage/${this.order_id}`,
-    };
+    return {};
   },
   components: {
     ProductsComp,
@@ -39,24 +36,15 @@ export default {
   methods: {
     done() {
       this.$router.push({ name: "HomePage" });
-      if (this.surl && localStorage.getItem("hash")) {
-        this.$router.push({
-          name: "CompletePage",
-          params: {
-            order_id: this.order_split_result,
-          },
-        });
-      }
+      localStorage.removeItem("paymentOrderData");
     },
 
     async updatePaymentStatus(id) {
+      // console.log("Payment Status Updated: ", id);
       try {
-        const response = await axios.post(
-          `https://uat2-api.magaswala.com/public/api/updatepaymentstatus/${id}`,
-          {
-            payment_status: "1",
-          }
-        );
+        const response = await axios.post(`updatepaymentstatus/${id}`, {
+          payment_status: "1",
+        });
 
         if (response.data.status === true) {
           // Payment status successfully updated
@@ -74,10 +62,14 @@ export default {
       }
     },
   },
+
   beforeMount() {
-    const route = useRoute();
-    this.order_id = route.params.order_id;
-    this.updatePaymentStatus(this.order_id);
+    if (localStorage.getItem("paymentOrderData")) {
+      const data = JSON.parse(localStorage.getItem("paymentOrderData"));
+      if (data.hashKey && data.order_id) {
+        this.updatePaymentStatus(data.order_id);
+      }
+    }
   },
 };
 </script>

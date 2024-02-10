@@ -24,122 +24,122 @@ import HelpSupportComp from "./components/ProfilePage/HelpSupportComp.vue";
 import TermsCondComp from "./components/ProfilePage/TermsCondComp.vue";
 
 const routes = [
-  {
-    name: "HomePage",
-    path: "/",
-    component: HomePage,
-  },
-  {
-    name: "FavouritesPage",
-    path: "/favPage",
-    component: FavouritesPage,
-  },
-  {
-    name: "BagPage",
-    path: "/bagPage",
-    component: BagPage,
-  },
-  {
-    name: "CheckoutPage",
-    path: "/checkoutPage/:order",
-    component: CheckoutPage,
-  },
-  {
-    name: "CompletePage",
-    path: "/completePage/:order_id",
-    component: CompletePage,
-  },
-  {
-    name: "ProfilePage",
-    path: "/profilePage",
-    component: ProfilePage,
-    children: [
-      {
-        path: "/profilePage/userData",
-        component: ProfileDataComp,
-      },
-      {
-        path: "/profilePage/orders",
-        component: OrdersComp,
-      },
-      {
-        name: "TrackOrderComp",
-        path: "/profilePage/orders/trackOrder/:order",
-        component: TrackOrderComp,
-      },
-      {
-        path: "/profilePage/resetPassword",
-        component: ResetPasswordComp,
-      },
-      {
-        path: "/profilePage/paymentMethods",
-        component: PaymentMethodsComp,
-      },
-      {
-        name: "AddressComp",
-        path: "/profilePage/manageAddress",
-        component: AddressComp,
-      },
-      {
-        name: "HomeAddressComp",
-        path: "/profilePage/manageAddress/homeAddress/:address",
-        component: HomeAddressComp,
-      },
-      {
-        name: "AddAddressComp",
-        path: "/profilePage/manageAddress/addAddress",
-        component: AddAddressComp,
-      },
-      {
-        path: "/profilePage/helpSupport",
-        component: HelpSupportComp,
-      },
-      {
-        path: "/profilePage/termsCondition",
-        component: TermsCondComp,
-      },
-    ],
-  },
-  {
-    name: "LoginPage",
-    path: "/login",
-    component: LoginPage,
-  },
-  {
-    name: "ForgetPassPage",
-    path: "/forgetPassword",
-    component: ForgetPassPage,
-  },
-  {
-    name: "ForgetPassOTPVerify",
-    path: "/forgetPassOtpVerify/:object",
-    component: ForgetPassOTPVerify,
-  },
-  {
-    name: "SetNewPassPage",
-    path: "/setPassword/:id",
-    component: SetNewPassPage,
-  },
-  {
-    name: "VerifyEmailPage",
-    path: "/verifyEmail/:object",
-    component: VerifyEmailPage,
-  },
-  {
-    name: "SignUpPage",
-    path: "/signup",
-    component: SignUpPage,
-  },
-  {
-    name: "BagItemPage",
-    path: "/bagItemPage/:id",
-    component: BagItemPage,
-  },
+	{
+		name: "HomePage",
+		path: "/",
+		component: HomePage,
+	},
+	{
+		name: "FavouritesPage",
+		path: "/favPage",
+		component: FavouritesPage,
+	},
+	{
+		name: "BagPage",
+		path: "/bagPage",
+		component: BagPage,
+	},
+	{
+		name: "CheckoutPage",
+		path: "/checkoutPage/:order",
+		component: CheckoutPage,
+	},
+	{
+		name: "CompletePage",
+		path: "/completePage",
+		component: CompletePage,
+	},
+	{
+		name: "ProfilePage",
+		path: "/profilePage",
+		component: ProfilePage,
+		children: [
+			{
+				path: "/profilePage/userData",
+				component: ProfileDataComp,
+			},
+			{
+				path: "/profilePage/orders",
+				component: OrdersComp,
+			},
+			{
+				name: "TrackOrderComp",
+				path: "/profilePage/orders/trackOrder/:order",
+				component: TrackOrderComp,
+			},
+			{
+				path: "/profilePage/resetPassword",
+				component: ResetPasswordComp,
+			},
+			{
+				path: "/profilePage/paymentMethods",
+				component: PaymentMethodsComp,
+			},
+			{
+				name: "AddressComp",
+				path: "/profilePage/manageAddress",
+				component: AddressComp,
+			},
+			{
+				name: "HomeAddressComp",
+				path: "/profilePage/manageAddress/homeAddress/:address",
+				component: HomeAddressComp,
+			},
+			{
+				name: "AddAddressComp",
+				path: "/profilePage/manageAddress/addAddress",
+				component: AddAddressComp,
+			},
+			{
+				path: "/profilePage/helpSupport",
+				component: HelpSupportComp,
+			},
+			{
+				path: "/profilePage/termsCondition",
+				component: TermsCondComp,
+			},
+		],
+	},
+	{
+		name: "LoginPage",
+		path: "/login",
+		component: LoginPage,
+	},
+	{
+		name: "ForgetPassPage",
+		path: "/forgetPassword",
+		component: ForgetPassPage,
+	},
+	{
+		name: "ForgetPassOTPVerify",
+		path: "/forgetPassOtpVerify/:object",
+		component: ForgetPassOTPVerify,
+	},
+	{
+		name: "SetNewPassPage",
+		path: "/setPassword/:id",
+		component: SetNewPassPage,
+	},
+	{
+		name: "VerifyEmailPage",
+		path: "/verifyEmail/:object",
+		component: VerifyEmailPage,
+	},
+	{
+		name: "SignUpPage",
+		path: "/signup",
+		component: SignUpPage,
+	},
+	{
+		name: "BagItemPage",
+		path: "/bagItemPage/:id",
+		component: BagItemPage,
+	},
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+	history: createWebHistory(),
+	routes,
 });
 
 export default router;

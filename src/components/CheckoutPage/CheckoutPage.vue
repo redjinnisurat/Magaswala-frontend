@@ -213,7 +213,7 @@ export default {
       // mkey: "39fVly",
       // saltKey: "iBRkxnr1n2MTv8QOFiFgCAC3pkRoFo9t",
 
-      surl: `${window.location.origin}/completePage/${this.order_split_result}`,
+      surl: `${window.location.origin}/completePage`,
 
       furl: `${window.location.origin}/`,
       userDetails: [],
@@ -320,6 +320,13 @@ export default {
 
       // console.log(this.hash);
       // console.log(data);
+
+      const paymentData = {
+        hashKey: this.hash,
+        order_id: this.order_split_result,
+      };
+
+      localStorage.setItem("paymentOrderData", JSON.stringify(paymentData));
 
       document.getElementById("hash").value = this.hash;
 

@@ -42,6 +42,12 @@ export default {
   methods: {
     ...mapActions(["getAllProducts"]),
   },
+  mounted() {
+    if (localStorage.getItem("paymentOrderData")) {
+      // localStorage.removeItem("paymentOrderData");
+      localStorage.removeItem("paymentOrderData");
+    }
+  },
   beforeMount() {},
 };
 </script>

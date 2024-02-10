@@ -264,6 +264,7 @@ export default {
 
   .bagItem {
     width: 100%;
+    height: auto;
     padding: 0.6rem 0.1rem;
     border-radius: 0.6rem;
     margin-bottom: 1rem;
@@ -276,7 +277,7 @@ export default {
   }
 
   .bagDetails {
-    width: 50%;
+    width: 80%;
   }
 
   .bagItem_btns {
