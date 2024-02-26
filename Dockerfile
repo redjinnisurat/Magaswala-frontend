@@ -1,7 +1,7 @@
 FROM node:20.11
 
-# Set the working directory to /maf
-WORKDIR /home/dimpy/Documents/Docker/maf
+# Set the working directory to /maf add the whole path /home/doc/where_porjectlocation
+WORKDIR  /Magaswala-frontend
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
